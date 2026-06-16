@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Market Avenue Apartments</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#f8f9fb;color:#1a202c;min-height:100vh;}
+header{background:#fff;border-bottom:1px solid #e2e8f0;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;}
+.logo{display:flex;align-items:center;gap:.75rem;}
+.logo-icon{width:36px;height:36px;background:#0f766e;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.1rem;}
+.logo-text{font-weight:700;font-size:1rem;color:#1a202c;line-height:1.2;}
+.logo-sub{font-size:.72rem;color:#64748b;font-weight:400;}
+nav a{text-decoration:none;color:#64748b;font-size:.85rem;margin-left:1.5rem;transition:color .2s;}
+nav a:hover{color:#0f766e;}
+nav a.home-link{color:#0f766e;font-weight:600;}
+.hero{background:linear-gradient(135deg,#042f2e 0%,#0f766e 60%,#14b8a6 100%);color:#fff;padding:5rem 2rem;display:flex;align-items:center;justify-content:center;text-align:center;}
+.hero-content h1{font-size:2.75rem;font-weight:800;line-height:1.15;margin-bottom:.75rem;}
+.hero-content p{font-size:1rem;opacity:.8;max-width:500px;margin:0 auto 2rem;}
+.hero-stats{display:flex;gap:2.5rem;justify-content:center;margin-top:2rem;}
+.h-stat{text-align:center;}
+.h-stat-num{font-size:2rem;font-weight:800;}
+.h-stat-label{font-size:.78rem;opacity:.7;text-transform:uppercase;letter-spacing:.05em;}
+.container{max-width:1100px;margin:0 auto;padding:3rem 2rem;}
+section{margin-bottom:3rem;}
+.section-header{margin-bottom:1.5rem;}
+.section-header h2{font-size:1.5rem;font-weight:700;}
+.section-header p{color:#64748b;font-size:.9rem;margin-top:.3rem;}
+.units-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem;}
+.unit-card{background:#fff;border:1px solid #e2e8f0;border-radius:14px;overflow:hidden;transition:box-shadow .2s;}
+.unit-card:hover{box-shadow:0 6px 24px rgba(15,118,110,0.12);}
+.unit-banner{height:120px;display:flex;align-items:center;justify-content:center;font-size:3rem;}
+.unit-body{padding:1.25rem;}
+.unit-type{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:#0f766e;font-weight:600;margin-bottom:.3rem;}
+.unit-body h3{font-size:1.05rem;font-weight:700;margin-bottom:.35rem;}
+.unit-body p{font-size:.83rem;color:#64748b;line-height:1.5;margin-bottom:.75rem;}
+.unit-features{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.75rem;}
+.feature-tag{background:#f0fdfa;color:#0f766e;font-size:.72rem;padding:.2rem .55rem;border-radius:4px;border:1px solid #99f6e4;}
+.unit-price{font-size:.8rem;color:#0f766e;font-weight:600;}
+.avail-badge{display:inline-block;padding:.2rem .6rem;border-radius:4px;font-size:.72rem;font-weight:600;}
+.avail{background:#f0fdfa;color:#0f766e;}
+.full{background:#fef2f2;color:#dc2626;}
+.amenities-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;}
+.amenity{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:1.1rem;display:flex;align-items:flex-start;gap:.75rem;}
+.amenity-icon{font-size:1.5rem;flex-shrink:0;}
+.amenity h4{font-size:.88rem;font-weight:600;margin-bottom:.2rem;}
+.amenity p{font-size:.78rem;color:#64748b;}
+.contact-box{background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:2rem;display:grid;grid-template-columns:1fr 1fr;gap:2rem;}
+.contact-info h3{font-size:1.1rem;font-weight:700;margin-bottom:.75rem;}
+.contact-info p{font-size:.88rem;color:#64748b;line-height:1.6;}
+.contact-form label{display:block;font-size:.8rem;font-weight:600;margin-bottom:.3rem;color:#374151;}
+.contact-form input,.contact-form select{width:100%;padding:.55rem .8rem;border:1px solid #e2e8f0;border-radius:8px;font-size:.88rem;margin-bottom:.75rem;outline:none;background:#f8f9fb;}
+.contact-form input:focus,.contact-form select:focus{border-color:#0f766e;}
+.submit-btn{width:100%;padding:.65rem;background:#0f766e;color:#fff;border:none;border-radius:8px;font-weight:600;font-size:.9rem;cursor:pointer;}
+.submit-btn:hover{background:#0d6560;}
+.back-link{color:#0f766e;text-decoration:none;font-size:.83rem;display:inline-block;margin-bottom:1.5rem;}
+footer{background:#042f2e;color:#99f6e4;text-align:center;padding:1.5rem;font-size:.8rem;}
+footer span{color:#5eead4;}
+@media(max-width:600px){.contact-box{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<script>if(!sessionStorage.getItem('bpw_auth')){window.location.href='../../index.html';}</script>
+<header>
+  <div class="logo"><div class="logo-icon">🏢</div><div><div class="logo-text">Market Avenue Apartments</div><div class="logo-sub">Premium Living in The City</div></div></div>
+  <nav>
+    <a href="../../main/index.html" class="home-link">← World Home</a>
+    <a href="#">Apartments</a>
+    <a href="#">Amenities</a>
+    <a href="#">Residents</a>
+    <a href="#">Contact</a>
+  </nav>
+</header>
+<div class="hero">
+  <div class="hero-content">
+    <h1>Live in the Heart of The City</h1>
+    <p>Market Avenue Apartments offers premium residences in the most sought-after address in Biking People World.</p>
+    <div class="hero-stats">
+      <div class="h-stat"><div class="h-stat-num">12</div><div class="h-stat-label">Total Units</div></div>
+      <div class="h-stat"><div class="h-stat-num">3</div><div class="h-stat-label">Floor Plans</div></div>
+      <div class="h-stat"><div class="h-stat-num">Market Ave</div><div class="h-stat-label">Prime Location</div></div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <a class="back-link" href="../../main/index.html">← Back to Biking People World</a>
+  <section>
+    <div class="section-header"><h2>Available Units</h2><p>Choose your ideal home on Market Avenue</p></div>
+    <div class="units-grid">
+      <div class="unit-card"><div class="unit-banner" style="background:linear-gradient(135deg,#f0fdfa,#ccfbf1);">🏠</div><div class="unit-body"><div class="unit-type">Studio</div><h3>The Market Studio</h3><p>A smart, compact living space with everything you need. Perfect for solo players.</p><div class="unit-features"><span class="feature-tag">City View</span><span class="feature-tag">1 Room</span><span class="feature-tag">Furnished</span></div><div style="display:flex;align-items:center;justify-content:space-between;"><div class="unit-price">Available Now</div><span class="avail-badge avail">Open</span></div></div></div>
+      <div class="unit-card"><div class="unit-banner" style="background:linear-gradient(135deg,#eff6ff,#dbeafe);">🏡</div><div class="unit-body"><div class="unit-type">One Bedroom</div><h3>The Avenue Suite</h3><p>A spacious one-bedroom with a separate living area and views of the main boulevard.</p><div class="unit-features"><span class="feature-tag">Boulevard View</span><span class="feature-tag">2 Rooms</span><span class="feature-tag">Premium</span></div><div style="display:flex;align-items:center;justify-content:space-between;"><div class="unit-price">Available Now</div><span class="avail-badge avail">Open</span></div></div></div>
+      <div class="unit-card"><div class="unit-banner" style="background:linear-gradient(135deg,#faf5ff,#ede9fe);">🏘</div><div class="unit-body"><div class="unit-type">Penthouse</div><h3>The Skyline Penthouse</h3><p>The crown jewel of Market Avenue. Top-floor panoramic views across the entire city.</p><div class="unit-features"><span class="feature-tag">Panoramic View</span><span class="feature-tag">Rooftop Access</span><span class="feature-tag">Exclusive</span></div><div style="display:flex;align-items:center;justify-content:space-between;"><div class="unit-price">Enquire Within</div><span class="avail-badge full">Reserved</span></div></div></div>
+    </div>
+  </section>
+  <section>
+    <div class="section-header"><h2>Building Amenities</h2><p>Everything you need, right at your doorstep</p></div>
+    <div class="amenities-grid">
+      <div class="amenity"><div class="amenity-icon">🏋️</div><div><h4>Fitness Area</h4><p>In-building workout space available to all residents.</p></div></div>
+      <div class="amenity"><div class="amenity-icon">🛋</div><div><h4>Resident Lounge</h4><p>Shared common area for meetings and relaxation.</p></div></div>
+      <div class="amenity"><div class="amenity-icon">🔒</div><div><h4>Secure Entry</h4><p>Password-protected building access for all residents.</p></div></div>
+      <div class="amenity"><div class="amenity-icon">📍</div><div><h4>Prime Location</h4><p>Steps from The City Cinema, Hotel, and Drive-In.</p></div></div>
+      <div class="amenity"><div class="amenity-icon">🌆</div><div><h4>City Views</h4><p>Most units feature views of the city skyline.</p></div></div>
+      <div class="amenity"><div class="amenity-icon">📦</div><div><h4>Storage</h4><p>Dedicated chest storage rooms for every resident.</p></div></div>
+    </div>
+  </section>
+  <section>
+    <div class="section-header"><h2>Enquire About a Unit</h2></div>
+    <div class="contact-box">
+      <div class="contact-info"><h3>Get in Touch</h3><p>Interested in calling Market Avenue home? Reach out to our leasing team and we'll find the perfect unit for you.</p><br><p><strong>Address:</strong> Market Avenue, The City, Biking People World</p><br><p><strong>Leasing Team:</strong> Available in-world</p></div>
+      <div class="contact-form">
+        <label>Your Player Name</label><input type="text" placeholder="e.g. GalaxyHockey">
+        <label>Unit of Interest</label>
+        <select><option>The Market Studio</option><option>The Avenue Suite</option><option>The Skyline Penthouse</option></select>
+        <label>Message</label><input type="text" placeholder="Tell us about yourself...">
+        <button class="submit-btn">Send Enquiry</button>
+      </div>
+    </div>
+  </section>
+</div>
+<footer>© <span>Market Avenue Apartments</span> · The City · A Biking People World Business</footer>
+</body>
+</html>
