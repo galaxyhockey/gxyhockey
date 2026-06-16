@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GXY Newspaper</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:Georgia,'Times New Roman',serif;background:#fafaf7;color:#1a1a1a;}
+header{background:#1a1a1a;color:#fff;padding:0 2rem;}
+.top-bar{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #333;padding:.5rem 0;font-family:'Segoe UI',sans-serif;font-size:.75rem;color:#999;}
+.masthead{text-align:center;padding:1.5rem 0;border-bottom:3px double #1a1a1a;}
+.masthead h1{font-size:3.5rem;font-weight:900;letter-spacing:-2px;color:#fff;}
+.masthead p{font-size:.85rem;color:#999;letter-spacing:.2em;text-transform:uppercase;margin-top:.25rem;}
+.edition-bar{background:#c41a1a;padding:.4rem 2rem;display:flex;justify-content:space-between;align-items:center;font-family:'Segoe UI',sans-serif;font-size:.78rem;color:#fff;}
+nav{background:#fff;border-bottom:2px solid #1a1a1a;padding:.6rem 2rem;display:flex;gap:2rem;font-family:'Segoe UI',sans-serif;}
+nav a{text-decoration:none;color:#1a1a1a;font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;}
+nav a:hover{color:#c41a1a;}
+nav a.home{color:#c41a1a;}
+.container{max-width:1100px;margin:0 auto;padding:2rem;}
+.headline-strip{border-bottom:2px solid #1a1a1a;margin-bottom:2rem;padding-bottom:.5rem;}
+.headline-strip h2{font-size:2.2rem;line-height:1.2;font-weight:900;}
+.headline-strip .deck{font-size:1rem;color:#444;margin-top:.4rem;font-style:italic;}
+.main-grid{display:grid;grid-template-columns:2fr 1fr;gap:2rem;margin-bottom:2rem;}
+.article-lead{}
+.article-lead h3{font-size:1.6rem;font-weight:900;line-height:1.25;border-top:3px solid #1a1a1a;padding-top:.75rem;margin-bottom:.5rem;}
+.article-img{background:linear-gradient(135deg,#e5e5e5,#d0d0d0);height:200px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:3rem;margin-bottom:.75rem;}
+.article-body{font-size:.92rem;line-height:1.8;color:#333;}
+.byline{font-size:.78rem;color:#888;font-family:'Segoe UI',sans-serif;margin-bottom:.75rem;text-transform:uppercase;letter-spacing:.05em;}
+.sidebar{}
+.sidebar-section{border-top:3px solid #1a1a1a;padding-top:.75rem;margin-bottom:1.5rem;}
+.sidebar-section h4{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:#888;font-family:'Segoe UI',sans-serif;margin-bottom:.75rem;}
+.sidebar-story{border-bottom:1px solid #e0e0e0;padding-bottom:.75rem;margin-bottom:.75rem;}
+.sidebar-story h5{font-size:.95rem;font-weight:700;line-height:1.3;margin-bottom:.3rem;}
+.sidebar-story p{font-size:.8rem;color:#666;line-height:1.5;}
+.columns-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;border-top:2px solid #1a1a1a;padding-top:1.5rem;}
+.col-article h4{font-size:1.05rem;font-weight:900;line-height:1.3;border-top:2px solid #1a1a1a;padding-top:.5rem;margin-bottom:.4rem;}
+.col-article p{font-size:.83rem;line-height:1.7;color:#444;}
+.back-link{font-family:'Segoe UI',sans-serif;font-size:.83rem;color:#c41a1a;text-decoration:none;display:inline-flex;align-items:center;gap:.35rem;margin-bottom:1rem;}
+.back-link:hover{text-decoration:underline;}
+footer{background:#1a1a1a;color:#888;text-align:center;padding:1.5rem;font-family:'Segoe UI',sans-serif;font-size:.8rem;margin-top:2rem;}
+footer span{color:#c41a1a;}
+</style>
+</head>
+<body>
+<script>if(!sessionStorage.getItem('bpw_auth')){window.location.href='../../index.html';}</script>
+<header>
+  <div class="top-bar">
+    <span>Biking People World · Official Press</span>
+    <span>Est. World Year 1</span>
+    <span>Published by GalaxyHockey</span>
+  </div>
+  <div class="masthead">
+    <h1>GXY Newspaper</h1>
+    <p>The Voice of Biking People World</p>
+  </div>
+  <div class="edition-bar">
+    <span>⬛ BREAKING NEWS TICKER — Latest edition now available across The City</span>
+    <span>FREE · Pick up at The City Hotel lobby</span>
+  </div>
+</header>
+<nav>
+  <a href="../../main/index.html" class="home">← World Home</a>
+  <a href="#">Home</a>
+  <a href="#">World News</a>
+  <a href="#">City News</a>
+  <a href="#">Business</a>
+  <a href="#">Opinion</a>
+  <a href="#">Archive</a>
+</nav>
+<div class="container">
+  <a class="back-link" href="../../main/index.html">← Back to Biking People World</a>
+  <div class="headline-strip">
+    <h2>World Continues to Grow as New Builds Emerge Across Both Cities</h2>
+    <p class="deck">GXY reporting team surveys the latest construction across The City and MiniGame Land</p>
+  </div>
+  <div class="main-grid">
+    <div class="article-lead">
+      <div class="article-img">🌍</div>
+      <div class="byline">By the GXY Reporting Team · World Affairs Desk</div>
+      <h3>Biking People World Enters New Era of Expansion</h3>
+      <p class="article-body">Biking People World, the collaborative Minecraft server home to GalaxyHockey, Thenew7ihave, and Tree_Shork, is entering what insiders are calling a golden age of development. New builds are underway across both The City and MiniGame Land, with businesses reporting record activity and community engagement at an all-time high.<br><br>Sources close to city planning confirm that Market Avenue Apartments has reached full capacity, while The City Hotel has been welcoming a steady stream of visitors. Meanwhile, across the map, MiniGame Land's Dave n' Busters has seen lines around the block every weekend since its grand opening.</p>
+    </div>
+    <div class="sidebar">
+      <div class="sidebar-section">
+        <h4>Also in this edition</h4>
+        <div class="sidebar-story"><h5>City Hotel Reports Record Occupancy</h5><p>The City Hotel announces its best month since opening, citing increased travel between the two cities.</p></div>
+        <div class="sidebar-story"><h5>MiniGame Land Tournament Results</h5><p>This week's tournament drew competitors from across the server. Full results inside.</p></div>
+        <div class="sidebar-story"><h5>Drive-In Movie Night Announced</h5><p>The City Drive-In has confirmed a community movie night event — details on page 4.</p></div>
+        <div class="sidebar-story"><h5>Tree_Shork on the Future of Building</h5><p>An exclusive interview with one of the world's founding members on their vision for the next chapter.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="columns-grid">
+    <div class="col-article"><h4>Opinion: Why The City Is the Best Address in Minecraft</h4><p>Our editorial board makes the case for The City as the premier destination for any Minecraft player seeking community, commerce, and culture.</p></div>
+    <div class="col-article"><h4>Business Spotlight: Market Avenue Apartments</h4><p>We tour the newest housing development on Market Avenue and speak with residents about life in the most desirable address in The City.</p></div>
+    <div class="col-article"><h4>MiniGame Land: The Future of Entertainment</h4><p>As Dave n' Busters continues to draw crowds, we ask — is MiniGame Land becoming the entertainment capital of the server?</p></div>
+  </div>
+</div>
+<footer>© GXY Newspaper · A <span>Biking People World</span> Publication · All rights reserved</footer>
+</body>
+</html>

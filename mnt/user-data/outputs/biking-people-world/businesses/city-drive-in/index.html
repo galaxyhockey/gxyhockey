@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The City Drive-In</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#0d0d0d;color:#fff;min-height:100vh;}
+.sky{background:linear-gradient(180deg,#0a0020 0%,#1a0040 40%,#0d0d1a 100%);padding:3rem 2rem 2rem;text-align:center;position:relative;overflow:hidden;}
+.sky::before{content:'★ ✦ ★ ✦ ★ ✦ ★ ✦ ★ ✦ ★ ✦ ★ ✦ ★';position:absolute;top:1rem;left:0;right:0;font-size:.8rem;color:rgba(255,255,255,0.3);letter-spacing:.5rem;}
+.sign{display:inline-block;border:4px solid #f59e0b;padding:1.5rem 3rem;border-radius:8px;position:relative;}
+.sign::before,.sign::after{content:'';position:absolute;top:-8px;bottom:-8px;left:-8px;right:-8px;border:2px solid #fbbf24;border-radius:10px;}
+.sign h1{font-size:3rem;font-weight:900;color:#f59e0b;text-shadow:0 0 20px rgba(245,158,11,0.5);letter-spacing:2px;}
+.sign p{color:#fbbf24;font-size:.85rem;letter-spacing:.3em;text-transform:uppercase;margin-top:.25rem;}
+.neon-bar{background:#f59e0b;height:3px;width:100%;margin:1.5rem 0 0;}
+nav{background:#1a1a1a;border-bottom:2px solid #f59e0b;padding:.75rem 2rem;display:flex;gap:2rem;align-items:center;}
+nav a{text-decoration:none;color:#f59e0b;font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;}
+nav a:hover{color:#fff;}
+.marquee-bar{background:#f59e0b;color:#0d0d0d;padding:.4rem 1rem;font-weight:700;font-size:.82rem;overflow:hidden;white-space:nowrap;}
+.container{max-width:1000px;margin:0 auto;padding:2.5rem 2rem;}
+.now-showing{text-align:center;margin-bottom:3rem;}
+.now-showing h2{font-size:.8rem;letter-spacing:.3em;text-transform:uppercase;color:#f59e0b;margin-bottom:.75rem;}
+.screen{background:#1a1a2e;border:3px solid #333;border-radius:8px;padding:3rem 2rem;margin-bottom:1rem;position:relative;}
+.screen-inner{background:#0f0f1a;border-radius:4px;padding:2rem;text-align:center;}
+.movie-title{font-size:2.5rem;font-weight:900;color:#fff;margin-bottom:.5rem;}
+.movie-sub{color:#f59e0b;font-size:.9rem;letter-spacing:.1em;}
+.cars-row{display:flex;justify-content:center;gap:.5rem;font-size:1.8rem;margin-top:1rem;opacity:.6;}
+.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.25rem;margin-bottom:2.5rem;}
+.info-card{background:#1a1a1a;border:1px solid #333;border-radius:10px;padding:1.25rem;border-top:3px solid #f59e0b;}
+.info-card h3{color:#f59e0b;font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem;}
+.info-card p{color:#ccc;font-size:.88rem;line-height:1.6;}
+.schedule{margin-bottom:2.5rem;}
+.schedule h2{color:#f59e0b;font-size:1.3rem;margin-bottom:1rem;border-bottom:1px solid #333;padding-bottom:.5rem;}
+.show-row{display:flex;align-items:center;justify-content:space-between;padding:.85rem 0;border-bottom:1px solid #222;}
+.show-time{color:#f59e0b;font-weight:700;font-size:1rem;min-width:80px;}
+.show-name{color:#fff;flex:1;margin:0 1rem;}
+.show-badge{background:#f59e0b;color:#0d0d0d;font-size:.7rem;font-weight:700;padding:.2rem .6rem;border-radius:4px;text-transform:uppercase;}
+.back-link{color:#f59e0b;text-decoration:none;font-size:.83rem;display:inline-block;margin-bottom:1.5rem;}
+.back-link:hover{text-decoration:underline;}
+footer{background:#0a0a0a;border-top:2px solid #f59e0b;color:#666;text-align:center;padding:1.5rem;font-size:.8rem;}
+footer span{color:#f59e0b;}
+</style>
+</head>
+<body>
+<script>if(!sessionStorage.getItem('bpw_auth')){window.location.href='../../index.html';}</script>
+<div class="sky">
+  <div class="sign">
+    <h1>THE CITY DRIVE-IN</h1>
+    <p>Where the Stars Come Out to Play</p>
+  </div>
+  <div class="neon-bar"></div>
+</div>
+<nav>
+  <a href="../../main/index.html">← World Home</a>
+  <a href="#">Now Showing</a>
+  <a href="#">Schedule</a>
+  <a href="#">Directions</a>
+  <a href="#">Concessions</a>
+</nav>
+<div class="marquee-bar">🎬 NOW SHOWING · Community Movie Night Coming Soon · 🍿 Concessions Available · 🚗 Pull In, Tune In, Sit Back ·&nbsp;&nbsp;&nbsp;🎬 NOW SHOWING · Community Movie Night Coming Soon</div>
+<div class="container">
+  <a class="back-link" href="../../main/index.html">← Back to Biking People World</a>
+  <div class="now-showing">
+    <h2>Now Showing at The City Drive-In</h2>
+    <div class="screen">
+      <div class="screen-inner">
+        <div style="font-size:3rem;margin-bottom:.5rem;">🎬</div>
+        <div class="movie-title">Community Showcase Night</div>
+        <div class="movie-sub">Featuring the Best of Biking People World</div>
+      </div>
+      <div class="cars-row">🚗 🚙 🚗 🚙 🚗 🚙 🚗</div>
+    </div>
+  </div>
+  <div class="info-grid">
+    <div class="info-card"><h3>Location</h3><p>Located in The City, just off the main boulevard. Look for the giant screen — you can't miss it.</p></div>
+    <div class="info-card"><h3>Hours</h3><p>Opens at dusk. Shows begin when it gets dark enough to see the screen clearly. Late nights welcome.</p></div>
+    <div class="info-card"><h3>Admission</h3><p>Free entry for all Biking People World players. Pull up in your vehicle and tune in.</p></div>
+    <div class="info-card"><h3>Concessions</h3><p>Popcorn, drinks, and snacks available at the main stand. Items sold for in-world currency.</p></div>
+  </div>
+  <div class="schedule">
+    <h2>Upcoming Shows</h2>
+    <div class="show-row"><span class="show-time">Tonight</span><span class="show-name">Grand Opening Night Premiere</span><span class="show-badge">Special</span></div>
+    <div class="show-row"><span class="show-time">Fri</span><span class="show-name">Community Movie Night</span><span class="show-badge">Weekly</span></div>
+    <div class="show-row"><span class="show-time">Sat</span><span class="show-name">World Highlight Reel</span><span class="show-badge">New</span></div>
+    <div class="show-row"><span class="show-time">Sun</span><span class="show-name">Late Night Double Feature</span><span class="show-badge">Classic</span></div>
+  </div>
+</div>
+<footer>© <span>The City Drive-In</span> · Part of The City · A Biking People World Business</footer>
+</body>
+</html>

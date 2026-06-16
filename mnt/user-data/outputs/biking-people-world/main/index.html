@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Biking People World</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#f0f4f8;color:#1a202c;min-height:100vh;}
+nav{background:#fff;border-bottom:1px solid #e2e8f0;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:60px;position:sticky;top:0;z-index:100;}
+.nav-logo{font-weight:700;font-size:1.1rem;color:#1a202c;text-decoration:none;display:flex;align-items:center;gap:.5rem;}
+.nav-logo span{color:#3b82f6;}
+.nav-links{display:flex;gap:1.5rem;}
+.nav-links a{text-decoration:none;color:#64748b;font-size:.9rem;transition:color .2s;}
+.nav-links a:hover{color:#3b82f6;}
+.nav-logout{background:none;border:1px solid #e2e8f0;padding:.35rem .9rem;border-radius:6px;font-size:.85rem;color:#64748b;cursor:pointer;transition:all .2s;}
+.nav-logout:hover{border-color:#3b82f6;color:#3b82f6;}
+
+.hero{background:linear-gradient(135deg,#1e3a5f 0%,#2563eb 60%,#3b82f6 100%);color:#fff;padding:5rem 2rem 4rem;text-align:center;}
+.hero h1{font-size:3rem;font-weight:800;margin-bottom:.75rem;letter-spacing:-1px;}
+.hero p{font-size:1.15rem;opacity:.85;max-width:560px;margin:0 auto 2rem;}
+.hero-badges{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;}
+.badge{background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);padding:.35rem .85rem;border-radius:20px;font-size:.8rem;}
+
+section{max-width:1100px;margin:0 auto;padding:3rem 2rem;}
+h2{font-size:1.6rem;font-weight:700;margin-bottom:1.5rem;color:#1a202c;}
+h2 span{color:#3b82f6;}
+
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.25rem;}
+.card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:1.5rem;transition:box-shadow .2s,transform .2s;}
+.card:hover{box-shadow:0 4px 20px rgba(59,130,246,0.1);transform:translateY(-2px);}
+.card-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:.85rem;}
+.card h3{font-size:1rem;font-weight:600;margin-bottom:.4rem;}
+.card p{font-size:.85rem;color:#64748b;line-height:1.5;}
+
+.player-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;}
+.player-card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:1.25rem;display:flex;align-items:center;gap:1rem;}
+.player-avatar{width:48px;height:48px;border-radius:10px;background:#eff6ff;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;}
+.player-name{font-weight:600;font-size:.95rem;}
+.player-tag{font-size:.75rem;color:#3b82f6;background:#eff6ff;padding:.2rem .5rem;border-radius:4px;margin-top:.2rem;display:inline-block;}
+
+.city-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.25rem;}
+.city-card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;}
+.city-banner{height:100px;display:flex;align-items:center;justify-content:center;font-size:3rem;}
+.city-info{padding:1.25rem;}
+.city-info h3{font-weight:700;font-size:1.1rem;margin-bottom:.35rem;}
+.city-info p{font-size:.85rem;color:#64748b;line-height:1.5;}
+
+.biz-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem;}
+.biz-card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:1.25rem;text-align:center;text-decoration:none;color:#1a202c;transition:all .2s;display:block;}
+.biz-card:hover{border-color:#3b82f6;box-shadow:0 4px 16px rgba(59,130,246,0.12);transform:translateY(-2px);}
+.biz-icon{font-size:2rem;margin-bottom:.5rem;}
+.biz-name{font-weight:600;font-size:.9rem;margin-bottom:.25rem;}
+.biz-type{font-size:.75rem;color:#64748b;}
+.biz-arrow{font-size:.75rem;color:#3b82f6;margin-top:.5rem;}
+
+.timeline{position:relative;padding-left:2rem;}
+.timeline::before{content:'';position:absolute;left:.5rem;top:0;bottom:0;width:2px;background:#e2e8f0;}
+.tl-item{position:relative;margin-bottom:1.5rem;}
+.tl-dot{position:absolute;left:-1.65rem;top:.3rem;width:12px;height:12px;border-radius:50%;background:#3b82f6;border:2px solid #fff;box-shadow:0 0 0 2px #3b82f6;}
+.tl-item h4{font-weight:600;font-size:.95rem;margin-bottom:.25rem;}
+.tl-item p{font-size:.85rem;color:#64748b;line-height:1.5;}
+.tl-date{font-size:.75rem;color:#3b82f6;margin-bottom:.2rem;font-weight:600;}
+
+.events-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;}
+.event-card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:1.25rem;border-left:3px solid #3b82f6;}
+.event-badge{display:inline-block;background:#eff6ff;color:#2563eb;font-size:.72rem;font-weight:600;padding:.2rem .6rem;border-radius:4px;margin-bottom:.6rem;text-transform:uppercase;letter-spacing:.05em;}
+.event-card h4{font-weight:600;font-size:.95rem;margin-bottom:.3rem;}
+.event-card p{font-size:.83rem;color:#64748b;}
+
+.screenshots-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;}
+.screenshot-placeholder{background:linear-gradient(135deg,#dbeafe,#eff6ff);border-radius:10px;aspect-ratio:16/9;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#3b82f6;font-size:.8rem;border:1px solid #bfdbfe;}
+.screenshot-placeholder .sc-icon{font-size:2rem;margin-bottom:.5rem;}
+
+footer{background:#1a202c;color:#94a3b8;text-align:center;padding:2rem;font-size:.85rem;}
+footer span{color:#3b82f6;}
+
+.section-alt{background:#fff;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0;}
+.section-alt section{padding:3rem 2rem;}
+</style>
+</head>
+<body>
+<script>if(!sessionStorage.getItem('bpw_auth')){window.location.href='../index.html';}</script>
+
+<nav>
+  <a class="nav-logo" href="index.html">🌍 Biking People <span>World</span></a>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#players">Players</a>
+    <a href="#cities">Cities</a>
+    <a href="#businesses">Businesses</a>
+    <a href="#history">History</a>
+    <a href="#events">Events</a>
+  </div>
+  <button class="nav-logout" onclick="logout()">Log out</button>
+</nav>
+
+<div class="hero">
+  <h1>🌍 Biking People World</h1>
+  <p>A thriving Minecraft world built by a community of explorers, builders, and adventurers.</p>
+  <div class="hero-badges">
+    <span class="badge">⛏ Active World</span>
+    <span class="badge">👥 3 Members</span>
+    <span class="badge">🏙 2 Cities</span>
+    <span class="badge">🏢 7 Businesses</span>
+  </div>
+</div>
+
+<section id="about">
+  <h2>About the <span>World</span></h2>
+  <div class="card-grid">
+    <div class="card"><div class="card-icon" style="background:#eff6ff;">🌍</div><h3>The World</h3><p>Biking People World is a collaborative Minecraft server where players build cities, run businesses, and shape the economy and culture of a living world.</p></div>
+    <div class="card"><div class="card-icon" style="background:#f0fdf4;">🏙</div><h3>Two Cities</h3><p>The world is home to two distinct cities — The City, the bustling main metropolis, and MiniGame Land, the entertainment hub.</p></div>
+    <div class="card"><div class="card-icon" style="background:#fefce8;">📰</div><h3>Economy</h3><p>Real player-run businesses operate across the world, from newspapers to hotels, cinemas, and entertainment venues.</p></div>
+    <div class="card"><div class="card-icon" style="background:#fdf4ff;">🎮</div><h3>Community</h3><p>Three founding members — GalaxyHockey, Thenew7ihave, and Tree_Shork — keep the world alive and growing every day.</p></div>
+  </div>
+</section>
+
+<div class="section-alt">
+<section id="players">
+  <h2>World <span>Players</span></h2>
+  <div class="player-grid">
+    <div class="player-card"><div class="player-avatar">🪐</div><div><div class="player-name">GalaxyHockey</div><span class="player-tag">Founder</span></div></div>
+    <div class="player-card"><div class="player-avatar">⚡</div><div><div class="player-name">Thenew7ihave</div><span class="player-tag">Founder</span></div></div>
+    <div class="player-card"><div class="player-avatar">🌳</div><div><div class="player-name">Tree_Shork</div><span class="player-tag">Founder</span></div></div>
+  </div>
+</section>
+</div>
+
+<section id="cities">
+  <h2>World <span>Cities</span></h2>
+  <div class="city-grid">
+    <div class="city-card">
+      <div class="city-banner" style="background:linear-gradient(135deg,#1e3a5f,#2563eb);">🏙</div>
+      <div class="city-info">
+        <h3>The City</h3>
+        <p>The main metropolitan hub of Biking People World. Home to hotels, cinemas, a drive-in, apartments, and a thriving press. The economic and cultural center of the world.</p>
+        <br><a href="../businesses/the-city/index.html" style="color:#3b82f6;font-size:.85rem;font-weight:600;text-decoration:none;">Visit city website →</a>
+      </div>
+    </div>
+    <div class="city-card">
+      <div class="city-banner" style="background:linear-gradient(135deg,#4c1d95,#7c3aed);">🎮</div>
+      <div class="city-info">
+        <h3>MiniGame Land</h3>
+        <p>The entertainment capital of the world. Home to Dave n' Busters and a wide variety of mini-games, challenges, and recreational activities for all players.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-alt">
+<section id="businesses">
+  <h2>World <span>Businesses</span></h2>
+  <p style="color:#64748b;margin-bottom:1.5rem;font-size:.9rem;">Each business has its own dedicated website. Click to visit.</p>
+  <div class="biz-grid">
+    <a class="biz-card" href="../businesses/gxy-newspaper/index.html"><div class="biz-icon">📰</div><div class="biz-name">GXY Newspaper</div><div class="biz-type">News & Media</div><div class="biz-arrow">Visit site →</div></a>
+    <a class="biz-card" href="../businesses/city-drive-in/index.html"><div class="biz-icon">🚗</div><div class="biz-name">The City Drive In</div><div class="biz-type">Entertainment</div><div class="biz-arrow">Visit site →</div></a>
+    <a class="biz-card" href="../businesses/city-cinema/index.html"><div class="biz-icon">🎬</div><div class="biz-name">The City Cinema</div><div class="biz-type">Entertainment</div><div class="biz-arrow">Visit site →</div></a>
+    <a class="biz-card" href="../businesses/market-avenue-apartments/index.html"><div class="biz-icon">🏢</div><div class="biz-name">Market Avenue Apartments</div><div class="biz-type">Housing</div><div class="biz-arrow">Visit site →</div></a>
+    <a class="biz-card" href="../businesses/dave-n-busters/index.html"><div class="biz-icon">🕹</div><div class="biz-name">Dave n' Busters</div><div class="biz-type">Entertainment · MiniGame Land</div><div class="biz-arrow">Visit site →</div></a>
+    <a class="biz-card" href="../businesses/city-hotel/index.html"><div class="biz-icon">🏨</div><div class="biz-name">The City Hotel</div><div class="biz-type">Hospitality</div><div class="biz-arrow">Visit site →</div></a>
+    <a class="biz-card" href="../businesses/the-city/index.html"><div class="biz-icon">🏙</div><div class="biz-name">The City</div><div class="biz-type">City Portal</div><div class="biz-arrow">Visit site →</div></a>
+  </div>
+</section>
+</div>
+
+<section id="screenshots">
+  <h2>World <span>Screenshots</span></h2>
+  <p style="color:#64748b;margin-bottom:1.25rem;font-size:.9rem;">No screenshots uploaded yet — add your images to bring this gallery to life!</p>
+  <div class="screenshots-grid">
+    <div class="screenshot-placeholder"><div class="sc-icon">📷</div>Add Screenshot</div>
+    <div class="screenshot-placeholder"><div class="sc-icon">🏙</div>The City</div>
+    <div class="screenshot-placeholder"><div class="sc-icon">🎮</div>MiniGame Land</div>
+    <div class="screenshot-placeholder"><div class="sc-icon">🌅</div>World View</div>
+    <div class="screenshot-placeholder"><div class="sc-icon">🏨</div>City Hotel</div>
+    <div class="screenshot-placeholder"><div class="sc-icon">📰</div>GXY HQ</div>
+  </div>
+</section>
+
+<div class="section-alt">
+<section id="history">
+  <h2>World <span>History</span></h2>
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">Chapter 1 — The Beginning</div><h4>World Founded</h4><p>GalaxyHockey, Thenew7ihave, and Tree_Shork join forces to create Biking People World, setting out to build something unlike any other Minecraft world.</p></div>
+    <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">Chapter 2 — Urban Expansion</div><h4>The City Is Built</h4><p>The first major city takes shape. Roads, buildings, and infrastructure are laid down as The City begins to grow into a real metropolis.</p></div>
+    <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">Chapter 3 — Industry</div><h4>Businesses Open Their Doors</h4><p>GXY Newspaper publishes its first edition. The City Hotel opens. Market Avenue Apartments welcome their first residents. Commerce begins.</p></div>
+    <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">Chapter 4 — Entertainment</div><h4>MiniGame Land Founded</h4><p>The second city, MiniGame Land, is established as the entertainment capital of the world. Dave n' Busters opens its doors to players from across the server.</p></div>
+    <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">Chapter 5 — Present Day</div><h4>The World Thrives</h4><p>Biking People World continues to grow, with new builds, events, and stories written every time a player logs on.</p></div>
+  </div>
+</section>
+</div>
+
+<section id="events">
+  <h2>World <span>Events</span></h2>
+  <div class="events-grid">
+    <div class="event-card"><span class="event-badge">Upcoming</span><h4>Grand Opening Night</h4><p>A celebration of the city's latest builds. All players welcome at The City Hotel lobby.</p></div>
+    <div class="event-card"><span class="event-badge">Recurring</span><h4>MiniGame Tournament</h4><p>Weekly competition at MiniGame Land — compete for the top spot on the leaderboard.</p></div>
+    <div class="event-card"><span class="event-badge">Upcoming</span><h4>Drive-In Movie Night</h4><p>Gather at The City Drive-In for a community movie night event. Popcorn not included.</p></div>
+    <div class="event-card"><span class="event-badge">Community</span><h4>GXY Newspaper Awards</h4><p>Annual ceremony recognizing the best builds, players, and moments in Biking People World.</p></div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2024 <span>Biking People World</span> · Built by GalaxyHockey, Thenew7ihave & Tree_Shork</p>
+</footer>
+
+<script>
+function logout(){sessionStorage.removeItem('bpw_auth');window.location.href='../index.html';}
+</script>
+</body>
+</html>
