@@ -8,38 +8,59 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:Georgia,'Times New Roman',serif;background:#fafaf7;color:#1a1a1a;}
 header{background:#1a1a1a;color:#fff;padding:0 2rem;}
-.top-bar{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #333;padding:.5rem 0;font-family:'Segoe UI',sans-serif;font-size:.75rem;color:#999;}
+.top-bar{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #333;padding:.5rem 0;font-family:'Segoe UI',sans-serif;font-size:.75rem;color:#999;flex-wrap:wrap;gap:.5rem;}
 .masthead{text-align:center;padding:1.5rem 0;border-bottom:3px double #1a1a1a;}
 .masthead h1{font-size:3.5rem;font-weight:900;letter-spacing:-2px;color:#fff;}
 .masthead p{font-size:.85rem;color:#999;letter-spacing:.2em;text-transform:uppercase;margin-top:.25rem;}
-.edition-bar{background:#c41a1a;padding:.4rem 2rem;display:flex;justify-content:space-between;align-items:center;font-family:'Segoe UI',sans-serif;font-size:.78rem;color:#fff;}
-nav{background:#fff;border-bottom:2px solid #1a1a1a;padding:.6rem 2rem;display:flex;gap:2rem;font-family:'Segoe UI',sans-serif;}
-nav a{text-decoration:none;color:#1a1a1a;font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;}
+.edition-bar{background:#c41a1a;padding:.4rem 2rem;display:flex;justify-content:space-between;align-items:center;font-family:'Segoe UI',sans-serif;font-size:.78rem;color:#fff;flex-wrap:wrap;gap:.3rem;}
+nav{background:#fff;border-bottom:2px solid #1a1a1a;padding:.6rem 2rem;display:flex;gap:1.5rem;font-family:'Segoe UI',sans-serif;flex-wrap:wrap;}
+nav a{text-decoration:none;color:#1a1a1a;font-size:.82rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;}
 nav a:hover{color:#c41a1a;}
 nav a.home{color:#c41a1a;}
 .container{max-width:1100px;margin:0 auto;padding:2rem;}
+.back-link{font-family:'Segoe UI',sans-serif;font-size:.83rem;color:#c41a1a;text-decoration:none;display:inline-flex;align-items:center;gap:.35rem;margin-bottom:1rem;}
+.back-link:hover{text-decoration:underline;}
+
 .headline-strip{border-bottom:2px solid #1a1a1a;margin-bottom:2rem;padding-bottom:.5rem;}
-.headline-strip h2{font-size:2.2rem;line-height:1.2;font-weight:900;}
-.headline-strip .deck{font-size:1rem;color:#444;margin-top:.4rem;font-style:italic;}
+.headline-strip h2{font-size:2.4rem;line-height:1.15;font-weight:900;}
+.headline-strip .deck{font-size:1.05rem;color:#444;margin-top:.5rem;font-style:italic;}
+
 .main-grid{display:grid;grid-template-columns:2fr 1fr;gap:2rem;margin-bottom:2rem;}
-.article-lead{}
-.article-lead h3{font-size:1.6rem;font-weight:900;line-height:1.25;border-top:3px solid #1a1a1a;padding-top:.75rem;margin-bottom:.5rem;}
-.article-img{background:linear-gradient(135deg,#e5e5e5,#d0d0d0);height:200px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:3rem;margin-bottom:.75rem;}
-.article-body{font-size:.92rem;line-height:1.8;color:#333;}
+.article-lead a.headline-link{text-decoration:none;color:#1a1a1a;}
+.article-lead a.headline-link:hover h3{color:#c41a1a;}
+.article-img{height:220px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:4rem;margin-bottom:.75rem;border:1px solid #ddd;}
+.article-lead h3{font-size:1.7rem;font-weight:900;line-height:1.25;border-top:3px solid #1a1a1a;padding-top:.75rem;margin-bottom:.5rem;}
+.article-body{font-size:.95rem;line-height:1.8;color:#333;}
 .byline{font-size:.78rem;color:#888;font-family:'Segoe UI',sans-serif;margin-bottom:.75rem;text-transform:uppercase;letter-spacing:.05em;}
-.sidebar{}
+.read-more{font-family:'Segoe UI',sans-serif;font-size:.8rem;color:#c41a1a;font-weight:600;text-decoration:none;display:inline-block;margin-top:.5rem;}
+.read-more:hover{text-decoration:underline;}
+
 .sidebar-section{border-top:3px solid #1a1a1a;padding-top:.75rem;margin-bottom:1.5rem;}
 .sidebar-section h4{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:#888;font-family:'Segoe UI',sans-serif;margin-bottom:.75rem;}
 .sidebar-story{border-bottom:1px solid #e0e0e0;padding-bottom:.75rem;margin-bottom:.75rem;}
-.sidebar-story h5{font-size:.95rem;font-weight:700;line-height:1.3;margin-bottom:.3rem;}
+.sidebar-story a{text-decoration:none;color:#1a1a1a;}
+.sidebar-story a:hover h5{color:#c41a1a;}
+.sidebar-story h5{font-size:.98rem;font-weight:700;line-height:1.3;margin-bottom:.3rem;}
 .sidebar-story p{font-size:.8rem;color:#666;line-height:1.5;}
-.columns-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;border-top:2px solid #1a1a1a;padding-top:1.5rem;}
-.col-article h4{font-size:1.05rem;font-weight:900;line-height:1.3;border-top:2px solid #1a1a1a;padding-top:.5rem;margin-bottom:.4rem;}
+.sidebar-tag{font-family:'Segoe UI',sans-serif;font-size:.65rem;text-transform:uppercase;letter-spacing:.08em;color:#c41a1a;font-weight:700;}
+
+.section-label{font-family:'Segoe UI',sans-serif;font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;color:#c41a1a;font-weight:700;margin-bottom:.4rem;}
+
+.columns-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;border-top:2px solid #1a1a1a;padding-top:1.5rem;margin-bottom:2rem;}
+.col-article a{text-decoration:none;color:#1a1a1a;}
+.col-article a:hover h4{color:#c41a1a;}
+.col-article h4{font-size:1.1rem;font-weight:900;line-height:1.3;border-top:2px solid #1a1a1a;padding-top:.5rem;margin-bottom:.4rem;}
 .col-article p{font-size:.83rem;line-height:1.7;color:#444;}
-.back-link{font-family:'Segoe UI',sans-serif;font-size:.83rem;color:#c41a1a;text-decoration:none;display:inline-flex;align-items:center;gap:.35rem;margin-bottom:1rem;}
-.back-link:hover{text-decoration:underline;}
+
+.classifieds-block{background:#f0efe8;border:2px solid #1a1a1a;border-radius:4px;padding:1.5rem;margin-bottom:2rem;}
+.classifieds-block h3{font-size:1.3rem;font-weight:900;text-align:center;border-bottom:2px solid #1a1a1a;padding-bottom:.5rem;margin-bottom:1rem;}
+.classifieds-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.75rem;}
+.classified-item{font-size:.85rem;color:#333;padding:.4rem 0;border-bottom:1px dotted #999;}
+.classified-item strong{display:block;font-family:'Segoe UI',sans-serif;font-size:.75rem;text-transform:uppercase;color:#c41a1a;}
+
 footer{background:#1a1a1a;color:#888;text-align:center;padding:1.5rem;font-family:'Segoe UI',sans-serif;font-size:.8rem;margin-top:2rem;}
 footer span{color:#c41a1a;}
+@media(max-width:700px){.main-grid{grid-template-columns:1fr;}.columns-grid{grid-template-columns:1fr;}.masthead h1{font-size:2.2rem;}}
 </style>
 </head>
 <body>
@@ -47,56 +68,82 @@ footer span{color:#c41a1a;}
 <header>
   <div class="top-bar">
     <span>Biking People World · Official Press</span>
-    <span>Est. World Year 1</span>
+    <span>Tuesday, June 16, 2026 · Evening Edition</span>
     <span>Published by GalaxyHockey</span>
   </div>
   <div class="masthead">
     <h1>GXY Newspaper</h1>
-    <p>The Voice of Biking People World</p>
+    <p>The Official Paper of TCN</p>
   </div>
   <div class="edition-bar">
-    <span>⬛ BREAKING NEWS TICKER — Latest edition now available across The City</span>
+    <span>⬛ NOW OPEN — The City Drive-In Movie Theater brings nightlife to TCN</span>
     <span>FREE · Pick up at The City Hotel lobby</span>
   </div>
 </header>
 <nav>
   <a href="../../main/index.html" class="home">← World Home</a>
-  <a href="#">Home</a>
-  <a href="#">World News</a>
-  <a href="#">City News</a>
-  <a href="#">Business</a>
-  <a href="#">Opinion</a>
-  <a href="#">Archive</a>
+  <a href="index.html">Front Page</a>
+  <a href="articles/drive-in-open.html">City News</a>
+  <a href="articles/skyline-construction.html">Construction</a>
+  <a href="articles/blockbuster.html">Business</a>
+  <a href="articles/website-launch.html">Technology</a>
+  <a href="articles/gxy-logistics.html">Logistics</a>
 </nav>
 <div class="container">
   <a class="back-link" href="../../main/index.html">← Back to Biking People World</a>
   <div class="headline-strip">
-    <h2>World Continues to Grow as New Builds Emerge Across Both Cities</h2>
-    <p class="deck">GXY reporting team surveys the latest construction across The City and MiniGame Land</p>
+    <h2>City Drive-In Movie Theater Now Open</h2>
+    <p class="deck">New nighttime attraction brings movies, snacks, and entertainment to TCN</p>
   </div>
   <div class="main-grid">
     <div class="article-lead">
-      <div class="article-img">🌍</div>
-      <div class="byline">By the GXY Reporting Team · World Affairs Desk</div>
-      <h3>Biking People World Enters New Era of Expansion</h3>
-      <p class="article-body">Biking People World, the collaborative Minecraft server home to GalaxyHockey, Thenew7ihave, and Tree_Shork, is entering what insiders are calling a golden age of development. New builds are underway across both The City and MiniGame Land, with businesses reporting record activity and community engagement at an all-time high.<br><br>Sources close to city planning confirm that Market Avenue Apartments has reached full capacity, while The City Hotel has been welcoming a steady stream of visitors. Meanwhile, across the map, MiniGame Land's Dave n' Busters has seen lines around the block every weekend since its grand opening.</p>
+      <a class="headline-link" href="articles/drive-in-open.html">
+        <img src="images/drive-in-build.png" alt="The City Drive-In Movie Theater" style="width:100%;height:220px;object-fit:cover;border-radius:4px;margin-bottom:.75rem;border:1px solid #ddd;display:block;">
+        <div class="byline">By the GXY Reporting Team · Front Page</div>
+        <h3>City Drive-In Movie Theater Now Open to the Public</h3>
+      </a>
+      <p class="article-body">The brand-new City Drive-In Movie Theater is officially open to the public, bringing movies, snacks, and nighttime entertainment to TCN. The theater is currently showing <em>Michael</em> and <em>Oppenheimer</em>, and is expected to become one of the city's biggest evening attractions — especially for residents looking for something to do outside of MiniGame Land.</p>
+      <a class="read-more" href="articles/drive-in-open.html">Read full story →</a>
     </div>
     <div class="sidebar">
       <div class="sidebar-section">
-        <h4>Also in this edition</h4>
-        <div class="sidebar-story"><h5>City Hotel Reports Record Occupancy</h5><p>The City Hotel announces its best month since opening, citing increased travel between the two cities.</p></div>
-        <div class="sidebar-story"><h5>MiniGame Land Tournament Results</h5><p>This week's tournament drew competitors from across the server. Full results inside.</p></div>
-        <div class="sidebar-story"><h5>Drive-In Movie Night Announced</h5><p>The City Drive-In has confirmed a community movie night event — details on page 4.</p></div>
-        <div class="sidebar-story"><h5>Tree_Shork on the Future of Building</h5><p>An exclusive interview with one of the world's founding members on their vision for the next chapter.</p></div>
+        <h4>In This Edition</h4>
+        <div class="sidebar-story"><a href="articles/skyline-construction.html"><span class="sidebar-tag">Construction</span><h5>Skyline Street Construction Begins</h5><p>A new commercial street is planned to become one of TCN's busiest shopping areas.</p></a></div>
+        <div class="sidebar-story"><a href="articles/blockbuster.html"><span class="sidebar-tag">Business Spotlight</span><h5>Blockbuster Returns to the City</h5><p>The nostalgic rental store could partner with the new Drive-In for promotions.</p></a></div>
+        <div class="sidebar-story"><a href="articles/website-launch.html"><span class="sidebar-tag">Technology</span><h5>New Biking People World Website Launches</h5><p>An online hub for members, events, and world info now exists at gxyhockey.com.</p></a></div>
+        <div class="sidebar-story"><a href="articles/shopping-district.html"><span class="sidebar-tag">City Planning</span><h5>Skyline Could Become TCN's Main Shopping District</h5><p>Major stores planned for the street may make it the city's first true shopping district.</p></a></div>
       </div>
     </div>
   </div>
+
   <div class="columns-grid">
-    <div class="col-article"><h4>Opinion: Why The City Is the Best Address in Minecraft</h4><p>Our editorial board makes the case for The City as the premier destination for any Minecraft player seeking community, commerce, and culture.</p></div>
-    <div class="col-article"><h4>Business Spotlight: Market Avenue Apartments</h4><p>We tour the newest housing development on Market Avenue and speak with residents about life in the most desirable address in The City.</p></div>
-    <div class="col-article"><h4>MiniGame Land: The Future of Entertainment</h4><p>As Dave n' Busters continues to draw crowds, we ask — is MiniGame Land becoming the entertainment capital of the server?</p></div>
+    <div class="col-article"><a href="articles/nightlife.html"><div class="section-label">Entertainment</div><h4>Drive-In Opens New Nightlife Era</h4><p>For the first time, TCN nightlife extends beyond MiniGame Land. Spend the day at the arcade, then end the night at the movies.</p></a></div>
+    <div class="col-article"><a href="articles/gxy-logistics.html"><div class="section-label">GXY Logistics</div><h4>New Businesses Will Need Mail Service</h4><p>As Skyline Street takes shape, GXY Logistics is preparing for a major increase in deliveries and new TCN addresses.</p></a></div>
+    <div class="col-article"><a href="articles/coming-soon.html"><div class="section-label">Coming Soon</div><h4>Possible Future City Additions</h4><p>Rumors swirl of a public park, gas station, bus stops, and a street market to fill out the growing city.</p></a></div>
+  </div>
+
+  <div class="classifieds-block">
+    <h3>Classifieds — Now Hiring</h3>
+    <p style="text-align:center;font-family:'Segoe UI',sans-serif;font-size:.82rem;color:#666;margin-bottom:1rem;">Future Skyline Street businesses are looking for workers</p>
+    <div class="classifieds-grid">
+      <div class="classified-item"><strong>Apple Store</strong>Store Employee wanted</div>
+      <div class="classified-item"><strong>Adidas</strong>Cashier wanted</div>
+      <div class="classified-item"><strong>Applebee's</strong>Server wanted</div>
+      <div class="classified-item"><strong>Baskin Robbins</strong>Ice cream worker</div>
+      <div class="classified-item"><strong>Blockbuster</strong>Clerk wanted</div>
+      <div class="classified-item"><strong>Dollar Tree</strong>Stocker wanted</div>
+      <div class="classified-item"><strong>City Drive-In</strong>Ticket worker</div>
+      <div class="classified-item"><strong>GXY Newspaper</strong>Delivery driver</div>
+    </div>
+    <p style="text-align:center;font-family:'Segoe UI',sans-serif;font-size:.78rem;color:#999;margin-top:1rem;"><a href="articles/classifieds.html" style="color:#c41a1a;">View all classifieds →</a></p>
+  </div>
+
+  <div style="background:#fff8e1;border:2px solid #c41a1a;border-radius:4px;padding:1.25rem;text-align:center;">
+    <div class="section-label" style="text-align:center;">⚠ Public Notice</div>
+    <h4 style="font-size:1.2rem;font-weight:900;margin-bottom:.4rem;">Construction Zone Warning</h4>
+    <p style="font-size:.88rem;color:#444;">Skyline Street is now an active construction zone. Residents are advised to avoid unfinished sidewalks, open lots, and work areas until construction is complete. <a href="articles/construction-notice.html" style="color:#c41a1a;font-family:'Segoe UI',sans-serif;font-weight:600;">Read notice →</a></p>
   </div>
 </div>
-<footer>© GXY Newspaper · A <span>Biking People World</span> Publication · All rights reserved</footer>
+<footer>© GXY Newspaper · The Official Paper of TCN · A <span>Biking People World</span> Publication</footer>
 </body>
 </html>
