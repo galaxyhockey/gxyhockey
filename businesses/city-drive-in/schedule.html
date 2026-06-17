@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Schedule · The City Drive-In</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#0d0d0d;color:#fff;min-height:100vh;}
+.sky{background:linear-gradient(180deg,#0a0020 0%,#1a0040 40%,#0d0d1a 100%);padding:2.5rem 2rem 1.75rem;text-align:center;position:relative;overflow:hidden;}
+.sky::before{content:'★ ✦ ★ ✦ ★ ✦ ★ ✦ ★ ✦ ★ ✦ ★ ✦ ★';position:absolute;top:1rem;left:0;right:0;font-size:.8rem;color:rgba(255,255,255,0.3);letter-spacing:.5rem;}
+.sign{display:inline-block;border:4px solid #f59e0b;padding:1.25rem 2.5rem;border-radius:8px;position:relative;}
+.sign::before,.sign::after{content:'';position:absolute;top:-8px;bottom:-8px;left:-8px;right:-8px;border:2px solid #fbbf24;border-radius:10px;}
+.sign h1{font-size:2.2rem;font-weight:900;color:#f59e0b;letter-spacing:2px;}
+.sign p{color:#fbbf24;font-size:.78rem;letter-spacing:.3em;text-transform:uppercase;margin-top:.25rem;}
+.neon-bar{background:#f59e0b;height:3px;width:100%;margin:1.25rem 0 0;}
+nav{background:#1a1a1a;border-bottom:2px solid #f59e0b;padding:.75rem 2rem;display:flex;gap:2rem;align-items:center;}
+nav a{text-decoration:none;color:#f59e0b;font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;}
+nav a:hover{color:#fff;}
+nav a.home{color:#fff;}
+nav a.active{color:#fff;border-bottom:2px solid #f59e0b;padding-bottom:.2rem;}
+.marquee-bar{background:#f59e0b;color:#0d0d0d;padding:.4rem 1rem;font-weight:700;font-size:.82rem;overflow:hidden;white-space:nowrap;}
+.container{max-width:1000px;margin:0 auto;padding:2.5rem 2rem;}
+.back-link{color:#f59e0b;text-decoration:none;font-size:.83rem;display:inline-block;margin-bottom:1.5rem;}
+.page-title{text-align:center;margin-bottom:2.5rem;}
+.page-title h2{font-size:2rem;font-weight:900;margin-bottom:.4rem;}
+.page-title p{color:#888;font-size:.92rem;}
+
+.week-block{background:#111;border:1px solid #1e1e1e;border-radius:14px;overflow:hidden;margin-bottom:2rem;}
+.week-header{background:linear-gradient(90deg,#1a0a00,#3d1a00);padding:1rem 1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;border-bottom:1px solid #2a1500;}
+.week-dates{font-size:1.05rem;font-weight:900;color:#f59e0b;}
+.week-tag{background:#f59e0b;color:#0d0d0d;font-size:.68rem;font-weight:700;padding:.25rem .7rem;border-radius:4px;text-transform:uppercase;letter-spacing:.05em;}
+.week-tag.now{background:#22c55e;}
+.double-feature{display:grid;grid-template-columns:1fr 1fr;}
+.feature-film{padding:1.5rem;display:flex;gap:1rem;}
+.feature-film:first-child{border-right:1px solid #1e1e1e;}
+.film-poster{width:80px;height:120px;border-radius:6px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:2.5rem;}
+.film-details{flex:1;min-width:0;}
+.film-name{font-size:1.1rem;font-weight:800;line-height:1.2;margin-bottom:.35rem;}
+.film-badges{display:flex;gap:.35rem;flex-wrap:wrap;margin-bottom:.6rem;}
+.fbadge{font-size:.65rem;font-weight:700;padding:.15rem .5rem;border-radius:4px;background:#1a1a1a;border:1px solid #333;color:#ccc;}
+.fbadge.rating{color:#f59e0b;}
+.film-meta{font-size:.75rem;color:#777;margin-bottom:.5rem;}
+.film-desc{font-size:.8rem;color:#aaa;line-height:1.55;}
+.feature-order{font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;color:#f59e0b;margin-bottom:.3rem;font-weight:700;}
+
+.info-note{background:#1a1a2e;border:1px solid #2a2a4a;border-radius:10px;padding:1.25rem 1.5rem;margin-top:2rem;display:flex;gap:1rem;align-items:flex-start;}
+.info-note .icon{font-size:1.5rem;flex-shrink:0;}
+.info-note h4{font-size:.9rem;font-weight:700;color:#a78bfa;margin-bottom:.3rem;}
+.info-note p{font-size:.82rem;color:#aaa;line-height:1.6;}
+footer{background:#0a0a0a;border-top:2px solid #f59e0b;color:#555;text-align:center;padding:1.5rem;font-size:.8rem;}
+footer span{color:#f59e0b;}
+@media(max-width:640px){
+  .double-feature{grid-template-columns:1fr;}
+  .feature-film:first-child{border-right:none;border-bottom:1px solid #1e1e1e;}
+}
+</style>
+</head>
+<body>
+<script>if(!sessionStorage.getItem('bpw_auth')){window.location.href='../../index.html';}</script>
+<div class="sky">
+  <div class="sign">
+    <h1>THE CITY DRIVE-IN</h1>
+    <p>Where the Stars Come Out to Play</p>
+  </div>
+  <div class="neon-bar"></div>
+</div>
+<nav>
+  <a href="../../main/index.html" class="home">← World Home</a>
+  <a href="index.html">Now Showing</a>
+  <a href="schedule.html" class="active">Schedule</a>
+  <a href="index.html#info">Info</a>
+</nav>
+<div class="marquee-bar">📅 UPCOMING DOUBLE FEATURES · A new pairing every week · 🍿 Concessions Open Nightly · 🚗 Pull In &amp; Tune In · Comedy nights, classics &amp; more all summer long</div>
+
+<div class="container">
+  <a class="back-link" href="index.html">← Back to Now Showing</a>
+  <div class="page-title">
+    <h2>🎬 Upcoming Schedule</h2>
+    <p>Double features all summer — here's what's coming to the big screen</p>
+  </div>
+
+  <!-- Week 1 -->
+  <div class="week-block">
+    <div class="week-header">
+      <span class="week-dates">June 26 – July 2</span>
+      <span class="week-tag now">Comedy Week</span>
+    </div>
+    <div class="double-feature">
+      <div class="feature-film">
+        <div class="film-poster" style="background:linear-gradient(160deg,#1a1500,#3d3000);">😎</div>
+        <div class="film-details">
+          <div class="feature-order">Film 1</div>
+          <div class="film-name">Step Brothers</div>
+          <div class="film-badges"><span class="fbadge rating">R</span><span class="fbadge">1h 38m</span><span class="fbadge">2008</span><span class="fbadge">Comedy</span></div>
+          <div class="film-meta">Dir. Adam McKay · Will Ferrell, John C. Reilly</div>
+          <div class="film-desc">Two aimless middle-aged losers still living at home are forced to become roommates when their single parents marry. A modern comedy classic of arrested development.</div>
+        </div>
+      </div>
+      <div class="feature-film">
+        <div class="film-poster" style="background:linear-gradient(160deg,#0a1a0a,#152e15);">🕺</div>
+        <div class="film-details">
+          <div class="feature-order">Film 2</div>
+          <div class="film-name">Napoleon Dynamite</div>
+          <div class="film-badges"><span class="fbadge rating">PG</span><span class="fbadge">1h 35m</span><span class="fbadge">2004</span><span class="fbadge">Comedy</span></div>
+          <div class="film-meta">Dir. Jared Hess · Jon Heder, Efren Ramirez</div>
+          <div class="film-desc">A nerdy high-schooler helps his friend run for class president while navigating his bizarre family life. An indie cult favorite full of quotable moments.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Week 2 -->
+  <div class="week-block">
+    <div class="week-header">
+      <span class="week-dates">July 3 – July 9</span>
+      <span class="week-tag">Animation Week</span>
+    </div>
+    <div class="double-feature">
+      <div class="feature-film">
+        <div class="film-poster" style="background:linear-gradient(160deg,#1a0000,#3d0a0a);">🏔️</div>
+        <div class="film-details">
+          <div class="feature-order">Film 1</div>
+          <div class="film-name">South Park: Bigger, Longer &amp; Uncut</div>
+          <div class="film-badges"><span class="fbadge rating">R</span><span class="fbadge">1h 21m</span><span class="fbadge">1999</span><span class="fbadge">Animation</span></div>
+          <div class="film-meta">Dir. Trey Parker · Trey Parker, Matt Stone</div>
+          <div class="film-desc">The boys sneak into an R-rated Terrance &amp; Phillip film and chaos erupts as their mothers push America to war with Canada. A musical satire — featuring "Blame Canada."</div>
+        </div>
+      </div>
+      <div class="feature-film">
+        <div class="film-poster" style="background:linear-gradient(160deg,#0a0a1a,#15152e);">👶</div>
+        <div class="film-details">
+          <div class="feature-order">Film 2</div>
+          <div class="film-name">Family Guy Presents: Stewie Griffin — The Untold Story</div>
+          <div class="film-badges"><span class="fbadge rating">Unrated</span><span class="fbadge">1h 28m</span><span class="fbadge">2005</span><span class="fbadge">Animation</span></div>
+          <div class="film-meta">Seth MacFarlane · The Griffin family</div>
+          <div class="film-desc">Stewie sets off on a cross-country journey to find a man he believes is his real father, after seeing him on TV. A feature-length Family Guy adventure.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Week 3 -->
+  <div class="week-block">
+    <div class="week-header">
+      <span class="week-dates">July 10 – July 16</span>
+      <span class="week-tag">Office &amp; Excess Week</span>
+    </div>
+    <div class="double-feature">
+      <div class="feature-film">
+        <div class="film-poster" style="background:linear-gradient(160deg,#0a0a0a,#1a1a1a);">📈</div>
+        <div class="film-details">
+          <div class="feature-order">Film 1</div>
+          <div class="film-name">The Wolf of Wall Street</div>
+          <div class="film-badges"><span class="fbadge rating">R</span><span class="fbadge">3h 0m</span><span class="fbadge">2013</span><span class="fbadge">Comedy/Crime</span></div>
+          <div class="film-meta">Dir. Martin Scorsese · Leonardo DiCaprio, Jonah Hill</div>
+          <div class="film-desc">The true story of stockbroker Jordan Belfort's rise to wealth and his spectacular fall through crime and corruption on Wall Street. Bold, fast, and excessive.</div>
+        </div>
+      </div>
+      <div class="feature-film">
+        <div class="film-poster" style="background:linear-gradient(160deg,#0a1414,#152828);">🖨️</div>
+        <div class="film-details">
+          <div class="feature-order">Film 2</div>
+          <div class="film-name">Office Space</div>
+          <div class="film-badges"><span class="fbadge rating">R</span><span class="fbadge">1h 29m</span><span class="fbadge">1999</span><span class="fbadge">Comedy</span></div>
+          <div class="film-meta">Dir. Mike Judge · Ron Livingston, Jennifer Aniston</div>
+          <div class="film-desc">Three fed-up company workers who hate their jobs decide to rebel against their greedy boss. The ultimate cult comedy about cubicle life.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-note">
+    <div class="icon">🎟️</div>
+    <div>
+      <h4>How It Works</h4>
+      <p>Each double feature runs all week, every night at dusk. Free admission for all Biking People World players — just pull up, tune your radio in, and enjoy. Concessions open nightly. Schedule subject to change; check back for new pairings!</p>
+    </div>
+  </div>
+</div>
+<footer>© <span>The City Drive-In</span> · Part of The City · A Biking People World Business</footer>
+</body>
+</html>

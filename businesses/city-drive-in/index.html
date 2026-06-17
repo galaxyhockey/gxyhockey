@@ -11,35 +11,81 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#0d0d0d;color:#fff;m
 .sky::before{content:'★ ✦ ★ ✦ ★ ✦ ★ ✦ ★ ✦ ★ ✦ ★ ✦ ★';position:absolute;top:1rem;left:0;right:0;font-size:.8rem;color:rgba(255,255,255,0.3);letter-spacing:.5rem;}
 .sign{display:inline-block;border:4px solid #f59e0b;padding:1.5rem 3rem;border-radius:8px;position:relative;}
 .sign::before,.sign::after{content:'';position:absolute;top:-8px;bottom:-8px;left:-8px;right:-8px;border:2px solid #fbbf24;border-radius:10px;}
-.sign h1{font-size:3rem;font-weight:900;color:#f59e0b;text-shadow:0 0 20px rgba(245,158,11,0.5);letter-spacing:2px;}
+.sign h1{font-size:3rem;font-weight:900;color:#f59e0b;letter-spacing:2px;}
 .sign p{color:#fbbf24;font-size:.85rem;letter-spacing:.3em;text-transform:uppercase;margin-top:.25rem;}
 .neon-bar{background:#f59e0b;height:3px;width:100%;margin:1.5rem 0 0;}
 nav{background:#1a1a1a;border-bottom:2px solid #f59e0b;padding:.75rem 2rem;display:flex;gap:2rem;align-items:center;}
 nav a{text-decoration:none;color:#f59e0b;font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;}
 nav a:hover{color:#fff;}
+nav a.home{color:#fff;}
 .marquee-bar{background:#f59e0b;color:#0d0d0d;padding:.4rem 1rem;font-weight:700;font-size:.82rem;overflow:hidden;white-space:nowrap;}
-.container{max-width:1000px;margin:0 auto;padding:2.5rem 2rem;}
-.now-showing{text-align:center;margin-bottom:3rem;}
-.now-showing h2{font-size:.8rem;letter-spacing:.3em;text-transform:uppercase;color:#f59e0b;margin-bottom:.75rem;}
-.screen{background:#1a1a2e;border:3px solid #333;border-radius:8px;padding:3rem 2rem;margin-bottom:1rem;position:relative;}
-.screen-inner{background:#0f0f1a;border-radius:4px;padding:2rem;text-align:center;}
-.movie-title{font-size:2.5rem;font-weight:900;color:#fff;margin-bottom:.5rem;}
-.movie-sub{color:#f59e0b;font-size:.9rem;letter-spacing:.1em;}
-.cars-row{display:flex;justify-content:center;gap:.5rem;font-size:1.8rem;margin-top:1rem;opacity:.6;}
-.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.25rem;margin-bottom:2.5rem;}
-.info-card{background:#1a1a1a;border:1px solid #333;border-radius:10px;padding:1.25rem;border-top:3px solid #f59e0b;}
-.info-card h3{color:#f59e0b;font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem;}
-.info-card p{color:#ccc;font-size:.88rem;line-height:1.6;}
-.schedule{margin-bottom:2.5rem;}
-.schedule h2{color:#f59e0b;font-size:1.3rem;margin-bottom:1rem;border-bottom:1px solid #333;padding-bottom:.5rem;}
-.show-row{display:flex;align-items:center;justify-content:space-between;padding:.85rem 0;border-bottom:1px solid #222;}
-.show-time{color:#f59e0b;font-weight:700;font-size:1rem;min-width:80px;}
-.show-name{color:#fff;flex:1;margin:0 1rem;}
-.show-badge{background:#f59e0b;color:#0d0d0d;font-size:.7rem;font-weight:700;padding:.2rem .6rem;border-radius:4px;text-transform:uppercase;}
+.container{max-width:1100px;margin:0 auto;padding:2.5rem 2rem;}
 .back-link{color:#f59e0b;text-decoration:none;font-size:.83rem;display:inline-block;margin-bottom:1.5rem;}
-.back-link:hover{text-decoration:underline;}
-footer{background:#0a0a0a;border-top:2px solid #f59e0b;color:#666;text-align:center;padding:1.5rem;font-size:.8rem;}
+
+/* Double feature banner */
+.df-banner{text-align:center;margin-bottom:2.5rem;}
+.df-label{display:inline-block;background:#f59e0b;color:#0d0d0d;font-size:.75rem;font-weight:900;padding:.35rem 1.25rem;border-radius:20px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:1.25rem;}
+.df-screen{background:#0f0f1a;border:3px solid #2a2a2a;border-radius:10px;padding:2rem;margin-bottom:.75rem;}
+.df-films{display:grid;grid-template-columns:1fr 60px 1fr;align-items:center;gap:1rem;}
+.df-plus{text-align:center;font-size:2rem;font-weight:900;color:#f59e0b;}
+.df-film-title{font-size:1.5rem;font-weight:900;margin-bottom:.25rem;}
+.df-film-sub{font-size:.78rem;color:#f59e0b;margin-bottom:.3rem;}
+.df-film-meta{font-size:.72rem;color:#666;}
+.cars-row{display:flex;justify-content:center;gap:.5rem;font-size:1.6rem;margin-top:1rem;opacity:.5;}
+
+/* Movie detail cards */
+.movies-section{margin-bottom:3rem;}
+.movies-section h2{font-size:1.1rem;font-weight:700;color:#f59e0b;text-transform:uppercase;letter-spacing:.1em;border-bottom:1px solid #222;padding-bottom:.6rem;margin-bottom:1.5rem;}
+.movie-detail{background:#111;border:1px solid #1e1e1e;border-radius:14px;overflow:hidden;margin-bottom:2rem;}
+.movie-detail-inner{display:grid;grid-template-columns:220px 1fr;gap:0;}
+.movie-poster-art{display:flex;align-items:center;justify-content:center;flex-direction:column;padding:2rem 1.5rem;min-height:320px;}
+.poster-emoji{font-size:5rem;margin-bottom:.75rem;}
+.poster-title{font-size:1.1rem;font-weight:900;text-align:center;line-height:1.2;}
+.poster-year{font-size:.78rem;color:#888;margin-top:.35rem;}
+.movie-info-panel{padding:1.75rem;}
+.movie-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;gap:1rem;flex-wrap:wrap;}
+.movie-title-block h3{font-size:1.75rem;font-weight:900;line-height:1.1;margin-bottom:.35rem;}
+.movie-title-block .tagline{font-size:.88rem;color:#888;font-style:italic;}
+.meta-badges{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem;}
+.badge{padding:.25rem .65rem;border-radius:5px;font-size:.72rem;font-weight:700;}
+.badge-rating{background:#1a1a1a;color:#f59e0b;border:1px solid #333;}
+.badge-runtime{background:#1a1a1a;color:#ccc;border:1px solid #333;}
+.badge-year{background:#1a1a1a;color:#ccc;border:1px solid #333;}
+.badge-genre{background:#1a1a1a;color:#a78bfa;border:1px solid #333;}
+.badge-award{background:#2a1a00;color:#f59e0b;border:1px solid #444;}
+.synopsis{font-size:.88rem;color:#bbb;line-height:1.75;margin-bottom:1.25rem;}
+.info-grid-movie{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.75rem;margin-bottom:1.25rem;}
+.info-item label{display:block;font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:#555;margin-bottom:.25rem;}
+.info-item span{font-size:.85rem;color:#ddd;}
+.cast-section label{display:block;font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:#555;margin-bottom:.6rem;}
+.cast-list{display:flex;flex-wrap:wrap;gap:.4rem;}
+.cast-pill{background:#1a1a1a;border:1px solid #2a2a2a;border-radius:20px;padding:.25rem .7rem;font-size:.75rem;color:#ccc;}
+.cast-pill strong{color:#fff;}
+
+.divider{display:flex;align-items:center;justify-content:center;gap:1rem;margin:2rem 0;color:#333;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:#1e1e1e;}
+
+/* Schedule */
+.schedule h2{font-size:1.1rem;font-weight:700;color:#f59e0b;text-transform:uppercase;letter-spacing:.1em;border-bottom:1px solid #222;padding-bottom:.6rem;margin-bottom:1rem;}
+.show-row{display:flex;align-items:center;justify-content:space-between;padding:.85rem 0;border-bottom:1px solid #161616;}
+.show-time{color:#f59e0b;font-weight:700;font-size:.95rem;min-width:80px;}
+.show-name{color:#ddd;flex:1;margin:0 1rem;font-size:.88rem;}
+.show-badge{background:#f59e0b;color:#0d0d0d;font-size:.68rem;font-weight:700;padding:.2rem .6rem;border-radius:4px;text-transform:uppercase;white-space:nowrap;}
+.show-badge.alt{background:#1a1a2e;color:#a78bfa;border:1px solid #333;}
+
+.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.25rem;margin-bottom:2.5rem;}
+.info-card{background:#111;border:1px solid #1e1e1e;border-radius:10px;padding:1.25rem;border-top:3px solid #f59e0b;}
+.info-card h3{color:#f59e0b;font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem;}
+.info-card p{color:#999;font-size:.88rem;line-height:1.6;}
+
+footer{background:#0a0a0a;border-top:2px solid #f59e0b;color:#555;text-align:center;padding:1.5rem;font-size:.8rem;}
 footer span{color:#f59e0b;}
+
+@media(max-width:640px){
+  .movie-detail-inner{grid-template-columns:1fr;}
+  .df-films{grid-template-columns:1fr;}.df-plus{display:none;}
+  .sign h1{font-size:2rem;}
+}
 </style>
 </head>
 <body>
@@ -52,38 +98,157 @@ footer span{color:#f59e0b;}
   <div class="neon-bar"></div>
 </div>
 <nav>
-  <a href="../../main/index.html">← World Home</a>
-  <a href="#">Now Showing</a>
-  <a href="#">Schedule</a>
-  <a href="#">Directions</a>
-  <a href="#">Concessions</a>
+  <a href="../../main/index.html" class="home">← World Home</a>
+  <a href="index.html">Now Showing</a>
+  <a href="schedule.html">Schedule</a>
+  <a href="#info">Info</a>
 </nav>
-<div class="marquee-bar">🎬 NOW SHOWING · Community Movie Night Coming Soon · 🍿 Concessions Available · 🚗 Pull In, Tune In, Sit Back ·&nbsp;&nbsp;&nbsp;🎬 NOW SHOWING · Community Movie Night Coming Soon</div>
+<div class="marquee-bar">🎬 DOUBLE FEATURE TONIGHT · Michael (2026) + Oppenheimer (2023) · 🍿 Concessions Open · 🚗 Pull In &amp; Tune In · King of Pop meets the Atomic Age · Two Epic Biopics, One Night Only</div>
+
 <div class="container">
   <a class="back-link" href="../../main/index.html">← Back to Biking People World</a>
-  <div class="now-showing">
-    <h2>Now Showing at The City Drive-In</h2>
-    <div class="screen">
-      <div class="screen-inner">
-        <div style="font-size:3rem;margin-bottom:.5rem;">🎬</div>
-        <div class="movie-title">Community Showcase Night</div>
-        <div class="movie-sub">Featuring the Best of Biking People World</div>
+
+  <!-- Double Feature Screen -->
+  <div class="df-banner">
+    <div><span class="df-label">★ Double Feature Night ★</span></div>
+    <div class="df-screen">
+      <div class="df-films">
+        <div style="text-align:center;">
+          <div style="font-size:3rem;margin-bottom:.5rem;">🎤</div>
+          <div class="df-film-title">Michael</div>
+          <div class="df-film-sub">The Michael Jackson Biopic</div>
+          <div class="df-film-meta">Dir. Antoine Fuqua · 2026 · PG-13 · 2h 10m</div>
+        </div>
+        <div class="df-plus">+</div>
+        <div style="text-align:center;">
+          <div style="font-size:3rem;margin-bottom:.5rem;">☢️</div>
+          <div class="df-film-title">Oppenheimer</div>
+          <div class="df-film-sub">The Story of the Atomic Age</div>
+          <div class="df-film-meta">Dir. Christopher Nolan · 2023 · R · 3h 0m</div>
+        </div>
       </div>
-      <div class="cars-row">🚗 🚙 🚗 🚙 🚗 🚙 🚗</div>
+      <div class="cars-row">🚗 🚙 🚗 🚙 🚗 🚙 🚗 🚙 🚗</div>
     </div>
   </div>
-  <div class="info-grid">
-    <div class="info-card"><h3>Location</h3><p>Located in The City, just off the main boulevard. Look for the giant screen — you can't miss it.</p></div>
-    <div class="info-card"><h3>Hours</h3><p>Opens at dusk. Shows begin when it gets dark enough to see the screen clearly. Late nights welcome.</p></div>
-    <div class="info-card"><h3>Admission</h3><p>Free entry for all Biking People World players. Pull up in your vehicle and tune in.</p></div>
-    <div class="info-card"><h3>Concessions</h3><p>Popcorn, drinks, and snacks available at the main stand. Items sold for in-world currency.</p></div>
+
+  <!-- Movie 1: Michael -->
+  <div class="movies-section">
+    <h2>Film 1 — Now Playing</h2>
+    <div class="movie-detail">
+      <div class="movie-detail-inner">
+        <div class="movie-poster-art" style="background:#0a0500;padding:1rem;">
+          <img src="images/michael-poster.png" alt="Michael (2026) movie poster" style="width:100%;border-radius:6px;display:block;">
+        </div>
+        <div class="movie-info-panel">
+          <div class="movie-header">
+            <div class="movie-title-block">
+              <h3>Michael</h3>
+              <div class="tagline">"This is where his story begins."</div>
+            </div>
+          </div>
+          <div class="meta-badges">
+            <span class="badge badge-rating">PG-13</span>
+            <span class="badge badge-runtime">2h 10m</span>
+            <span class="badge badge-year">2026</span>
+            <span class="badge badge-genre">Biography</span>
+            <span class="badge badge-genre">Drama</span>
+            <span class="badge badge-award">★ Box Office Record — Music Biopics</span>
+          </div>
+          <p class="synopsis">A riveting and honest portrayal of the brilliant yet complicated man who became known worldwide as the King of Pop. The film traces Michael Jackson's journey from his early days as the lead of The Jackson 5 to his rise as a global superstar — capturing his creative genius, his most iconic performances, and the personal struggles behind the legend. Covering his life from 1966 through the late 1980s, Michael brings the King of Pop to life as never before.</p>
+          <div class="info-grid-movie">
+            <div class="info-item"><label>Director</label><span>Antoine Fuqua</span></div>
+            <div class="info-item"><label>Written by</label><span>John Logan</span></div>
+            <div class="info-item"><label>Released</label><span>April 24, 2026</span></div>
+            <div class="info-item"><label>Studio</label><span>Lionsgate / Universal</span></div>
+            <div class="info-item"><label>Box Office</label><span>$890.8M worldwide</span></div>
+            <div class="info-item"><label>Soundtrack</label><span>30 MJ songs</span></div>
+          </div>
+          <div class="cast-section">
+            <label>Cast</label>
+            <div class="cast-list">
+              <span class="cast-pill"><strong>Jaafar Jackson</strong> as Michael Jackson</span>
+              <span class="cast-pill"><strong>Colman Domingo</strong> as Joe Jackson</span>
+              <span class="cast-pill"><strong>Nia Long</strong> as Katherine Jackson</span>
+              <span class="cast-pill"><strong>Miles Teller</strong> as John Branca</span>
+              <span class="cast-pill"><strong>Larenz Tate</strong> as Berry Gordy</span>
+              <span class="cast-pill"><strong>Kat Graham</strong> as Diana Ross</span>
+              <span class="cast-pill"><strong>Kendrick Sampson</strong> as Quincy Jones</span>
+              <span class="cast-pill"><strong>Laura Harrier</strong> as Suzanne de Passe</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+
+  <div class="divider">intermission · 20 minutes · visit the concession stand</div>
+
+  <!-- Movie 2: Oppenheimer -->
+  <div class="movies-section">
+    <h2>Film 2 — Double Feature Closer</h2>
+    <div class="movie-detail">
+      <div class="movie-detail-inner">
+        <div class="movie-poster-art" style="background:#0a0500;padding:1rem;">
+          <img src="images/oppenheimer-poster.jpg" alt="Oppenheimer (2023) movie poster" style="width:100%;border-radius:6px;display:block;">
+        </div>
+        <div class="movie-info-panel">
+          <div class="movie-header">
+            <div class="movie-title-block">
+              <h3>Oppenheimer</h3>
+              <div class="tagline">"Now I am become Death, the destroyer of worlds."</div>
+            </div>
+          </div>
+          <div class="meta-badges">
+            <span class="badge badge-rating">R</span>
+            <span class="badge badge-runtime">3h 0m</span>
+            <span class="badge badge-year">2023</span>
+            <span class="badge badge-genre">Biography</span>
+            <span class="badge badge-genre">Drama</span>
+            <span class="badge badge-genre">History</span>
+            <span class="badge badge-award">🏆 7 Academy Awards incl. Best Picture</span>
+          </div>
+          <p class="synopsis">Christopher Nolan's epic biographical thriller tells the story of J. Robert Oppenheimer, the theoretical physicist who led the Manhattan Project and became the father of the atomic bomb. Told in Nolan's signature non-linear style, the film chronicles Oppenheimer's studies, his direction of the Los Alamos Laboratory during World War II, and the devastating moral weight of his creation — culminating in his security hearing and fall from grace. A bombastic biopic about a bomb, and one of the greatest films of the 2020s.</p>
+          <div class="info-grid-movie">
+            <div class="info-item"><label>Director</label><span>Christopher Nolan</span></div>
+            <div class="info-item"><label>Written by</label><span>Christopher Nolan</span></div>
+            <div class="info-item"><label>Released</label><span>July 21, 2023</span></div>
+            <div class="info-item"><label>Studio</label><span>Universal Pictures</span></div>
+            <div class="info-item"><label>Box Office</label><span>$952M worldwide</span></div>
+            <div class="info-item"><label>Based on</label><span>American Prometheus</span></div>
+          </div>
+          <div class="cast-section">
+            <label>Cast</label>
+            <div class="cast-list">
+              <span class="cast-pill"><strong>Cillian Murphy</strong> as J. Robert Oppenheimer</span>
+              <span class="cast-pill"><strong>Emily Blunt</strong> as Kitty Oppenheimer</span>
+              <span class="cast-pill"><strong>Matt Damon</strong> as Gen. Leslie Groves</span>
+              <span class="cast-pill"><strong>Robert Downey Jr.</strong> as Lewis Strauss</span>
+              <span class="cast-pill"><strong>Florence Pugh</strong> as Jean Tatlock</span>
+              <span class="cast-pill"><strong>Josh Hartnett</strong> as Ernest Lawrence</span>
+              <span class="cast-pill"><strong>Rami Malek</strong> as David Hill</span>
+              <span class="cast-pill"><strong>Kenneth Branagh</strong> as Niels Bohr</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Visit Info -->
+  <div class="info-grid" id="info">
+    <div class="info-card"><h3>Location</h3><p>Located in The City, just off the main boulevard. Look for the giant screen — you can't miss it.</p></div>
+    <div class="info-card"><h3>Hours</h3><p>Opens at dusk. Double feature begins at dark. Expect a late night — Oppenheimer runs 3 hours!</p></div>
+    <div class="info-card"><h3>Admission</h3><p>Free for all Biking People World players. Pull up in your vehicle and tune your radio in.</p></div>
+    <div class="info-card"><h3>Concessions</h3><p>Popcorn, drinks & snacks at the main stand. Items sold for in-world currency. Big buckets available.</p></div>
+  </div>
+
+  <!-- Schedule -->
   <div class="schedule">
-    <h2>Upcoming Shows</h2>
-    <div class="show-row"><span class="show-time">Tonight</span><span class="show-name">Grand Opening Night Premiere</span><span class="show-badge">Special</span></div>
-    <div class="show-row"><span class="show-time">Fri</span><span class="show-name">Community Movie Night</span><span class="show-badge">Weekly</span></div>
-    <div class="show-row"><span class="show-time">Sat</span><span class="show-name">World Highlight Reel</span><span class="show-badge">New</span></div>
-    <div class="show-row"><span class="show-time">Sun</span><span class="show-name">Late Night Double Feature</span><span class="show-badge">Classic</span></div>
+    <h2>This Week's Schedule</h2>
+    <div class="show-row"><span class="show-time">Tonight</span><span class="show-name">🎤 Michael + ☢️ Oppenheimer — Double Feature</span><span class="show-badge">Now Playing</span></div>
+    <div class="show-row"><span class="show-time">Fri</span><span class="show-name">Double Feature Repeat — Back by Demand</span><span class="show-badge">Selling Fast</span></div>
+    <div class="show-row"><span class="show-time">Sat</span><span class="show-name">Community Movie Night</span><span class="show-badge alt">Weekly</span></div>
+    <div class="show-row"><span class="show-time">Sun</span><span class="show-name">Late Night Classics</span><span class="show-badge alt">Classic</span></div>
   </div>
 </div>
 <footer>© <span>The City Drive-In</span> · Part of The City · A Biking People World Business</footer>
