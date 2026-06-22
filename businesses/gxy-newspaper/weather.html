@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GXY Weather \u00b7 GXY Newspaper</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:Georgia,'Times New Roman',serif;background:#fafaf7;color:#1a1a1a;}
+header{background:#1a1a1a;color:#fff;padding:0 2rem;}
+.top-bar{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #333;padding:.5rem 0;font-family:'Segoe UI',sans-serif;font-size:.75rem;color:#999;flex-wrap:wrap;gap:.5rem;}
+.masthead{text-align:center;padding:1.25rem 0;border-bottom:3px double #1a1a1a;}
+.masthead a{text-decoration:none;}
+.masthead h1{font-size:2.6rem;font-weight:900;letter-spacing:-1px;color:#fff;}
+.masthead p{font-size:.8rem;color:#999;letter-spacing:.2em;text-transform:uppercase;margin-top:.2rem;}
+nav{background:#fff;border-bottom:2px solid #1a1a1a;padding:.6rem 2rem;display:flex;gap:1.5rem;font-family:'Segoe UI',sans-serif;flex-wrap:wrap;}
+nav a{text-decoration:none;color:#1a1a1a;font-size:.82rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;}
+nav a:hover{color:#c41a1a;}
+nav a.home{color:#c41a1a;}
+nav a.active{border-bottom:2px solid #c41a1a;padding-bottom:.2rem;}
+.container{max-width:900px;margin:0 auto;padding:2rem;}
+.back-link{font-family:'Segoe UI',sans-serif;font-size:.83rem;color:#c41a1a;text-decoration:none;display:inline-block;margin-bottom:1.5rem;}
+.back-link:hover{text-decoration:underline;}
+.page-head{text-align:center;border-bottom:2px solid #1a1a1a;padding-bottom:1rem;margin-bottom:1.5rem;}
+.page-head h2{font-size:2.4rem;font-weight:900;}
+.page-head p{font-family:'Segoe UI',sans-serif;font-size:.9rem;color:#666;margin-top:.4rem;}
+
+.status-line{font-family:'Segoe UI',sans-serif;font-size:.78rem;text-align:center;color:#888;margin-bottom:1.5rem;}
+.status-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:.35rem;vertical-align:middle;}
+.dot-live{background:#16a34a;}.dot-stale{background:#d97706;}.dot-off{background:#999;}
+
+/* Today card */
+.today-card{background:#1a1a1a;color:#fff;border-radius:8px;padding:2rem;display:grid;grid-template-columns:auto 1fr;gap:2rem;align-items:center;margin-bottom:2rem;}
+.today-icon{font-size:5rem;line-height:1;text-align:center;}
+.today-info .label{font-family:'Segoe UI',sans-serif;font-size:.72rem;text-transform:uppercase;letter-spacing:.15em;color:#c41a1a;font-weight:700;margin-bottom:.3rem;}
+.today-temp{font-size:3.5rem;font-weight:900;line-height:1;}
+.today-cond{font-size:1.3rem;margin-top:.35rem;color:#ddd;}
+.today-meta{font-family:'Segoe UI',sans-serif;font-size:.82rem;color:#999;margin-top:.75rem;display:flex;gap:1.25rem;flex-wrap:wrap;}
+.today-meta b{color:#fff;font-weight:600;}
+
+/* Forecast row */
+.forecast-section h3{font-size:1.3rem;font-weight:900;border-bottom:2px solid #1a1a1a;padding-bottom:.4rem;margin-bottom:1rem;}
+.forecast-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:.75rem;margin-bottom:2rem;}
+.fc-day{background:#fff;border:1px solid #e0e0e0;border-radius:8px;padding:1rem .5rem;text-align:center;border-top:3px solid #1a1a1a;}
+.fc-day .d{font-family:'Segoe UI',sans-serif;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:#888;margin-bottom:.5rem;}
+.fc-day .ico{font-size:2rem;margin-bottom:.4rem;}
+.fc-day .t{font-size:1.3rem;font-weight:900;}
+.fc-day .c{font-family:'Segoe UI',sans-serif;font-size:.75rem;color:#666;margin-top:.2rem;}
+
+/* Impact section */
+.impact{background:#f0efe8;border-left:4px solid #c41a1a;border-radius:0 6px 6px 0;padding:1.25rem 1.5rem;margin-bottom:2rem;}
+.impact h4{font-family:'Segoe UI',sans-serif;font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:#c41a1a;margin-bottom:.6rem;}
+.impact p{font-size:.92rem;line-height:1.7;color:#333;}
+
+.mod-box{background:#fff;border:2px solid #1a1a1a;border-radius:8px;padding:1.5rem;margin-bottom:1rem;}
+.mod-box h4{font-size:1.1rem;font-weight:900;margin-bottom:.5rem;}
+.mod-box p{font-family:'Segoe UI',sans-serif;font-size:.85rem;color:#555;line-height:1.6;margin-bottom:.85rem;}
+.mod-dl{display:inline-block;background:#c41a1a;color:#fff;text-decoration:none;font-family:'Segoe UI',sans-serif;font-size:.85rem;font-weight:700;padding:.6rem 1.3rem;border-radius:6px;}
+.mod-dl:hover{background:#a01515;}
+
+footer{background:#1a1a1a;color:#888;text-align:center;padding:1.5rem;font-family:'Segoe UI',sans-serif;font-size:.8rem;margin-top:2rem;}
+footer span{color:#c41a1a;}
+@media(max-width:640px){.today-card{grid-template-columns:1fr;text-align:center;}.forecast-grid{grid-template-columns:repeat(2,1fr);}.masthead h1{font-size:1.8rem;}}
+</style>
+</head>
+<body>
+<script>if(!sessionStorage.getItem('bpw_auth')){window.location.href='../../index.html';}</script>
+<header>
+  <div class="top-bar">
+    <span>Biking People World \u00b7 Official Press</span>
+    <span>GXY Weather \u00b7 Powered by Seasonal Forecast</span>
+    <span>Published by GalaxyHockey</span>
+  </div>
+  <div class="masthead">
+    <a href="index.html"><h1>GXY Newspaper</h1><p>The Official Paper of the World</p></a>
+  </div>
+</header>
+<nav>
+  <a href="../../main/index.html" class="home">\u2190 World Home</a>
+  <a href="index.html">Front Page</a>
+  <a href="archive.html">Archive</a>
+  <a href="weather.html" class="active">GXY Weather</a>
+</nav>
+<div class="container">
+  <a class="back-link" href="index.html">\u2190 Back to Front Page</a>
+  <div class="page-head">
+    <h2>\u26c5 GXY Weather</h2>
+    <p>Live seasonal forecast straight from Biking People World, powered by the Seasonal Forecast mod</p>
+  </div>
+
+  <div class="status-line" id="statusLine"><span class="status-dot dot-off"></span>Loading forecast\u2026</div>
+
+  <div id="weatherContent"></div>
+
+  <div class="impact">
+    <h4>How Weather Affects the World</h4>
+    <p id="impactText">With dynamic weather now active across Biking People World, conditions can affect travel, outdoor events, movie nights at the Drive-In, construction work, postal deliveries, MiniGame Land games, and Nether and space mission planning. Check the forecast before heading out.</p>
+  </div>
+
+  <div class="mod-box">
+    <h4>\ud83c\udf26\ufe0f Powered by Seasonal Forecast</h4>
+    <p>This forecast is generated in-game by the Seasonal Forecast mod (NeoForge 1.21.1). It reads the season from Serene Seasons, calculates per-biome temperatures, and predicts upcoming Clear, Rain, and Snow days \u2014 the same forecast players see on their in-game HUD with the <b>/forecast</b> command.</p>
+    <a class="mod-dl" href="mod/seasonalforecast-0.4.jar" download>Download the mod (.jar)</a>
+  </div>
+</div>
+<footer>\u00a9 GXY Newspaper \u00b7 The Official Paper of the World \u00b7 A <span>Biking People World</span> Publication</footer>
+
+<script>
+// Icon + helper maps
+const ICONS = { "Clear":"\u2600\ufe0f", "Rain":"\ud83c\udf27\ufe0f", "Snow":"\u2744\ufe0f" };
+function icon(c){ return ICONS[c] || "\u26c5"; }
+
+// Fallback data shown if forecast.json can't be loaded (matches mod's JSON shape)
+const FALLBACK = {
+  updated: null,
+  season: "Unknown",
+  today: { condition: "Clear", temp: "--", tempUnit: "F" },
+  forecast: [
+    { day:1, condition:"Clear", temp:"--" },
+    { day:2, condition:"Clear", temp:"--" },
+    { day:3, condition:"Clear", temp:"--" }
+  ]
+};
+
+function timeAgo(iso){
+  if(!iso) return "unknown";
+  const then = new Date(iso).getTime();
+  if(isNaN(then)) return "unknown";
+  const mins = Math.floor((Date.now()-then)/60000);
+  if(mins < 1) return "just now";
+  if(mins < 60) return mins+" min ago";
+  const hrs = Math.floor(mins/60);
+  if(hrs < 24) return hrs+" hr ago";
+  const days = Math.floor(hrs/24);
+  return days+" day"+(days>1?"s":"")+" ago";
+}
+
+function render(data, live){
+  const t = data.today || {};
+  const unit = (t.tempUnit==="F")?"\u00b0F":(t.tempUnit==="C")?"\u00b0C":"\u00b0";
+  let html = '';
+  html += '<div class="today-card">';
+  html += '  <div class="today-icon">'+icon(t.condition)+'</div>';
+  html += '  <div class="today-info">';
+  html += '    <div class="label">Today in Biking People World</div>';
+  html += '    <div class="today-temp">'+(t.temp!==undefined?t.temp:"--")+unit+'</div>';
+  html += '    <div class="today-cond">'+(t.condition||"\u2014")+'</div>';
+  html += '    <div class="today-meta">';
+  if(data.season) html += '<span>Season: <b>'+data.season+'</b></span>';
+  if(data.mcDay!==undefined) html += '<span>Day <b>'+data.mcDay+'</b></span>';
+  if(data.biome) html += '<span>Biome: <b>'+String(data.biome).replace("minecraft:","").replace(/_/g," ")+'</b></span>';
+  html += '    </div>';
+  html += '  </div>';
+  html += '</div>';
+
+  const fc = data.forecast || [];
+  if(fc.length){
+    html += '<div class="forecast-section"><h3>'+fc.length+'-Day Forecast</h3><div class="forecast-grid">';
+    for(const d of fc){
+      html += '<div class="fc-day">';
+      html += '<div class="d">Day +'+d.day+'</div>';
+      html += '<div class="ico">'+icon(d.condition)+'</div>';
+      html += '<div class="t">'+(d.temp!==undefined?d.temp:"--")+(unit)+'</div>';
+      html += '<div class="c">'+(d.condition||"\u2014")+'</div>';
+      html += '</div>';
+    }
+    html += '</div></div>';
+  }
+  document.getElementById('weatherContent').innerHTML = html;
+
+  // status line
+  const sl = document.getElementById('statusLine');
+  if(live){
+    sl.innerHTML = '<span class="status-dot dot-live"></span>Live forecast \u00b7 updated '+timeAgo(data.updated);
+  } else {
+    sl.innerHTML = '<span class="status-dot dot-off"></span>Showing placeholder \u2014 live forecast not connected yet';
+  }
+}
+
+fetch('forecast.json', {cache:"no-store"})
+  .then(r=>{ if(!r.ok) throw new Error('no file'); return r.json(); })
+  .then(d=>render(d, true))
+  .catch(()=>render(FALLBACK, false));
+</script>
+</body>
+</html>
