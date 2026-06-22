@@ -13,28 +13,41 @@ header{background:#1a1a1a;color:#fff;padding:0 2rem;}
 .masthead h1{font-size:3.5rem;font-weight:900;letter-spacing:-2px;color:#fff;}
 .masthead p{font-size:.85rem;color:#999;letter-spacing:.2em;text-transform:uppercase;margin-top:.25rem;}
 .edition-bar{background:#c41a1a;padding:.4rem 2rem;display:flex;justify-content:space-between;align-items:center;font-family:'Segoe UI',sans-serif;font-size:.78rem;color:#fff;flex-wrap:wrap;gap:.3rem;}
-nav{background:#fff;border-bottom:2px solid #1a1a1a;padding:.6rem 2rem;display:flex;gap:1.5rem;font-family:'Segoe UI',sans-serif;flex-wrap:wrap;}
+nav{background:#fff;border-bottom:2px solid #1a1a1a;padding:.6rem 2rem;display:flex;gap:1.5rem;font-family:'Segoe UI',sans-serif;flex-wrap:wrap;align-items:center;}
 nav a{text-decoration:none;color:#1a1a1a;font-size:.82rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;}
 nav a:hover{color:#c41a1a;}
 nav a.home{color:#c41a1a;}
 .container{max-width:1100px;margin:0 auto;padding:2rem;}
 .back-link{font-family:'Segoe UI',sans-serif;font-size:.83rem;color:#c41a1a;text-decoration:none;display:inline-flex;align-items:center;gap:.35rem;margin-bottom:1rem;}
 .back-link:hover{text-decoration:underline;}
-
+.search-wrap{margin-bottom:2rem;position:relative;}
+.search-box{display:flex;align-items:center;gap:.6rem;background:#fff;border:2px solid #1a1a1a;border-radius:8px;padding:.65rem 1rem;}
+.search-box svg{width:18px;height:18px;stroke:#888;fill:none;stroke-width:2;flex-shrink:0;}
+.search-box input{flex:1;border:none;outline:none;font-family:'Segoe UI',sans-serif;font-size:.95rem;color:#1a1a1a;background:transparent;}
+.search-box input::placeholder{color:#aaa;}
+.search-clear{cursor:pointer;color:#aaa;font-size:1.2rem;line-height:1;border:none;background:none;display:none;}
+.search-results{margin-top:1rem;display:none;}
+.search-results.active{display:block;}
+.search-count{font-family:'Segoe UI',sans-serif;font-size:.8rem;color:#888;margin-bottom:.75rem;text-transform:uppercase;letter-spacing:.05em;}
+.result-item{display:block;text-decoration:none;color:#1a1a1a;border:1px solid #e0e0e0;border-left:3px solid #c41a1a;border-radius:0 6px 6px 0;padding:.85rem 1rem;margin-bottom:.6rem;background:#fff;transition:background .15s;}
+.result-item:hover{background:#faf5f5;}
+.result-section{font-family:'Segoe UI',sans-serif;font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:#c41a1a;font-weight:700;}
+.result-title{font-size:1.05rem;font-weight:700;margin:.15rem 0;line-height:1.25;}
+.result-desc{font-family:'Segoe UI',sans-serif;font-size:.82rem;color:#666;line-height:1.5;}
+.result-date{font-family:'Segoe UI',sans-serif;font-size:.72rem;color:#999;margin-top:.25rem;}
+.no-results{font-family:'Segoe UI',sans-serif;font-size:.9rem;color:#888;padding:1rem;text-align:center;font-style:italic;}
+.main-feed.hidden{display:none;}
 .headline-strip{border-bottom:2px solid #1a1a1a;margin-bottom:2rem;padding-bottom:.5rem;}
-.headline-strip h2{font-size:2.4rem;line-height:1.15;font-weight:900;}
+.headline-strip h2{font-size:2.6rem;line-height:1.1;font-weight:900;}
 .headline-strip .deck{font-size:1.05rem;color:#444;margin-top:.5rem;font-style:italic;}
-
 .main-grid{display:grid;grid-template-columns:2fr 1fr;gap:2rem;margin-bottom:2rem;}
 .article-lead a.headline-link{text-decoration:none;color:#1a1a1a;}
 .article-lead a.headline-link:hover h3{color:#c41a1a;}
-.article-img{height:220px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:4rem;margin-bottom:.75rem;border:1px solid #ddd;}
 .article-lead h3{font-size:1.7rem;font-weight:900;line-height:1.25;border-top:3px solid #1a1a1a;padding-top:.75rem;margin-bottom:.5rem;}
 .article-body{font-size:.95rem;line-height:1.8;color:#333;}
 .byline{font-size:.78rem;color:#888;font-family:'Segoe UI',sans-serif;margin-bottom:.75rem;text-transform:uppercase;letter-spacing:.05em;}
 .read-more{font-family:'Segoe UI',sans-serif;font-size:.8rem;color:#c41a1a;font-weight:600;text-decoration:none;display:inline-block;margin-top:.5rem;}
 .read-more:hover{text-decoration:underline;}
-
 .sidebar-section{border-top:3px solid #1a1a1a;padding-top:.75rem;margin-bottom:1.5rem;}
 .sidebar-section h4{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:#888;font-family:'Segoe UI',sans-serif;margin-bottom:.75rem;}
 .sidebar-story{border-bottom:1px solid #e0e0e0;padding-bottom:.75rem;margin-bottom:.75rem;}
@@ -43,21 +56,16 @@ nav a.home{color:#c41a1a;}
 .sidebar-story h5{font-size:.98rem;font-weight:700;line-height:1.3;margin-bottom:.3rem;}
 .sidebar-story p{font-size:.8rem;color:#666;line-height:1.5;}
 .sidebar-tag{font-family:'Segoe UI',sans-serif;font-size:.65rem;text-transform:uppercase;letter-spacing:.08em;color:#c41a1a;font-weight:700;}
-
 .section-label{font-family:'Segoe UI',sans-serif;font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;color:#c41a1a;font-weight:700;margin-bottom:.4rem;}
-
 .columns-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;border-top:2px solid #1a1a1a;padding-top:1.5rem;margin-bottom:2rem;}
 .col-article a{text-decoration:none;color:#1a1a1a;}
 .col-article a:hover h4{color:#c41a1a;}
 .col-article h4{font-size:1.1rem;font-weight:900;line-height:1.3;border-top:2px solid #1a1a1a;padding-top:.5rem;margin-bottom:.4rem;}
 .col-article p{font-size:.83rem;line-height:1.7;color:#444;}
-
-.classifieds-block{background:#f0efe8;border:2px solid #1a1a1a;border-radius:4px;padding:1.5rem;margin-bottom:2rem;}
-.classifieds-block h3{font-size:1.3rem;font-weight:900;text-align:center;border-bottom:2px solid #1a1a1a;padding-bottom:.5rem;margin-bottom:1rem;}
-.classifieds-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.75rem;}
-.classified-item{font-size:.85rem;color:#333;padding:.4rem 0;border-bottom:1px dotted #999;}
-.classified-item strong{display:block;font-family:'Segoe UI',sans-serif;font-size:.75rem;text-transform:uppercase;color:#c41a1a;}
-
+.archive-cta{background:#1a1a1a;color:#fff;border-radius:6px;padding:1.25rem 1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:2rem;}
+.archive-cta div h3{font-size:1.1rem;font-weight:900;margin-bottom:.2rem;}
+.archive-cta div p{font-family:'Segoe UI',sans-serif;font-size:.82rem;color:#bbb;}
+.archive-cta a{background:#c41a1a;color:#fff;text-decoration:none;font-family:'Segoe UI',sans-serif;font-size:.82rem;font-weight:700;padding:.6rem 1.3rem;border-radius:6px;white-space:nowrap;}
 footer{background:#1a1a1a;color:#888;text-align:center;padding:1.5rem;font-family:'Segoe UI',sans-serif;font-size:.8rem;margin-top:2rem;}
 footer span{color:#c41a1a;}
 @media(max-width:700px){.main-grid{grid-template-columns:1fr;}.columns-grid{grid-template-columns:1fr;}.masthead h1{font-size:2.2rem;}}
@@ -68,82 +76,117 @@ footer span{color:#c41a1a;}
 <header>
   <div class="top-bar">
     <span>Biking People World · Official Press</span>
-    <span>Tuesday, June 16, 2026 · Evening Edition</span>
+    <span>Monday, June 22, 2026 · Front Page</span>
     <span>Published by GalaxyHockey</span>
   </div>
   <div class="masthead">
     <h1>GXY Newspaper</h1>
-    <p>The Official Paper of TCN</p>
+    <p>The Official Paper of the World</p>
   </div>
   <div class="edition-bar">
-    <span>⬛ NOW OPEN — The City Drive-In Movie Theater brings nightlife to TCN</span>
+    <span>HISTORY MADE — A player has landed on the Moon</span>
     <span>FREE · Pick up at The City Hotel lobby</span>
   </div>
 </header>
 <nav>
   <a href="../../main/index.html" class="home">← World Home</a>
   <a href="index.html">Front Page</a>
-  <a href="articles/drive-in-open.html">City News</a>
-  <a href="articles/skyline-construction.html">Construction</a>
-  <a href="articles/blockbuster.html">Business</a>
-  <a href="articles/website-launch.html">Technology</a>
-  <a href="articles/gxy-logistics.html">Logistics</a>
+  <a href="archive.html">Archive</a>
+  <a href="articles/moon-landing.html">Space</a>
+  <a href="articles/piglin-plaza.html">Nether</a>
+  <a href="articles/minigame-expansion.html">MiniGame Land</a>
 </nav>
 <div class="container">
   <a class="back-link" href="../../main/index.html">← Back to Biking People World</a>
+
+  <div class="search-wrap">
+    <div class="search-box">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" id="searchInput" placeholder="Search all articles...">
+      <button class="search-clear" id="searchClear">&times;</button>
+    </div>
+    <div class="search-results" id="searchResults"></div>
+  </div>
+
+  <div class="main-feed" id="mainFeed">
   <div class="headline-strip">
-    <h2>City Drive-In Movie Theater Now Open</h2>
-    <p class="deck">New nighttime attraction brings movies, snacks, and entertainment to TCN</p>
+    <h2>One Small Step for Man. One Giant Leap for Mankind.</h2>
+    <p class="deck">History has officially been made — a player has stepped foot on the Moon for the first time ever</p>
   </div>
   <div class="main-grid">
     <div class="article-lead">
-      <a class="headline-link" href="articles/drive-in-open.html">
-        <img src="images/drive-in-build.png" alt="The City Drive-In Movie Theater" style="width:100%;height:220px;object-fit:cover;border-radius:4px;margin-bottom:.75rem;border:1px solid #ddd;display:block;">
+      <a class="headline-link" href="articles/moon-landing.html">
+        <img src="images/moon-landing.jpg" alt="A player on the Moon with Earth in the sky" style="width:100%;height:260px;object-fit:cover;border-radius:4px;margin-bottom:.75rem;border:1px solid #ddd;display:block;">
         <div class="byline">By the GXY Reporting Team · Front Page</div>
-        <h3>City Drive-In Movie Theater Now Open to the Public</h3>
+        <h3>A Player Has Landed on the Moon</h3>
       </a>
-      <p class="article-body">The brand-new City Drive-In Movie Theater is officially open to the public, bringing movies, snacks, and nighttime entertainment to TCN. The theater is currently showing <em>Michael</em> and <em>Oppenheimer</em>, and is expected to become one of the city's biggest evening attractions — especially for residents looking for something to do outside of MiniGame Land.</p>
-      <a class="read-more" href="articles/drive-in-open.html">Read full story →</a>
+      <p class="article-body">For the first time ever, a player has stepped foot on the Moon, marking one of the biggest achievements in world history. The successful lunar landing has opened the door for a brand-new era of space exploration, with missions already being planned to return to the Moon and travel to other planets. Officials say this is only the beginning.</p>
+      <a class="read-more" href="articles/moon-landing.html">Read full story →</a>
     </div>
     <div class="sidebar">
       <div class="sidebar-section">
         <h4>In This Edition</h4>
-        <div class="sidebar-story"><a href="articles/skyline-construction.html"><span class="sidebar-tag">Construction</span><h5>Skyline Street Construction Begins</h5><p>A new commercial street is planned to become one of TCN's busiest shopping areas.</p></a></div>
-        <div class="sidebar-story"><a href="articles/blockbuster.html"><span class="sidebar-tag">Business Spotlight</span><h5>Blockbuster Returns to the City</h5><p>The nostalgic rental store could partner with the new Drive-In for promotions.</p></a></div>
-        <div class="sidebar-story"><a href="articles/website-launch.html"><span class="sidebar-tag">Technology</span><h5>New Biking People World Website Launches</h5><p>An online hub for members, events, and world info now exists at gxyhockey.com.</p></a></div>
-        <div class="sidebar-story"><a href="articles/shopping-district.html"><span class="sidebar-tag">City Planning</span><h5>Skyline Could Become TCN's Main Shopping District</h5><p>Major stores planned for the street may make it the city's first true shopping district.</p></a></div>
+        <div class="sidebar-story"><a href="articles/piglin-plaza.html"><span class="sidebar-tag">Nether</span><h5>Piglin Plaza Set to Begin Construction Soon</h5><p>The Nether city moves forward as a major travel hub.</p></a></div>
+        <div class="sidebar-story"><a href="articles/nether-monorail.html"><span class="sidebar-tag">Transportation</span><h5>Nether Monorail Enters Beta Phase</h5><p>Three stations built toward a full Nether transit system.</p></a></div>
+        <div class="sidebar-story"><a href="articles/minigame-expansion.html"><span class="sidebar-tag">MiniGame Land</span><h5>Expansion Project Begins July 1</h5><p>TNT Run, Mini Golf, Xscape, Murder Mystery and more.</p></a></div>
+        <div class="sidebar-story"><a href="articles/dynamic-weather.html"><span class="sidebar-tag">Weather</span><h5>Dynamic Weather Arrives</h5><p>Rain, storms, and changing skies now affect daily life.</p></a></div>
       </div>
     </div>
   </div>
 
   <div class="columns-grid">
-    <div class="col-article"><a href="articles/nightlife.html"><div class="section-label">Entertainment</div><h4>Drive-In Opens New Nightlife Era</h4><p>For the first time, TCN nightlife extends beyond MiniGame Land. Spend the day at the arcade, then end the night at the movies.</p></a></div>
-    <div class="col-article"><a href="articles/gxy-logistics.html"><div class="section-label">GXY Logistics</div><h4>New Businesses Will Need Mail Service</h4><p>As Skyline Street takes shape, GXY Logistics is preparing for a major increase in deliveries and new TCN addresses.</p></a></div>
-    <div class="col-article"><a href="articles/coming-soon.html"><div class="section-label">Coming Soon</div><h4>Possible Future City Additions</h4><p>Rumors swirl of a public park, gas station, bus stops, and a street market to fill out the growing city.</p></a></div>
+    <div class="col-article"><a href="articles/space-program.html"><div class="section-label">Space Program</div><h4>Upcoming Missions Already Planned</h4><p>After the first Moon landing, officials eye new planets, space stations, and off-world bases. Where do we go next?</p></a></div>
+    <div class="col-article"><a href="articles/gxy-logistics-factory.html"><div class="section-label">GXY Logistics</div><h4>Second Factory Coming to TCN</h4><p>A new factory in The City North will support deliveries, Nether supplies, and Moon mission cargo.</p></a></div>
+    <div class="col-article"><a href="articles/piglin-economy.html"><div class="section-label">Business &amp; Industry</div><h4>Piglin Plaza Could Become Nether’s Main Economy</h4><p>Shops and factories may make Piglin Plaza the Nether’s version of Skyline Street.</p></a></div>
   </div>
 
-  <div class="classifieds-block">
-    <h3>Classifieds — Now Hiring</h3>
-    <p style="text-align:center;font-family:'Segoe UI',sans-serif;font-size:.82rem;color:#666;margin-bottom:1rem;">Future Skyline Street businesses are looking for workers</p>
-    <div class="classifieds-grid">
-      <div class="classified-item"><strong>Apple Store</strong>Store Employee wanted</div>
-      <div class="classified-item"><strong>Adidas</strong>Cashier wanted</div>
-      <div class="classified-item"><strong>Applebee's</strong>Server wanted</div>
-      <div class="classified-item"><strong>Baskin Robbins</strong>Ice cream worker</div>
-      <div class="classified-item"><strong>Blockbuster</strong>Clerk wanted</div>
-      <div class="classified-item"><strong>Dollar Tree</strong>Stocker wanted</div>
-      <div class="classified-item"><strong>City Drive-In</strong>Ticket worker</div>
-      <div class="classified-item"><strong>GXY Newspaper</strong>Delivery driver</div>
-    </div>
-    <p style="text-align:center;font-family:'Segoe UI',sans-serif;font-size:.78rem;color:#999;margin-top:1rem;"><a href="articles/classifieds.html" style="color:#c41a1a;">View all classifieds →</a></p>
+  <div class="archive-cta">
+    <div><h3>Missed an edition?</h3><p>Read past front pages and every article in the GXY Newspaper archive.</p></div>
+    <a href="archive.html">Browse the Archive →</a>
+  </div>
+
+  <div class="columns-grid">
+    <div class="col-article"><a href="articles/new-era.html"><div class="section-label">World Planning</div><h4>A New Era of Expansion Begins</h4><p>Space, Nether, transit, logistics, games, and weather — the world expands in every direction at once.</p></a></div>
+    <div class="col-article"><a href="articles/rumor-board.html"><div class="section-label">Rumor Board</div><h4>What Could Come Next?</h4><p>Moon Base Alpha, planetary mail routes, a Nether tourism office, and more unconfirmed rumors.</p></a></div>
+    <div class="col-article"><a href="articles/classifieds-0622.html"><div class="section-label">Classifieds</div><h4>Now Hiring</h4><p>Astronauts, Moon base builders, Piglin Plaza contractors, monorail technicians, and weather reporters.</p></a></div>
   </div>
 
   <div style="background:#fff8e1;border:2px solid #c41a1a;border-radius:4px;padding:1.25rem;text-align:center;">
-    <div class="section-label" style="text-align:center;">⚠ Public Notice</div>
-    <h4 style="font-size:1.2rem;font-weight:900;margin-bottom:.4rem;">Construction Zone Warning</h4>
-    <p style="font-size:.88rem;color:#444;">Skyline Street is now an active construction zone. Residents are advised to avoid unfinished sidewalks, open lots, and work areas until construction is complete. <a href="articles/construction-notice.html" style="color:#c41a1a;font-family:'Segoe UI',sans-serif;font-weight:600;">Read notice →</a></p>
+    <div class="section-label" style="text-align:center;">Public Notice</div>
+    <h4 style="font-size:1.2rem;font-weight:900;margin-bottom:.4rem;">Travel and Construction Advisory</h4>
+    <p style="font-size:.88rem;color:#444;">Multiple active construction and testing zones are open across the world — use caution around monorail tracks, Piglin Plaza sites, factory grounds, and rocket launch sites. <a href="articles/travel-advisory.html" style="color:#c41a1a;font-family:'Segoe UI',sans-serif;font-weight:600;">Read notice →</a></p>
+  </div>
   </div>
 </div>
-<footer>© GXY Newspaper · The Official Paper of TCN · A <span>Biking People World</span> Publication</footer>
+<footer>© GXY Newspaper · The Official Paper of the World · A <span>Biking People World</span> Publication</footer>
+
+<script>
+const ARTICLES = [{"t": "One Small Step for Man. One Giant Leap for Mankind.", "u": "articles/moon-landing.html", "s": "Space Program", "e": "June 22, 2026", "d": "A player has stepped foot on the Moon for the first time ever, beginning the space age.", "k": "moon landing space astronaut rocket lunar earth planet mission"}, {"t": "Piglin Plaza Set to Begin Construction Soon", "u": "articles/piglin-plaza.html", "s": "Nether Development", "e": "June 22, 2026", "d": "The long-debated Nether city moves forward as Piglin Plaza, a major travel hub.", "k": "piglin plaza nether city construction shops monorail hub travel"}, {"t": "Nether Monorail Enters Beta Phase", "u": "articles/nether-monorail.html", "s": "Transportation", "e": "June 22, 2026", "d": "Three stations built as the world moves toward a full Nether transit system.", "k": "nether monorail transit train basalt warped forest wastelands station beta transport"}, {"t": "Second Factory Coming to TCN", "u": "articles/gxy-logistics-factory.html", "s": "GXY Logistics", "e": "June 22, 2026", "d": "GXY Logistics announces a new factory in The City North to support the delivery network.", "k": "gxy logistics factory tcn city north package newspaper restock delivery postal"}, {"t": "MiniGame Land Expansion Begins July 1", "u": "articles/minigame-expansion.html", "s": "MiniGame Land", "e": "June 22, 2026", "d": "New games and attractions coming: TNT Run Deluxe, Mini Golf, Xscape, Murder Mystery.", "k": "minigame land expansion tnt run mini golf xscape escape room murder mystery games arcade tickets"}, {"t": "Dynamic Weather Arrives", "u": "articles/dynamic-weather.html", "s": "Weather Update", "e": "June 22, 2026", "d": "Rain, storms, and changing skies now affect daily life across the world.", "k": "weather dynamic rain storm clear sky forecast travel outdoor"}, {"t": "Upcoming Missions Already Planned", "u": "articles/space-program.html", "s": "Space Program", "e": "June 22, 2026", "d": "After the first Moon landing, the space program looks ahead to planets and stations.", "k": "space program mission moon planet station off-world base material exploration future"}, {"t": "Piglin Plaza Could Become the Nether's Main Economy", "u": "articles/piglin-economy.html", "s": "Business and Industry", "e": "June 22, 2026", "d": "Shops and factories may become a major part of Nether life.", "k": "piglin plaza economy nether business gold potion brick basalt warped lava ancient debris trading shops"}, {"t": "A New Era of Expansion Begins", "u": "articles/new-era.html", "s": "World Planning", "e": "June 22, 2026", "d": "The world expands in multiple directions: space, Nether, transit, logistics, games, weather.", "k": "new era expansion world planning space nether monorail factory minigame weather development"}, {"t": "Travel and Construction Advisory", "u": "articles/travel-advisory.html", "s": "Public Notice", "e": "June 22, 2026", "d": "Multiple active construction and testing zones across the world.", "k": "travel construction advisory notice caution monorail piglin factory rocket weather zones safety"}, {"t": "What Could Come Next?", "u": "articles/rumor-board.html", "s": "Rumor Board", "e": "June 22, 2026", "d": "Rumors of Moon Base Alpha, grand openings, and planetary mail routes.", "k": "rumor board moon base alpha piglin grand opening monorail ticket economy weather forecast space cargo planetary mail tourism"}, {"t": "Now Hiring (June 22)", "u": "articles/classifieds-0622.html", "s": "Classifieds", "e": "June 22, 2026", "d": "Jobs across space, the Nether, logistics, and MiniGame Land.", "k": "hiring jobs classifieds astronaut moon base builder piglin contractor monorail technician factory worker minigame builder weather reporter"}, {"t": "City Drive-In Movie Theater Now Open", "u": "articles/drive-in-open.html", "s": "Front Page", "e": "June 16, 2026", "d": "New nighttime attraction brings movies and entertainment to TCN.", "k": "drive-in movie theater open michael oppenheimer cinema nightlife concession tcn"}, {"t": "Skyline Street Construction Begins", "u": "articles/skyline-construction.html", "s": "Construction News", "e": "June 16, 2026", "d": "A new commercial street planned as a major shopping area.", "k": "skyline street construction apple adidas applebees baskin robbins blockbuster dollar tree shopping"}, {"t": "Blockbuster Returns to the City", "u": "articles/blockbuster.html", "s": "Business Spotlight", "e": "June 16, 2026", "d": "The nostalgic rental store could partner with the Drive-In.", "k": "blockbuster rental movies games retro skyline street nostalgia store"}, {"t": "New Biking People World Website Launches", "u": "articles/website-launch.html", "s": "Technology", "e": "June 16, 2026", "d": "An online hub for members at gxyhockey.com.", "k": "website launch gxyhockey.com online hub members technology archive directory"}, {"t": "Skyline Could Become TCN's Main Shopping District", "u": "articles/shopping-district.html", "s": "City Planning", "e": "June 16, 2026", "d": "Major stores may make Skyline the city's first shopping district.", "k": "skyline shopping district city planning sidewalks streetlights parking mailboxes stores"}, {"t": "Drive-In Opens New Nightlife Era", "u": "articles/nightlife.html", "s": "Entertainment", "e": "June 16, 2026", "d": "TCN gains a second major attraction beyond MiniGame Land.", "k": "drive-in nightlife entertainment michael oppenheimer arcade evening movies"}, {"t": "New Businesses Will Need Mail Service", "u": "articles/gxy-logistics.html", "s": "GXY Logistics", "e": "June 16, 2026", "d": "GXY Logistics prepares for more deliveries with new TCN addresses.", "k": "gxy logistics mail service delivery package address tcn skyline restock"}, {"t": "Possible Future City Additions", "u": "articles/coming-soon.html", "s": "Coming Soon", "e": "June 16, 2026", "d": "Rumors of a park, gas station, bus stops, and a street market.", "k": "coming soon future park gas station bus stop bike rental street market bulletin board"}, {"t": "Now Hiring: Skyline Street Workers", "u": "articles/classifieds.html", "s": "Classifieds", "e": "June 16, 2026", "d": "Future businesses are looking for workers across TCN.", "k": "hiring jobs classifieds apple adidas applebees baskin robbins blockbuster dollar tree drive-in delivery"}, {"t": "Construction Zone Warning", "u": "articles/construction-notice.html", "s": "Public Notice", "e": "June 16, 2026", "d": "Skyline Street is now an active construction zone.", "k": "construction zone warning notice skyline sidewalk safety delivery delay"}];
+const input = document.getElementById('searchInput');
+const resultsEl = document.getElementById('searchResults');
+const feedEl = document.getElementById('mainFeed');
+const clearBtn = document.getElementById('searchClear');
+function escapeHtml(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function runSearch(q){
+  q = q.trim().toLowerCase();
+  if(!q){resultsEl.classList.remove('active');resultsEl.innerHTML='';feedEl.classList.remove('hidden');clearBtn.style.display='none';return;}
+  clearBtn.style.display='block';
+  feedEl.classList.add('hidden');
+  const terms = q.split(/\s+/);
+  const matches = ARTICLES.map(a=>{
+    const hay = (a.t+' '+a.s+' '+a.d+' '+a.k+' '+a.e).toLowerCase();
+    let score = 0;
+    for(const t of terms){ if(hay.includes(t)) score++; if(a.d.toLowerCase().includes(t)) score+=2; if(a.s.toLowerCase().includes(t)) score+=2; if(a.t.toLowerCase().includes(t)) score+=5; }
+    return {a,score};
+  }).filter(m=>m.score>0).sort((x,y)=>y.score-x.score);
+  resultsEl.classList.add('active');
+  if(matches.length===0){resultsEl.innerHTML='<div class="no-results">No articles found for \''+escapeHtml(q)+'\'. Try a different word.</div>';return;}
+  let html='<div class="search-count">'+matches.length+' article'+(matches.length>1?'s':'')+' found</div>';
+  for(const m of matches){const a=m.a;html+='<a class="result-item" href="'+a.u+'"><div class="result-section">'+escapeHtml(a.s)+'</div><div class="result-title">'+escapeHtml(a.t)+'</div><div class="result-desc">'+escapeHtml(a.d)+'</div><div class="result-date">'+escapeHtml(a.e)+'</div></a>';}
+  resultsEl.innerHTML=html;
+}
+input.addEventListener('input',e=>runSearch(e.target.value));
+clearBtn.addEventListener('click',()=>{input.value='';runSearch('');input.focus();});
+</script>
 </body>
 </html>
