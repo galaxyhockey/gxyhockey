@@ -64,7 +64,7 @@ footer span{color:#c41a1a;}
 </style>
 </head>
 <body>
-<script>if(!sessionStorage.getItem('bpw_auth')){window.location.href='../../index.html';}</script>
+<script>if(!sessionStorage.getItem('bpw_auth')){window.location.href='../../login.html';}</script>
 <header>
   <div class="top-bar">
     <span>Biking People World · Official Press</span>
@@ -182,5 +182,7 @@ fetch('forecast.json', {cache:"no-store"})
   .then(d=>render(d, true))
   .catch(()=>render(FALLBACK, false));
 </script>
+<script src="../../assets/breaking.js" data-root="../../"></script>
+<script type="module" src="../../assets/authguard.js" data-root="../../"></script>
 </body>
 </html>
