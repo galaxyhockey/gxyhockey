@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Biking People World — Sign In</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{min-height:100vh;background:#0a0f1e;display:flex;align-items:center;justify-content:center;font-family:'Segoe UI',system-ui,sans-serif;padding:1rem;}
+.stars{position:fixed;inset:0;overflow:hidden;z-index:0;}
+.star{position:absolute;width:2px;height:2px;background:#fff;border-radius:50%;opacity:.4;animation:twinkle 3s infinite alternate;}
+@keyframes twinkle{from{opacity:.2;}to{opacity:.8;}}
+.card{position:relative;z-index:1;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:2.25rem 2rem;width:380px;max-width:100%;text-align:center;backdrop-filter:blur(10px);}
+.lock{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;background:rgba(59,130,246,0.15);border-radius:12px;margin-bottom:1rem;}
+.lock svg{width:24px;height:24px;stroke:#60a5fa;fill:none;stroke-width:2;}
+h1{color:#fff;font-size:1.4rem;font-weight:600;margin-bottom:.25rem;}
+.subtitle{color:rgba(255,255,255,0.5);font-size:.85rem;margin-bottom:1.5rem;}
+.tabs{display:flex;gap:.5rem;margin-bottom:1.25rem;background:rgba(255,255,255,0.05);border-radius:8px;padding:.25rem;}
+.tab{flex:1;padding:.5rem;border:none;background:none;color:rgba(255,255,255,0.5);font-size:.88rem;font-weight:600;cursor:pointer;border-radius:6px;transition:all .2s;}
+.tab.active{background:rgba(59,130,246,0.25);color:#fff;}
+label{display:block;text-align:left;color:rgba(255,255,255,0.6);font-size:.78rem;margin-bottom:.35rem;letter-spacing:.03em;margin-top:.85rem;}
+input{width:100%;padding:.6rem .9rem;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:8px;color:#fff;font-size:.95rem;outline:none;transition:border .2s;}
+input:focus{border-color:rgba(96,165,250,0.6);}
+input::placeholder{color:rgba(255,255,255,0.25);}
+.btn{width:100%;margin-top:1.25rem;padding:.7rem;background:linear-gradient(135deg,#3b82f6,#2563eb);border:none;border-radius:8px;color:#fff;font-size:.95rem;font-weight:600;cursor:pointer;transition:opacity .2s;}
+.btn:hover{opacity:.88;}
+.btn:disabled{opacity:.5;cursor:not-allowed;}
+.divider-or{display:flex;align-items:center;gap:.75rem;margin:1.1rem 0;color:rgba(255,255,255,0.3);font-size:.75rem;}
+.divider-or::before,.divider-or::after{content:'';flex:1;height:1px;background:rgba(255,255,255,0.12);}
+.btn-google{width:100%;padding:.65rem;background:#fff;border:none;border-radius:8px;color:#1a1a1a;font-size:.9rem;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:.6rem;transition:opacity .2s;}
+.btn-google:hover{opacity:.9;}
+.btn-google svg{width:18px;height:18px;}
+.msg{margin-top:.9rem;font-size:.82rem;min-height:1.1rem;}
+.msg.error{color:#f87171;}
+.msg.info{color:#93c5fd;}
+.hint{color:rgba(255,255,255,0.35);font-size:.72rem;margin-top:1rem;line-height:1.5;}
+.gate-note{background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.25);border-radius:8px;padding:.6rem .75rem;font-size:.75rem;color:#fcd34d;margin-top:.85rem;text-align:left;line-height:1.5;}
+</style>
+</head>
+<body>
+<div class="stars" id="stars"></div>
+<div class="card">
+  <div class="lock">
+    <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+  </div>
+  <h1>Biking People World</h1>
+  <p class="subtitle">Members portal — sign in to enter</p>
+
+  <div class="tabs">
+    <button class="tab active" id="tabSignin" onclick="switchTab('signin')">Sign In</button>
+    <button class="tab" id="tabSignup" onclick="switchTab('signup')">Sign Up</button>
+  </div>
+
+  <!-- SIGN IN -->
+  <div id="signinForm">
+    <label for="siEmail">Email</label>
+    <input type="email" id="siEmail" placeholder="you@example.com" autocomplete="email">
+    <label for="siPass">Password</label>
+    <input type="password" id="siPass" placeholder="Your password" autocomplete="current-password">
+    <button class="btn" id="siBtn" onclick="doSignin()">Sign In</button>
+    <div class="divider-or">or</div>
+    <button class="btn-google" onclick="doGoogle('signin')">
+      <svg viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.4 29.3 35 24 35c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.5 5.1 29.5 3 24 3 12.4 3 3 12.4 3 24s9.4 21 21 21 21-9.4 21-21c0-1.2-.1-2.3-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 16 19 13 24 13c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.5 5.1 29.5 3 24 3 16 3 9.1 7.6 6.3 14.7z"/><path fill="#4CAF50" d="M24 45c5.2 0 9.9-2 13.5-5.2l-6.2-5.3C29.2 35.9 26.7 37 24 37c-5.3 0-9.7-2.6-11.3-6.9l-6.5 5C9.5 41.6 16.2 45 24 45z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.1-4 5.5l6.2 5.3C39.9 39 44 32.5 44 24c0-1.2-.1-2.3-.4-3.5z"/></svg>
+      Sign in with Google
+    </button>
+  </div>
+
+  <!-- SIGN UP -->
+  <div id="signupForm" style="display:none;">
+    <label for="suGate">Invite Code</label>
+    <input type="password" id="suGate" placeholder="World invite code" autocomplete="off">
+    <label for="suEmail">Email</label>
+    <input type="email" id="suEmail" placeholder="you@example.com" autocomplete="email">
+    <label for="suPass">Create Password</label>
+    <input type="password" id="suPass" placeholder="At least 6 characters" autocomplete="new-password">
+    <button class="btn" id="suBtn" onclick="doSignup()">Create Account</button>
+    <div class="divider-or">or</div>
+    <button class="btn-google" onclick="doGoogle('signup')">
+      <svg viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.4 29.3 35 24 35c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.5 5.1 29.5 3 24 3 12.4 3 3 12.4 3 24s9.4 21 21 21 21-9.4 21-21c0-1.2-.1-2.3-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 16 19 13 24 13c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.5 5.1 29.5 3 24 3 16 3 9.1 7.6 6.3 14.7z"/><path fill="#4CAF50" d="M24 45c5.2 0 9.9-2 13.5-5.2l-6.2-5.3C29.2 35.9 26.7 37 24 37c-5.3 0-9.7-2.6-11.3-6.9l-6.5 5C9.5 41.6 16.2 45 24 45z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.1-4 5.5l6.2 5.3C39.9 39 44 32.5 44 24c0-1.2-.1-2.3-.4-3.5z"/></svg>
+      Sign up with Google
+    </button>
+    <div class="gate-note">🔒 You need the world invite code to sign up. Ask GalaxyHockey if you don't have it.</div>
+  </div>
+
+  <p class="msg" id="msg"></p>
+  <p class="hint">Your account is secured by Firebase. Sign in once and you'll stay logged in on this device.</p>
+</div>
+
+<!-- Firebase SDK -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {
+  getAuth, setPersistence, browserLocalPersistence,
+  createUserWithEmailAndPassword, signInWithEmailAndPassword,
+  GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut, deleteUser
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCN4mEtGMjSxdgsTlthhzX6FXIjxltJKHQ",
+  authDomain: "gxyhockey.firebaseapp.com",
+  projectId: "gxyhockey",
+  storageBucket: "gxyhockey.firebasestorage.app",
+  messagingSenderId: "474584991663",
+  appId: "1:474584991663:web:b8986544418d6b85fa115a",
+  measurementId: "G-1S6M1F62RE"
+};
+
+// The world invite code required to sign up.
+const INVITE_CODE = "13h86m83RKP9$";
+// Where to send people after a successful login:
+const AFTER_LOGIN = "main/index.html";
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+setPersistence(auth, browserLocalPersistence);
+
+const msg = document.getElementById('msg');
+function showMsg(text, type){ msg.textContent = text; msg.className = 'msg ' + (type||'error'); }
+function clearMsg(){ msg.textContent=''; msg.className='msg'; }
+
+// If already signed in, go straight in
+onAuthStateChanged(auth, (user)=>{
+  if(user){
+    sessionStorage.setItem('bpw_auth','1'); // keep old gate working on existing pages
+    // only auto-redirect if we're on the login page (not mid-action)
+    if(!window.__bpwBusy){ window.location.href = AFTER_LOGIN; }
+  }
+});
+
+function niceError(e){
+  const c = (e && e.code) || '';
+  if(c.includes('email-already-in-use')) return 'That email already has an account. Try signing in.';
+  if(c.includes('invalid-email')) return 'That email address looks invalid.';
+  if(c.includes('weak-password')) return 'Password must be at least 6 characters.';
+  if(c.includes('wrong-password')||c.includes('invalid-credential')) return 'Wrong email or password.';
+  if(c.includes('user-not-found')) return 'No account with that email. Sign up first.';
+  if(c.includes('too-many-requests')) return 'Too many attempts. Wait a moment and try again.';
+  if(c.includes('popup-closed')) return 'Google sign-in was cancelled.';
+  return (e && e.message) || 'Something went wrong.';
+}
+
+window.switchTab = function(which){
+  clearMsg();
+  const inSel = which==='signin';
+  document.getElementById('signinForm').style.display = inSel ? 'block':'none';
+  document.getElementById('signupForm').style.display = inSel ? 'none':'block';
+  document.getElementById('tabSignin').classList.toggle('active', inSel);
+  document.getElementById('tabSignup').classList.toggle('active', !inSel);
+};
+
+window.doSignin = async function(){
+  clearMsg();
+  const email = document.getElementById('siEmail').value.trim();
+  const pass = document.getElementById('siPass').value;
+  if(!email||!pass){ showMsg('Enter your email and password.'); return; }
+  window.__bpwBusy = true;
+  try{
+    await signInWithEmailAndPassword(auth, email, pass);
+    sessionStorage.setItem('bpw_auth','1');
+    window.location.href = AFTER_LOGIN;
+  }catch(e){ window.__bpwBusy=false; showMsg(niceError(e)); }
+};
+
+window.doSignup = async function(){
+  clearMsg();
+  const gate = document.getElementById('suGate').value;
+  const email = document.getElementById('suEmail').value.trim();
+  const pass = document.getElementById('suPass').value;
+  if(gate !== INVITE_CODE){ showMsg('Incorrect invite code.'); return; }
+  if(!email||!pass){ showMsg('Enter an email and password.'); return; }
+  window.__bpwBusy = true;
+  try{
+    await createUserWithEmailAndPassword(auth, email, pass);
+    sessionStorage.setItem('bpw_auth','1');
+    window.location.href = AFTER_LOGIN;
+  }catch(e){ window.__bpwBusy=false; showMsg(niceError(e)); }
+};
+
+window.doGoogle = async function(mode){
+  clearMsg();
+  // For signup via Google, require the invite code first.
+  if(mode==='signup'){
+    const gate = document.getElementById('suGate').value;
+    if(gate !== INVITE_CODE){ showMsg('Enter the invite code first, then sign up with Google.'); return; }
+  }
+  window.__bpwBusy = true;
+  const provider = new GoogleAuthProvider();
+  try{
+    const result = await signInWithPopup(auth, provider);
+    const isNew = result._tokenResponse && result._tokenResponse.isNewUser;
+    // If a brand-new Google account was created via the Sign-IN tab (no invite code), block it.
+    if(isNew && mode==='signin'){
+      const gate = prompt('New here! Enter the world invite code to create your account:');
+      if(gate !== INVITE_CODE){
+        await deleteUser(result.user).catch(()=>{});
+        window.__bpwBusy=false;
+        showMsg('Invite code required to create an account.');
+        return;
+      }
+    }
+    sessionStorage.setItem('bpw_auth','1');
+    window.location.href = AFTER_LOGIN;
+  }catch(e){ window.__bpwBusy=false; showMsg(niceError(e)); }
+};
+
+// allow Enter key
+document.getElementById('siPass').addEventListener('keydown',e=>{if(e.key==='Enter')window.doSignin();});
+document.getElementById('suPass').addEventListener('keydown',e=>{if(e.key==='Enter')window.doSignup();});
+</script>
+<script>
+(function(){const c=document.getElementById('stars');for(let i=0;i<80;i++){const s=document.createElement('div');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=Math.random()*3+'s';s.style.animationDuration=(2+Math.random()*3)+'s';c.appendChild(s);}})();
+</script>
+</body>
+</html>
