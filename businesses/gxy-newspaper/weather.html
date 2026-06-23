@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GXY Weather \u00b7 GXY Newspaper</title>
+<title>GXY Weather · GXY Newspaper</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:Georgia,'Times New Roman',serif;background:#fafaf7;color:#1a1a1a;}
@@ -67,8 +67,8 @@ footer span{color:#c41a1a;}
 <script>if(!sessionStorage.getItem('bpw_auth')){window.location.href='../../index.html';}</script>
 <header>
   <div class="top-bar">
-    <span>Biking People World \u00b7 Official Press</span>
-    <span>GXY Weather \u00b7 Powered by Seasonal Forecast</span>
+    <span>Biking People World · Official Press</span>
+    <span>GXY Weather · Powered by Seasonal Forecast</span>
     <span>Published by GalaxyHockey</span>
   </div>
   <div class="masthead">
@@ -76,19 +76,19 @@ footer span{color:#c41a1a;}
   </div>
 </header>
 <nav>
-  <a href="../../main/index.html" class="home">\u2190 World Home</a>
+  <a href="../../main/index.html" class="home">← World Home</a>
   <a href="index.html">Front Page</a>
   <a href="archive.html">Archive</a>
   <a href="weather.html" class="active">GXY Weather</a>
 </nav>
 <div class="container">
-  <a class="back-link" href="index.html">\u2190 Back to Front Page</a>
+  <a class="back-link" href="index.html">← Back to Front Page</a>
   <div class="page-head">
-    <h2>\u26c5 GXY Weather</h2>
+    <h2>⛅ GXY Weather</h2>
     <p>Live seasonal forecast straight from Biking People World, powered by the Seasonal Forecast mod</p>
   </div>
 
-  <div class="status-line" id="statusLine"><span class="status-dot dot-off"></span>Loading forecast\u2026</div>
+  <div class="status-line" id="statusLine"><span class="status-dot dot-off"></span>Loading forecast…</div>
 
   <div id="weatherContent"></div>
 
@@ -98,17 +98,17 @@ footer span{color:#c41a1a;}
   </div>
 
   <div class="mod-box">
-    <h4>\ud83c\udf26\ufe0f Powered by Seasonal Forecast</h4>
-    <p>This forecast is generated in-game by the Seasonal Forecast mod (NeoForge 1.21.1). It reads the season from Serene Seasons, calculates per-biome temperatures, and predicts upcoming Clear, Rain, and Snow days \u2014 the same forecast players see on their in-game HUD with the <b>/forecast</b> command.</p>
+    <h4>🌦️ Powered by Seasonal Forecast</h4>
+    <p>This forecast is generated in-game by the Seasonal Forecast mod (NeoForge 1.21.1). It reads the season from Serene Seasons, calculates per-biome temperatures, and predicts upcoming Clear, Rain, and Snow days — the same forecast players see on their in-game HUD with the <b>/forecast</b> command.</p>
     <a class="mod-dl" href="mod/seasonalforecast-0.4.jar" download>Download the mod (.jar)</a>
   </div>
 </div>
-<footer>\u00a9 GXY Newspaper \u00b7 The Official Paper of the World \u00b7 A <span>Biking People World</span> Publication</footer>
+<footer>© GXY Newspaper · The Official Paper of the World · A <span>Biking People World</span> Publication</footer>
 
 <script>
 // Icon + helper maps
-const ICONS = { "Clear":"\u2600\ufe0f", "Rain":"\ud83c\udf27\ufe0f", "Snow":"\u2744\ufe0f" };
-function icon(c){ return ICONS[c] || "\u26c5"; }
+const ICONS = { "Clear":"☀️", "Rain":"🌧️", "Snow":"❄️" };
+function icon(c){ return ICONS[c] || "⛅"; }
 
 // Fallback data shown if forecast.json can't be loaded (matches mod's JSON shape)
 const FALLBACK = {
@@ -137,14 +137,14 @@ function timeAgo(iso){
 
 function render(data, live){
   const t = data.today || {};
-  const unit = (t.tempUnit==="F")?"\u00b0F":(t.tempUnit==="C")?"\u00b0C":"\u00b0";
+  const unit = (t.tempUnit==="F")?"°F":(t.tempUnit==="C")?"°C":"°";
   let html = '';
   html += '<div class="today-card">';
   html += '  <div class="today-icon">'+icon(t.condition)+'</div>';
   html += '  <div class="today-info">';
   html += '    <div class="label">Today in Biking People World</div>';
   html += '    <div class="today-temp">'+(t.temp!==undefined?t.temp:"--")+unit+'</div>';
-  html += '    <div class="today-cond">'+(t.condition||"\u2014")+'</div>';
+  html += '    <div class="today-cond">'+(t.condition||"—")+'</div>';
   html += '    <div class="today-meta">';
   if(data.season) html += '<span>Season: <b>'+data.season+'</b></span>';
   if(data.mcDay!==undefined) html += '<span>Day <b>'+data.mcDay+'</b></span>';
@@ -161,7 +161,7 @@ function render(data, live){
       html += '<div class="d">Day +'+d.day+'</div>';
       html += '<div class="ico">'+icon(d.condition)+'</div>';
       html += '<div class="t">'+(d.temp!==undefined?d.temp:"--")+(unit)+'</div>';
-      html += '<div class="c">'+(d.condition||"\u2014")+'</div>';
+      html += '<div class="c">'+(d.condition||"—")+'</div>';
       html += '</div>';
     }
     html += '</div></div>';
@@ -171,9 +171,9 @@ function render(data, live){
   // status line
   const sl = document.getElementById('statusLine');
   if(live){
-    sl.innerHTML = '<span class="status-dot dot-live"></span>Live forecast \u00b7 updated '+timeAgo(data.updated);
+    sl.innerHTML = '<span class="status-dot dot-live"></span>Live forecast · updated '+timeAgo(data.updated);
   } else {
-    sl.innerHTML = '<span class="status-dot dot-off"></span>Showing placeholder \u2014 live forecast not connected yet';
+    sl.innerHTML = '<span class="status-dot dot-off"></span>Showing placeholder — live forecast not connected yet';
   }
 }
 
