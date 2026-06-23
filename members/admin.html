@@ -121,32 +121,72 @@ textarea{min-height:120px;resize:vertical;line-height:1.5;}
 </script>
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { getAuth, onAuthStateChanged, setPersistence, browserLocalPersistence } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 const cfg={apiKey:"AIzaSyCN4mEtGMjSxdgsTlthhzX6FXIjxltJKHQ",authDomain:"gxyhockey.firebaseapp.com",projectId:"gxyhockey",storageBucket:"gxyhockey.firebasestorage.app",messagingSenderId:"474584991663",appId:"1:474584991663:web:b8986544418d6b85fa115a"};
 
 // ====== ADMIN + REPO SETTINGS ======
-const ADMIN_EMAILS = ["kingjack2042@gmail.com"];   // <-- put GalaxyHockey's signup email here
+const ADMIN_EMAILS = ["kingjack2042@gmail.com"];   // admin account(s)
 const REPO = "galaxyhockey/gxyhockey";        // owner/repo
 const BRANCH = "main";
 const BREAKING_PATH = "breaking.json";
 const ARTICLE_PATH  = "businesses/gxy-newspaper/articles/breaking.html";
 // ====================================
 
-const auth=getAuth(initializeApp(cfg,'admin'));
-let currentUser=null;
+const gateEl = document.getElementById('gate');
+let resolved = false;
 
-onAuthStateChanged(auth,function(u){
-  currentUser=u;
-  const isAdmin = u && ADMIN_EMAILS.map(e=>e.toLowerCase()).includes((u.email||'').toLowerCase());
-  document.getElementById('whoami').textContent = u? (u.email||'') : '';
-  if(isAdmin){
-    document.getElementById('gate').style.display='none';
-    document.getElementById('console').style.display='block';
-    loadCurrent();
-  } else if(u){
-    document.getElementById('gate').innerHTML='<div class="lock">⛔</div><h2>Not an admin</h2><p>This area is for site admins only. You\'re signed in as '+(u.email||'')+'.</p>';
-  }
-});
+// Safety timeout: if Firebase never answers, show a helpful message instead of hanging forever.
+const failTimer = setTimeout(function(){
+  if(resolved) return;
+  gateEl.innerHTML = '<div class="lock">⚠️</div><h2>Couldn\'t verify access</h2><p>The sign-in check did not complete. Try reloading this page. If it keeps happening, sign out and back in from the <a href="../login.html" style="color:#60a5fa;">login page</a>, then return here.</p>';
+}, 10000);
+
+let auth;
+try{
+  // Use the DEFAULT app instance (same one login.html / authguard.js use),
+  // so this page shares the already-signed-in session instead of starting a blank one.
+  const app = initializeApp(cfg);
+  auth = getAuth(app);
+  // Make sure we read the persisted (local) session, THEN watch auth state.
+  setPersistence(auth, browserLocalPersistence)
+    .catch(function(){})
+    .finally(startAuthWatch);
+}catch(e){
+  clearTimeout(failTimer);
+  gateEl.innerHTML = '<div class="lock">⚠️</div><h2>Firebase failed to load</h2><p>'+(e.message||e)+'</p>';
+}
+
+function startAuthWatch(){
+  if(!auth) return;
+
+  let currentUser=null;
+  onAuthStateChanged(auth,function(u){
+    resolved = true;
+    clearTimeout(failTimer);
+    currentUser=u;
+    document.getElementById('whoami').textContent = u? (u.email||'') : '';
+
+    if(!u){
+      // Not signed in — send to login, then come back here.
+      gateEl.innerHTML = '<div class="lock">🔑</div><h2>Please sign in</h2><p>Redirecting you to the login page…</p>';
+      setTimeout(function(){ window.location.href='../login.html'; }, 1200);
+      return;
+    }
+
+    const isAdmin = ADMIN_EMAILS.map(e=>e.toLowerCase()).includes((u.email||'').toLowerCase());
+    if(isAdmin){
+      gateEl.style.display='none';
+      document.getElementById('console').style.display='block';
+      loadCurrent();
+    } else {
+      gateEl.innerHTML='<div class="lock">⛔</div><h2>Not an admin</h2><p>This area is for site admins only. You\'re signed in as '+(u.email||'')+'.</p>';
+    }
+  }, function(err){
+    resolved = true;
+    clearTimeout(failTimer);
+    gateEl.innerHTML='<div class="lock">⚠️</div><h2>Auth error</h2><p>'+(err.message||err)+'</p>';
+  });
+}
 
 // token persistence (session only)
 const tokInput=document.getElementById('ghToken');
