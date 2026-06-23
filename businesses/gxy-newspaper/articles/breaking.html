@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Breaking News · GXY Newspaper</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:Georgia,'Times New Roman',serif;background:#fafaf7;color:#1a1a1a;}
+header{background:#1a1a1a;color:#fff;padding:0 2rem;}
+.top-bar{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #333;padding:.5rem 0;font-family:'Segoe UI',sans-serif;font-size:.75rem;color:#999;flex-wrap:wrap;gap:.5rem;}
+.masthead{text-align:center;padding:1rem 0;border-bottom:3px double #1a1a1a;}
+.masthead a{text-decoration:none;}
+.masthead h1{font-size:2.4rem;font-weight:900;letter-spacing:-1px;color:#fff;}
+.masthead p{font-size:.78rem;color:#999;letter-spacing:.2em;text-transform:uppercase;margin-top:.2rem;}
+nav{background:#fff;border-bottom:2px solid #1a1a1a;padding:.6rem 2rem;display:flex;gap:1.5rem;font-family:'Segoe UI',sans-serif;flex-wrap:wrap;}
+nav a{text-decoration:none;color:#1a1a1a;font-size:.82rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;}
+nav a:hover{color:#c41a1a;}
+nav a.home{color:#c41a1a;}
+.container{max-width:760px;margin:0 auto;padding:2rem;}
+.back-link{font-family:'Segoe UI',sans-serif;font-size:.83rem;color:#c41a1a;text-decoration:none;display:inline-flex;align-items:center;gap:.35rem;margin-bottom:1.5rem;}
+.back-link:hover{text-decoration:underline;}
+.article-section-tag{font-family:'Segoe UI',sans-serif;font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:#c41a1a;font-weight:700;margin-bottom:.6rem;}
+.article-headline{font-size:2.4rem;font-weight:900;line-height:1.15;margin-bottom:.75rem;}
+.article-deck{font-size:1.15rem;color:#555;font-style:italic;line-height:1.5;margin-bottom:1.25rem;padding-bottom:1.25rem;border-bottom:1px solid #ddd;}
+.article-meta{font-family:'Segoe UI',sans-serif;font-size:.78rem;color:#888;text-transform:uppercase;letter-spacing:.05em;margin-bottom:1.5rem;}
+.article-hero{height:280px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:5rem;margin-bottom:1.5rem;border:1px solid #ddd;}
+.article-body{font-size:1.05rem;line-height:1.9;color:#222;}
+.article-body p{margin-bottom:1.25rem;}
+.article-body h3{font-size:1.4rem;font-weight:900;margin:2rem 0 .75rem;border-top:2px solid #1a1a1a;padding-top:.75rem;}
+.article-body ul{margin:0 0 1.25rem 1.5rem;}
+.article-body li{font-size:1.02rem;line-height:1.8;margin-bottom:.35rem;}
+.article-body em{font-style:italic;}
+.pull-list{background:#f0efe8;border-left:4px solid #c41a1a;padding:1.25rem 1.5rem;margin:1.5rem 0;border-radius:0 4px 4px 0;}
+.pull-list h4{font-family:'Segoe UI',sans-serif;font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:#c41a1a;margin-bottom:.6rem;}
+.pull-list ul{margin:0 0 0 1.25rem;}
+.pull-list li{font-size:.95rem;margin-bottom:.3rem;}
+.related{border-top:3px double #1a1a1a;margin-top:2.5rem;padding-top:1.25rem;}
+.related h4{font-family:'Segoe UI',sans-serif;font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:#888;margin-bottom:.75rem;}
+.related-links{display:flex;flex-direction:column;gap:.6rem;}
+.related-links a{font-family:'Segoe UI',sans-serif;font-size:.9rem;color:#1a1a1a;text-decoration:none;font-weight:600;}
+.related-links a:hover{color:#c41a1a;}
+.related-links a::before{content:'→ ';color:#c41a1a;}
+.addr-table{width:100%;border-collapse:collapse;margin:1.25rem 0;font-family:'Segoe UI',sans-serif;}
+.addr-table th{background:#1a1a1a;color:#fff;font-size:.78rem;text-transform:uppercase;letter-spacing:.05em;padding:.6rem .75rem;text-align:left;}
+.addr-table td{padding:.55rem .75rem;border-bottom:1px solid #e0e0e0;font-size:.9rem;}
+.addr-table tr:nth-child(even){background:#f5f4ef;}
+.addr-code{font-weight:700;color:#c41a1a;font-family:'Segoe UI',sans-serif;}
+footer{background:#1a1a1a;color:#888;text-align:center;padding:1.5rem;font-family:'Segoe UI',sans-serif;font-size:.8rem;margin-top:2rem;}
+footer span{color:#c41a1a;}
+@media(max-width:700px){.article-headline{font-size:1.8rem;}.masthead h1{font-size:1.8rem;}}
+
+.breaking-flag{display:inline-flex;align-items:center;gap:.5rem;background:#b30000;color:#fff;font-family:'Segoe UI',sans-serif;font-size:.78rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:.35rem .9rem;border-radius:5px;margin-bottom:1rem;animation:flagPulse 1.6s ease-in-out infinite;}
+.breaking-flag .d{width:9px;height:9px;border-radius:50%;background:#fff;animation:flagBlink 1s step-start infinite;}
+@keyframes flagPulse{0%,100%{background:#b30000;}50%{background:#e00000;}}
+@keyframes flagBlink{50%{opacity:.35;}}
+.breaking-updated{font-family:'Segoe UI',sans-serif;font-size:.78rem;color:#888;margin-bottom:1.5rem;}
+</style>
+</head>
+<body>
+<script>if(!sessionStorage.getItem('bpw_auth')){window.location.href='../../../index.html';}</script>
+<header>
+  <div class="top-bar">
+    <span>Biking People World · Official Press</span>
+    <span id="bEdition">Breaking News</span>
+    <span>Published by GalaxyHockey</span>
+  </div>
+  <div class="masthead">
+    <a href="../index.html"><h1>GXY Newspaper</h1><p>The Official Paper of the World</p></a>
+  </div>
+</header>
+<nav>
+  <a href="../../../main/index.html" class="home">← World Home</a>
+  <a href="../index.html">Front Page</a>
+  <a href="../archive.html">Archive</a>
+  <a href="../weather.html">GXY Weather</a>
+</nav>
+<div class="container">
+  <a class="back-link" href="../index.html">← Back to Front Page</a>
+  <div class="breaking-flag"><span class="d"></span><span id="bLabel">Breaking News</span></div>
+  <h1 class="article-headline" id="bHeadline">Breaking News</h1>
+  <p class="article-deck" id="bSummary"></p>
+  <div class="breaking-updated" id="bUpdated"></div>
+
+  <!-- ===================================================================== -->
+  <!-- EDIT THE STORY BODY BELOW each time you post breaking news.            -->
+  <!-- The headline/summary/date above fill in automatically from            -->
+  <!-- breaking.json, so you only need to (1) edit breaking.json and         -->
+  <!-- (2) rewrite the paragraphs here.                                      -->
+  <!-- ===================================================================== -->
+  <div class="article-body" id="bBody">
+    <figure style="margin-bottom:1.5rem;">
+      <img src="../images/tnt-run.jpg" alt="TNT Run Deluxe arena in MiniGame Land" style="width:100%;border-radius:6px;border:1px solid #ddd;display:block;">
+      <figcaption style="font-family:'Segoe UI',sans-serif;font-size:.78rem;color:#888;text-align:center;margin-top:.5rem;font-style:italic;">The TNT Run Deluxe arena, now open in MiniGame Land. (GXY Photo)</figcaption>
+    </figure>
+    <p>In a major surprise to everyone in MiniGame Land, <strong>TNT Run Deluxe 1.0</strong> is officially open and available to the public.</p>
+    <p>The new arena opened ahead of the planned July 1 expansion project, giving players an early look at one of MiniGame Land's newest major attractions. Officials say the game is fully replayable, automated, and built to support both public matches and solo practice. TNT Run Deluxe is now expected to become one of the main competitive games in MiniGame Land.</p>
+
+    <h3>How the Game Works</h3>
+    <p>TNT Run Deluxe uses classic step-off floor decay gameplay. When a player steps on a block, the floor beneath them disappears about <strong>0.4 seconds later</strong>, forcing everyone to keep moving. The arena includes three supported floor layers:</p>
+    <div class="pull-list"><h4>Floor Layers</h4><ul><li>Layer 1 &mdash; Y -46</li><li>Layer 2 &mdash; Y -52</li><li>Layer 3 &mdash; Y -57</li></ul></div>
+    <p>Players fall through each layer until they reach the lava pit. Anyone who falls to <strong>Y -59 or below</strong> is eliminated and sent to spectator mode. The last player standing wins.</p>
+
+    <h3>Game Flow</h3>
+    <p>Every match begins with a <strong>5-second countdown</strong> before the floor goes live, with 3, 2, 1 title alerts and sound cues. The game follows a stable flow: Start, Countdown, Play, Winner or Draw Detection, then End and Reset.</p>
+    <p>The system automatically detects the winner when only one player remains. If everyone falls at once, the match ends in a draw. A built-in safety time limit, set by default to <strong>300 seconds</strong>, prevents matches from lasting forever &mdash; if reached, all remaining survivors share the win.</p>
+
+    <h3>Infinitely Replayable Floor System</h3>
+    <p>TNT Run Deluxe is not a one-and-done arena. The floor is rebuilt from scratch every time the game starts and ends, making the arena fully reusable. Stray TNT and marker entities are cleared from the play area during rebuilds to keep the game stable. A manual <strong>[Rebuild Floor]</strong> option is also available for staff or players who need to reset the arena by hand.</p>
+
+    <h3>Rewards and Stats</h3>
+    <p>Player wins are recorded on the <strong>TNTWins leaderboard</strong>, which can be shown on the sidebar. The game also tracks each player's best survival time. It's connected to the DaveNBusters arcade ticket system:</p>
+    <div class="pull-list"><h4>Ticket Rewards</h4><ul><li>Winner &mdash; 2 Tickets</li><li>Eliminated Players &mdash; 1 Ticket</li></ul></div>
+    <p>The ticket payout system is toggleable, so it can be safely turned off if the arcade ticket pack is not loaded.</p>
+
+    <h3>Player Experience</h3>
+    <p>TNT Run Deluxe is designed to feel like a polished MiniGame Land attraction, with a bossbar showing players alive, a countdown bossbar, a GO title alert, elimination messages, win and draw announcements, sound feedback, and actionbar updates. Eliminated players stay in the match as spectators, watching the rest of the round instead of being removed.</p>
+
+    <h3>Clickable Menu</h3>
+    <p>Players can open the TNT Run Deluxe menu with <strong>/function tntrun:menu</strong>. The menu includes Start, Solo Practice, Stop/Reset, Rebuild Floor, and Leaderboard. Solo Practice lets one player test the arena alone without instantly winning &mdash; useful for practice, testing, and teaching new players how the floor works.</p>
+
+    <h3>Tunable Settings</h3>
+    <p>Difficulty can be changed without editing files, using scoreboard settings:</p>
+    <div class="pull-list"><h4>Tunable Options</h4><ul><li><strong>#decay_delay</strong> &mdash; how fast blocks collapse (default 8 ticks; lower is harder)</li><li><strong>#time_limit</strong> &mdash; the safety time limit (default 300 seconds)</li><li><strong>#tickets_enabled</strong> &mdash; turns DaveNBusters ticket payouts on or off</li></ul></div>
+
+    <h3>A Surprise Opening</h3>
+    <p>The opening of TNT Run Deluxe 1.0 came as a surprise, especially since the full MiniGame Land Expansion Project isn't scheduled until July 1, 2026. Many visitors expected it to arrive later alongside attractions like Mini Golf, Xscape Escape Rooms, and Murder Mystery. Instead, players can jump into the arena today. Officials say the surprise release gives the district early momentum before the larger expansion begins.</p>
+
+    <p style="background:#1a1a1a;color:#fff;padding:1rem 1.25rem;border-radius:6px;font-style:italic;text-align:center;">&ldquo;Keep moving, or the floor becomes history.&rdquo;</p>
+
+    <p><a href="../../dave-n-busters/games.html#tnt-run" style="color:#c41a1a;font-weight:600;">See TNT Run Deluxe on the MiniGame Land games guide &rarr;</a></p>
+  </div>
+
+  
+
+  <div class="related">
+    <h4>More From This Edition</h4>
+    <div class="related-links">
+      <a href="minigame-expansion.html">MiniGame Land Expansion Begins July 1</a>
+      <a href="../../dave-n-busters/games.html">MiniGame Land Games Guide</a>
+      <a href="new-era.html">A New Era of Expansion Begins</a>
+    </div>
+  </div>
+</div>
+<footer>© GXY Newspaper · The Official Paper of the World · A <span>Biking People World</span> Publication</footer>
+
+<script>
+// Auto-fill headline/summary/date from the shared breaking.json
+fetch('../../../breaking.json',{cache:'no-store'})
+  .then(function(r){ return r.ok ? r.json() : null; })
+  .then(function(d){
+    if(!d) return;
+    if(d.label){ document.getElementById('bLabel').textContent = d.label; }
+    if(d.headline){ document.getElementById('bHeadline').textContent = d.headline; document.title = d.headline + ' \u00b7 GXY Newspaper'; }
+    if(d.summary){ document.getElementById('bSummary').textContent = d.summary; }
+    if(d.updated){
+      var dt = new Date(d.updated);
+      if(!isNaN(dt)){ document.getElementById('bUpdated').textContent = 'Posted ' + dt.toLocaleString(); }
+    }
+  })
+  .catch(function(){});
+</script>
+<script src="../../../assets/breaking.js" data-root="../../../"></script>
+</body>
+</html>
