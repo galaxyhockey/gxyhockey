@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Console · Biking People World</title>
+<style>
+
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#070b16;color:#e6edf6;min-height:100vh;}
+.bg-stars{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;}
+.bg-stars i{position:absolute;width:2px;height:2px;background:#fff;border-radius:50%;opacity:.35;animation:tw 4s infinite alternate;}
+@keyframes tw{from{opacity:.15;}to{opacity:.7;}}
+nav.top{position:relative;z-index:2;display:flex;align-items:center;gap:1.25rem;padding:1rem 1.5rem;background:rgba(10,16,30,.8);border-bottom:1px solid #16223c;backdrop-filter:blur(8px);flex-wrap:wrap;}
+nav.top .brand{font-weight:800;font-size:1.05rem;color:#fff;text-decoration:none;}
+nav.top .brand span{color:#3b82f6;}
+nav.top a.link{color:#9fb3cd;text-decoration:none;font-size:.85rem;}
+nav.top a.link:hover{color:#fff;}
+nav.top .spacer{margin-left:auto;}
+nav.top button.out{background:none;border:1px solid #24314f;color:#9fb3cd;padding:.35rem .8rem;border-radius:6px;font-size:.82rem;cursor:pointer;}
+nav.top button.out:hover{border-color:#3b82f6;color:#fff;}
+.wrap{position:relative;z-index:1;max-width:760px;margin:0 auto;padding:2.5rem 1.5rem;}
+.eyebrow{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#3b82f6;font-weight:700;margin-bottom:.6rem;}
+h1.page{font-size:2.2rem;font-weight:800;letter-spacing:-.5px;margin-bottom:.5rem;line-height:1.1;}
+p.lead{color:#9fb3cd;font-size:1rem;max-width:620px;line-height:1.6;margin-bottom:2rem;}
+.back{display:inline-block;color:#3b82f6;text-decoration:none;font-size:.85rem;margin-bottom:1.25rem;}
+.back:hover{text-decoration:underline;}
+
+
+#gate{text-align:center;padding:4rem 1rem;}
+#gate .lock{font-size:3rem;margin-bottom:1rem;}
+#gate h2{font-size:1.3rem;margin-bottom:.5rem;}
+#gate p{color:#9fb3cd;font-size:.9rem;}
+#console{display:none;}
+.panel{background:#0d1426;border:1px solid #1a2742;border-radius:14px;padding:1.5rem;margin-bottom:1.5rem;}
+.panel h2{font-size:1.05rem;font-weight:700;margin-bottom:.3rem;}
+.panel .sub{color:#7e93b0;font-size:.82rem;margin-bottom:1.1rem;line-height:1.5;}
+label{display:block;font-size:.78rem;color:#9fb3cd;margin:.85rem 0 .3rem;letter-spacing:.02em;}
+input,textarea,select{width:100%;background:#0a1120;border:1px solid #24314f;border-radius:8px;color:#e6edf6;font-size:.9rem;padding:.6rem .8rem;outline:none;font-family:inherit;}
+input:focus,textarea:focus{border-color:#3b82f6;}
+textarea{min-height:120px;resize:vertical;line-height:1.5;}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;}
+@media(max-width:560px){.row2{grid-template-columns:1fr;}}
+.btn{margin-top:1.1rem;padding:.7rem 1.3rem;border:none;border-radius:8px;font-size:.9rem;font-weight:700;cursor:pointer;}
+.btn-primary{background:linear-gradient(135deg,#3b82f6,#2563eb);color:#fff;}
+.btn-danger{background:#7f1d1d;color:#fecaca;}
+.btn-primary:hover,.btn-danger:hover{opacity:.9;}
+.btn:disabled{opacity:.5;cursor:not-allowed;}
+.token-note{background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.25);border-radius:8px;padding:.7rem .85rem;font-size:.76rem;color:#fcd34d;line-height:1.55;margin-top:.6rem;}
+.out-msg{margin-top:.9rem;font-size:.85rem;min-height:1.1rem;}
+.out-msg.ok{color:#4ade80;}
+.out-msg.err{color:#f87171;}
+.out-msg.info{color:#93c5fd;}
+.preview{background:#b30000;color:#fff;border-radius:8px;padding:.6rem .9rem;margin-top:1rem;font-size:.82rem;display:none;align-items:center;gap:.6rem;}
+.preview .tag{background:#fff;color:#b30000;font-weight:800;font-size:.65rem;padding:.15rem .5rem;border-radius:4px;text-transform:uppercase;}
+.curr{font-size:.82rem;color:#9fb3cd;margin-top:.5rem;}
+.curr b{color:#e6edf6;}
+
+</style>
+</head>
+<body>
+<div class="bg-stars" id="stars"></div>
+<nav class="top">
+  <a class="brand" href="../main/index.html">🌍 Biking People <span>World</span></a>
+  <a class="link" href="index.html">Members Area</a>
+  <span class="spacer"></span>
+  <span style="font-size:.8rem;color:#7e93b0;" id="whoami"></span>
+  <button class="out" onclick="window.gxyLogout&&window.gxyLogout()">Log out</button>
+</nav>
+<div class="wrap">
+  <a class="back" href="index.html">← Members Area</a>
+
+  <div id="gate">
+    <div class="lock">🔒</div>
+    <h2>Checking access…</h2>
+    <p>Verifying your admin credentials.</p>
+  </div>
+
+  <div id="console">
+    <div class="eyebrow">Admin Console</div>
+    <h1 class="page">Manage the site</h1>
+    <p class="lead">Post breaking news straight to the website. Changes go live within a minute.</p>
+
+    <div class="panel">
+      <h2>🔑 GitHub Access</h2>
+      <div class="sub">Publishing commits files to your repo. Paste a GitHub token with Contents write access. It stays in this browser only and is never saved to the site.</div>
+      <label>GitHub Personal Access Token</label>
+      <input type="password" id="ghToken" placeholder="github_pat_… or ghp_…" autocomplete="off">
+      <label>Remember token for this session</label>
+      <select id="rememberTok"><option value="yes">Yes (cleared when I close the tab)</option><option value="no">No</option></select>
+      <div class="token-note">🔒 Use a fine-grained token scoped to only the <b>gxyhockey</b> repo with <b>Contents: Read and write</b>. If it ever leaks, the worst case is edits to this one repo.</div>
+    </div>
+
+    <div class="panel">
+      <h2>📰 Post Breaking News</h2>
+      <div class="sub">Fills the pulsing site-wide banner and updates the breaking news article.</div>
+      <label>Label</label>
+      <input type="text" id="bLabel" value="BREAKING NEWS">
+      <label>Headline</label>
+      <input type="text" id="bHeadline" placeholder="e.g. TNT Run Deluxe 1.0 Is Now Open">
+      <label>Summary (shown in the banner)</label>
+      <input type="text" id="bSummary" placeholder="One-line summary for the banner.">
+      <label>Full story (article body — basic HTML allowed)</label>
+      <textarea id="bBody" placeholder="Write the full breaking story here. Use <p>paragraphs</p> for formatting."></textarea>
+      <div class="preview" id="preview"><span class="tag" id="pvLabel">BREAKING</span><span id="pvText"></span></div>
+      <button class="btn btn-primary" id="postBtn" onclick="postBreaking()">Publish Breaking News</button>
+      <div class="out-msg" id="postMsg"></div>
+      <div class="curr" id="currState"></div>
+    </div>
+
+    <div class="panel">
+      <h2>🧹 Clear Breaking News</h2>
+      <div class="sub">Turns the banner off everywhere. The article stays for reference.</div>
+      <button class="btn btn-danger" id="clearBtn" onclick="clearBreaking()">Clear / Hide Banner</button>
+      <div class="out-msg" id="clearMsg"></div>
+    </div>
+  </div>
+</div>
+<script>
+(function(){var c=document.getElementById('stars');if(c){for(var i=0;i<70;i++){var s=document.createElement('i');s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=Math.random()*4+'s';c.appendChild(s);}}})();
+</script>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+const cfg={apiKey:"AIzaSyCN4mEtGMjSxdgsTlthhzX6FXIjxltJKHQ",authDomain:"gxyhockey.firebaseapp.com",projectId:"gxyhockey",storageBucket:"gxyhockey.firebasestorage.app",messagingSenderId:"474584991663",appId:"1:474584991663:web:b8986544418d6b85fa115a"};
+
+// ====== ADMIN + REPO SETTINGS ======
+const ADMIN_EMAILS = ["kingjack2042@gmail.com"];   // <-- put GalaxyHockey's signup email here
+const REPO = "galaxyhockey/gxyhockey";        // owner/repo
+const BRANCH = "main";
+const BREAKING_PATH = "breaking.json";
+const ARTICLE_PATH  = "businesses/gxy-newspaper/articles/breaking.html";
+// ====================================
+
+const auth=getAuth(initializeApp(cfg,'admin'));
+let currentUser=null;
+
+onAuthStateChanged(auth,function(u){
+  currentUser=u;
+  const isAdmin = u && ADMIN_EMAILS.map(e=>e.toLowerCase()).includes((u.email||'').toLowerCase());
+  document.getElementById('whoami').textContent = u? (u.email||'') : '';
+  if(isAdmin){
+    document.getElementById('gate').style.display='none';
+    document.getElementById('console').style.display='block';
+    loadCurrent();
+  } else if(u){
+    document.getElementById('gate').innerHTML='<div class="lock">⛔</div><h2>Not an admin</h2><p>This area is for site admins only. You\'re signed in as '+(u.email||'')+'.</p>';
+  }
+});
+
+// token persistence (session only)
+const tokInput=document.getElementById('ghToken');
+const savedTok=sessionStorage.getItem('gxy_admin_tok');
+if(savedTok){ tokInput.value=savedTok; }
+function token(){ return tokInput.value.trim(); }
+tokInput.addEventListener('input',function(){
+  if(document.getElementById('rememberTok').value==='yes'){ sessionStorage.setItem('gxy_admin_tok',token()); }
+});
+
+// live preview
+['bLabel','bHeadline','bSummary'].forEach(function(id){
+  document.getElementById(id).addEventListener('input',updatePreview);
+});
+function updatePreview(){
+  const h=document.getElementById('bHeadline').value, s=document.getElementById('bSummary').value;
+  const pv=document.getElementById('preview');
+  if(h||s){ pv.style.display='flex'; document.getElementById('pvLabel').textContent=document.getElementById('bLabel').value||'BREAKING'; document.getElementById('pvText').textContent=(h?h:'')+(s?' — '+s:''); }
+  else { pv.style.display='none'; }
+}
+
+function ghHeaders(){ return {"Authorization":"Bearer "+token(),"Accept":"application/vnd.github+json","User-Agent":"gxy-admin"}; }
+
+async function getSha(path){
+  const r=await fetch("https://api.github.com/repos/"+REPO+"/contents/"+path+"?ref="+BRANCH,{headers:ghHeaders()});
+  if(r.status===404) return null;
+  if(!r.ok) throw new Error("GitHub read failed ("+r.status+")");
+  const j=await r.json(); return j.sha;
+}
+function b64(str){ return btoa(unescape(encodeURIComponent(str))); }
+
+async function putFile(path,contentStr,message){
+  const sha=await getSha(path);
+  const body={message:message,content:b64(contentStr),branch:BRANCH};
+  if(sha) body.sha=sha;
+  const r=await fetch("https://api.github.com/repos/"+REPO+"/contents/"+path,{method:"PUT",headers:ghHeaders(),body:JSON.stringify(body)});
+  if(!r.ok){ const t=await r.text(); throw new Error("GitHub write failed ("+r.status+"): "+t); }
+  return r.json();
+}
+
+async function loadCurrent(){
+  try{
+    const r=await fetch("../../breaking.json",{cache:"no-store"}).catch(()=>null);
+  }catch(e){}
+  // read live breaking.json from the site root
+  fetch("/breaking.json",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(function(d){
+    if(d){ document.getElementById('currState').innerHTML = 'Current banner: <b>'+(d.active?('ON — '+(d.headline||'')):'OFF')+'</b>'; }
+  }).catch(()=>{});
+}
+
+function buildArticleHtml(label,headline,summary,bodyHtml){
+  const updated=new Date().toISOString();
+  // Minimal self-contained breaking article that matches site style via the newspaper stylesheet path
+  return `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>${headline} · GXY Newspaper</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}body{font-family:Georgia,'Times New Roman',serif;background:#fafaf7;color:#1a1a1a;}
+header{background:#1a1a1a;color:#fff;padding:0 2rem;}.masthead{text-align:center;padding:1rem 0;border-bottom:3px double #1a1a1a;}.masthead h1{font-size:2.4rem;font-weight:900;color:#fff;}.masthead p{font-size:.78rem;color:#999;letter-spacing:.2em;text-transform:uppercase;margin-top:.2rem;}
+nav{background:#fff;border-bottom:2px solid #1a1a1a;padding:.6rem 2rem;}nav a{color:#c41a1a;text-decoration:none;font-size:.82rem;font-weight:600;text-transform:uppercase;}
+.container{max-width:760px;margin:0 auto;padding:2rem;}
+.flag{display:inline-flex;align-items:center;gap:.5rem;background:#b30000;color:#fff;font-family:'Segoe UI',sans-serif;font-size:.78rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:.35rem .9rem;border-radius:5px;margin-bottom:1rem;animation:fp 1.6s ease-in-out infinite;}
+.flag .d{width:9px;height:9px;border-radius:50%;background:#fff;animation:fb 1s step-start infinite;}@keyframes fp{0%,100%{background:#b30000;}50%{background:#e00000;}}@keyframes fb{50%{opacity:.35;}}
+h1.head{font-size:2.4rem;font-weight:900;line-height:1.15;margin-bottom:.75rem;}.deck{font-size:1.15rem;color:#555;font-style:italic;margin-bottom:1rem;padding-bottom:1rem;border-bottom:1px solid #ddd;}
+.upd{font-family:'Segoe UI',sans-serif;font-size:.78rem;color:#888;margin-bottom:1.5rem;}
+.body{font-size:1.05rem;line-height:1.9;color:#222;}.body p{margin-bottom:1.25rem;}.body h3{font-size:1.3rem;font-weight:900;margin:1.5rem 0 .6rem;border-top:2px solid #1a1a1a;padding-top:.6rem;}
+footer{background:#1a1a1a;color:#888;text-align:center;padding:1.5rem;font-family:'Segoe UI',sans-serif;font-size:.8rem;margin-top:2rem;}footer span{color:#c41a1a;}
+</style></head><body>
+<script>if(!sessionStorage.getItem('bpw_auth')){window.location.href='../../../login.html';}</script>
+<header><div class="masthead"><a href="../index.html" style="text-decoration:none;"><h1>GXY Newspaper</h1><p>The Official Paper of the World</p></a></div></header>
+<nav><a href="../index.html">← Front Page</a></nav>
+<div class="container">
+  <div class="flag"><span class="d"></span>${label}</div>
+  <h1 class="head">${headline}</h1>
+  <p class="deck">${summary}</p>
+  <div class="upd">Posted ${new Date().toLocaleString()}</div>
+  <div class="body">${bodyHtml}</div>
+</div>
+<footer>© GXY Newspaper · The Official Paper of the World · A <span>Biking People World</span> Publication</footer>
+<script type="module" src="../../../assets/authguard.js" data-root="../../../"></script>
+<script src="../../../assets/breaking.js" data-root="../../../"></script>
+</body></html>`;
+}
+
+window.postBreaking=async function(){
+  const msg=document.getElementById('postMsg');
+  msg.className='out-msg info'; msg.textContent='Publishing…';
+  if(!token()){ msg.className='out-msg err'; msg.textContent='Paste your GitHub token first.'; return; }
+  const label=document.getElementById('bLabel').value.trim()||'BREAKING NEWS';
+  const headline=document.getElementById('bHeadline').value.trim();
+  const summary=document.getElementById('bSummary').value.trim();
+  let body=document.getElementById('bBody').value.trim();
+  if(!headline){ msg.className='out-msg err'; msg.textContent='Add a headline.'; return; }
+  if(!body){ body='<p>'+summary+'</p>'; }
+  if(body.indexOf('<')===-1){ body='<p>'+body.replace(/\n\n+/g,'</p><p>').replace(/\n/g,'<br>')+'</p>'; }
+  document.getElementById('postBtn').disabled=true;
+  try{
+    const updated=new Date().toISOString();
+    const json={active:true,label:label,headline:headline,summary:summary,link:"businesses/gxy-newspaper/articles/breaking.html",updated:updated};
+    await putFile(BREAKING_PATH, JSON.stringify(json,null,2), "Post breaking news: "+headline);
+    await putFile(ARTICLE_PATH, buildArticleHtml(label,headline,summary,body), "Update breaking article: "+headline);
+    msg.className='out-msg ok'; msg.textContent='Published! The banner will appear site-wide within a minute.';
+    document.getElementById('currState').innerHTML='Current banner: <b>ON — '+headline+'</b>';
+  }catch(e){ msg.className='out-msg err'; msg.textContent=String(e.message||e); }
+  document.getElementById('postBtn').disabled=false;
+};
+
+window.clearBreaking=async function(){
+  const msg=document.getElementById('clearMsg');
+  msg.className='out-msg info'; msg.textContent='Clearing…';
+  if(!token()){ msg.className='out-msg err'; msg.textContent='Paste your GitHub token first.'; return; }
+  document.getElementById('clearBtn').disabled=true;
+  try{
+    const json={active:false,label:"",headline:"",summary:"",link:"businesses/gxy-newspaper/articles/breaking.html",updated:new Date().toISOString()};
+    await putFile(BREAKING_PATH, JSON.stringify(json,null,2), "Clear breaking news");
+    msg.className='out-msg ok'; msg.textContent='Banner cleared. It will disappear site-wide within a minute.';
+    document.getElementById('currState').innerHTML='Current banner: <b>OFF</b>';
+  }catch(e){ msg.className='out-msg err'; msg.textContent=String(e.message||e); }
+  document.getElementById('clearBtn').disabled=false;
+};
+</script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join the Server · Biking People World</title>
+<style>
+
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#070b16;color:#e6edf6;min-height:100vh;}
+.bg-stars{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;}
+.bg-stars i{position:absolute;width:2px;height:2px;background:#fff;border-radius:50%;opacity:.35;animation:tw 4s infinite alternate;}
+@keyframes tw{from{opacity:.15;}to{opacity:.7;}}
+nav.top{position:relative;z-index:2;display:flex;align-items:center;gap:1.25rem;padding:1rem 1.5rem;background:rgba(10,16,30,.8);border-bottom:1px solid #16223c;backdrop-filter:blur(8px);flex-wrap:wrap;}
+nav.top .brand{font-weight:800;font-size:1.05rem;color:#fff;text-decoration:none;}
+nav.top .brand span{color:#3b82f6;}
+nav.top a.link{color:#9fb3cd;text-decoration:none;font-size:.85rem;}
+nav.top a.link:hover{color:#fff;}
+nav.top .spacer{margin-left:auto;}
+nav.top .who{font-size:.8rem;color:#7e93b0;}
+nav.top button.out{background:none;border:1px solid #24314f;color:#9fb3cd;padding:.35rem .8rem;border-radius:6px;font-size:.82rem;cursor:pointer;}
+nav.top button.out:hover{border-color:#3b82f6;color:#fff;}
+.wrap{position:relative;z-index:1;max-width:1000px;margin:0 auto;padding:2.5rem 1.5rem;}
+.eyebrow{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#3b82f6;font-weight:700;margin-bottom:.6rem;}
+h1.page{font-size:2.2rem;font-weight:800;letter-spacing:-.5px;margin-bottom:.5rem;line-height:1.1;}
+p.lead{color:#9fb3cd;font-size:1rem;max-width:620px;line-height:1.6;margin-bottom:2rem;}
+.back{display:inline-block;color:#3b82f6;text-decoration:none;font-size:.85rem;margin-bottom:1.25rem;}
+.back:hover{text-decoration:underline;}
+
+
+.join-card{background:#0d1426;border:1px solid #1a2742;border-radius:16px;padding:1.75rem;margin-bottom:1.5rem;}
+.addr-box{display:flex;align-items:center;gap:.75rem;background:#0a1120;border:1px solid #24314f;border-radius:10px;padding:.9rem 1.1rem;margin:.5rem 0 1rem;flex-wrap:wrap;}
+.addr-box code{font-size:1.1rem;color:#7eb0f0;font-family:ui-monospace,Menlo,monospace;flex:1;}
+.copy-btn{background:#1e3a8a;border:none;color:#fff;font-size:.82rem;font-weight:600;padding:.5rem .9rem;border-radius:7px;cursor:pointer;}
+.copy-btn:hover{background:#2547a8;}
+.copy-btn.done{background:#16a34a;}
+.steps{counter-reset:s;list-style:none;}
+.steps li{position:relative;padding-left:2rem;margin-bottom:.9rem;font-size:.9rem;color:#bcccdf;line-height:1.6;}
+.steps li::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:0;width:1.4rem;height:1.4rem;background:#1e3a8a;color:#fff;border-radius:50%;font-size:.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;}
+h2.sec{font-size:1.05rem;font-weight:700;margin-bottom:.75rem;}
+.rules{list-style:none;}
+.rules li{padding:.55rem 0;border-bottom:1px solid #16223c;font-size:.9rem;color:#bcccdf;display:flex;gap:.6rem;}
+.rules li:last-child{border-bottom:none;}
+.rules li .n{color:#3b82f6;font-weight:700;flex-shrink:0;}
+.status-mini{margin-bottom:1.5rem;}
+
+</style>
+</head>
+<body>
+<div class="bg-stars" id="stars"></div>
+<nav class="top">
+  <a class="brand" href="../main/index.html">🌍 Biking People <span>World</span></a>
+  <a class="link" href="index.html">Members Area</a>
+  <a class="link" href="modpack.html">Modpack</a>
+  <span class="spacer"></span>
+  <button class="out" onclick="window.gxyLogout&&window.gxyLogout()">Log out</button>
+</nav>
+<div class="wrap">
+  <a class="back" href="index.html">← Members Area</a>
+  <div class="eyebrow">Join the Server</div>
+  <h1 class="page">Get into Biking People World</h1>
+  <p class="lead">Follow these steps to connect. Make sure you've installed the modpack first.</p>
+
+  <div class="status-mini"><div id="gxy-server-status"></div></div>
+
+  <div class="join-card">
+    <h2 class="sec">Server Address</h2>
+    <div class="addr-box">
+      <code id="addr">bikingpeople.exaroton.me</code>
+      <button class="copy-btn" id="copyBtn" onclick="copyAddr()">Copy</button>
+    </div>
+    <h2 class="sec">How to Connect</h2>
+    <ol class="steps">
+      <li>Install the <a href="modpack.html" style="color:#3b82f6;">Biking People World modpack</a> (NeoForge 1.21.1).</li>
+      <li>Open Minecraft with the modpack loaded.</li>
+      <li>Go to Multiplayer → Add Server, and paste the address above.</li>
+      <li>Join! If the server looks offline, it may be asleep — it wakes up shortly after someone connects (exaroton servers sleep when empty).</li>
+    </ol>
+  </div>
+
+  <div class="join-card">
+    <h2 class="sec">World Rules</h2>
+    <ul class="rules">
+      <li><span class="n">1</span><span>Be respectful to other players. No griefing or stealing.</span></li>
+      <li><span class="n">2</span><span>Don't destroy or alter other players' builds without permission.</span></li>
+      <li><span class="n">3</span><span>Keep things friendly — this is a community world.</span></li>
+      <li><span class="n">4</span><span>Have fun, build cool things, and explore the cities, MiniGame Land, and beyond.</span></li>
+    </ul>
+    <p class="note" style="font-size:.78rem;color:#7e93b0;margin-top:1rem;">Rules are easy to edit — change this list anytime to match how you run the world.</p>
+  </div>
+</div>
+<script>
+(function(){var c=document.getElementById('stars');if(c){for(var i=0;i<70;i++){var s=document.createElement('i');s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=Math.random()*4+'s';c.appendChild(s);}}})();
+</script>
+<script type="module" src="../assets/authguard.js" data-root="../"></script>
+<script>
+function copyAddr(){
+  var a=document.getElementById('addr').textContent;
+  if(navigator.clipboard){navigator.clipboard.writeText(a);}
+  var b=document.getElementById('copyBtn');b.textContent='Copied!';b.classList.add('done');
+  setTimeout(function(){b.textContent='Copy';b.classList.remove('done');},1500);
+}
+</script>
+<script src="../assets/serverstatus.js"></script>
+</body>
+</html>

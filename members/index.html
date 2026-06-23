@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Members Area · Biking People World</title>
+<style>
+
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#070b16;color:#e6edf6;min-height:100vh;}
+.bg-stars{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;}
+.bg-stars i{position:absolute;width:2px;height:2px;background:#fff;border-radius:50%;opacity:.35;animation:tw 4s infinite alternate;}
+@keyframes tw{from{opacity:.15;}to{opacity:.7;}}
+nav.top{position:relative;z-index:2;display:flex;align-items:center;gap:1.25rem;padding:1rem 1.5rem;background:rgba(10,16,30,.8);border-bottom:1px solid #16223c;backdrop-filter:blur(8px);flex-wrap:wrap;}
+nav.top .brand{font-weight:800;font-size:1.05rem;color:#fff;text-decoration:none;}
+nav.top .brand span{color:#3b82f6;}
+nav.top a.link{color:#9fb3cd;text-decoration:none;font-size:.85rem;}
+nav.top a.link:hover{color:#fff;}
+nav.top .spacer{margin-left:auto;}
+nav.top .who{font-size:.8rem;color:#7e93b0;}
+nav.top button.out{background:none;border:1px solid #24314f;color:#9fb3cd;padding:.35rem .8rem;border-radius:6px;font-size:.82rem;cursor:pointer;}
+nav.top button.out:hover{border-color:#3b82f6;color:#fff;}
+.wrap{position:relative;z-index:1;max-width:1000px;margin:0 auto;padding:2.5rem 1.5rem;}
+.eyebrow{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#3b82f6;font-weight:700;margin-bottom:.6rem;}
+h1.page{font-size:2.2rem;font-weight:800;letter-spacing:-.5px;margin-bottom:.5rem;line-height:1.1;}
+p.lead{color:#9fb3cd;font-size:1rem;max-width:620px;line-height:1.6;margin-bottom:2rem;}
+.back{display:inline-block;color:#3b82f6;text-decoration:none;font-size:.85rem;margin-bottom:1.25rem;}
+.back:hover{text-decoration:underline;}
+
+
+.status-wrap{margin-bottom:2.5rem;}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.1rem;}
+.mcard{display:block;text-decoration:none;background:#0d1426;border:1px solid #1a2742;border-radius:14px;padding:1.4rem;transition:all .18s;color:inherit;}
+.mcard:hover{border-color:#3b82f6;transform:translateY(-3px);box-shadow:0 10px 30px rgba(59,130,246,.15);}
+.mcard .ic{font-size:2rem;margin-bottom:.7rem;}
+.mcard h3{font-size:1.1rem;font-weight:700;margin-bottom:.3rem;}
+.mcard p{color:#9fb3cd;font-size:.85rem;line-height:1.5;}
+.mcard .go{margin-top:.8rem;font-size:.8rem;color:#3b82f6;font-weight:600;}
+.admin-only{display:none;}
+
+</style>
+</head>
+<body>
+<div class="bg-stars" id="stars"></div>
+<nav class="top">
+  <a class="brand" href="../main/index.html">🌍 Biking People <span>World</span></a>
+  <a class="link" href="../main/index.html">World Home</a>
+  <a class="link" href="../businesses/gxy-newspaper/index.html">Newspaper</a>
+  <span class="spacer"></span>
+  <span class="who" id="who"></span>
+  <button class="out" onclick="window.gxyLogout&&window.gxyLogout()">Log out</button>
+</nav>
+<div class="wrap">
+  <div class="eyebrow">Members Area</div>
+  <h1 class="page">Welcome to the server hub</h1>
+  <p class="lead">Everything you need to play on Biking People World — live server status, the latest modpack, and how to join.</p>
+
+  <div class="status-wrap"><div id="gxy-server-status"></div></div>
+
+  <div class="cards">
+    <a class="mcard" href="modpack.html"><div class="ic">📦</div><h3>Modpack Download</h3><p>Get the latest modpack so you can join the server with all the right mods.</p><div class="go">Download →</div></a>
+    <a class="mcard" href="join.html"><div class="ic">🎮</div><h3>Join the Server</h3><p>Server address, setup steps, and the rules of the world.</p><div class="go">How to join →</div></a>
+    <a class="mcard" href="../businesses/gxy-newspaper/weather.html"><div class="ic">⛅</div><h3>GXY Weather</h3><p>Live in-game forecast straight from the world.</p><div class="go">View forecast →</div></a>
+    <a class="mcard admin-only" id="adminCard" href="admin.html"><div class="ic">🛡️</div><h3>Admin Console</h3><p>Post breaking news and manage the site. Admins only.</p><div class="go">Open console →</div></a>
+  </div>
+</div>
+<script>
+(function(){var c=document.getElementById('stars');if(c){for(var i=0;i<70;i++){var s=document.createElement('i');s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=Math.random()*4+'s';c.appendChild(s);}}})();
+</script>
+<script type="module" src="../assets/authguard.js" data-root="../"></script>
+<script type="module">
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+const cfg={apiKey:"AIzaSyCN4mEtGMjSxdgsTlthhzX6FXIjxltJKHQ",authDomain:"gxyhockey.firebaseapp.com",projectId:"gxyhockey",storageBucket:"gxyhockey.firebasestorage.app",messagingSenderId:"474584991663",appId:"1:474584991663:web:b8986544418d6b85fa115a"};
+const ADMIN_EMAILS = ["kingjack2042@gmail.com"]; // <-- put GalaxyHockey's signup email here
+const auth=getAuth(initializeApp(cfg,'hub'));
+onAuthStateChanged(auth,function(u){
+  if(u){
+    document.getElementById('who').textContent = u.email || '';
+    if(ADMIN_EMAILS.map(e=>e.toLowerCase()).includes((u.email||'').toLowerCase())){
+      document.getElementById('adminCard').style.display='block';
+    }
+  }
+});
+</script>
+<script src="../assets/serverstatus.js"></script>
+</body>
+</html>

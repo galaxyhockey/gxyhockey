@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modpack Download · Biking People World</title>
+<style>
+
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#070b16;color:#e6edf6;min-height:100vh;}
+.bg-stars{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;}
+.bg-stars i{position:absolute;width:2px;height:2px;background:#fff;border-radius:50%;opacity:.35;animation:tw 4s infinite alternate;}
+@keyframes tw{from{opacity:.15;}to{opacity:.7;}}
+nav.top{position:relative;z-index:2;display:flex;align-items:center;gap:1.25rem;padding:1rem 1.5rem;background:rgba(10,16,30,.8);border-bottom:1px solid #16223c;backdrop-filter:blur(8px);flex-wrap:wrap;}
+nav.top .brand{font-weight:800;font-size:1.05rem;color:#fff;text-decoration:none;}
+nav.top .brand span{color:#3b82f6;}
+nav.top a.link{color:#9fb3cd;text-decoration:none;font-size:.85rem;}
+nav.top a.link:hover{color:#fff;}
+nav.top .spacer{margin-left:auto;}
+nav.top .who{font-size:.8rem;color:#7e93b0;}
+nav.top button.out{background:none;border:1px solid #24314f;color:#9fb3cd;padding:.35rem .8rem;border-radius:6px;font-size:.82rem;cursor:pointer;}
+nav.top button.out:hover{border-color:#3b82f6;color:#fff;}
+.wrap{position:relative;z-index:1;max-width:1000px;margin:0 auto;padding:2.5rem 1.5rem;}
+.eyebrow{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#3b82f6;font-weight:700;margin-bottom:.6rem;}
+h1.page{font-size:2.2rem;font-weight:800;letter-spacing:-.5px;margin-bottom:.5rem;line-height:1.1;}
+p.lead{color:#9fb3cd;font-size:1rem;max-width:620px;line-height:1.6;margin-bottom:2rem;}
+.back{display:inline-block;color:#3b82f6;text-decoration:none;font-size:.85rem;margin-bottom:1.25rem;}
+.back:hover{text-decoration:underline;}
+
+
+.mp-hero{display:grid;grid-template-columns:96px 1fr;gap:1.25rem;align-items:center;background:#0d1426;border:1px solid #1a2742;border-radius:16px;padding:1.5rem;margin-bottom:1.5rem;}
+.mp-icon{width:96px;height:96px;border-radius:18px;background:linear-gradient(135deg,#1e3a8a,#0a1424);display:flex;align-items:center;justify-content:center;font-size:3rem;border:1px solid #24314f;}
+.mp-h h1{font-size:1.7rem;font-weight:800;margin-bottom:.2rem;}
+.mp-h .by{color:#7e93b0;font-size:.85rem;margin-bottom:.6rem;}
+.mp-tags{display:flex;flex-wrap:wrap;gap:.4rem;}
+.mp-tag{font-size:.72rem;background:#13203a;border:1px solid #24314f;color:#9fb3cd;padding:.2rem .6rem;border-radius:20px;}
+.mp-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-bottom:1.75rem;align-items:center;}
+.dl-btn{display:inline-flex;align-items:center;gap:.6rem;background:linear-gradient(135deg,#22c55e,#16a34a);color:#04210f;text-decoration:none;font-weight:800;font-size:1rem;padding:.85rem 1.6rem;border-radius:10px;transition:opacity .18s;}
+.dl-btn:hover{opacity:.9;}
+.dl-meta{font-size:.8rem;color:#7e93b0;}
+.browse-btn{display:inline-flex;align-items:center;gap:.5rem;background:#13203a;border:1px solid #24314f;color:#cfe0f5;text-decoration:none;font-weight:600;font-size:.9rem;padding:.85rem 1.3rem;border-radius:10px;transition:all .18s;}
+.browse-btn:hover{border-color:#3b82f6;color:#fff;}
+.mp-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:1.5rem;}
+@media(max-width:760px){.mp-grid{grid-template-columns:1fr;}.mp-hero{grid-template-columns:1fr;text-align:center;}.mp-icon{margin:0 auto;}}
+.panel{background:#0d1426;border:1px solid #1a2742;border-radius:14px;padding:1.4rem;}
+.panel h2{font-size:1rem;font-weight:700;margin-bottom:.9rem;display:flex;align-items:center;gap:.5rem;}
+.panel h2 .accent{color:#22c55e;}
+.changelog .ver{margin-bottom:1.1rem;}
+.changelog .ver h4{font-size:.92rem;font-weight:700;margin-bottom:.35rem;}
+.changelog .ver .tag{font-size:.68rem;background:#13203a;border:1px solid #24314f;color:#9fb3cd;padding:.1rem .5rem;border-radius:5px;margin-left:.4rem;}
+.changelog ul{margin:.3rem 0 0 1.1rem;}
+.changelog li{font-size:.85rem;color:#bcccdf;line-height:1.7;}
+.steps{counter-reset:s;list-style:none;}
+.steps li{position:relative;padding-left:2rem;margin-bottom:.9rem;font-size:.87rem;color:#bcccdf;line-height:1.6;}
+.steps li::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:0;width:1.4rem;height:1.4rem;background:#1e3a8a;color:#fff;border-radius:50%;font-size:.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;}
+.req{font-size:.85rem;color:#bcccdf;line-height:1.8;}
+.req b{color:#e6edf6;}
+.note{font-size:.78rem;color:#7e93b0;margin-top:.75rem;line-height:1.5;}
+
+</style>
+</head>
+<body>
+<div class="bg-stars" id="stars"></div>
+<nav class="top">
+  <a class="brand" href="../main/index.html">🌍 Biking People <span>World</span></a>
+  <a class="link" href="index.html">Members Area</a>
+  <a class="link" href="join.html">Join</a>
+  <span class="spacer"></span>
+  <button class="out" onclick="window.gxyLogout&&window.gxyLogout()">Log out</button>
+</nav>
+<div class="wrap">
+  <a class="back" href="index.html">← Members Area</a>
+
+  <div class="mp-hero">
+    <div class="mp-icon">📦</div>
+    <div class="mp-h">
+      <h1>Biking People World Modpack</h1>
+      <div class="by">by GalaxyHockey · NeoForge 1.21.1</div>
+      <div class="mp-tags">
+        <span class="mp-tag">NeoForge</span>
+        <span class="mp-tag">1.21.1</span>
+        <span class="mp-tag">Create</span>
+        <span class="mp-tag">Serene Seasons</span>
+        <span class="mp-tag">Multiplayer</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="mp-actions">
+    <a class="dl-btn" id="dlBtn" href="https://drive.google.com/uc?export=download&id=1J75toumJyCvcAdhc_AIY_v9GXiZxF5Ib">⬇ Download Latest</a>
+    <a class="browse-btn" href="https://drive.google.com/drive/folders/1CZab0YDbdS_16r-DgwsVbi3DPaXGykUU?usp=sharing" target="_blank" rel="noopener">📁 Browse all versions</a>
+    <span class="dl-meta">Hosted on Google Drive · NeoForge 1.21.1</span>
+  </div>
+
+  <div class="mp-grid">
+    <div class="panel changelog">
+      <h2><span class="accent">#</span> Changelog</h2>
+      <div class="ver">
+        <h4>v1.0 <span class="tag">Latest</span></h4>
+        <ul>
+          <li>Initial public release of the Biking People World modpack.</li>
+          <li>Includes Create, Serene Seasons, and the custom Seasonal Forecast mod.</li>
+          <li>Tuned for the multiplayer server experience.</li>
+        </ul>
+      </div>
+      <p class="note">This changelog is easy to edit — add a new version block at the top each time you release an update.</p>
+    </div>
+
+    <div>
+      <div class="panel" style="margin-bottom:1.25rem;">
+        <h2><span class="accent">▸</span> How to Install</h2>
+        <ol class="steps">
+          <li>Download the modpack file using the button above.</li>
+          <li>Install a NeoForge 1.21.1 launcher (Prism Launcher or the official Minecraft launcher with NeoForge).</li>
+          <li>Import or drop the modpack into your launcher's mods/instances folder.</li>
+          <li>Launch the game, then connect using the server address on the Join page.</li>
+        </ol>
+      </div>
+      <div class="panel">
+        <h2><span class="accent">✦</span> Requirements</h2>
+        <p class="req">
+          <b>Minecraft:</b> 1.21.1<br>
+          <b>Mod loader:</b> NeoForge<br>
+          <b>RAM:</b> 4GB+ recommended<br>
+          <b>Account:</b> Java Edition
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+(function(){var c=document.getElementById('stars');if(c){for(var i=0;i<70;i++){var s=document.createElement('i');s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=Math.random()*4+'s';c.appendChild(s);}}})();
+</script>
+<script type="module" src="../assets/authguard.js" data-root="../"></script>
+
+</body>
+</html>
