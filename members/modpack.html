@@ -26,6 +26,8 @@ h1.page{font-size:2.2rem;font-weight:800;letter-spacing:-.5px;margin-bottom:.5re
 p.lead{color:#9fb3cd;font-size:1rem;max-width:620px;line-height:1.6;margin-bottom:2rem;}
 .back{display:inline-block;color:#3b82f6;text-decoration:none;font-size:.85rem;margin-bottom:1.25rem;}
 .back:hover{text-decoration:underline;}
+.nav-admin{display:none;background:linear-gradient(135deg,#7c3aed,#5b21b6);color:#fff;text-decoration:none;font-size:.82rem;font-weight:700;padding:.35rem .9rem;border-radius:6px;}
+.nav-admin:hover{opacity:.88;}
 
 
 .mp-hero{display:grid;grid-template-columns:96px 1fr;gap:1.25rem;align-items:center;background:#0d1426;border:1px solid #1a2742;border-radius:16px;padding:1.5rem;margin-bottom:1.5rem;}
@@ -66,6 +68,7 @@ p.lead{color:#9fb3cd;font-size:1rem;max-width:620px;line-height:1.6;margin-botto
   <a class="link" href="index.html">Members Area</a>
   <a class="link" href="join.html">Join</a>
   <span class="spacer"></span>
+  <a class="nav-admin" id="navAdmin" href="admin.html">🛡️ Admin</a>
   <button class="out" onclick="window.gxyLogout&&window.gxyLogout()">Log out</button>
 </nav>
 <div class="wrap">
@@ -133,5 +136,17 @@ p.lead{color:#9fb3cd;font-size:1rem;max-width:620px;line-height:1.6;margin-botto
 </script>
 <script type="module" src="../assets/authguard.js" data-root="../"></script>
 
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+const cfg={apiKey:"AIzaSyCN4mEtGMjSxdgsTlthhzX6FXIjxltJKHQ",authDomain:"gxyhockey.firebaseapp.com",projectId:"gxyhockey",storageBucket:"gxyhockey.firebasestorage.app",messagingSenderId:"474584991663",appId:"1:474584991663:web:b8986544418d6b85fa115a"};
+const ADMIN_EMAILS=["kingjack2042@gmail.com"];
+const auth=getAuth(initializeApp(cfg));
+onAuthStateChanged(auth,function(u){
+  if(u && ADMIN_EMAILS.map(e=>e.toLowerCase()).includes((u.email||'').toLowerCase())){
+    var na=document.getElementById('navAdmin'); if(na){ na.style.display='inline-block'; }
+  }
+});
+</script>
 </body>
 </html>

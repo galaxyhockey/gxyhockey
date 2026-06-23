@@ -37,6 +37,8 @@ p.lead{color:#9fb3cd;font-size:1rem;max-width:620px;line-height:1.6;margin-botto
 .mcard p{color:#9fb3cd;font-size:.85rem;line-height:1.5;}
 .mcard .go{margin-top:.8rem;font-size:.8rem;color:#3b82f6;font-weight:600;}
 .admin-only{display:none;}
+.nav-admin{display:none;background:linear-gradient(135deg,#7c3aed,#5b21b6);color:#fff;text-decoration:none;font-size:.82rem;font-weight:700;padding:.35rem .9rem;border-radius:6px;}
+.nav-admin:hover{opacity:.88;}
 
 </style>
 </head>
@@ -48,6 +50,7 @@ p.lead{color:#9fb3cd;font-size:1rem;max-width:620px;line-height:1.6;margin-botto
   <a class="link" href="../businesses/gxy-newspaper/index.html">Newspaper</a>
   <span class="spacer"></span>
   <span class="who" id="who"></span>
+  <a class="nav-admin" id="navAdmin" href="admin.html">🛡️ Admin</a>
   <button class="out" onclick="window.gxyLogout&&window.gxyLogout()">Log out</button>
 </nav>
 <div class="wrap">
@@ -79,6 +82,7 @@ onAuthStateChanged(auth,function(u){
     document.getElementById('who').textContent = u.email || '';
     if(ADMIN_EMAILS.map(e=>e.toLowerCase()).includes((u.email||'').toLowerCase())){
       document.getElementById('adminCard').style.display='block';
+      var na=document.getElementById('navAdmin'); if(na){ na.style.display='inline-block'; }
     }
   }
 });
