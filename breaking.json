@@ -1,8 +1,8 @@
 {
-  "active": false,
-  "label": "",
-  "headline": "",
-  "summary": "",
+  "active": true,
+  "label": "BREAKING NEWS",
+  "headline": "Test Article made for Admin System!",
+  "summary": "This is Goated",
   "link": "businesses/gxy-newspaper/articles/breaking.html",
-  "updated": "2026-06-23T05:47:34.790Z"
+  "updated": "2026-06-23T05:48:52.111Z"
 }
