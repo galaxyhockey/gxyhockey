@@ -109,6 +109,33 @@ textarea{min-height:120px;resize:vertical;line-height:1.5;}
     </div>
 
     <div class="panel">
+      <h2>📚 Archive as Article</h2>
+      <div class="sub">When a breaking story is over, save it as a permanent newspaper article with its own page. This reads whatever is currently in the form above (headline, summary, full story), so fill those in or re-load a past story before archiving.</div>
+      <label>Newspaper section</label>
+      <select id="arcSection">
+        <option>Front Page</option>
+        <option>Breaking News</option>
+        <option>MiniGame Land</option>
+        <option>Space Program</option>
+        <option>Nether Development</option>
+        <option>Business and Industry</option>
+        <option>Transportation</option>
+        <option>World Planning</option>
+        <option>Entertainment</option>
+        <option>Public Notice</option>
+        <option>Technology</option>
+        <option>City Planning</option>
+      </select>
+      <label>Article date (shown on the article)</label>
+      <input type="text" id="arcDate" placeholder="e.g. June 22, 2026">
+      <label>Also turn off the breaking banner after archiving?</label>
+      <select id="arcClear"><option value="yes">Yes — archive and clear the banner</option><option value="no">No — just save the article</option></select>
+      <button class="btn btn-primary" id="archiveBtn" onclick="archiveArticle()">Save as Permanent Article</button>
+      <div class="out-msg" id="archiveMsg"></div>
+      <div class="curr" id="archiveResult" style="display:none;"></div>
+    </div>
+
+    <div class="panel">
       <h2>🧹 Clear Breaking News</h2>
       <div class="sub">Turns the banner off everywhere. The article stays for reference.</div>
       <button class="btn btn-danger" id="clearBtn" onclick="clearBreaking()">Clear / Hide Banner</button>
@@ -304,6 +331,81 @@ window.clearBreaking=async function(){
     document.getElementById('currState').innerHTML='Current banner: <b>OFF</b>';
   }catch(e){ msg.className='out-msg err'; msg.textContent=String(e.message||e); }
   document.getElementById('clearBtn').disabled=false;
+};
+
+// Build a permanent newspaper-style article (matches the site's article look)
+function buildPermanentArticle(section, dateStr, headline, summary, bodyHtml){
+  const sOpen='<'+'script';
+  const sClose='<'+'/'+'script>';
+  const gate=sOpen+'>'+"if(!sessionStorage.getItem('bpw_auth')){window.location.href='../../../login.html';}"+sClose;
+  const guard=sOpen+' type="module" src="../../../assets/authguard.js" data-root="../../../">'+sClose;
+  const banner=sOpen+' src="../../../assets/breaking.js" data-root="../../../">'+sClose;
+  return '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>'+headline+' \u00b7 GXY Newspaper</title>'
+  +'<style>'
+  +"*{margin:0;padding:0;box-sizing:border-box;}body{font-family:Georgia,'Times New Roman',serif;background:#fafaf7;color:#1a1a1a;}"
+  +'header{background:#1a1a1a;color:#fff;padding:0 2rem;}.masthead{text-align:center;padding:1rem 0;border-bottom:3px double #1a1a1a;}.masthead h1{font-size:2.4rem;font-weight:900;color:#fff;}.masthead p{font-size:.78rem;color:#999;letter-spacing:.2em;text-transform:uppercase;margin-top:.2rem;}'
+  +'nav{background:#fff;border-bottom:2px solid #1a1a1a;padding:.6rem 2rem;display:flex;gap:1.5rem;}nav a{color:#1a1a1a;text-decoration:none;font-size:.82rem;font-weight:600;text-transform:uppercase;}nav a.home{color:#c41a1a;}'
+  +'.container{max-width:760px;margin:0 auto;padding:2rem;}.back-link{color:#c41a1a;text-decoration:none;font-size:.83rem;display:inline-block;margin-bottom:1rem;}'
+  +'.tag{font-family:"Segoe UI",sans-serif;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:#c41a1a;font-weight:700;margin-bottom:.5rem;}'
+  +'h1.head{font-size:2.4rem;font-weight:900;line-height:1.15;margin-bottom:.6rem;}.deck{font-size:1.15rem;color:#555;font-style:italic;margin-bottom:.75rem;}'
+  +'.meta{font-family:"Segoe UI",sans-serif;font-size:.78rem;color:#888;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid #ddd;}'
+  +'.body{font-size:1.05rem;line-height:1.9;color:#222;}.body p{margin-bottom:1.25rem;}.body h3{font-size:1.3rem;font-weight:900;margin:1.5rem 0 .6rem;border-top:2px solid #1a1a1a;padding-top:.6rem;}'
+  +'footer{background:#1a1a1a;color:#888;text-align:center;padding:1.5rem;font-family:"Segoe UI",sans-serif;font-size:.8rem;margin-top:2rem;}footer span{color:#c41a1a;}'
+  +'</style></head><body>'
+  +gate
+  +'<header><div class="masthead"><a href="../index.html" style="text-decoration:none;"><h1>GXY Newspaper</h1><p>The Official Paper of the World</p></a></div></header>'
+  +'<nav><a href="../../../main/index.html" class="home">\u2190 World Home</a><a href="../index.html">Front Page</a><a href="../archive.html">Archive</a></nav>'
+  +'<div class="container"><a class="back-link" href="../index.html">\u2190 Back to Front Page</a>'
+  +'<div class="tag">'+section+'</div>'
+  +'<h1 class="head">'+headline+'</h1>'
+  +'<p class="deck">'+summary+'</p>'
+  +'<div class="meta">By the GXY Reporting Team \u00b7 '+section+' \u00b7 '+dateStr+'</div>'
+  +'<div class="body">'+bodyHtml+'</div></div>'
+  +'<footer>\u00a9 GXY Newspaper \u00b7 The Official Paper of the World \u00b7 A <span>Biking People World</span> Publication</footer>'
+  +guard
+  +banner
+  +'</body></html>';
+}
+
+function slugify(s){
+  return s.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,50) || 'story';
+}
+
+window.archiveArticle = async function(){
+  const msg=document.getElementById('archiveMsg');
+  msg.className='out-msg info'; msg.textContent='Saving article…';
+  if(!token()){ msg.className='out-msg err'; msg.textContent='Paste your GitHub token first.'; return; }
+  const section=document.getElementById('arcSection').value;
+  let dateStr=document.getElementById('arcDate').value.trim();
+  if(!dateStr){ dateStr=new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'}); }
+  const headline=document.getElementById('bHeadline').value.trim();
+  const summary=document.getElementById('bSummary').value.trim();
+  let body=document.getElementById('bBody').value.trim();
+  if(!headline){ msg.className='out-msg err'; msg.textContent='Fill in the headline (and story) in the form above first.'; return; }
+  if(!body){ body='<p>'+summary+'</p>'; }
+  if(body.indexOf('<')===-1){ body='<p>'+body.replace(/\n\n+/g,'</p><p>').replace(/\n/g,'<br>')+'</p>'; }
+
+  // Build a dated, unique filename
+  const d=new Date();
+  const ymd=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+  const fname=ymd+'-'+slugify(headline)+'.html';
+  const path='businesses/gxy-newspaper/articles/'+fname;
+
+  document.getElementById('archiveBtn').disabled=true;
+  try{
+    await putFile(path, buildPermanentArticle(section,dateStr,headline,summary,body), 'Archive article: '+headline);
+    let resultHtml='✅ Saved as <b>'+fname+'</b><br>Live at: <a href="../businesses/gxy-newspaper/articles/'+fname+'" target="_blank" style="color:#60a5fa;">view article</a>';
+    resultHtml+='<br><br>To list it on the archive page, paste this line into archive.html:<br><code style="display:block;background:#0a1120;border:1px solid #24314f;border-radius:6px;padding:.5rem;margin-top:.35rem;font-size:.72rem;color:#9fb3cd;white-space:pre-wrap;word-break:break-all;">&lt;a class="arch-item" href="articles/'+fname+'"&gt;&lt;div class="arch-section"&gt;'+section+'&lt;/div&gt;&lt;div class="arch-title"&gt;'+headline+'&lt;/div&gt;&lt;/a&gt;</code>';
+    const rr=document.getElementById('archiveResult'); rr.style.display='block'; rr.innerHTML=resultHtml;
+    msg.className='out-msg ok'; msg.textContent='Article saved!';
+
+    if(document.getElementById('arcClear').value==='yes'){
+      const json={active:false,label:"",headline:"",summary:"",link:"businesses/gxy-newspaper/articles/breaking.html",updated:new Date().toISOString()};
+      await putFile(BREAKING_PATH, JSON.stringify(json,null,2), "Clear breaking news (archived)");
+      document.getElementById('currState').innerHTML='Current banner: <b>OFF</b>';
+    }
+  }catch(e){ msg.className='out-msg err'; msg.textContent=String(e.message||e); }
+  document.getElementById('archiveBtn').disabled=false;
 };
 </script>
 </body>
