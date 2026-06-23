@@ -80,7 +80,7 @@ footer span{color:#3b82f6;}
 </style>
 </head>
 <body>
-<script>if(!sessionStorage.getItem('bpw_auth')){window.location.href='../index.html';}</script>
+<script>if(!sessionStorage.getItem('bpw_auth')){window.location.href='../login.html';}</script>
 
 <nav>
   <a class="nav-logo" href="index.html">🌍 Biking People <span>World</span></a>
@@ -92,7 +92,7 @@ footer span{color:#3b82f6;}
     <a href="#history">History</a>
     <a href="#events">Events</a>
   </div>
-  <button class="nav-logout" onclick="logout()">Log out</button>
+  <button class="nav-logout" onclick="(window.gxyLogout?window.gxyLogout():logout())">Log out</button>
 </nav>
 
 <div class="hero">
@@ -207,5 +207,7 @@ footer span{color:#3b82f6;}
 <script>
 function logout(){sessionStorage.removeItem('bpw_auth');window.location.href='../index.html';}
 </script>
+<script src="../assets/breaking.js" data-root="../"></script>
+<script type="module" src="../assets/authguard.js" data-root="../"></script>
 </body>
 </html>
