@@ -1,27 +1,27 @@
 {
-  "updated": "2026-06-24T00:47:02.379119204Z",
-  "mcDay": 5,
+  "updated": "2026-06-24T01:01:34.176398459Z",
+  "mcDay": 6,
   "season": "Summer",
   "trend": "SUMMER",
   "today": {
     "condition": "Clear",
-    "temp": 96,
+    "temp": 81,
     "tempUnit": "F"
   },
   "forecast": [
     {
       "day": "+1",
       "condition": "Clear",
-      "temp": 81
-    },
-    {
-      "day": "+2",
-      "condition": "Clear",
       "temp": 88
     },
     {
-      "day": "+3",
+      "day": "+2",
       "condition": "Rain",
+      "temp": 86
+    },
+    {
+      "day": "+3",
+      "condition": "Clear",
       "temp": 86
     }
   ],
