@@ -1,28 +1,28 @@
 {
-  "updated": "2026-06-25T19:07:02.711280497Z",
-  "mcDay": 6,
+  "updated": "2026-06-25T19:18:42.196513207Z",
+  "mcDay": 7,
   "season": "Summer",
   "trend": "SUMMER",
   "today": {
     "condition": "Clear",
-    "temp": 81,
+    "temp": 88,
     "tempUnit": "F"
   },
   "forecast": [
     {
       "day": "+1",
-      "condition": "Clear",
-      "temp": 88
-    },
-    {
-      "day": "+2",
       "condition": "Rain",
       "temp": 86
     },
     {
-      "day": "+3",
+      "day": "+2",
       "condition": "Clear",
       "temp": 86
+    },
+    {
+      "day": "+3",
+      "condition": "Rain",
+      "temp": 95
     }
   ],
   "biome": "minecraft:plains"
