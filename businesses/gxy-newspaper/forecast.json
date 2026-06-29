@@ -1,27 +1,27 @@
 {
-  "updated": "2026-06-29T19:04:42.229929609Z",
-  "mcDay": 5,
+  "updated": "2026-06-29T19:24:36.380106291Z",
+  "mcDay": 6,
   "season": "Autumn",
   "trend": "SHOULDER",
   "today": {
     "condition": "Clear",
-    "temp": 78,
+    "temp": 62,
     "tempUnit": "F"
   },
   "forecast": [
     {
       "day": "+1",
       "condition": "Clear",
-      "temp": 62
-    },
-    {
-      "day": "+2",
-      "condition": "Clear",
       "temp": 69
     },
     {
-      "day": "+3",
+      "day": "+2",
       "condition": "Rain",
+      "temp": 67
+    },
+    {
+      "day": "+3",
+      "condition": "Clear",
       "temp": 67
     }
   ],
