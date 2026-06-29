@@ -1,28 +1,56 @@
 {
-  "updated": "2026-06-29T21:14:59.690530899Z",
+  "schemaVersion": 2,
+  "updated": "2026-06-29T21:18:34.464904869Z",
   "mcDay": 11,
   "season": "Summer",
   "trend": "SUMMER",
   "today": {
     "condition": "Clear",
     "temp": 94,
-    "tempUnit": "F"
+    "feelsLike": 103,
+    "wind": 27,
+    "windDir": "SW",
+    "humidity": 50,
+    "tempUnit": "F",
+    "windUnit": "mph"
   },
   "forecast": [
     {
-      "day": "+1",
       "condition": "Clear",
-      "temp": 73
+      "temp": 73,
+      "feelsLike": 73,
+      "wind": 3,
+      "windDir": "NE",
+      "humidity": 33,
+      "day": "+1"
     },
     {
-      "day": "+2",
       "condition": "Rain",
-      "temp": 79
+      "temp": 79,
+      "feelsLike": 79,
+      "wind": 14,
+      "windDir": "N",
+      "humidity": 64,
+      "day": "+2"
     },
     {
-      "day": "+3",
       "condition": "Clear",
-      "temp": 98
+      "temp": 98,
+      "feelsLike": 116,
+      "wind": 4,
+      "windDir": "N",
+      "humidity": 54,
+      "day": "+3"
+    }
+  ],
+  "alerts": [
+    {
+      "tier": "Advisory",
+      "event": "Heat Advisory",
+      "headline": "Hot; feels like 103°F.",
+      "severity": "Minor",
+      "daysOut": 0,
+      "forDay": 11
     }
   ],
   "biome": "minecraft:plains"
