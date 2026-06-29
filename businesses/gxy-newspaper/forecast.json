@@ -1,19 +1,48 @@
 {
-  "updated": "2026-06-22T18:00:00Z",
-  "mcDay": 142,
-  "season": "Summer",
-  "trend": "SUMMER",
+  "schemaVersion": 2,
+  "updated": "2026-06-29T23:02:30.189571326Z",
+  "mcDay": 1,
+  "season": "Spring",
+  "trend": "SHOULDER",
   "today": {
     "condition": "Clear",
-    "temp": 78,
-    "tempUnit": "F"
+    "temp": 54,
+    "feelsLike": 54,
+    "wind": 19,
+    "windDir": "S",
+    "humidity": 66,
+    "tempUnit": "F",
+    "windUnit": "mph"
   },
   "forecast": [
-    { "day": 1, "condition": "Clear", "temp": 81 },
-    { "day": 2, "condition": "Rain",  "temp": 73 },
-    { "day": 3, "condition": "Rain",  "temp": 70 },
-    { "day": 4, "condition": "Clear", "temp": 76 },
-    { "day": 5, "condition": "Clear", "temp": 80 }
+    {
+      "condition": "Clear",
+      "temp": 64,
+      "feelsLike": 64,
+      "wind": 38,
+      "windDir": "S",
+      "humidity": 43,
+      "day": "+1"
+    },
+    {
+      "condition": "Rain",
+      "temp": 78,
+      "feelsLike": 78,
+      "wind": 42,
+      "windDir": "N",
+      "humidity": 63,
+      "day": "+2"
+    },
+    {
+      "condition": "Clear",
+      "temp": 61,
+      "feelsLike": 61,
+      "wind": 25,
+      "windDir": "N",
+      "humidity": 10,
+      "day": "+3"
+    }
   ],
+  "alerts": [],
   "biome": "minecraft:plains"
 }
