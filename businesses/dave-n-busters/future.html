@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Future of MiniGame Land · Dave n' Busters</title>
+<style>
+
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#070d18;color:#fff;min-height:100vh;}
+header{background:#0a1424;border-bottom:2px solid #2563eb;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;}
+.logo{font-size:1.4rem;font-weight:900;letter-spacing:-1px;}
+.logo .d{color:#3b82f6;}.logo .b{color:#f59e0b;}
+nav a{text-decoration:none;color:#7eb0f0;font-size:.85rem;margin-left:1.5rem;}
+nav a:hover{color:#fff;}
+nav a.home-link{color:#f59e0b;}
+.hero{background:linear-gradient(135deg,#001233 0%,#003380 50%,#0a1424 100%);padding:3rem 2rem;text-align:center;}
+.hero h1{font-size:2.4rem;font-weight:900;margin-bottom:.4rem;}
+.hero h1 .accent{color:#f59e0b;}
+.hero p{color:#9cc3f5;font-size:.95rem;max-width:520px;margin:0 auto;}
+.container{max-width:900px;margin:0 auto;padding:2.5rem 2rem;}
+.back-link{color:#f59e0b;text-decoration:none;font-size:.83rem;display:inline-block;margin-bottom:1.5rem;}
+
+/* Jump nav */
+.jump-nav{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2.5rem;}
+.jump-nav a{font-size:.8rem;font-weight:600;color:#7eb0f0;background:#0a1424;border:1px solid #15294a;padding:.4rem .85rem;border-radius:20px;text-decoration:none;transition:all .2s;}
+.jump-nav a:hover{border-color:#2563eb;color:#fff;}
+
+/* Game block */
+.game-block{background:#0a1424;border:1px solid #15294a;border-radius:16px;overflow:hidden;margin-bottom:2rem;scroll-margin-top:1rem;}
+.game-head{padding:1.5rem;display:flex;align-items:center;gap:1.25rem;border-bottom:1px solid #15294a;position:relative;}
+.game-emoji{font-size:3rem;flex-shrink:0;}
+.game-head-text{flex:1;}
+.game-head h2{font-size:1.6rem;font-weight:900;margin-bottom:.25rem;}
+.game-head .sub{font-size:.88rem;color:#7eb0f0;line-height:1.5;}
+.status-badge{font-size:.65rem;font-weight:700;padding:.25rem .65rem;border-radius:20px;text-transform:uppercase;letter-spacing:.05em;white-space:nowrap;}
+.status-live{background:#15803d;color:#bbf7d0;}
+.status-dev{background:#b45309;color:#fde68a;}
+.status-idea{background:#1e40af;color:#bfdbfe;}
+.game-content{padding:1.5rem;}
+.subsection{margin-bottom:1.5rem;}
+.subsection:last-child{margin-bottom:0;}
+.subsection h3{font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:#f59e0b;margin-bottom:.75rem;display:flex;align-items:center;gap:.5rem;}
+
+/* Version timeline */
+.versions{display:flex;flex-direction:column;gap:.6rem;}
+.version-item{display:flex;align-items:flex-start;gap:.75rem;}
+.version-dot{width:10px;height:10px;border-radius:50%;margin-top:.4rem;flex-shrink:0;}
+.vd-stable{background:#22c55e;}.vd-current{background:#3b82f6;}.vd-planned{background:#f59e0b;}.vd-issue{background:#ef4444;}
+.version-text{font-size:.88rem;color:#cbd9ec;line-height:1.5;}
+.version-text strong{color:#fff;font-weight:700;}
+.version-label{font-size:.68rem;font-weight:700;padding:.1rem .45rem;border-radius:4px;margin-left:.4rem;text-transform:uppercase;}
+.vl-stable{background:rgba(34,197,94,0.15);color:#4ade80;}
+.vl-current{background:rgba(59,130,246,0.15);color:#60a5fa;}
+.vl-planned{background:rgba(245,158,11,0.15);color:#fbbf24;}
+.vl-issue{background:rgba(239,68,68,0.15);color:#f87171;}
+
+/* Maps */
+.maps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.75rem;}
+.map-card{background:#0e1a30;border:1px solid #15294a;border-radius:10px;padding:.85rem 1rem;}
+.map-name{font-size:.92rem;font-weight:700;margin-bottom:.25rem;}
+.map-diff{font-size:.7rem;font-weight:700;padding:.15rem .5rem;border-radius:4px;text-transform:uppercase;letter-spacing:.05em;}
+.diff-easy{background:rgba(34,197,94,0.15);color:#4ade80;}
+.diff-normal{background:rgba(59,130,246,0.15);color:#60a5fa;}
+.diff-hard{background:rgba(239,68,68,0.15);color:#f87171;}
+.diff-tbd{background:rgba(148,163,184,0.15);color:#94a3b8;}
+
+/* Feature pills */
+.features{display:flex;flex-wrap:wrap;gap:.4rem;}
+.feature-pill{font-size:.78rem;color:#cbd9ec;background:#0e1a30;border:1px solid #15294a;padding:.3rem .7rem;border-radius:6px;}
+.feature-pill.planned{border-style:dashed;color:#9cc3f5;}
+
+.note-box{background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:8px;padding:.85rem 1rem;font-size:.83rem;color:#fca5a5;line-height:1.55;}
+.note-box strong{color:#fff;}
+.concept-text{font-size:.88rem;color:#cbd9ec;line-height:1.7;}
+.game-shot{width:100%;border-radius:10px;border:1px solid #15294a;display:block;margin-bottom:1.25rem;}
+.game-shot-cap{font-size:.74rem;color:#5e7da3;text-align:center;margin:-.75rem 0 1.25rem;font-style:italic;}
+.shot-row{display:grid;grid-template-columns:1fr 1fr;gap:.85rem;margin-bottom:.5rem;}
+.shot-row figure{margin:0;}
+.shot-row img{width:100%;border-radius:10px;border:1px solid #15294a;display:block;}
+.shot-row figcaption{font-size:.72rem;color:#5e7da3;text-align:center;margin-top:.4rem;font-style:italic;}
+@media(max-width:600px){.shot-row{grid-template-columns:1fr;}}
+footer{background:#050a12;border-top:1px solid #15294a;color:#557;text-align:center;padding:1.5rem;font-size:.8rem;}
+footer span{color:#3b82f6;}
+@media(max-width:600px){.game-head{flex-wrap:wrap;}}
+
+
+.future-hero{background:linear-gradient(135deg,#5b21b6,#1e1b4b,#0a1424);border-radius:18px;padding:2.5rem 2rem;text-align:center;margin-bottom:2rem;border:1px solid #2d1b69;}
+.future-hero .tagline{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:#c4b5fd;font-weight:700;margin-bottom:.75rem;}
+.future-hero h1{font-size:2.4rem;font-weight:900;color:#fff;margin-bottom:.6rem;line-height:1.1;}
+.future-hero p{color:#cbd5e1;font-size:1rem;max-width:640px;margin:0 auto;line-height:1.6;}
+.sec-head{display:flex;align-items:center;gap:.75rem;margin:2.5rem 0 1.25rem;border-bottom:2px solid #15294a;padding-bottom:.6rem;}
+.sec-head h2{font-size:1.5rem;font-weight:900;color:#fff;}
+.sec-head .pill{font-size:.65rem;background:#5b21b6;color:#e9d5ff;padding:.2rem .6rem;border-radius:20px;text-transform:uppercase;letter-spacing:.05em;font-weight:700;}
+.game-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.1rem;margin-bottom:1rem;}
+.fg-card{background:#0a1424;border:1px solid #15294a;border-radius:14px;padding:1.3rem;transition:border .18s;}
+.fg-card:hover{border-color:#7c3aed;}
+.fg-card .ic{font-size:1.8rem;margin-bottom:.5rem;}
+.fg-card h3{font-size:1.15rem;font-weight:800;color:#fff;margin-bottom:.15rem;}
+.fg-card .type{font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;color:#a78bfa;font-weight:700;margin-bottom:.6rem;}
+.fg-card p{font-size:.85rem;color:#9fb3cd;line-height:1.55;margin-bottom:.7rem;}
+.fg-card .feat{display:flex;flex-wrap:wrap;gap:.3rem;}
+.fg-card .feat span{font-size:.7rem;background:#13203a;border:1px solid #1e2a44;color:#bcccdf;padding:.15rem .5rem;border-radius:12px;}
+.upd-card{background:#0a1424;border:1px solid #15294a;border-left:3px solid #22c55e;border-radius:0 12px 12px 0;padding:1.2rem 1.3rem;margin-bottom:.9rem;}
+.upd-card h3{font-size:1.05rem;font-weight:800;color:#fff;margin-bottom:.4rem;}
+.upd-card p{font-size:.85rem;color:#9fb3cd;line-height:1.6;margin-bottom:.5rem;}
+.upd-card .feat{display:flex;flex-wrap:wrap;gap:.3rem;}
+.upd-card .feat span{font-size:.7rem;background:#0c2417;border:1px solid #15402a;color:#86efac;padding:.15rem .5rem;border-radius:12px;}
+.ticket-box{background:linear-gradient(135deg,#7c2d12,#0a1424);border:1px solid #9a3412;border-radius:14px;padding:1.5rem;margin-bottom:1rem;}
+.ticket-box h3{color:#fdba74;font-size:1.2rem;font-weight:800;margin-bottom:.8rem;}
+.ticket-table{width:100%;border-collapse:collapse;font-size:.85rem;}
+.ticket-table td{padding:.5rem .4rem;border-bottom:1px solid #1e2a44;color:#cbd5e1;}
+.ticket-table td:last-child{text-align:right;font-weight:700;color:#fdba74;white-space:nowrap;}
+.ticket-table tr:last-child td{border-bottom:none;}
+.arcade-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.6rem;}
+.arcade-list .a{background:#0a1424;border:1px solid #15294a;border-radius:10px;padding:.7rem .9rem;font-size:.85rem;color:#bcccdf;}
+.lineup-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:.6rem;margin-top:.5rem;}
+.lineup-grid .l{background:linear-gradient(135deg,#1e3a8a,#0a1424);border:1px solid #1e2a44;border-radius:10px;padding:.8rem;text-align:center;font-weight:700;color:#fff;font-size:.9rem;}
+.intro-note{background:#0a1424;border:1px solid #15294a;border-radius:12px;padding:1.25rem;color:#9fb3cd;font-size:.92rem;line-height:1.6;margin-bottom:1.5rem;}
+
+</style>
+</head>
+<body>
+<header>
+  <div class="logo"><span class="d">Dave</span> n' <span class="b">Busters</span></div>
+  <nav>
+    <a href="../../main/index.html" class="home-link">← World Home</a>
+    <a href="index.html">Arcade Home</a>
+    <a href="games.html">All Games</a>
+    <a href="future.html">The Future</a>
+  </nav>
+</header>
+<div class="container">
+  <a class="back-link" href="index.html">← Back to Arcade Home</a>
+
+  <div class="future-hero">
+    <div class="tagline">MGLEPC Expansion Project</div>
+    <h1>The Future of MiniGame Land</h1>
+    <p>Dave n' Busters is growing from an arcade and restaurant into a full entertainment hub — new games, updated classics, tickets, rewards, leaderboards, and challenges. This is the next era of MiniGame Land.</p>
+  </div>
+
+  <div class="intro-note">MiniGame Land is getting one of its biggest expansions yet. Below is the full planned lineup: ten new games, major updates to every current game, an upgraded arcade hub, and a unified ticket-and-prize system. Plans are subject to change as the expansion is built.</div>
+
+  <div class="sec-head"><h2>🆕 Planned New Games</h2><span class="pill">10 Coming</span></div>
+  <div class="game-grid">
+      <div class="fg-card">
+        <div class="ic">⛳</div>
+        <h3>Mini Golf</h3>
+        <div class="type">Casual · Course-based</div>
+        <p>Compete for the lowest score across themed holes.</p>
+        <div class="feat"><span>Multiple themed holes</span><span>Easy / medium / hard</span><span>Obstacles & trick shots</span><span>Score tracking</span><span>Ticket rewards</span><span>Possible tournament mode</span></div>
+      </div>
+      <div class="fg-card">
+        <div class="ic">🔓</div>
+        <h3>Escape Rooms (Xscape)</h3>
+        <div class="type">Puzzle · Team</div>
+        <p>Solve clues and escape before time runs out.</p>
+        <div class="feat"><span>Hidden clues</span><span>Locked doors</span><span>Timed puzzles</span><span>Team solving</span><span>Bonus for fast escapes</span><span>Themes: Lab, Vault, Temple…</span></div>
+      </div>
+      <div class="fg-card">
+        <div class="ic">🔪</div>
+        <h3>Murder Mystery</h3>
+        <div class="type">Social Deduction</div>
+        <p>Survive, investigate, and find the murderer.</p>
+        <div class="feat"><span>Random roles</span><span>Murderer / detective / innocents</span><span>Multiple maps</span><span>Spectator mode</span><span>Timed rounds</span><span>Ticket rewards</span></div>
+      </div>
+      <div class="fg-card">
+        <div class="ic">🏎️</div>
+        <h3>MiniGame Speedway</h3>
+        <div class="type">Racing</div>
+        <p>Themed tracks with shortcuts, hazards, and lap times.</p>
+        <div class="feat"><span>City Circuit</span><span>Arcade Speedway</span><span>Factory Raceway</span><span>Ice Track</span><span>Neon Night Speedway</span><span>Grand Prix</span></div>
+      </div>
+      <div class="fg-card">
+        <div class="ic">⚔️</div>
+        <h3>Mob Arena</h3>
+        <div class="type">PvE Combat</div>
+        <p>Fight waves of mobs and survive boss rounds.</p>
+        <div class="feat"><span>Solo & team modes</span><span>Player kits</span><span>Boss waves</span><span>Increasing difficulty</span><span>Wave-based ticket rewards</span></div>
+      </div>
+      <div class="fg-card">
+        <div class="ic">📦</div>
+        <h3>Prop Hunt</h3>
+        <div class="type">Hide & Hunt</div>
+        <p>Props blend into the map while hunters search.</p>
+        <div class="feat"><span>Props vs hunters</span><span>Disguise system</span><span>Timed rounds</span><span>Hunter tools</span><span>Multiple maps</span><span>Rewards for both teams</span></div>
+      </div>
+      <div class="fg-card">
+        <div class="ic">🧠</div>
+        <h3>Memory Game</h3>
+        <div class="type">Arcade Challenge</div>
+        <p>Repeat patterns, colors, sounds, or tile sequences.</p>
+        <div class="feat"><span>Color Memory</span><span>Sound Memory</span><span>Floor Tile Memory</span><span>Speed Memory</span><span>Versus Memory</span><span>Elimination Memory</span></div>
+      </div>
+      <div class="fg-card">
+        <div class="ic">🏃</div>
+        <h3>Parkour</h3>
+        <div class="type">Skill · Timed</div>
+        <p>Multiple difficulty levels and timed runs.</p>
+        <div class="feat"><span>Easy → Rage courses</span><span>Timed challenges</span><span>Monthly featured course</span><span>Bronze/Silver/Gold/Diamond medals</span></div>
+      </div>
+      <div class="fg-card">
+        <div class="ic">🎯</div>
+        <h3>BreachPoint</h3>
+        <div class="type">Tactical · Attack/Defense</div>
+        <p>One team attacks, one defends an objective.</p>
+        <div class="feat"><span>Defuse the bomb</span><span>Secure the room</span><span>Rescue the hostage</span><span>Steal the files</span><span>Control the vault</span><span>8 possible maps</span></div>
+      </div>
+      <div class="fg-card">
+        <div class="ic">📺</div>
+        <h3>BrainSurge</h3>
+        <div class="type">Game Show</div>
+        <p>Memory, quick thinking, and puzzle solving.</p>
+        <div class="feat"><span>Visual Memory</span><span>Puzzle Race</span><span>Brain Drain Final</span><span>Player podiums</span><span>Elimination rounds</span><span>Big ticket rewards</span></div>
+      </div>
+  </div>
+
+  <div class="sec-head"><h2>🔧 Updates to Current Games</h2><span class="pill">All Upgraded</span></div>
+      <div class="upd-card">
+        <h3>🫥 Hide and Seek</h3>
+        <p>Better map selection, smoother starts, ticket rewards, improved seeker/hider balance, and more maps.</p>
+        <div class="feat"><span>Cave: Normal</span><span>Japanese Village: Hard</span><span>Gas Station: Easy (planned)</span><span>4th map: TBD</span><span>Lumen Field: Extreme (v3)</span></div>
+      </div>
+      <div class="upd-card">
+        <h3>❄️ Spleef Ultimate</h3>
+        <p>Keeps expanding with BONK! Spleef, Chaos Mode, better overtime, floor decay improvements, and ticket rewards.</p>
+        <div class="feat"><span>Classic</span><span>BONK!</span><span>Chaos</span><span>Sudden Death</span><span>Random Item</span></div>
+      </div>
+      <div class="upd-card">
+        <h3>🎨 Color Drop</h3>
+        <p>Stability updates, better timers, improved round handling, more patterns, and new special rounds.</p>
+        <div class="feat"><span>Speed rounds</span><span>Fake safe colors</span><span>Shrinking arena</span><span>Powerup tiles</span><span>Sudden death</span></div>
+      </div>
+      <div class="upd-card">
+        <h3>👑 King of the Hill</h3>
+        <p>Better capture detection, cleaner scoring, more maps, overtime, team modes, and ticket rewards.</p>
+        <div class="feat"><span>Classic</span><span>Team</span><span>Moving Hill</span><span>Multi-Hill</span><span>Chaos Hill</span></div>
+      </div>
+      <div class="upd-card">
+        <h3>💥 TNT Run Deluxe</h3>
+        <p>Better resets, leaderboards, powerup mode, sudden death, more floor themes, and ticket rewards.</p>
+        <div class="feat"><span>Powerup mode</span><span>Sudden death</span><span>More floor themes</span><span>Better leaderboards</span></div>
+      </div>
+
+  <div class="sec-head"><h2>🎰 Dave n' Busters Arcade Upgrades</h2></div>
+  <div class="intro-note" style="margin-bottom:1rem;">The arcade itself becomes the main hub for rewards and game access.</div>
+  <div class="arcade-list">
+<div class="a">Ticket counter</div><div class="a">Prize shop</div><div class="a">Leaderboard wall</div><div class="a">Daily challenges</div><div class="a">Weekly challenges</div><div class="a">Game selection area</div><div class="a">Event board</div><div class="a">Arcade machine decorations</div><div class="a">Restaurant connection</div><div class="a">Links to all games</div>  </div>
+
+  <div class="sec-head"><h2>🎟️ Ticket System</h2></div>
+  <div class="ticket-box">
+    <h3>Earn tickets by playing and winning</h3>
+    <table class="ticket-table">
+      <tr><td>Winning Hide and Seek</td><td>2 tickets</td></tr>
+      <tr><td>Losing Hide and Seek</td><td>1 ticket</td></tr>
+      <tr><td>Winning Spleef</td><td>2 tickets</td></tr>
+      <tr><td>Completing Mini Golf</td><td>1 ticket</td></tr>
+      <tr><td>Winning BrainSurge</td><td>Big ticket bonus</td></tr>
+      <tr><td>Surviving Mob Arena boss waves</td><td>Bonus tickets</td></tr>
+    </table>
+    <p style="color:#cbd5e1;font-size:.85rem;margin-top:.9rem;line-height:1.6;">Tickets can be spent on prizes, trophies, cosmetics, food, collectibles, and event rewards.</p>
+  </div>
+
+  <div class="sec-head"><h2>🎮 Final Planned Game Lineup</h2></div>
+  <div class="lineup-grid">
+<div class="l">Mini Golf</div><div class="l">Escape Rooms</div><div class="l">Murder Mystery</div><div class="l">MiniGame Speedway</div><div class="l">Mob Arena</div><div class="l">Prop Hunt</div><div class="l">Memory Game</div><div class="l">Parkour</div><div class="l">BreachPoint</div><div class="l">BrainSurge</div>
+  </div>
+
+  <div class="intro-note" style="margin-top:2rem;text-align:center;">With new games, updated classics, tickets, prizes, events, and leaderboards, Dave n' Busters is becoming the center of MiniGame Land entertainment.</div>
+</div>
+<footer>© <span>Dave n' Busters</span> · MiniGame Land · A Biking People World Business</footer>
+<script src="../../assets/breaking.js" data-root="../../"></script>
+<script type="module" src="../../assets/authguard.js" data-root="../../"></script>
+</body>
+</html>
