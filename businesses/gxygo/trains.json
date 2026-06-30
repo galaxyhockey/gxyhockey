@@ -1,0 +1,62 @@
+{
+  "updated": "2026-06-29T18:42:07.512Z",
+  "trains": [
+    {
+      "name": "Red Line Express",
+      "line": "red",
+      "speed": { "blocksPerTick": 1.2, "ms": 24.0, "kmh": 86.4 },
+      "moving": true,
+      "backwards": false,
+      "derailed": false,
+      "carriages": 3,
+      "lengthBlocks": 18,
+      "dimensions": ["minecraft:overworld"],
+      "currentStation": null,
+      "nextStation": "MiniGame Land",
+      "distanceRemaining": 240,
+      "schedule": {
+        "stops": ["Skyline Street", "The City North", "MiniGame Land", "Drive-In Theater", "City Hotel", "Market Avenue"],
+        "currentIndex": 1,
+        "state": "cyclic"
+      }
+    },
+    {
+      "name": "Blue Line Local",
+      "line": "blue",
+      "speed": { "blocksPerTick": 0.0, "ms": 0.0, "kmh": 0.0 },
+      "moving": false,
+      "backwards": false,
+      "derailed": false,
+      "carriages": 2,
+      "lengthBlocks": 12,
+      "dimensions": ["minecraft:overworld"],
+      "currentStation": "Dave n' Busters",
+      "nextStation": "TCN Factory District",
+      "distanceRemaining": 0,
+      "schedule": {
+        "stops": ["Skyline Street", "City Cinema", "Dave n' Busters", "TCN Factory District", "Rocket Launch Pad"],
+        "currentIndex": 2,
+        "state": "cyclic"
+      }
+    },
+    {
+      "name": "Nether Hauler",
+      "line": "nether",
+      "speed": { "blocksPerTick": 0.8, "ms": 16.0, "kmh": 57.6 },
+      "moving": true,
+      "backwards": true,
+      "derailed": false,
+      "carriages": 4,
+      "lengthBlocks": 24,
+      "dimensions": ["minecraft:the_nether", "minecraft:overworld"],
+      "currentStation": null,
+      "nextStation": "Piglin Plaza",
+      "distanceRemaining": 612,
+      "schedule": {
+        "stops": ["Basalt Station", "Nether Wastelands", "Warped Forest", "Piglin Plaza"],
+        "currentIndex": 2,
+        "state": "cyclic"
+      }
+    }
+  ]
+}

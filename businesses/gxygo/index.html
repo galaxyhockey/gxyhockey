@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GxyGo Transit · Biking People World</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#f4f6fb;color:#101828;}
+:root{--red:#d4202a;--blue:#1d4ed8;--ink:#0b1b3a;}
+header{background:#0b1b3a;color:#fff;}
+.bar{display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto;padding:.7rem 1.5rem;font-size:.8rem;color:#9fb3d9;border-bottom:1px solid #16264a;flex-wrap:wrap;gap:.5rem;}
+.brandrow{max-width:1100px;margin:0 auto;padding:1.5rem;display:flex;align-items:center;gap:1rem;}
+.logo{display:flex;align-items:center;gap:.1rem;font-size:2.2rem;font-weight:900;letter-spacing:-1px;}
+.logo .g{color:#fff;}.logo .o{color:var(--red);}
+.logo-mark{width:46px;height:46px;border-radius:12px;background:linear-gradient(135deg,var(--red) 0 50%,var(--blue) 50% 100%);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-right:.6rem;box-shadow:0 2px 10px rgba(0,0,0,.3);}
+.tagline{color:#9fb3d9;font-size:.9rem;margin-top:.2rem;}
+nav{background:#fff;border-bottom:1px solid #e2e8f0;position:sticky;top:0;z-index:20;}
+.navinner{max-width:1100px;margin:0 auto;padding:.7rem 1.5rem;display:flex;gap:1.5rem;flex-wrap:wrap;}
+nav a{text-decoration:none;color:var(--ink);font-size:.85rem;font-weight:600;}
+nav a:hover{color:var(--red);}
+nav a.home{color:var(--blue);}
+.container{max-width:1100px;margin:0 auto;padding:2rem 1.5rem;}
+.hero-strip{background:linear-gradient(135deg,var(--blue),#0b1b3a 60%);color:#fff;border-radius:16px;padding:2rem;margin-bottom:1.5rem;position:relative;overflow:hidden;}
+.hero-strip::after{content:"";position:absolute;top:0;right:0;width:40%;height:100%;background:repeating-linear-gradient(45deg,transparent,transparent 18px,rgba(212,32,42,.18) 18px,rgba(212,32,42,.18) 36px);}
+.hero-strip h1{font-size:1.9rem;font-weight:900;margin-bottom:.4rem;position:relative;}
+.hero-strip p{color:#c9d8f2;max-width:560px;line-height:1.6;position:relative;}
+.section-h{display:flex;align-items:center;justify-content:space-between;margin:2rem 0 1rem;}
+.section-h h2{font-size:1.4rem;font-weight:800;color:var(--ink);}
+.status-chip{font-size:.74rem;font-weight:700;padding:.3rem .7rem;border-radius:20px;display:inline-flex;align-items:center;gap:.4rem;}
+.chip-live{background:#dcfce7;color:#15803d;}
+.chip-off{background:#f1f5f9;color:#64748b;}
+.dot{width:8px;height:8px;border-radius:50%;}
+.dot-live{background:#16a34a;}.dot-off{background:#94a3b8;}
+
+/* Train board */
+.board{display:grid;gap:.9rem;}
+.train{background:#fff;border:1px solid #e2e8f0;border-radius:14px;overflow:hidden;box-shadow:0 1px 3px rgba(16,24,40,.05);}
+.train-top{display:flex;align-items:center;gap:.8rem;padding:1rem 1.2rem;border-left:6px solid #999;}
+.train-name{font-weight:800;font-size:1.1rem;}
+.train-badges{margin-left:auto;display:flex;gap:.4rem;flex-wrap:wrap;}
+.tb{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;padding:.22rem .55rem;border-radius:6px;}
+.tb-moving{background:#dcfce7;color:#15803d;}
+.tb-stopped{background:#fef9c3;color:#854d0e;}
+.tb-back{background:#e0e7ff;color:#3730a3;}
+.tb-derail{background:#fee2e2;color:#b91c1c;}
+.tb-dim{background:#f1f5f9;color:#475569;}
+.train-body{padding:0 1.2rem 1.1rem;display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.tcell .lab{font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;color:#94a3b8;font-weight:700;margin-bottom:.15rem;}
+.tcell .val{font-size:.95rem;font-weight:600;color:#1e293b;}
+.tcell .val small{font-weight:400;color:#64748b;}
+.progress{grid-column:1/-1;}
+.ptrack{height:8px;background:#eef2f7;border-radius:6px;position:relative;overflow:hidden;margin-top:.3rem;}
+.pfill{height:100%;border-radius:6px;background:var(--blue);}
+.sched-mini{grid-column:1/-1;display:flex;gap:.3rem;flex-wrap:wrap;margin-top:.4rem;}
+.stop-pill{font-size:.72rem;padding:.2rem .55rem;border-radius:14px;background:#f1f5f9;color:#475569;}
+.stop-pill.done{opacity:.5;}
+.stop-pill.cur{background:var(--red);color:#fff;font-weight:700;}
+
+/* Lines */
+.lines-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem;}
+.line-card{background:#fff;border:1px solid #e2e8f0;border-radius:14px;overflow:hidden;}
+.line-head{padding:.9rem 1.1rem;color:#fff;font-weight:800;font-size:1.05rem;display:flex;align-items:center;gap:.5rem;}
+.line-stops{padding:1rem 1.1rem;}
+.line-stop{display:flex;align-items:center;gap:.6rem;padding:.25rem 0;font-size:.88rem;color:#334155;}
+.line-stop .node{width:11px;height:11px;border-radius:50%;border:3px solid #cbd5e1;flex:none;}
+.line-stop:first-child .node,.line-stop:last-child .node{border-color:#475569;background:#475569;}
+.cards2{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem;}
+.linkcard{display:block;text-decoration:none;background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:1.4rem;transition:border .15s,transform .15s;}
+.linkcard:hover{border-color:var(--blue);transform:translateY(-2px);}
+.linkcard .ic{font-size:1.8rem;}
+.linkcard h3{color:var(--ink);font-size:1.1rem;margin:.4rem 0 .2rem;}
+.linkcard p{color:#64748b;font-size:.85rem;line-height:1.5;}
+.updated-note{text-align:center;color:#94a3b8;font-size:.78rem;margin:1.5rem 0;}
+footer{background:#0b1b3a;color:#7e93b8;text-align:center;padding:1.5rem;font-size:.82rem;margin-top:2rem;}
+footer span{color:var(--red);}
+@media(max-width:560px){.train-body{grid-template-columns:1fr;}.cards2{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<script>if(!sessionStorage.getItem('bpw_auth')){window.location.href='../../login.html';}</script>
+<header>
+  <div class="bar">
+    <span>Biking People World · Public Transit</span>
+    <span>GxyGo Transit Authority</span>
+  </div>
+  <div class="brandrow">
+    <div class="logo-mark">🚆</div>
+    <div>
+      <div class="logo"><span class="g">Gxy</span><span class="o">Go</span></div>
+      <div class="tagline">The fast way across the world — rails from the City to the Nether.</div>
+    </div>
+  </div>
+</header>
+<nav>
+  <div class="navinner">
+    <a href="../../main/index.html" class="home">← World Home</a>
+    <a href="index.html">Live Board</a>
+    <a href="schedules.html">Schedules</a>
+    <a href="ride.html">Fares &amp; How to Ride</a>
+  </div>
+</nav>
+<div class="container">
+
+  <div class="hero-strip">
+    <h1>🚆 Live Train Board</h1>
+    <p>Real-time train data straight from Biking People World, published by the GxyGo mod. Track speed, position, and schedules across every line — overworld and Nether.</p>
+  </div>
+
+  <div class="section-h">
+    <h2>Trains Running Now</h2>
+    <span class="status-chip chip-off" id="trainStatus"><span class="dot dot-off"></span>Loading…</span>
+  </div>
+  <div class="board" id="board"></div>
+
+  <div class="section-h"><h2>Lines &amp; Stations</h2></div>
+  <div class="lines-grid" id="linesGrid"></div>
+
+  <div class="cards2">
+    <a class="linkcard" href="schedules.html">
+      <div class="ic">🗓️</div>
+      <h3>Schedules</h3>
+      <p>See every line's full stop order and where each train is right now along its route.</p>
+    </a>
+    <a class="linkcard" href="ride.html">
+      <div class="ic">🎟️</div>
+      <h3>Fares &amp; How to Ride</h3>
+      <p>How to board, where to tap in, line transfers, and the GxyGo fare system.</p>
+    </a>
+  </div>
+
+  <div class="updated-note" id="updatedNote"></div>
+</div>
+<footer>© <span>GxyGo Transit</span> · A Biking People World Public Service · Powered by the GxyGo mod</footer>
+
+<script>
+function timeAgo(iso){
+  if(!iso) return "unknown";
+  const then=new Date(iso).getTime(); if(isNaN(then)) return "unknown";
+  const m=Math.floor((Date.now()-then)/60000);
+  if(m<1) return "just now"; if(m<60) return m+" min ago";
+  const h=Math.floor(m/60); if(h<24) return h+" hr ago";
+  return Math.floor(h/24)+" day(s) ago";
+}
+function dimName(d){ return String(d).replace("minecraft:","").replace(/_/g," "); }
+let LINE_COLORS={};
+
+function renderTrains(data){
+  const board=document.getElementById('board');
+  const trains=(data&&data.trains)||[];
+  const st=document.getElementById('trainStatus');
+  if(!trains.length){
+    board.innerHTML='<div style="background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:1.5rem;text-align:center;color:#64748b;">No trains are currently reporting. They\'ll appear here once the GxyGo mod is connected and trains are running.</div>';
+    st.className='status-chip chip-off'; st.innerHTML='<span class="dot dot-off"></span>No trains reporting';
+    return;
+  }
+  st.className='status-chip chip-live'; st.innerHTML='<span class="dot dot-live"></span>'+trains.length+' train'+(trains.length>1?'s':'')+' live';
+  let html='';
+  for(const t of trains){
+    const col=LINE_COLORS[t.line]||'#64748b';
+    const sp=t.speed||{};
+    let badges='';
+    if(t.derailed) badges+='<span class="tb tb-derail">⚠ Derailed</span>';
+    else if(t.moving) badges+='<span class="tb tb-moving">● Moving</span>';
+    else badges+='<span class="tb tb-stopped">■ Stopped</span>';
+    if(t.backwards) badges+='<span class="tb tb-back">Reversing</span>';
+    if(Array.isArray(t.dimensions)) for(const d of t.dimensions) badges+='<span class="tb tb-dim">'+dimName(d)+'</span>';
+
+    // schedule mini
+    let sched='';
+    const sc=t.schedule;
+    if(sc&&Array.isArray(sc.stops)){
+      sched='<div class="sched-mini">';
+      sc.stops.forEach(function(stop,i){
+        let cls='stop-pill';
+        if(i<sc.currentIndex) cls+=' done';
+        else if(i===sc.currentIndex) cls+=' cur';
+        sched+='<span class="'+cls+'">'+stop+'</span>';
+      });
+      sched+='</div>';
+    }
+
+    // progress toward next station (rough: unknown total, so show remaining only)
+    const loc = t.currentStation ? ('At '+t.currentStation) : ('In transit → '+(t.nextStation||'?'));
+    const rem = (t.distanceRemaining!==undefined && !t.currentStation) ? (t.distanceRemaining+' blocks to '+(t.nextStation||'next stop')) : '';
+
+    html+='<div class="train"><div class="train-top" style="border-left-color:'+col+';">'
+      +'<span class="train-name">'+t.name+'</span><div class="train-badges">'+badges+'</div></div>'
+      +'<div class="train-body">'
+      +'<div class="tcell"><div class="lab">Status / Location</div><div class="val">'+loc+'</div></div>'
+      +'<div class="tcell"><div class="lab">Speed</div><div class="val">'+(sp.kmh!==undefined?sp.kmh+' km/h':'—')+' <small>'+(sp.ms!==undefined?'('+sp.ms+' m/s · '+sp.blocksPerTick+' b/t)':'')+'</small></div></div>'
+      +'<div class="tcell"><div class="lab">Train</div><div class="val">'+(t.carriages||'?')+' carriages <small>· '+(t.lengthBlocks||'?')+' blocks long</small></div></div>'
+      +'<div class="tcell"><div class="lab">Next Destination</div><div class="val">'+(t.nextStation||'—')+(rem?' <small>· '+t.distanceRemaining+' blocks</small>':'')+'</div></div>'
+      +(sc?'<div class="tcell progress"><div class="lab">Schedule <small style="text-transform:none;letter-spacing:0;">('+(sc.state||'')+')</small></div>'+sched+'</div>':'')
+      +'</div></div>';
+  }
+  board.innerHTML=html;
+  document.getElementById('updatedNote').textContent = data.updated ? ('Live data updated '+timeAgo(data.updated)) : '';
+}
+
+function renderLines(data){
+  const grid=document.getElementById('linesGrid');
+  const lines=(data&&data.lines)||[];
+  lines.forEach(function(l){ LINE_COLORS[l.id]=l.color; });
+  if(!lines.length){ grid.innerHTML='<div style="color:#64748b;">No lines published yet.</div>'; return; }
+  let html='';
+  for(const l of lines){
+    html+='<div class="line-card"><div class="line-head" style="background:'+(l.color||'#475569')+';">🚆 '+l.name+'</div><div class="line-stops">';
+    for(const s of (l.stations||[])) html+='<div class="line-stop"><span class="node" style="border-color:'+(l.color||'#cbd5e1')+';"></span>'+s+'</div>';
+    html+='</div></div>';
+  }
+  grid.innerHTML=html;
+}
+
+// Lines first (so colors are known), then trains
+fetch('lines.json?_=' + Date.now())
+  .then(r=>{ if(!r.ok) throw 0; return r.json(); })
+  .then(d=>renderLines(d))
+  .catch(()=>renderLines(null))
+  .finally(()=>{
+    fetch('trains.json?_=' + Date.now())
+      .then(r=>{ if(!r.ok) throw 0; return r.json(); })
+      .then(d=>renderTrains(d))
+      .catch(()=>renderTrains(null));
+  });
+</script>
+<script src="../../assets/breaking.js" data-root="../../"></script>
+<script type="module" src="../../assets/authguard.js" data-root="../../"></script>
+</body>
+</html>

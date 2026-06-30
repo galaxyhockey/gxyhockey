@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fares & How to Ride · GxyGo Transit</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#f4f6fb;color:#101828;}
+:root{--red:#d4202a;--blue:#1d4ed8;--ink:#0b1b3a;}
+header{background:#0b1b3a;color:#fff;}
+.bar{display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto;padding:.7rem 1.5rem;font-size:.8rem;color:#9fb3d9;border-bottom:1px solid #16264a;flex-wrap:wrap;gap:.5rem;}
+.brandrow{max-width:1100px;margin:0 auto;padding:1.5rem;display:flex;align-items:center;gap:1rem;}
+.logo{display:flex;align-items:center;font-size:2.2rem;font-weight:900;letter-spacing:-1px;}
+.logo .g{color:#fff;}.logo .o{color:var(--red);}
+.logo-mark{width:46px;height:46px;border-radius:12px;background:linear-gradient(135deg,var(--red) 0 50%,var(--blue) 50% 100%);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-right:.6rem;box-shadow:0 2px 10px rgba(0,0,0,.3);}
+.tagline{color:#9fb3d9;font-size:.9rem;margin-top:.2rem;}
+nav{background:#fff;border-bottom:1px solid #e2e8f0;position:sticky;top:0;z-index:20;}
+.navinner{max-width:1100px;margin:0 auto;padding:.7rem 1.5rem;display:flex;gap:1.5rem;flex-wrap:wrap;}
+nav a{text-decoration:none;color:var(--ink);font-size:.85rem;font-weight:600;}
+nav a:hover{color:var(--red);}
+nav a.home{color:var(--blue);}
+nav a.active{color:var(--red);border-bottom:2px solid var(--red);padding-bottom:.2rem;}
+.container{max-width:1100px;margin:0 auto;padding:2rem 1.5rem;}
+.page-title{font-size:1.7rem;font-weight:900;color:var(--ink);margin-bottom:.4rem;}
+.page-sub{color:#64748b;margin-bottom:1.5rem;max-width:620px;line-height:1.6;}
+footer{background:#0b1b3a;color:#7e93b8;text-align:center;padding:1.5rem;font-size:.82rem;margin-top:2rem;}
+footer span{color:var(--red);}
+
+.card{background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:1.5rem;margin-bottom:1.25rem;}
+.card h2{font-size:1.2rem;color:var(--ink);margin-bottom:.8rem;display:flex;align-items:center;gap:.5rem;}
+.steps{counter-reset:s;list-style:none;}
+.steps li{counter-increment:s;position:relative;padding:.5rem 0 .5rem 2.6rem;color:#334155;line-height:1.6;border-bottom:1px solid #f1f5f9;}
+.steps li:last-child{border-bottom:none;}
+.steps li::before{content:counter(s);position:absolute;left:0;top:.5rem;width:1.8rem;height:1.8rem;border-radius:50%;background:var(--blue);color:#fff;font-weight:700;font-size:.85rem;display:flex;align-items:center;justify-content:center;}
+.fare-table{width:100%;border-collapse:collapse;}
+.fare-table th,.fare-table td{text-align:left;padding:.7rem .6rem;border-bottom:1px solid #eef2f7;font-size:.92rem;}
+.fare-table th{font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:#94a3b8;}
+.fare-table td:last-child{text-align:right;font-weight:700;color:var(--red);}
+.linepills{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.3rem;}
+.linepill{padding:.3rem .8rem;border-radius:20px;color:#fff;font-size:.8rem;font-weight:700;}
+.tip{background:#eff6ff;border-left:4px solid var(--blue);border-radius:0 8px 8px 0;padding:1rem 1.2rem;color:#1e3a5f;font-size:.9rem;line-height:1.6;}
+
+</style>
+</head>
+<body>
+<script>if(!sessionStorage.getItem('bpw_auth')){window.location.href='../../login.html';}</script>
+<header>
+  <div class="bar"><span>Biking People World · Public Transit</span><span>GxyGo Transit Authority</span></div>
+  <div class="brandrow">
+    <div class="logo-mark">🚆</div>
+    <div><div class="logo"><span class="g">Gxy</span><span class="o">Go</span></div>
+    <div class="tagline">The fast way across the world — rails from the City to the Nether.</div></div>
+  </div>
+</header>
+<nav><div class="navinner">
+  <a href="../../main/index.html" class="home">← World Home</a>
+  <a href="index.html">Live Board</a>
+  <a href="schedules.html">Schedules</a>
+  <a href="ride.html" class="active">Fares &amp; How to Ride</a>
+</div></nav>
+<div class="container">
+  <div class="page-title">🎟️ Fares &amp; How to Ride</div>
+  <p class="page-sub">Everything you need to ride GxyGo across Biking People World — from boarding to transfers.</p>
+
+  <div class="card">
+    <h2>🚉 How to Ride</h2>
+    <ol class="steps">
+      <li>Head to any GxyGo station — check the <a href="index.html" style="color:var(--blue);font-weight:600;">Live Board</a> to see which trains are running.</li>
+      <li>Find your line and direction on the platform signs. Lines are color-coded (see the fare card below).</li>
+      <li>Wait behind the platform line. Trains stop automatically at each station on their schedule.</li>
+      <li>Board when the doors open and grab a seat — Nether Line riders, mind the portal transition!</li>
+      <li>Watch the next-stop display. The train announces each station as it arrives.</li>
+      <li>Step off at your stop. Transfer to another line at any shared station (like Skyline Street).</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h2>💳 Fares</h2>
+    <table class="fare-table">
+      <tr><th>Ride Type</th><th>Fare</th></tr>
+      <tr><td>Single ride (any one line)</td><td>Free*</td></tr>
+      <tr><td>All-day pass (unlimited)</td><td>Free*</td></tr>
+      <tr><td>Nether Line surcharge</td><td>Free*</td></tr>
+      <tr><td>Group / event charter</td><td>Ask staff</td></tr>
+    </table>
+    <div class="tip" style="margin-top:1rem;">*GxyGo is a free public service for all Biking People World residents. Fares shown are placeholders — set your real fare system here whenever you want (tickets, in-game currency, or rewards).</div>
+  </div>
+
+  <div class="card">
+    <h2>🚆 Our Lines</h2>
+    <p style="color:#64748b;font-size:.9rem;margin-bottom:.5rem;">GxyGo runs these lines across the world:</p>
+    <div class="linepills" id="linePills"></div>
+    <p style="color:#64748b;font-size:.85rem;margin-top:1rem;">See full stop order and live trains on the <a href="schedules.html" style="color:var(--blue);font-weight:600;">Schedules page</a>.</p>
+  </div>
+
+  <div class="card">
+    <h2>ℹ️ Good to Know</h2>
+    <div class="tip">Trains run on Create mod contraptions and follow set schedules — they may pause, reverse, or run cyclically. The Live Board shows real-time speed, length, and position for every train, including ones spanning the Nether portal. If a train shows as <strong>derailed</strong>, staff have been notified.</div>
+  </div>
+</div>
+<footer>© <span>GxyGo Transit</span> · A Biking People World Public Service · Powered by the GxyGo mod</footer>
+<script>
+fetch('lines.json?_='+Date.now()).then(r=>{if(!r.ok)throw 0;return r.json();}).then(d=>{
+  const pills=document.getElementById('linePills');
+  pills.innerHTML=(d.lines||[]).map(l=>'<span class="linepill" style="background:'+(l.color||'#475569')+';">'+l.name+'</span>').join('');
+}).catch(()=>{document.getElementById('linePills').innerHTML='<span style="color:#94a3b8;">Lines not published yet.</span>';});
+</script>
+<script src="../../assets/breaking.js" data-root="../../"></script>
+<script type="module" src="../../assets/authguard.js" data-root="../../"></script>
+</body>
+</html>
