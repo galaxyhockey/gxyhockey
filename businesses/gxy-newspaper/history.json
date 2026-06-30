@@ -1,0 +1,13 @@
+{
+  "updated": "2026-06-29T18:42:07.512Z",
+  "days": [
+    { "mcDay": 145, "date": "2026-06-22T18:00:00Z", "season": "Summer", "trend": "SUMMER", "condition": "Clear", "temp": 76, "feelsLike": 77, "wind": 8,  "humidity": 48 },
+    { "mcDay": 146, "date": "2026-06-23T18:00:00Z", "season": "Summer", "trend": "SUMMER", "condition": "Rain",  "temp": 70, "feelsLike": 70, "wind": 16, "humidity": 74 },
+    { "mcDay": 147, "date": "2026-06-24T18:00:00Z", "season": "Summer", "trend": "SUMMER", "condition": "Rain",  "temp": 68, "feelsLike": 68, "wind": 20, "humidity": 80 },
+    { "mcDay": 148, "date": "2026-06-25T18:00:00Z", "season": "Summer", "trend": "SUMMER", "condition": "Clear", "temp": 74, "feelsLike": 75, "wind": 10, "humidity": 55 },
+    { "mcDay": 149, "date": "2026-06-26T18:00:00Z", "season": "Summer", "trend": "SUMMER", "condition": "Clear", "temp": 78, "feelsLike": 80, "wind": 7,  "humidity": 46 },
+    { "mcDay": 150, "date": "2026-06-27T18:00:00Z", "season": "Summer", "trend": "SUMMER", "condition": "Storm", "temp": 72, "feelsLike": 72, "wind": 31, "humidity": 83 },
+    { "mcDay": 151, "date": "2026-06-28T18:00:00Z", "season": "Summer", "trend": "SUMMER", "condition": "Clear", "temp": 77, "feelsLike": 79, "wind": 9,  "humidity": 50 },
+    { "mcDay": 152, "date": "2026-06-29T18:00:00Z", "season": "Summer", "trend": "SUMMER", "condition": "Clear", "temp": 79, "feelsLike": 81, "wind": 9,  "humidity": 44 }
+  ]
+}

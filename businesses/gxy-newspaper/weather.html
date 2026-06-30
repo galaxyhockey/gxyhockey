@@ -18,49 +18,79 @@ nav a{text-decoration:none;color:#1a1a1a;font-size:.82rem;font-weight:600;text-t
 nav a:hover{color:#c41a1a;}
 nav a.home{color:#c41a1a;}
 nav a.active{border-bottom:2px solid #c41a1a;padding-bottom:.2rem;}
-.container{max-width:900px;margin:0 auto;padding:2rem;}
+.container{max-width:980px;margin:0 auto;padding:2rem;}
 .back-link{font-family:'Segoe UI',sans-serif;font-size:.83rem;color:#c41a1a;text-decoration:none;display:inline-block;margin-bottom:1.5rem;}
 .back-link:hover{text-decoration:underline;}
-.page-head{text-align:center;border-bottom:2px solid #1a1a1a;padding-bottom:1rem;margin-bottom:1.5rem;}
+.page-head{text-align:center;border-bottom:2px solid #1a1a1a;padding-bottom:1rem;margin-bottom:1.25rem;}
 .page-head h2{font-size:2.4rem;font-weight:900;}
 .page-head p{font-family:'Segoe UI',sans-serif;font-size:.9rem;color:#666;margin-top:.4rem;}
-
 .status-line{font-family:'Segoe UI',sans-serif;font-size:.78rem;text-align:center;color:#888;margin-bottom:1.5rem;}
 .status-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:.35rem;vertical-align:middle;}
-.dot-live{background:#16a34a;}.dot-stale{background:#d97706;}.dot-off{background:#999;}
+.dot-live{background:#16a34a;}.dot-off{background:#999;}
+
+/* Alert banner */
+.alert{border-radius:8px;padding:1rem 1.25rem;margin-bottom:1.5rem;display:none;font-family:'Segoe UI',sans-serif;}
+.alert .a-top{display:flex;align-items:center;gap:.6rem;margin-bottom:.3rem;}
+.alert .a-tier{font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;padding:.2rem .6rem;border-radius:4px;background:rgba(0,0,0,.2);}
+.alert .a-event{font-weight:800;font-size:1.05rem;}
+.alert .a-headline{font-size:.9rem;opacity:.95;line-height:1.5;}
+.alert.warning{background:#b30000;color:#fff;animation:apulse 1.8s ease-in-out infinite;}
+.alert.watch{background:#d97706;color:#fff;}
+.alert.advisory{background:#eab308;color:#1a1a1a;}
+@keyframes apulse{0%,100%{background:#b30000;}50%{background:#e00000;}}
 
 /* Today card */
-.today-card{background:#1a1a1a;color:#fff;border-radius:8px;padding:2rem;display:grid;grid-template-columns:auto 1fr;gap:2rem;align-items:center;margin-bottom:2rem;}
-.today-icon{font-size:5rem;line-height:1;text-align:center;}
+.today-card{background:#1a1a1a;color:#fff;border-radius:10px;padding:1.75rem;display:grid;grid-template-columns:auto 1fr;gap:1.75rem;align-items:center;margin-bottom:1.25rem;}
+.today-icon{font-size:4.5rem;line-height:1;text-align:center;}
 .today-info .label{font-family:'Segoe UI',sans-serif;font-size:.72rem;text-transform:uppercase;letter-spacing:.15em;color:#c41a1a;font-weight:700;margin-bottom:.3rem;}
-.today-temp{font-size:3.5rem;font-weight:900;line-height:1;}
-.today-cond{font-size:1.3rem;margin-top:.35rem;color:#ddd;}
-.today-meta{font-family:'Segoe UI',sans-serif;font-size:.82rem;color:#999;margin-top:.75rem;display:flex;gap:1.25rem;flex-wrap:wrap;}
+.today-temp{font-size:3.2rem;font-weight:900;line-height:1;}
+.today-cond{font-size:1.2rem;margin-top:.25rem;color:#ddd;}
+.today-stats{display:flex;gap:1.5rem;flex-wrap:wrap;margin-top:.9rem;font-family:'Segoe UI',sans-serif;font-size:.83rem;color:#bbb;}
+.today-stats b{color:#fff;font-weight:600;}
+.today-meta{font-family:'Segoe UI',sans-serif;font-size:.78rem;color:#888;margin-top:.75rem;display:flex;gap:1rem;flex-wrap:wrap;}
 .today-meta b{color:#fff;font-weight:600;}
 
-/* Forecast row */
-.forecast-section h3{font-size:1.3rem;font-weight:900;border-bottom:2px solid #1a1a1a;padding-bottom:.4rem;margin-bottom:1rem;}
-.forecast-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:.75rem;margin-bottom:2rem;}
-.fc-day{background:#fff;border:1px solid #e0e0e0;border-radius:8px;padding:1rem .5rem;text-align:center;border-top:3px solid #1a1a1a;}
-.fc-day .d{font-family:'Segoe UI',sans-serif;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:#888;margin-bottom:.5rem;}
-.fc-day .ico{font-size:2rem;margin-bottom:.4rem;}
-.fc-day .t{font-size:1.3rem;font-weight:900;}
-.fc-day .c{font-family:'Segoe UI',sans-serif;font-size:.75rem;color:#666;margin-top:.2rem;}
+/* Discussion */
+.discussion{background:#fff;border:1px solid #e0e0e0;border-left:4px solid #1a1a1a;border-radius:0 6px 6px 0;padding:1.1rem 1.4rem;margin-bottom:1.5rem;}
+.discussion h3{font-family:'Segoe UI',sans-serif;font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:#888;margin-bottom:.5rem;}
+.discussion p{font-size:1rem;line-height:1.75;color:#333;}
 
-/* Impact section */
-.impact{background:#f0efe8;border-left:4px solid #c41a1a;border-radius:0 6px 6px 0;padding:1.25rem 1.5rem;margin-bottom:2rem;}
-.impact h4{font-family:'Segoe UI',sans-serif;font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:#c41a1a;margin-bottom:.6rem;}
+/* Forecast strip */
+.section-title{font-size:1.3rem;font-weight:900;border-bottom:2px solid #1a1a1a;padding-bottom:.4rem;margin-bottom:1rem;}
+.forecast-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-bottom:1.75rem;}
+.fc-day{background:#fff;border:1px solid #e0e0e0;border-radius:8px;padding:1rem .6rem;text-align:center;border-top:3px solid #1a1a1a;}
+.fc-day .d{font-family:'Segoe UI',sans-serif;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:#888;margin-bottom:.4rem;}
+.fc-day .ico{font-size:1.9rem;margin-bottom:.3rem;}
+.fc-day .t{font-size:1.25rem;font-weight:900;}
+.fc-day .c{font-family:'Segoe UI',sans-serif;font-size:.74rem;color:#666;margin-top:.15rem;}
+.fc-day .sub{font-family:'Segoe UI',sans-serif;font-size:.68rem;color:#999;margin-top:.3rem;}
+
+/* Regions */
+.regions-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.75rem;margin-bottom:1.75rem;}
+.region-card{background:#fff;border:1px solid #e0e0e0;border-radius:8px;padding:.9rem 1rem;}
+.region-card .rn{font-weight:700;font-size:.98rem;display:flex;align-items:center;gap:.4rem;}
+.region-card .rb{font-family:'Segoe UI',sans-serif;font-size:.7rem;color:#999;margin-bottom:.5rem;}
+.region-card .rstats{font-family:'Segoe UI',sans-serif;font-size:.8rem;color:#555;line-height:1.6;}
+
+/* History chart */
+.chart-wrap{background:#fff;border:1px solid #e0e0e0;border-radius:8px;padding:1.25rem;margin-bottom:1.75rem;}
+.chart-legend{display:flex;gap:1.25rem;font-family:'Segoe UI',sans-serif;font-size:.78rem;color:#666;margin-bottom:.75rem;}
+.chart-legend span{display:inline-flex;align-items:center;gap:.35rem;}
+.chart-legend i{width:14px;height:3px;display:inline-block;border-radius:2px;}
+
+.impact{background:#f0efe8;border-left:4px solid #c41a1a;border-radius:0 6px 6px 0;padding:1.1rem 1.4rem;margin-bottom:1.5rem;}
+.impact h4{font-family:'Segoe UI',sans-serif;font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:#c41a1a;margin-bottom:.5rem;}
 .impact p{font-size:.92rem;line-height:1.7;color:#333;}
-
-.mod-box{background:#fff;border:2px solid #1a1a1a;border-radius:8px;padding:1.5rem;margin-bottom:1rem;}
-.mod-box h4{font-size:1.1rem;font-weight:900;margin-bottom:.5rem;}
-.mod-box p{font-family:'Segoe UI',sans-serif;font-size:.85rem;color:#555;line-height:1.6;margin-bottom:.85rem;}
+.mod-box{background:#fff;border:2px solid #1a1a1a;border-radius:8px;padding:1.4rem;margin-bottom:1rem;}
+.mod-box h4{font-size:1.05rem;font-weight:900;margin-bottom:.5rem;}
+.mod-box p{font-family:'Segoe UI',sans-serif;font-size:.84rem;color:#555;line-height:1.6;margin-bottom:.85rem;}
 .mod-dl{display:inline-block;background:#c41a1a;color:#fff;text-decoration:none;font-family:'Segoe UI',sans-serif;font-size:.85rem;font-weight:700;padding:.6rem 1.3rem;border-radius:6px;}
 .mod-dl:hover{background:#a01515;}
-
+.almanac-foot{text-align:center;font-family:'Segoe UI',sans-serif;font-size:.82rem;color:#888;margin-bottom:1.5rem;}
+.almanac-foot b{color:#1a1a1a;}
 footer{background:#1a1a1a;color:#888;text-align:center;padding:1.5rem;font-family:'Segoe UI',sans-serif;font-size:.8rem;margin-top:2rem;}
 footer span{color:#c41a1a;}
-@media(max-width:640px){.today-card{grid-template-columns:1fr;text-align:center;}.forecast-grid{grid-template-columns:repeat(2,1fr);}.masthead h1{font-size:1.8rem;}}
+@media(max-width:640px){.today-card{grid-template-columns:1fr;text-align:center;}.forecast-grid{grid-template-columns:1fr;}.masthead h1{font-size:1.8rem;}}
 </style>
 </head>
 <body>
@@ -90,37 +120,37 @@ footer span{color:#c41a1a;}
 
   <div class="status-line" id="statusLine"><span class="status-dot dot-off"></span>Loading forecast…</div>
 
+  <div class="alert" id="alertBanner"></div>
+
   <div id="weatherContent"></div>
+
+  <div id="discussionWrap"></div>
+
+  <div id="forecastWrap"></div>
+
+  <div id="regionsWrap"></div>
+
+  <div id="historyWrap"></div>
 
   <div class="impact">
     <h4>How Weather Affects the World</h4>
-    <p id="impactText">With dynamic weather now active across Biking People World, conditions can affect travel, outdoor events, movie nights at the Drive-In, construction work, postal deliveries, MiniGame Land games, and Nether and space mission planning. Check the forecast before heading out.</p>
+    <p>With dynamic weather active across Biking People World, conditions can affect travel, outdoor events, movie nights at the Drive-In, construction work, postal deliveries, MiniGame Land games, and Nether and space mission planning. Check the forecast before heading out.</p>
   </div>
+
+  <div class="almanac-foot" id="almanacFoot"></div>
 
   <div class="mod-box">
     <h4>🌦️ Powered by Seasonal Forecast</h4>
-    <p>This forecast is generated in-game by the Seasonal Forecast mod (NeoForge 1.21.1). It reads the season from Serene Seasons, calculates per-biome temperatures, and predicts upcoming Clear, Rain, and Snow days — the same forecast players see on their in-game HUD with the <b>/forecast</b> command.</p>
+    <p>This forecast is generated in-game by the Seasonal Forecast mod (NeoForge 1.21.1). It reads the season from Serene Seasons, calculates per-biome temperatures, conditions, and alerts, and publishes them straight to this site — the same forecast players see in-game with the <b>/forecast</b> command.</p>
     <a class="mod-dl" href="mod/seasonalforecast-0.4.jar" download>Download the mod (.jar)</a>
   </div>
 </div>
 <footer>© GXY Newspaper · The Official Paper of the World · A <span>Biking People World</span> Publication</footer>
 
 <script>
-// Icon + helper maps
-const ICONS = { "Clear":"☀️", "Rain":"🌧️", "Snow":"❄️" };
-function icon(c){ return ICONS[c] || "⛅"; }
-
-// Fallback data shown if forecast.json can't be loaded (matches mod's JSON shape)
-const FALLBACK = {
-  updated: null,
-  season: "Unknown",
-  today: { condition: "Clear", temp: "--", tempUnit: "F" },
-  forecast: [
-    { day:1, condition:"Clear", temp:"--" },
-    { day:2, condition:"Clear", temp:"--" },
-    { day:3, condition:"Clear", temp:"--" }
-  ]
-};
+const ICONS = { "Clear":"\u2600\ufe0f", "Rain":"\ud83c\udf27\ufe0f", "Snow":"\u2744\ufe0f", "Storm":"\u26c8\ufe0f" };
+function icon(c){ return ICONS[c] || "\u26c5"; }
+function num(v){ return (v===undefined||v===null)?"--":v; }
 
 function timeAgo(iso){
   if(!iso) return "unknown";
@@ -135,54 +165,165 @@ function timeAgo(iso){
   return days+" day"+(days>1?"s":"")+" ago";
 }
 
-function render(data, live){
-  const t = data.today || {};
-  const unit = (t.tempUnit==="F")?"°F":(t.tempUnit==="C")?"°C":"°";
-  let html = '';
-  html += '<div class="today-card">';
-  html += '  <div class="today-icon">'+icon(t.condition)+'</div>';
-  html += '  <div class="today-info">';
-  html += '    <div class="label">Today in Biking People World</div>';
-  html += '    <div class="today-temp">'+(t.temp!==undefined?t.temp:"--")+unit+'</div>';
-  html += '    <div class="today-cond">'+(t.condition||"—")+'</div>';
-  html += '    <div class="today-meta">';
-  if(data.season) html += '<span>Season: <b>'+data.season+'</b></span>';
-  if(data.mcDay!==undefined) html += '<span>Day <b>'+data.mcDay+'</b></span>';
-  if(data.biome) html += '<span>Biome: <b>'+String(data.biome).replace("minecraft:","").replace(/_/g," ")+'</b></span>';
-  html += '    </div>';
-  html += '  </div>';
-  html += '</div>';
-
-  const fc = data.forecast || [];
-  if(fc.length){
-    html += '<div class="forecast-section"><h3>'+fc.length+'-Day Forecast</h3><div class="forecast-grid">';
-    for(const d of fc){
-      html += '<div class="fc-day">';
-      html += '<div class="d">Day +'+d.day+'</div>';
-      html += '<div class="ico">'+icon(d.condition)+'</div>';
-      html += '<div class="t">'+(d.temp!==undefined?d.temp:"--")+(unit)+'</div>';
-      html += '<div class="c">'+(d.condition||"—")+'</div>';
-      html += '</div>';
-    }
-    html += '</div></div>';
-  }
-  document.getElementById('weatherContent').innerHTML = html;
-
-  // status line
-  const sl = document.getElementById('statusLine');
-  if(live){
-    sl.innerHTML = '<span class="status-dot dot-live"></span>Live forecast · updated '+timeAgo(data.updated);
-  } else {
-    sl.innerHTML = '<span class="status-dot dot-off"></span>Showing placeholder — live forecast not connected yet';
-  }
+function renderAlert(alerts){
+  const el = document.getElementById('alertBanner');
+  if(!alerts || !alerts.length){ el.style.display='none'; return; }
+  const a = alerts[0]; // most severe first
+  const tier = (a.tier||'Advisory').toLowerCase();
+  el.className = 'alert ' + (tier==='warning'?'warning':tier==='watch'?'watch':'advisory');
+  el.innerHTML = '<div class="a-top"><span class="a-tier">'+(a.tier||'Alert')+'</span><span class="a-event">'+(a.event||'')+'</span></div>'
+    + '<div class="a-headline">'+(a.headline||'')+'</div>';
+  el.style.display='block';
 }
 
-fetch('forecast.json', {cache:"no-store"})
+function renderToday(d, live){
+  const t = d.today || {};
+  const unit = (t.tempUnit==="F")?"\u00b0F":(t.tempUnit==="C")?"\u00b0C":"\u00b0";
+  const wu = t.windUnit || "mph";
+  let html = '<div class="today-card">';
+  html += '<div class="today-icon">'+icon(t.condition)+'</div>';
+  html += '<div class="today-info">';
+  html += '<div class="label">Today in Biking People World</div>';
+  html += '<div class="today-temp">'+num(t.temp)+unit+'</div>';
+  html += '<div class="today-cond">'+(t.condition||"\u2014")+'</div>';
+  html += '<div class="today-stats">';
+  if(t.feelsLike!==undefined) html += '<span>Feels like <b>'+t.feelsLike+unit+'</b></span>';
+  if(t.wind!==undefined) html += '<span>Wind <b>'+t.wind+' '+wu+(t.windDir?' '+t.windDir:'')+'</b></span>';
+  if(t.humidity!==undefined) html += '<span>Humidity <b>'+t.humidity+'%</b></span>';
+  html += '</div>';
+  html += '<div class="today-meta">';
+  if(d.season) html += '<span>Season: <b>'+d.season+'</b></span>';
+  if(d.mcDay!==undefined) html += '<span>Day <b>'+d.mcDay+'</b></span>';
+  if(d.biome) html += '<span>Biome: <b>'+String(d.biome).replace("minecraft:","").replace(/_/g," ")+'</b></span>';
+  html += '</div></div></div>';
+  document.getElementById('weatherContent').innerHTML = html;
+
+  const sl = document.getElementById('statusLine');
+  if(live){ sl.innerHTML = '<span class="status-dot dot-live"></span>Live forecast \u00b7 updated '+timeAgo(d.updated); }
+  else { sl.innerHTML = '<span class="status-dot dot-off"></span>Showing placeholder \u2014 live forecast not connected yet'; }
+}
+
+function renderDiscussion(d){
+  const el = document.getElementById('discussionWrap');
+  if(!d.discussion){ el.innerHTML=''; return; }
+  el.innerHTML = '<div class="discussion"><h3>Forecast Discussion</h3><p>'+d.discussion+'</p></div>';
+}
+
+function renderForecast(d){
+  const el = document.getElementById('forecastWrap');
+  const fc = d.forecast || [];
+  if(!fc.length){ el.innerHTML=''; return; }
+  const unit = (d.today&&d.today.tempUnit==="F")?"\u00b0F":(d.today&&d.today.tempUnit==="C")?"\u00b0C":"\u00b0";
+  let html = '<div class="section-title">Forecast</div><div class="forecast-grid">';
+  for(const day of fc){
+    html += '<div class="fc-day">';
+    html += '<div class="d">Day '+(day.day||'')+'</div>';
+    html += '<div class="ico">'+icon(day.condition)+'</div>';
+    html += '<div class="t">'+num(day.temp)+unit+'</div>';
+    html += '<div class="c">'+(day.condition||"\u2014")+'</div>';
+    let sub = [];
+    if(day.feelsLike!==undefined) sub.push('feels '+day.feelsLike+'\u00b0');
+    if(day.wind!==undefined) sub.push(day.wind+' mph'+(day.windDir?' '+day.windDir:''));
+    if(day.humidity!==undefined) sub.push(day.humidity+'%');
+    if(sub.length) html += '<div class="sub">'+sub.join(' \u00b7 ')+'</div>';
+    html += '</div>';
+  }
+  html += '</div>';
+  el.innerHTML = html;
+}
+
+function renderRegions(d){
+  const el = document.getElementById('regionsWrap');
+  const r = d.regions || [];
+  if(!r.length){ el.innerHTML=''; return; }
+  const unit = (d.today&&d.today.tempUnit==="F")?"\u00b0F":"\u00b0";
+  let html = '<div class="section-title">Around the World</div><div class="regions-grid">';
+  for(const reg of r){
+    html += '<div class="region-card">';
+    html += '<div class="rn">'+icon(reg.condition)+' '+(reg.name||'Region')+'</div>';
+    if(reg.biome) html += '<div class="rb">'+String(reg.biome).replace("minecraft:","").replace(/_/g," ")+'</div>';
+    html += '<div class="rstats">'+(reg.condition||'')+' \u00b7 '+num(reg.temp)+unit;
+    if(reg.wind!==undefined) html += '<br>Wind '+reg.wind+' mph'+(reg.windDir?' '+reg.windDir:'');
+    if(reg.humidity!==undefined) html += ' \u00b7 '+reg.humidity+'%';
+    html += '</div></div>';
+  }
+  html += '</div>';
+  el.innerHTML = html;
+}
+
+function renderHistory(hist){
+  const el = document.getElementById('historyWrap');
+  const days = (hist && hist.days) || [];
+  if(days.length < 2){ el.innerHTML=''; return; }
+  // Build an SVG line chart of temp + feelsLike over mcDay
+  const W=900, H=240, pad=40;
+  const temps = days.map(d=>d.temp).filter(v=>v!==undefined);
+  const feels = days.map(d=>d.feelsLike).filter(v=>v!==undefined);
+  const allv = temps.concat(feels);
+  let lo=Math.min.apply(null,allv), hi=Math.max.apply(null,allv);
+  if(lo===hi){lo-=5;hi+=5;} const range=hi-lo;
+  const n=days.length;
+  function x(i){ return pad + (i/(n-1))*(W-2*pad); }
+  function y(v){ return H-pad - ((v-lo)/range)*(H-2*pad); }
+  function path(key){
+    return days.map((d,i)=> (i===0?'M':'L')+x(i).toFixed(1)+' '+y(d[key]).toFixed(1)).join(' ');
+  }
+  let svg = '<svg viewBox="0 0 '+W+' '+H+'" style="width:100%;height:auto;" xmlns="http://www.w3.org/2000/svg">';
+  // gridlines + labels (lo, mid, hi)
+  [lo, Math.round((lo+hi)/2), hi].forEach(function(val){
+    const yy=y(val);
+    svg += '<line x1="'+pad+'" y1="'+yy+'" x2="'+(W-pad)+'" y2="'+yy+'" stroke="#eee" stroke-width="1"/>';
+    svg += '<text x="'+(pad-8)+'" y="'+(yy+4)+'" text-anchor="end" font-family="Segoe UI,sans-serif" font-size="11" fill="#999">'+val+'\u00b0</text>';
+  });
+  // x labels (mcDay)
+  days.forEach(function(d,i){
+    if(n<=10 || i%2===0) svg += '<text x="'+x(i)+'" y="'+(H-pad+18)+'" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="10" fill="#999">'+d.mcDay+'</text>';
+  });
+  // feelsLike line (lighter)
+  if(feels.length===n) svg += '<path d="'+path('feelsLike')+'" fill="none" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4 3"/>';
+  // temp line
+  svg += '<path d="'+path('temp')+'" fill="none" stroke="#c41a1a" stroke-width="2.5"/>';
+  // temp dots
+  days.forEach(function(d,i){ svg += '<circle cx="'+x(i)+'" cy="'+y(d.temp)+'" r="3" fill="#c41a1a"/>'; });
+  svg += '</svg>';
+  el.innerHTML = '<div class="section-title">Temperature History</div>'
+    + '<div class="chart-wrap"><div class="chart-legend"><span><i style="background:#c41a1a;"></i>Temp</span><span><i style="background:#f59e0b;"></i>Feels like</span><span style="color:#999;">x-axis: Minecraft day</span></div>'+svg+'</div>';
+}
+
+function renderAlmanac(d){
+  const el = document.getElementById('almanacFoot');
+  let parts = [];
+  if(d.almanac && d.almanac.moonPhaseName) parts.push('\ud83c\udf19 '+d.almanac.moonPhaseName);
+  if(d.updated) parts.push('Last updated '+timeAgo(d.updated));
+  el.innerHTML = parts.length ? '<b>'+parts.join('</b> \u00b7 <b>')+'</b>' : '';
+}
+
+const FALLBACK = {
+  updated: null, season: "Unknown",
+  today: { condition: "Clear", temp: "--", tempUnit: "F" },
+  forecast: [], alerts: [], regions: []
+};
+
+function renderAll(d, live){
+  renderToday(d, live);
+  renderAlert(d.alerts);
+  renderDiscussion(d);
+  renderForecast(d);
+  renderRegions(d);
+  renderAlmanac(d);
+}
+
+// Forecast (cache-buster per the data contract)
+fetch('forecast.json?_=' + Date.now())
   .then(r=>{ if(!r.ok) throw new Error('no file'); return r.json(); })
-  .then(d=>render(d, true))
-  .catch(()=>render(FALLBACK, false));
+  .then(d=>renderAll(d, true))
+  .catch(()=>renderAll(FALLBACK, false));
+
+// History (separate file; optional)
+fetch('history.json?_=' + Date.now())
+  .then(r=>{ if(!r.ok) throw new Error('no history'); return r.json(); })
+  .then(h=>renderHistory(h))
+  .catch(()=>{ /* no history yet */ });
 </script>
-<script src="../../assets/breaking.js" data-root="../../"></script>
-<script type="module" src="../../assets/authguard.js" data-root="../../"></script>
 </body>
 </html>
