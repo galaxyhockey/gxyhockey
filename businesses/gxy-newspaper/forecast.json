@@ -1,63 +1,79 @@
 {
   "schemaVersion": 3,
-  "updated": "2026-06-30T01:14:21.417749879Z",
-  "mcDay": 2,
-  "season": "Spring",
-  "trend": "SHOULDER",
+  "updated": "2026-06-30T01:15:30.419460588Z",
+  "mcDay": 3,
+  "season": "Summer",
+  "trend": "SUMMER",
   "today": {
-    "condition": "Clear",
-    "temp": 64,
-    "feelsLike": 64,
-    "wind": 38,
-    "windDir": "S",
-    "humidity": 43,
+    "condition": "Rain",
+    "temp": 97,
+    "feelsLike": 122,
+    "wind": 42,
+    "windDir": "N",
+    "humidity": 63,
     "tempUnit": "F",
     "windUnit": "mph"
   },
   "forecast": [
     {
-      "condition": "Rain",
-      "temp": 78,
+      "condition": "Clear",
+      "temp": 80,
       "feelsLike": 78,
-      "wind": 42,
+      "wind": 25,
       "windDir": "N",
-      "humidity": 63,
+      "humidity": 10,
       "day": "+1"
     },
     {
       "condition": "Clear",
-      "temp": 61,
-      "feelsLike": 61,
-      "wind": 25,
-      "windDir": "N",
-      "humidity": 10,
+      "temp": 96,
+      "feelsLike": 105,
+      "wind": 20,
+      "windDir": "E",
+      "humidity": 46,
       "day": "+2"
     },
     {
       "condition": "Clear",
-      "temp": 78,
-      "feelsLike": 78,
-      "wind": 20,
-      "windDir": "E",
-      "humidity": 46,
+      "temp": 81,
+      "feelsLike": 79,
+      "wind": 11,
+      "windDir": "NE",
+      "humidity": 12,
       "day": "+3"
     }
   ],
   "alerts": [
     {
+      "tier": "Warning",
+      "event": "Excessive Heat Warning",
+      "headline": "Dangerous heat; feels like 122°F.",
+      "severity": "Severe",
+      "daysOut": 0,
+      "forDay": 3
+    },
+    {
+      "tier": "Watch",
+      "event": "Excessive Heat Watch",
+      "headline": "Dangerous heat possible; feels near 105°F.",
+      "severity": "Moderate",
+      "daysOut": 2,
+      "forDay": 5
+    },
+    {
       "tier": "Advisory",
       "event": "Wind Advisory",
-      "headline": "Gusty winds around 38 mph.",
+      "headline": "Gusty winds around 42 mph.",
       "severity": "Minor",
       "daysOut": 0,
-      "forDay": 2
+      "forDay": 3
     }
   ],
-  "discussion": "Clear skies prevail over Plains this spring day, with a high near 64°F. Winds out of the S around 38 mph. A Wind Advisory is in effect: Gusty winds around 38 mph. Looking ahead, tomorrow brings rain near 78°F.",
+  "discussion": "Rain moves through Plains this summer day, with a high near 97°F (feeling more like 122°F). Winds out of the N around 42 mph. A Excessive Heat Warning is in effect: Dangerous heat; feels like 122°F. Looking ahead, tomorrow brings clear near 80°F.",
   "regions": [],
   "almanac": {
-    "moonPhase": 2,
-    "moonPhaseName": "Last Quarter"
+    "moonPhase": 3,
+    "moonPhaseName": "Waning Crescent"
   },
   "biome": "minecraft:plains"
 }
