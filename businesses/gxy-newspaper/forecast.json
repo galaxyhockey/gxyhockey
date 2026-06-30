@@ -1,6 +1,6 @@
 {
-  "schemaVersion": 2,
-  "updated": "2026-06-30T00:49:50.444718529Z",
+  "schemaVersion": 3,
+  "updated": "2026-06-30T01:14:21.256448071Z",
   "mcDay": 2,
   "season": "Spring",
   "trend": "SHOULDER",
@@ -53,5 +53,11 @@
       "forDay": 2
     }
   ],
+  "discussion": "Clear skies prevail over Plains this spring day, with a high near 64°F. Winds out of the S around 38 mph. A Wind Advisory is in effect: Gusty winds around 38 mph. Looking ahead, tomorrow brings rain near 78°F.",
+  "regions": [],
+  "almanac": {
+    "moonPhase": 2,
+    "moonPhaseName": "Last Quarter"
+  },
   "biome": "minecraft:plains"
 }
