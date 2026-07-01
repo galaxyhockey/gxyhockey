@@ -1,29 +1,20 @@
 {
   "schemaVersion": 3,
-  "updated": "2026-07-01T17:17:29.746942287Z",
-  "mcDay": 40,
+  "updated": "2026-07-01T17:40:08.646134262Z",
+  "mcDay": 41,
   "season": "Autumn",
   "trend": "SHOULDER",
   "today": {
-    "condition": "Rain",
-    "temp": 67,
-    "feelsLike": 67,
-    "wind": 16,
-    "windDir": "NW",
-    "humidity": 47,
+    "condition": "Clear",
+    "temp": 63,
+    "feelsLike": 63,
+    "wind": 12,
+    "windDir": "NE",
+    "humidity": 70,
     "tempUnit": "F",
     "windUnit": "mph"
   },
   "forecast": [
-    {
-      "condition": "Clear",
-      "temp": 63,
-      "feelsLike": 63,
-      "wind": 12,
-      "windDir": "NE",
-      "humidity": 70,
-      "day": "+1"
-    },
     {
       "condition": "Rain",
       "temp": 76,
@@ -31,7 +22,7 @@
       "wind": 14,
       "windDir": "W",
       "humidity": 77,
-      "day": "+2"
+      "day": "+1"
     },
     {
       "condition": "Clear",
@@ -40,24 +31,24 @@
       "wind": 21,
       "windDir": "SW",
       "humidity": 16,
+      "day": "+2"
+    },
+    {
+      "condition": "Clear",
+      "temp": 75,
+      "feelsLike": 75,
+      "wind": 22,
+      "windDir": "W",
+      "humidity": 57,
       "day": "+3"
     }
   ],
-  "alerts": [
-    {
-      "tier": "Advisory",
-      "event": "Dense Fog Advisory",
-      "headline": "Reduced visibility in dense fog.",
-      "severity": "Minor",
-      "daysOut": 0,
-      "forDay": 40
-    }
-  ],
-  "discussion": "Rain moves through Plains this autumn day, with a high near 67°F. Winds out of the NW around 16 mph. A Dense Fog Advisory is in effect: Reduced visibility in dense fog. Looking ahead, tomorrow brings clear near 63°F.",
+  "alerts": [],
+  "discussion": "Clear skies prevail over Plains this autumn day, with a high near 63°F. Winds stay light. Looking ahead, tomorrow brings rain near 76°F.",
   "regions": [],
   "almanac": {
-    "moonPhase": 0,
-    "moonPhaseName": "Full Moon"
+    "moonPhase": 1,
+    "moonPhaseName": "Waning Gibbous"
   },
   "biome": "minecraft:plains"
 }
