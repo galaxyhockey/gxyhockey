@@ -1,29 +1,20 @@
 {
   "schemaVersion": 3,
-  "updated": "2026-07-01T14:02:37.045288291Z",
-  "mcDay": 31,
+  "updated": "2026-07-01T14:22:59.195882079Z",
+  "mcDay": 32,
   "season": "Autumn",
   "trend": "SHOULDER",
   "today": {
-    "condition": "Clear",
-    "temp": 62,
-    "feelsLike": 62,
-    "wind": 10,
-    "windDir": "E",
-    "humidity": 34,
+    "condition": "Rain",
+    "temp": 80,
+    "feelsLike": 82,
+    "wind": 34,
+    "windDir": "NW",
+    "humidity": 58,
     "tempUnit": "F",
     "windUnit": "mph"
   },
   "forecast": [
-    {
-      "condition": "Rain",
-      "temp": 80,
-      "feelsLike": 82,
-      "wind": 34,
-      "windDir": "NW",
-      "humidity": 58,
-      "day": "+1"
-    },
     {
       "condition": "Rain",
       "temp": 64,
@@ -31,7 +22,7 @@
       "wind": 16,
       "windDir": "S",
       "humidity": 56,
-      "day": "+2"
+      "day": "+1"
     },
     {
       "condition": "Clear",
@@ -40,15 +31,33 @@
       "wind": 20,
       "windDir": "W",
       "humidity": 43,
+      "day": "+2"
+    },
+    {
+      "condition": "Rain",
+      "temp": 64,
+      "feelsLike": 64,
+      "wind": 15,
+      "windDir": "NW",
+      "humidity": 74,
       "day": "+3"
     }
   ],
-  "alerts": [],
-  "discussion": "Clear skies prevail over Plains this autumn day, with a high near 62°F. Winds stay light. Looking ahead, tomorrow brings rain near 80°F.",
+  "alerts": [
+    {
+      "tier": "Advisory",
+      "event": "Wind Advisory",
+      "headline": "Gusty winds around 34 mph.",
+      "severity": "Minor",
+      "daysOut": 0,
+      "forDay": 32
+    }
+  ],
+  "discussion": "Rain moves through Plains this autumn day, with a high near 80°F (feeling more like 82°F). Winds out of the NW around 34 mph. A Wind Advisory is in effect: Gusty winds around 34 mph. Looking ahead, tomorrow brings rain near 64°F.",
   "regions": [],
   "almanac": {
-    "moonPhase": 7,
-    "moonPhaseName": "Waxing Gibbous"
+    "moonPhase": 0,
+    "moonPhaseName": "Full Moon"
   },
   "biome": "minecraft:plains"
 }
