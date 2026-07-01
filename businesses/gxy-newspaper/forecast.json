@@ -1,29 +1,20 @@
 {
   "schemaVersion": 3,
-  "updated": "2026-07-01T06:52:24.337322528Z",
-  "mcDay": 10,
+  "updated": "2026-07-01T07:15:38.237432511Z",
+  "mcDay": 11,
   "season": "Summer",
   "trend": "SUMMER",
   "today": {
-    "condition": "Rain",
-    "temp": 95,
-    "feelsLike": 106,
-    "wind": 20,
-    "windDir": "E",
-    "humidity": 51,
+    "condition": "Clear",
+    "temp": 94,
+    "feelsLike": 103,
+    "wind": 27,
+    "windDir": "SW",
+    "humidity": 50,
     "tempUnit": "F",
     "windUnit": "mph"
   },
   "forecast": [
-    {
-      "condition": "Clear",
-      "temp": 94,
-      "feelsLike": 103,
-      "wind": 27,
-      "windDir": "SW",
-      "humidity": 50,
-      "day": "+1"
-    },
     {
       "condition": "Clear",
       "temp": 73,
@@ -31,7 +22,7 @@
       "wind": 3,
       "windDir": "NE",
       "humidity": 33,
-      "day": "+2"
+      "day": "+1"
     },
     {
       "condition": "Rain",
@@ -40,24 +31,33 @@
       "wind": 14,
       "windDir": "N",
       "humidity": 64,
+      "day": "+2"
+    },
+    {
+      "condition": "Clear",
+      "temp": 98,
+      "feelsLike": 116,
+      "wind": 4,
+      "windDir": "N",
+      "humidity": 54,
       "day": "+3"
     }
   ],
   "alerts": [
     {
-      "tier": "Warning",
-      "event": "Excessive Heat Warning",
-      "headline": "Dangerous heat; feels like 106°F.",
-      "severity": "Severe",
+      "tier": "Advisory",
+      "event": "Heat Advisory",
+      "headline": "Hot; feels like 103°F.",
+      "severity": "Minor",
       "daysOut": 0,
-      "forDay": 10
+      "forDay": 11
     }
   ],
-  "discussion": "Rain moves through Plains this summer day, with a high near 95°F (feeling more like 106°F). Winds out of the E around 20 mph. A Excessive Heat Warning is in effect: Dangerous heat; feels like 106°F. Looking ahead, tomorrow brings clear near 94°F.",
+  "discussion": "Clear skies prevail over Plains this summer day, with a high near 94°F (feeling more like 103°F). Winds out of the SW around 27 mph. A Heat Advisory is in effect: Hot; feels like 103°F. Looking ahead, tomorrow brings clear near 73°F.",
   "regions": [],
   "almanac": {
-    "moonPhase": 2,
-    "moonPhaseName": "Last Quarter"
+    "moonPhase": 3,
+    "moonPhaseName": "Waning Crescent"
   },
   "biome": "minecraft:plains"
 }
