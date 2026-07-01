@@ -1,29 +1,20 @@
 {
   "schemaVersion": 3,
-  "updated": "2026-07-01T11:41:24.593635322Z",
-  "mcDay": 24,
+  "updated": "2026-07-01T12:01:18.742703021Z",
+  "mcDay": 25,
   "season": "Autumn",
   "trend": "SHOULDER",
   "today": {
-    "condition": "Storm",
-    "temp": 54,
-    "feelsLike": 54,
-    "wind": 33,
-    "windDir": "NW",
-    "humidity": 89,
+    "condition": "Clear",
+    "temp": 73,
+    "feelsLike": 73,
+    "wind": 16,
+    "windDir": "S",
+    "humidity": 31,
     "tempUnit": "F",
     "windUnit": "mph"
   },
   "forecast": [
-    {
-      "condition": "Clear",
-      "temp": 73,
-      "feelsLike": 73,
-      "wind": 16,
-      "windDir": "S",
-      "humidity": 31,
-      "day": "+1"
-    },
     {
       "condition": "Rain",
       "temp": 56,
@@ -31,7 +22,7 @@
       "wind": 22,
       "windDir": "S",
       "humidity": 90,
-      "day": "+2"
+      "day": "+1"
     },
     {
       "condition": "Storm",
@@ -40,24 +31,33 @@
       "wind": 48,
       "windDir": "W",
       "humidity": 68,
+      "day": "+2"
+    },
+    {
+      "condition": "Clear",
+      "temp": 58,
+      "feelsLike": 58,
+      "wind": 15,
+      "windDir": "SW",
+      "humidity": 64,
       "day": "+3"
     }
   ],
   "alerts": [
     {
-      "tier": "Advisory",
-      "event": "Wind Advisory",
-      "headline": "Gusty winds around 33 mph.",
-      "severity": "Minor",
-      "daysOut": 0,
-      "forDay": 24
+      "tier": "Watch",
+      "event": "Severe Thunderstorm Watch",
+      "headline": "Severe storms possible with winds to 48 mph.",
+      "severity": "Moderate",
+      "daysOut": 2,
+      "forDay": 27
     }
   ],
-  "discussion": "Thunderstorms are likely across Plains this autumn day, with a high near 54°F. Winds out of the NW around 33 mph. A Wind Advisory is in effect: Gusty winds around 33 mph. Looking ahead, tomorrow brings clear near 73°F.",
+  "discussion": "Clear skies prevail over Plains this autumn day, with a high near 73°F. Winds out of the S around 16 mph. A Severe Thunderstorm Watch is in effect: Severe storms possible with winds to 48 mph. Looking ahead, tomorrow brings rain near 56°F.",
   "regions": [],
   "almanac": {
-    "moonPhase": 0,
-    "moonPhaseName": "Full Moon"
+    "moonPhase": 1,
+    "moonPhaseName": "Waning Gibbous"
   },
   "biome": "minecraft:plains"
 }
