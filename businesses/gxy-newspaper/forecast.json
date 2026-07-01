@@ -1,29 +1,20 @@
 {
   "schemaVersion": 3,
-  "updated": "2026-07-01T16:32:11.996197440Z",
-  "mcDay": 38,
+  "updated": "2026-07-01T16:54:50.847631278Z",
+  "mcDay": 39,
   "season": "Autumn",
   "trend": "SHOULDER",
   "today": {
-    "condition": "Clear",
-    "temp": 66,
-    "feelsLike": 66,
-    "wind": 20,
-    "windDir": "S",
-    "humidity": 24,
+    "condition": "Storm",
+    "temp": 73,
+    "feelsLike": 73,
+    "wind": 36,
+    "windDir": "W",
+    "humidity": 65,
     "tempUnit": "F",
     "windUnit": "mph"
   },
   "forecast": [
-    {
-      "condition": "Storm",
-      "temp": 73,
-      "feelsLike": 73,
-      "wind": 36,
-      "windDir": "W",
-      "humidity": 65,
-      "day": "+1"
-    },
     {
       "condition": "Rain",
       "temp": 67,
@@ -31,7 +22,7 @@
       "wind": 16,
       "windDir": "NW",
       "humidity": 47,
-      "day": "+2"
+      "day": "+1"
     },
     {
       "condition": "Clear",
@@ -40,15 +31,33 @@
       "wind": 12,
       "windDir": "NE",
       "humidity": 70,
+      "day": "+2"
+    },
+    {
+      "condition": "Rain",
+      "temp": 76,
+      "feelsLike": 76,
+      "wind": 14,
+      "windDir": "W",
+      "humidity": 77,
       "day": "+3"
     }
   ],
-  "alerts": [],
-  "discussion": "Clear skies prevail over Plains this autumn day, with a high near 66°F. Winds out of the S around 20 mph. Looking ahead, tomorrow brings storm near 73°F.",
+  "alerts": [
+    {
+      "tier": "Advisory",
+      "event": "Wind Advisory",
+      "headline": "Gusty winds around 36 mph.",
+      "severity": "Minor",
+      "daysOut": 0,
+      "forDay": 39
+    }
+  ],
+  "discussion": "Thunderstorms are likely across Plains this autumn day, with a high near 73°F. Winds out of the W around 36 mph. A Wind Advisory is in effect: Gusty winds around 36 mph. Looking ahead, tomorrow brings rain near 67°F.",
   "regions": [],
   "almanac": {
-    "moonPhase": 6,
-    "moonPhaseName": "First Quarter"
+    "moonPhase": 7,
+    "moonPhaseName": "Waxing Gibbous"
   },
   "biome": "minecraft:plains"
 }
