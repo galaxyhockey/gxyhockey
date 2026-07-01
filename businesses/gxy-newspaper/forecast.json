@@ -1,29 +1,20 @@
 {
   "schemaVersion": 3,
-  "updated": "2026-07-01T13:01:30.693248157Z",
-  "mcDay": 28,
+  "updated": "2026-07-01T13:21:52.843859646Z",
+  "mcDay": 29,
   "season": "Autumn",
   "trend": "SHOULDER",
   "today": {
     "condition": "Clear",
-    "temp": 58,
-    "feelsLike": 58,
-    "wind": 15,
-    "windDir": "SW",
-    "humidity": 64,
+    "temp": 62,
+    "feelsLike": 62,
+    "wind": 14,
+    "windDir": "N",
+    "humidity": 38,
     "tempUnit": "F",
     "windUnit": "mph"
   },
   "forecast": [
-    {
-      "condition": "Clear",
-      "temp": 62,
-      "feelsLike": 62,
-      "wind": 14,
-      "windDir": "N",
-      "humidity": 38,
-      "day": "+1"
-    },
     {
       "condition": "Rain",
       "temp": 78,
@@ -31,7 +22,7 @@
       "wind": 30,
       "windDir": "N",
       "humidity": 78,
-      "day": "+2"
+      "day": "+1"
     },
     {
       "condition": "Clear",
@@ -40,24 +31,24 @@
       "wind": 10,
       "windDir": "E",
       "humidity": 34,
+      "day": "+2"
+    },
+    {
+      "condition": "Rain",
+      "temp": 80,
+      "feelsLike": 82,
+      "wind": 34,
+      "windDir": "NW",
+      "humidity": 58,
       "day": "+3"
     }
   ],
-  "alerts": [
-    {
-      "tier": "Advisory",
-      "event": "Dense Fog Advisory",
-      "headline": "Reduced visibility in dense fog.",
-      "severity": "Minor",
-      "daysOut": 0,
-      "forDay": 28
-    }
-  ],
-  "discussion": "Clear skies prevail over Plains this autumn day, with a high near 58°F. Winds out of the SW around 15 mph. A Dense Fog Advisory is in effect: Reduced visibility in dense fog. Looking ahead, tomorrow brings clear near 62°F.",
+  "alerts": [],
+  "discussion": "Clear skies prevail over Plains this autumn day, with a high near 62°F. Winds stay light. Looking ahead, tomorrow brings rain near 78°F.",
   "regions": [],
   "almanac": {
-    "moonPhase": 4,
-    "moonPhaseName": "New Moon"
+    "moonPhase": 5,
+    "moonPhaseName": "Waxing Crescent"
   },
   "biome": "minecraft:plains"
 }
