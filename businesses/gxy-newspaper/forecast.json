@@ -1,29 +1,20 @@
 {
   "schemaVersion": 3,
-  "updated": "2026-07-01T07:57:11.988187687Z",
-  "mcDay": 13,
+  "updated": "2026-07-01T08:17:58.837875207Z",
+  "mcDay": 14,
   "season": "Summer",
   "trend": "SUMMER",
   "today": {
-    "condition": "Rain",
-    "temp": 79,
-    "feelsLike": 79,
-    "wind": 14,
+    "condition": "Clear",
+    "temp": 98,
+    "feelsLike": 116,
+    "wind": 4,
     "windDir": "N",
-    "humidity": 64,
+    "humidity": 54,
     "tempUnit": "F",
     "windUnit": "mph"
   },
   "forecast": [
-    {
-      "condition": "Clear",
-      "temp": 98,
-      "feelsLike": 116,
-      "wind": 4,
-      "windDir": "N",
-      "humidity": 54,
-      "day": "+1"
-    },
     {
       "condition": "Rain",
       "temp": 85,
@@ -31,7 +22,7 @@
       "wind": 21,
       "windDir": "W",
       "humidity": 53,
-      "day": "+2"
+      "day": "+1"
     },
     {
       "condition": "Clear",
@@ -40,24 +31,33 @@
       "wind": 0,
       "windDir": "N",
       "humidity": 31,
+      "day": "+2"
+    },
+    {
+      "condition": "Clear",
+      "temp": 76,
+      "feelsLike": 76,
+      "wind": 22,
+      "windDir": "SE",
+      "humidity": 37,
       "day": "+3"
     }
   ],
   "alerts": [
     {
-      "tier": "Watch",
-      "event": "Excessive Heat Watch",
-      "headline": "Dangerous heat possible; feels near 116°F.",
-      "severity": "Moderate",
-      "daysOut": 1,
+      "tier": "Warning",
+      "event": "Excessive Heat Warning",
+      "headline": "Dangerous heat; feels like 116°F.",
+      "severity": "Severe",
+      "daysOut": 0,
       "forDay": 14
     }
   ],
-  "discussion": "Rain moves through Plains this summer day, with a high near 79°F. Winds stay light. A Excessive Heat Watch is in effect: Dangerous heat possible; feels near 116°F. Looking ahead, tomorrow brings clear near 98°F.",
+  "discussion": "Clear skies prevail over Plains this summer day, with a high near 98°F (feeling more like 116°F). Winds stay light. A Excessive Heat Warning is in effect: Dangerous heat; feels like 116°F. Looking ahead, tomorrow brings rain near 85°F.",
   "regions": [],
   "almanac": {
-    "moonPhase": 5,
-    "moonPhaseName": "Waxing Crescent"
+    "moonPhase": 6,
+    "moonPhaseName": "First Quarter"
   },
   "biome": "minecraft:plains"
 }
