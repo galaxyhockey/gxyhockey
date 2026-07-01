@@ -1,29 +1,20 @@
 {
   "schemaVersion": 3,
-  "updated": "2026-07-01T12:41:08.594026673Z",
-  "mcDay": 27,
+  "updated": "2026-07-01T13:01:30.693248157Z",
+  "mcDay": 28,
   "season": "Autumn",
   "trend": "SHOULDER",
   "today": {
-    "condition": "Storm",
-    "temp": 67,
-    "feelsLike": 67,
-    "wind": 48,
-    "windDir": "W",
-    "humidity": 68,
+    "condition": "Clear",
+    "temp": 58,
+    "feelsLike": 58,
+    "wind": 15,
+    "windDir": "SW",
+    "humidity": 64,
     "tempUnit": "F",
     "windUnit": "mph"
   },
   "forecast": [
-    {
-      "condition": "Clear",
-      "temp": 58,
-      "feelsLike": 58,
-      "wind": 15,
-      "windDir": "SW",
-      "humidity": 64,
-      "day": "+1"
-    },
     {
       "condition": "Clear",
       "temp": 62,
@@ -31,7 +22,7 @@
       "wind": 14,
       "windDir": "N",
       "humidity": 38,
-      "day": "+2"
+      "day": "+1"
     },
     {
       "condition": "Rain",
@@ -40,32 +31,33 @@
       "wind": 30,
       "windDir": "N",
       "humidity": 78,
+      "day": "+2"
+    },
+    {
+      "condition": "Clear",
+      "temp": 62,
+      "feelsLike": 62,
+      "wind": 10,
+      "windDir": "E",
+      "humidity": 34,
       "day": "+3"
     }
   ],
   "alerts": [
     {
-      "tier": "Warning",
-      "event": "Severe Thunderstorm Warning",
-      "headline": "Damaging winds to 48 mph and lightning.",
-      "severity": "Severe",
-      "daysOut": 0,
-      "forDay": 27
-    },
-    {
       "tier": "Advisory",
-      "event": "Wind Advisory",
-      "headline": "Gusty winds around 48 mph.",
+      "event": "Dense Fog Advisory",
+      "headline": "Reduced visibility in dense fog.",
       "severity": "Minor",
       "daysOut": 0,
-      "forDay": 27
+      "forDay": 28
     }
   ],
-  "discussion": "Thunderstorms are likely across Plains this autumn day, with a high near 67°F. Winds out of the W around 48 mph. A Severe Thunderstorm Warning is in effect: Damaging winds to 48 mph and lightning. Looking ahead, tomorrow brings clear near 58°F.",
+  "discussion": "Clear skies prevail over Plains this autumn day, with a high near 58°F. Winds out of the SW around 15 mph. A Dense Fog Advisory is in effect: Reduced visibility in dense fog. Looking ahead, tomorrow brings clear near 62°F.",
   "regions": [],
   "almanac": {
-    "moonPhase": 3,
-    "moonPhaseName": "Waning Crescent"
+    "moonPhase": 4,
+    "moonPhaseName": "New Moon"
   },
   "biome": "minecraft:plains"
 }
