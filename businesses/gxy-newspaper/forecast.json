@@ -1,29 +1,20 @@
 {
   "schemaVersion": 3,
-  "updated": "2026-07-01T07:36:25.137270966Z",
-  "mcDay": 12,
+  "updated": "2026-07-01T07:57:11.988187687Z",
+  "mcDay": 13,
   "season": "Summer",
   "trend": "SUMMER",
   "today": {
-    "condition": "Clear",
-    "temp": 73,
-    "feelsLike": 73,
-    "wind": 3,
-    "windDir": "NE",
-    "humidity": 33,
+    "condition": "Rain",
+    "temp": 79,
+    "feelsLike": 79,
+    "wind": 14,
+    "windDir": "N",
+    "humidity": 64,
     "tempUnit": "F",
     "windUnit": "mph"
   },
   "forecast": [
-    {
-      "condition": "Rain",
-      "temp": 79,
-      "feelsLike": 79,
-      "wind": 14,
-      "windDir": "N",
-      "humidity": 64,
-      "day": "+1"
-    },
     {
       "condition": "Clear",
       "temp": 98,
@@ -31,7 +22,7 @@
       "wind": 4,
       "windDir": "N",
       "humidity": 54,
-      "day": "+2"
+      "day": "+1"
     },
     {
       "condition": "Rain",
@@ -40,6 +31,15 @@
       "wind": 21,
       "windDir": "W",
       "humidity": 53,
+      "day": "+2"
+    },
+    {
+      "condition": "Clear",
+      "temp": 93,
+      "feelsLike": 92,
+      "wind": 0,
+      "windDir": "N",
+      "humidity": 31,
       "day": "+3"
     }
   ],
@@ -49,15 +49,15 @@
       "event": "Excessive Heat Watch",
       "headline": "Dangerous heat possible; feels near 116°F.",
       "severity": "Moderate",
-      "daysOut": 2,
+      "daysOut": 1,
       "forDay": 14
     }
   ],
-  "discussion": "Clear skies prevail over Plains this summer day, with a high near 73°F. Winds stay light. A Excessive Heat Watch is in effect: Dangerous heat possible; feels near 116°F. Looking ahead, tomorrow brings rain near 79°F.",
+  "discussion": "Rain moves through Plains this summer day, with a high near 79°F. Winds stay light. A Excessive Heat Watch is in effect: Dangerous heat possible; feels near 116°F. Looking ahead, tomorrow brings clear near 98°F.",
   "regions": [],
   "almanac": {
-    "moonPhase": 4,
-    "moonPhaseName": "New Moon"
+    "moonPhase": 5,
+    "moonPhaseName": "Waxing Crescent"
   },
   "biome": "minecraft:plains"
 }
