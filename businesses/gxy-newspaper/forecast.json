@@ -1,54 +1,71 @@
 {
   "schemaVersion": 3,
-  "updated": "2026-07-01T18:02:47.497654901Z",
-  "mcDay": 42,
-  "season": "Autumn",
-  "trend": "SHOULDER",
+  "updated": "2026-07-01T18:25:32.296935941Z",
+  "mcDay": 43,
+  "season": "Winter",
+  "trend": "WINTER",
   "today": {
-    "condition": "Rain",
-    "temp": 76,
-    "feelsLike": 76,
-    "wind": 14,
-    "windDir": "W",
-    "humidity": 77,
+    "condition": "Clear",
+    "temp": 30,
+    "feelsLike": 17,
+    "wind": 21,
+    "windDir": "SW",
+    "humidity": 16,
     "tempUnit": "F",
     "windUnit": "mph"
   },
   "forecast": [
     {
       "condition": "Clear",
-      "temp": 62,
-      "feelsLike": 62,
-      "wind": 21,
-      "windDir": "SW",
-      "humidity": 16,
-      "day": "+1"
-    },
-    {
-      "condition": "Clear",
-      "temp": 75,
-      "feelsLike": 75,
+      "temp": 42,
+      "feelsLike": 33,
       "wind": 22,
       "windDir": "W",
       "humidity": 57,
-      "day": "+2"
+      "day": "+1"
     },
     {
-      "condition": "Storm",
-      "temp": 60,
-      "feelsLike": 60,
+      "condition": "Snow",
+      "temp": 27,
+      "feelsLike": 8,
       "wind": 48,
       "windDir": "E",
       "humidity": 56,
+      "day": "+2"
+    },
+    {
+      "condition": "Clear",
+      "temp": 32,
+      "feelsLike": 21,
+      "wind": 17,
+      "windDir": "NE",
+      "humidity": 45,
       "day": "+3"
     }
   ],
-  "alerts": [],
-  "discussion": "Rain moves through Plains this autumn day, with a high near 76°F. Winds stay light. Looking ahead, tomorrow brings clear near 62°F.",
+  "alerts": [
+    {
+      "tier": "Watch",
+      "event": "Winter Storm Watch",
+      "headline": "Blizzard conditions possible: heavy snow and winds to 48 mph.",
+      "severity": "Moderate",
+      "daysOut": 2,
+      "forDay": 45
+    },
+    {
+      "tier": "Advisory",
+      "event": "Frost Advisory",
+      "headline": "Frost likely; temperatures near 30°F.",
+      "severity": "Minor",
+      "daysOut": 0,
+      "forDay": 43
+    }
+  ],
+  "discussion": "Clear skies prevail over Plains this winter day, with a high near 30°F (feeling more like 17°F). Winds out of the SW around 21 mph. A Winter Storm Watch is in effect: Blizzard conditions possible: heavy snow and winds to 48 mph. Looking ahead, tomorrow brings clear near 42°F.",
   "regions": [],
   "almanac": {
-    "moonPhase": 2,
-    "moonPhaseName": "Last Quarter"
+    "moonPhase": 3,
+    "moonPhaseName": "Waning Crescent"
   },
   "biome": "minecraft:plains"
 }
