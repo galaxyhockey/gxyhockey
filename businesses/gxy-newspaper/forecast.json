@@ -1,29 +1,20 @@
 {
   "schemaVersion": 3,
-  "updated": "2026-07-01T12:01:18.742703021Z",
-  "mcDay": 25,
+  "updated": "2026-07-01T12:21:12.942849132Z",
+  "mcDay": 26,
   "season": "Autumn",
   "trend": "SHOULDER",
   "today": {
-    "condition": "Clear",
-    "temp": 73,
-    "feelsLike": 73,
-    "wind": 16,
+    "condition": "Rain",
+    "temp": 56,
+    "feelsLike": 56,
+    "wind": 22,
     "windDir": "S",
-    "humidity": 31,
+    "humidity": 90,
     "tempUnit": "F",
     "windUnit": "mph"
   },
   "forecast": [
-    {
-      "condition": "Rain",
-      "temp": 56,
-      "feelsLike": 56,
-      "wind": 22,
-      "windDir": "S",
-      "humidity": 90,
-      "day": "+1"
-    },
     {
       "condition": "Storm",
       "temp": 67,
@@ -31,7 +22,7 @@
       "wind": 48,
       "windDir": "W",
       "humidity": 68,
-      "day": "+2"
+      "day": "+1"
     },
     {
       "condition": "Clear",
@@ -40,6 +31,15 @@
       "wind": 15,
       "windDir": "SW",
       "humidity": 64,
+      "day": "+2"
+    },
+    {
+      "condition": "Clear",
+      "temp": 62,
+      "feelsLike": 62,
+      "wind": 14,
+      "windDir": "N",
+      "humidity": 38,
       "day": "+3"
     }
   ],
@@ -49,15 +49,15 @@
       "event": "Severe Thunderstorm Watch",
       "headline": "Severe storms possible with winds to 48 mph.",
       "severity": "Moderate",
-      "daysOut": 2,
+      "daysOut": 1,
       "forDay": 27
     }
   ],
-  "discussion": "Clear skies prevail over Plains this autumn day, with a high near 73°F. Winds out of the S around 16 mph. A Severe Thunderstorm Watch is in effect: Severe storms possible with winds to 48 mph. Looking ahead, tomorrow brings rain near 56°F.",
+  "discussion": "Rain moves through Plains this autumn day, with a high near 56°F. Winds out of the S around 22 mph. A Severe Thunderstorm Watch is in effect: Severe storms possible with winds to 48 mph. Looking ahead, tomorrow brings storm near 67°F.",
   "regions": [],
   "almanac": {
-    "moonPhase": 1,
-    "moonPhaseName": "Waning Gibbous"
+    "moonPhase": 2,
+    "moonPhaseName": "Last Quarter"
   },
   "biome": "minecraft:plains"
 }
