@@ -1,29 +1,20 @@
 {
   "schemaVersion": 3,
-  "updated": "2026-07-01T08:17:58.837875207Z",
-  "mcDay": 14,
+  "updated": "2026-07-01T08:38:45.739102896Z",
+  "mcDay": 15,
   "season": "Summer",
   "trend": "SUMMER",
   "today": {
-    "condition": "Clear",
-    "temp": 98,
-    "feelsLike": 116,
-    "wind": 4,
-    "windDir": "N",
-    "humidity": 54,
+    "condition": "Rain",
+    "temp": 85,
+    "feelsLike": 87,
+    "wind": 21,
+    "windDir": "W",
+    "humidity": 53,
     "tempUnit": "F",
     "windUnit": "mph"
   },
   "forecast": [
-    {
-      "condition": "Rain",
-      "temp": 85,
-      "feelsLike": 87,
-      "wind": 21,
-      "windDir": "W",
-      "humidity": 53,
-      "day": "+1"
-    },
     {
       "condition": "Clear",
       "temp": 93,
@@ -31,7 +22,7 @@
       "wind": 0,
       "windDir": "N",
       "humidity": 31,
-      "day": "+2"
+      "day": "+1"
     },
     {
       "condition": "Clear",
@@ -40,24 +31,24 @@
       "wind": 22,
       "windDir": "SE",
       "humidity": 37,
+      "day": "+2"
+    },
+    {
+      "condition": "Storm",
+      "temp": 91,
+      "feelsLike": 93,
+      "wind": 40,
+      "windDir": "NE",
+      "humidity": 42,
       "day": "+3"
     }
   ],
-  "alerts": [
-    {
-      "tier": "Warning",
-      "event": "Excessive Heat Warning",
-      "headline": "Dangerous heat; feels like 116°F.",
-      "severity": "Severe",
-      "daysOut": 0,
-      "forDay": 14
-    }
-  ],
-  "discussion": "Clear skies prevail over Plains this summer day, with a high near 98°F (feeling more like 116°F). Winds stay light. A Excessive Heat Warning is in effect: Dangerous heat; feels like 116°F. Looking ahead, tomorrow brings rain near 85°F.",
+  "alerts": [],
+  "discussion": "Rain moves through Plains this summer day, with a high near 85°F (feeling more like 87°F). Winds out of the W around 21 mph. Looking ahead, tomorrow brings clear near 93°F.",
   "regions": [],
   "almanac": {
-    "moonPhase": 6,
-    "moonPhaseName": "First Quarter"
+    "moonPhase": 7,
+    "moonPhaseName": "Waxing Gibbous"
   },
   "biome": "minecraft:plains"
 }
