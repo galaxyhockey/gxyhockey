@@ -1,29 +1,20 @@
 {
   "schemaVersion": 3,
-  "updated": "2026-07-01T13:21:52.843859646Z",
-  "mcDay": 29,
+  "updated": "2026-07-01T13:42:14.944037457Z",
+  "mcDay": 30,
   "season": "Autumn",
   "trend": "SHOULDER",
   "today": {
-    "condition": "Clear",
-    "temp": 62,
-    "feelsLike": 62,
-    "wind": 14,
+    "condition": "Rain",
+    "temp": 78,
+    "feelsLike": 78,
+    "wind": 30,
     "windDir": "N",
-    "humidity": 38,
+    "humidity": 78,
     "tempUnit": "F",
     "windUnit": "mph"
   },
   "forecast": [
-    {
-      "condition": "Rain",
-      "temp": 78,
-      "feelsLike": 78,
-      "wind": 30,
-      "windDir": "N",
-      "humidity": 78,
-      "day": "+1"
-    },
     {
       "condition": "Clear",
       "temp": 62,
@@ -31,7 +22,7 @@
       "wind": 10,
       "windDir": "E",
       "humidity": 34,
-      "day": "+2"
+      "day": "+1"
     },
     {
       "condition": "Rain",
@@ -40,15 +31,33 @@
       "wind": 34,
       "windDir": "NW",
       "humidity": 58,
+      "day": "+2"
+    },
+    {
+      "condition": "Rain",
+      "temp": 64,
+      "feelsLike": 64,
+      "wind": 16,
+      "windDir": "S",
+      "humidity": 56,
       "day": "+3"
     }
   ],
-  "alerts": [],
-  "discussion": "Clear skies prevail over Plains this autumn day, with a high near 62°F. Winds stay light. Looking ahead, tomorrow brings rain near 78°F.",
+  "alerts": [
+    {
+      "tier": "Advisory",
+      "event": "Wind Advisory",
+      "headline": "Gusty winds around 30 mph.",
+      "severity": "Minor",
+      "daysOut": 0,
+      "forDay": 30
+    }
+  ],
+  "discussion": "Rain moves through Plains this autumn day, with a high near 78°F. Winds out of the N around 30 mph. A Wind Advisory is in effect: Gusty winds around 30 mph. Looking ahead, tomorrow brings clear near 62°F.",
   "regions": [],
   "almanac": {
-    "moonPhase": 5,
-    "moonPhaseName": "Waxing Crescent"
+    "moonPhase": 6,
+    "moonPhaseName": "First Quarter"
   },
   "biome": "minecraft:plains"
 }
