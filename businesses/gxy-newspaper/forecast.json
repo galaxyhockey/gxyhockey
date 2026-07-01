@@ -1,29 +1,20 @@
 {
   "schemaVersion": 3,
-  "updated": "2026-07-01T10:41:42.095803836Z",
-  "mcDay": 21,
+  "updated": "2026-07-01T11:01:36.292323500Z",
+  "mcDay": 22,
   "season": "Autumn",
   "trend": "SHOULDER",
   "today": {
-    "condition": "Rain",
-    "temp": 74,
-    "feelsLike": 74,
-    "wind": 12,
-    "windDir": "W",
-    "humidity": 79,
+    "condition": "Clear",
+    "temp": 54,
+    "feelsLike": 54,
+    "wind": 16,
+    "windDir": "S",
+    "humidity": 64,
     "tempUnit": "F",
     "windUnit": "mph"
   },
   "forecast": [
-    {
-      "condition": "Clear",
-      "temp": 54,
-      "feelsLike": 54,
-      "wind": 16,
-      "windDir": "S",
-      "humidity": 64,
-      "day": "+1"
-    },
     {
       "condition": "Clear",
       "temp": 76,
@@ -31,7 +22,7 @@
       "wind": 25,
       "windDir": "NW",
       "humidity": 50,
-      "day": "+2"
+      "day": "+1"
     },
     {
       "condition": "Storm",
@@ -40,15 +31,24 @@
       "wind": 33,
       "windDir": "NW",
       "humidity": 89,
+      "day": "+2"
+    },
+    {
+      "condition": "Clear",
+      "temp": 73,
+      "feelsLike": 73,
+      "wind": 16,
+      "windDir": "S",
+      "humidity": 31,
       "day": "+3"
     }
   ],
   "alerts": [],
-  "discussion": "Rain moves through Plains this autumn day, with a high near 74°F. Winds stay light. Looking ahead, tomorrow brings clear near 54°F.",
+  "discussion": "Clear skies prevail over Plains this autumn day, with a high near 54°F. Winds out of the S around 16 mph. Looking ahead, tomorrow brings clear near 76°F.",
   "regions": [],
   "almanac": {
-    "moonPhase": 5,
-    "moonPhaseName": "Waxing Crescent"
+    "moonPhase": 6,
+    "moonPhaseName": "First Quarter"
   },
   "biome": "minecraft:plains"
 }
