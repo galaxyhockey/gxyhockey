@@ -1,29 +1,20 @@
 {
   "schemaVersion": 3,
-  "updated": "2026-07-01T07:15:38.237432511Z",
-  "mcDay": 11,
+  "updated": "2026-07-01T07:36:25.137270966Z",
+  "mcDay": 12,
   "season": "Summer",
   "trend": "SUMMER",
   "today": {
     "condition": "Clear",
-    "temp": 94,
-    "feelsLike": 103,
-    "wind": 27,
-    "windDir": "SW",
-    "humidity": 50,
+    "temp": 73,
+    "feelsLike": 73,
+    "wind": 3,
+    "windDir": "NE",
+    "humidity": 33,
     "tempUnit": "F",
     "windUnit": "mph"
   },
   "forecast": [
-    {
-      "condition": "Clear",
-      "temp": 73,
-      "feelsLike": 73,
-      "wind": 3,
-      "windDir": "NE",
-      "humidity": 33,
-      "day": "+1"
-    },
     {
       "condition": "Rain",
       "temp": 79,
@@ -31,7 +22,7 @@
       "wind": 14,
       "windDir": "N",
       "humidity": 64,
-      "day": "+2"
+      "day": "+1"
     },
     {
       "condition": "Clear",
@@ -40,24 +31,33 @@
       "wind": 4,
       "windDir": "N",
       "humidity": 54,
+      "day": "+2"
+    },
+    {
+      "condition": "Rain",
+      "temp": 85,
+      "feelsLike": 87,
+      "wind": 21,
+      "windDir": "W",
+      "humidity": 53,
       "day": "+3"
     }
   ],
   "alerts": [
     {
-      "tier": "Advisory",
-      "event": "Heat Advisory",
-      "headline": "Hot; feels like 103°F.",
-      "severity": "Minor",
-      "daysOut": 0,
-      "forDay": 11
+      "tier": "Watch",
+      "event": "Excessive Heat Watch",
+      "headline": "Dangerous heat possible; feels near 116°F.",
+      "severity": "Moderate",
+      "daysOut": 2,
+      "forDay": 14
     }
   ],
-  "discussion": "Clear skies prevail over Plains this summer day, with a high near 94°F (feeling more like 103°F). Winds out of the SW around 27 mph. A Heat Advisory is in effect: Hot; feels like 103°F. Looking ahead, tomorrow brings clear near 73°F.",
+  "discussion": "Clear skies prevail over Plains this summer day, with a high near 73°F. Winds stay light. A Excessive Heat Watch is in effect: Dangerous heat possible; feels near 116°F. Looking ahead, tomorrow brings rain near 79°F.",
   "regions": [],
   "almanac": {
-    "moonPhase": 3,
-    "moonPhaseName": "Waning Crescent"
+    "moonPhase": 4,
+    "moonPhaseName": "New Moon"
   },
   "biome": "minecraft:plains"
 }
