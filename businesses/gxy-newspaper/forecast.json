@@ -1,29 +1,20 @@
 {
   "schemaVersion": 3,
-  "updated": "2026-07-01T16:54:50.847631278Z",
-  "mcDay": 39,
+  "updated": "2026-07-01T17:17:29.746942287Z",
+  "mcDay": 40,
   "season": "Autumn",
   "trend": "SHOULDER",
   "today": {
-    "condition": "Storm",
-    "temp": 73,
-    "feelsLike": 73,
-    "wind": 36,
-    "windDir": "W",
-    "humidity": 65,
+    "condition": "Rain",
+    "temp": 67,
+    "feelsLike": 67,
+    "wind": 16,
+    "windDir": "NW",
+    "humidity": 47,
     "tempUnit": "F",
     "windUnit": "mph"
   },
   "forecast": [
-    {
-      "condition": "Rain",
-      "temp": 67,
-      "feelsLike": 67,
-      "wind": 16,
-      "windDir": "NW",
-      "humidity": 47,
-      "day": "+1"
-    },
     {
       "condition": "Clear",
       "temp": 63,
@@ -31,7 +22,7 @@
       "wind": 12,
       "windDir": "NE",
       "humidity": 70,
-      "day": "+2"
+      "day": "+1"
     },
     {
       "condition": "Rain",
@@ -40,24 +31,33 @@
       "wind": 14,
       "windDir": "W",
       "humidity": 77,
+      "day": "+2"
+    },
+    {
+      "condition": "Clear",
+      "temp": 62,
+      "feelsLike": 62,
+      "wind": 21,
+      "windDir": "SW",
+      "humidity": 16,
       "day": "+3"
     }
   ],
   "alerts": [
     {
       "tier": "Advisory",
-      "event": "Wind Advisory",
-      "headline": "Gusty winds around 36 mph.",
+      "event": "Dense Fog Advisory",
+      "headline": "Reduced visibility in dense fog.",
       "severity": "Minor",
       "daysOut": 0,
-      "forDay": 39
+      "forDay": 40
     }
   ],
-  "discussion": "Thunderstorms are likely across Plains this autumn day, with a high near 73°F. Winds out of the W around 36 mph. A Wind Advisory is in effect: Gusty winds around 36 mph. Looking ahead, tomorrow brings rain near 67°F.",
+  "discussion": "Rain moves through Plains this autumn day, with a high near 67°F. Winds out of the NW around 16 mph. A Dense Fog Advisory is in effect: Reduced visibility in dense fog. Looking ahead, tomorrow brings clear near 63°F.",
   "regions": [],
   "almanac": {
-    "moonPhase": 7,
-    "moonPhaseName": "Waxing Gibbous"
+    "moonPhase": 0,
+    "moonPhaseName": "Full Moon"
   },
   "biome": "minecraft:plains"
 }
