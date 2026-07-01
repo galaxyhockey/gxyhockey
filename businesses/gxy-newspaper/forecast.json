@@ -1,15 +1,15 @@
 {
   "schemaVersion": 3,
-  "updated": "2026-07-01T09:41:06.340477957Z",
-  "mcDay": 18,
-  "season": "Summer",
-  "trend": "SUMMER",
+  "updated": "2026-07-01T10:01:53.790417059Z",
+  "mcDay": 19,
+  "season": "Autumn",
+  "trend": "SHOULDER",
   "today": {
-    "condition": "Storm",
-    "temp": 91,
-    "feelsLike": 93,
-    "wind": 40,
-    "windDir": "NE",
+    "condition": "Clear",
+    "temp": 62,
+    "feelsLike": 62,
+    "wind": 19,
+    "windDir": "N",
     "humidity": 42,
     "tempUnit": "F",
     "windUnit": "mph"
@@ -17,55 +17,38 @@
   "forecast": [
     {
       "condition": "Clear",
-      "temp": 81,
+      "temp": 80,
       "feelsLike": 81,
-      "wind": 19,
-      "windDir": "N",
-      "humidity": 42,
-      "day": "+1"
-    },
-    {
-      "condition": "Clear",
-      "temp": 99,
-      "feelsLike": 119,
       "wind": 7,
       "windDir": "S",
       "humidity": 54,
-      "day": "+2"
+      "day": "+1"
     },
     {
       "condition": "Rain",
-      "temp": 93,
-      "feelsLike": 124,
+      "temp": 74,
+      "feelsLike": 74,
       "wind": 12,
       "windDir": "W",
       "humidity": 79,
+      "day": "+2"
+    },
+    {
+      "condition": "Clear",
+      "temp": 54,
+      "feelsLike": 54,
+      "wind": 16,
+      "windDir": "S",
+      "humidity": 64,
       "day": "+3"
     }
   ],
-  "alerts": [
-    {
-      "tier": "Watch",
-      "event": "Excessive Heat Watch",
-      "headline": "Dangerous heat possible; feels near 119°F.",
-      "severity": "Moderate",
-      "daysOut": 2,
-      "forDay": 20
-    },
-    {
-      "tier": "Advisory",
-      "event": "Wind Advisory",
-      "headline": "Gusty winds around 40 mph.",
-      "severity": "Minor",
-      "daysOut": 0,
-      "forDay": 18
-    }
-  ],
-  "discussion": "Thunderstorms are likely across Plains this summer day, with a high near 91°F (feeling more like 93°F). Winds out of the NE around 40 mph. A Excessive Heat Watch is in effect: Dangerous heat possible; feels near 119°F. Looking ahead, tomorrow brings clear near 81°F.",
+  "alerts": [],
+  "discussion": "Clear skies prevail over Plains this autumn day, with a high near 62°F. Winds out of the N around 19 mph. Looking ahead, tomorrow brings clear near 80°F.",
   "regions": [],
   "almanac": {
-    "moonPhase": 2,
-    "moonPhaseName": "Last Quarter"
+    "moonPhase": 3,
+    "moonPhaseName": "Waning Crescent"
   },
   "biome": "minecraft:plains"
 }
