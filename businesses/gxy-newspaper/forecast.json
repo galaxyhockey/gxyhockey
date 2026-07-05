@@ -1,29 +1,20 @@
 {
   "schemaVersion": 3,
-  "updated": "2026-07-05T01:32:02.918890941Z",
-  "mcDay": 45,
+  "updated": "2026-07-05T01:46:31.229530228Z",
+  "mcDay": 46,
   "season": "Winter",
   "trend": "WINTER",
   "today": {
-    "condition": "Snow",
-    "temp": 27,
-    "feelsLike": 8,
-    "wind": 48,
-    "windDir": "E",
-    "humidity": 56,
+    "condition": "Clear",
+    "temp": 32,
+    "feelsLike": 21,
+    "wind": 17,
+    "windDir": "NE",
+    "humidity": 45,
     "tempUnit": "F",
     "windUnit": "mph"
   },
   "forecast": [
-    {
-      "condition": "Clear",
-      "temp": 32,
-      "feelsLike": 21,
-      "wind": 17,
-      "windDir": "NE",
-      "humidity": 45,
-      "day": "+1"
-    },
     {
       "condition": "Clear",
       "temp": 31,
@@ -31,7 +22,7 @@
       "wind": 5,
       "windDir": "NW",
       "humidity": 63,
-      "day": "+2"
+      "day": "+1"
     },
     {
       "condition": "Clear",
@@ -40,32 +31,33 @@
       "wind": 27,
       "windDir": "SE",
       "humidity": 41,
+      "day": "+2"
+    },
+    {
+      "condition": "Storm",
+      "temp": 41,
+      "feelsLike": 30,
+      "wind": 27,
+      "windDir": "S",
+      "humidity": 86,
       "day": "+3"
     }
   ],
   "alerts": [
     {
-      "tier": "Warning",
-      "event": "Blizzard Warning",
-      "headline": "Heavy snow and winds to 48 mph; near 27°F.",
-      "severity": "Extreme",
-      "daysOut": 0,
-      "forDay": 45
-    },
-    {
       "tier": "Advisory",
-      "event": "Wind Advisory",
-      "headline": "Gusty winds around 48 mph.",
+      "event": "Frost Advisory",
+      "headline": "Frost likely; temperatures near 32°F.",
       "severity": "Minor",
       "daysOut": 0,
-      "forDay": 45
+      "forDay": 46
     }
   ],
-  "discussion": "Snow is expected across Plains this winter day, with a high near 27°F (feeling more like 8°F). Winds out of the E around 48 mph. A Blizzard Warning is in effect: Heavy snow and winds to 48 mph; near 27°F. Looking ahead, tomorrow brings clear near 32°F.",
+  "discussion": "Clear skies prevail over Plains this winter day, with a high near 32°F (feeling more like 21°F). Winds out of the NE around 17 mph. A Frost Advisory is in effect: Frost likely; temperatures near 32°F. Looking ahead, tomorrow brings clear near 31°F.",
   "regions": [],
   "almanac": {
-    "moonPhase": 5,
-    "moonPhaseName": "Waxing Crescent"
+    "moonPhase": 6,
+    "moonPhaseName": "First Quarter"
   },
   "biome": "minecraft:plains"
 }
