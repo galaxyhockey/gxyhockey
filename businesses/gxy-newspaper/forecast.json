@@ -1,29 +1,20 @@
 {
   "schemaVersion": 3,
-  "updated": "2026-07-07T15:59:11.454426896Z",
-  "mcDay": 0,
+  "updated": "2026-07-07T16:07:59.414601367Z",
+  "mcDay": 1,
   "season": "Summer",
   "trend": "SUMMER",
   "today": {
     "condition": "Clear",
-    "temp": 98,
-    "feelsLike": 93,
-    "wind": 8,
-    "windDir": "SW",
-    "humidity": 14,
+    "temp": 73,
+    "feelsLike": 73,
+    "wind": 19,
+    "windDir": "S",
+    "humidity": 66,
     "tempUnit": "F",
     "windUnit": "mph"
   },
   "forecast": [
-    {
-      "condition": "Clear",
-      "temp": 73,
-      "feelsLike": 73,
-      "wind": 19,
-      "windDir": "S",
-      "humidity": 66,
-      "day": "+1"
-    },
     {
       "condition": "Clear",
       "temp": 83,
@@ -31,7 +22,7 @@
       "wind": 38,
       "windDir": "S",
       "humidity": 43,
-      "day": "+2"
+      "day": "+1"
     },
     {
       "condition": "Rain",
@@ -40,15 +31,33 @@
       "wind": 42,
       "windDir": "N",
       "humidity": 63,
+      "day": "+2"
+    },
+    {
+      "condition": "Clear",
+      "temp": 80,
+      "feelsLike": 78,
+      "wind": 25,
+      "windDir": "N",
+      "humidity": 10,
       "day": "+3"
     }
   ],
-  "alerts": [],
-  "discussion": "Clear skies prevail over Plains this summer day, with a high near 98°F (feeling more like 93°F). Winds stay light. Looking ahead, tomorrow brings clear near 73°F.",
+  "alerts": [
+    {
+      "tier": "Watch",
+      "event": "Excessive Heat Watch",
+      "headline": "Dangerous heat possible; feels near 122°F.",
+      "severity": "Moderate",
+      "daysOut": 2,
+      "forDay": 3
+    }
+  ],
+  "discussion": "Clear skies prevail over Plains this summer day, with a high near 73°F. Winds out of the S around 19 mph. A Excessive Heat Watch is in effect: Dangerous heat possible; feels near 122°F. Looking ahead, tomorrow brings clear near 83°F.",
   "regions": [],
   "almanac": {
-    "moonPhase": 0,
-    "moonPhaseName": "Full Moon"
+    "moonPhase": 1,
+    "moonPhaseName": "Waning Gibbous"
   },
   "biome": "minecraft:plains"
 }
