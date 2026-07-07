@@ -1,63 +1,54 @@
 {
   "schemaVersion": 3,
-  "updated": "2026-07-07T15:47:44.982305499Z",
-  "mcDay": 46,
-  "season": "Winter",
-  "trend": "WINTER",
+  "updated": "2026-07-07T15:59:11.454426896Z",
+  "mcDay": 0,
+  "season": "Summer",
+  "trend": "SUMMER",
   "today": {
     "condition": "Clear",
-    "temp": 32,
-    "feelsLike": 21,
-    "wind": 17,
-    "windDir": "NE",
-    "humidity": 45,
+    "temp": 98,
+    "feelsLike": 93,
+    "wind": 8,
+    "windDir": "SW",
+    "humidity": 14,
     "tempUnit": "F",
     "windUnit": "mph"
   },
   "forecast": [
     {
       "condition": "Clear",
-      "temp": 31,
-      "feelsLike": 26,
-      "wind": 5,
-      "windDir": "NW",
-      "humidity": 63,
+      "temp": 73,
+      "feelsLike": 73,
+      "wind": 19,
+      "windDir": "S",
+      "humidity": 66,
       "day": "+1"
     },
     {
       "condition": "Clear",
-      "temp": 33,
-      "feelsLike": 20,
-      "wind": 27,
-      "windDir": "SE",
-      "humidity": 41,
+      "temp": 83,
+      "feelsLike": 83,
+      "wind": 38,
+      "windDir": "S",
+      "humidity": 43,
       "day": "+2"
     },
     {
-      "condition": "Storm",
-      "temp": 41,
-      "feelsLike": 30,
-      "wind": 27,
-      "windDir": "S",
-      "humidity": 86,
+      "condition": "Rain",
+      "temp": 97,
+      "feelsLike": 122,
+      "wind": 42,
+      "windDir": "N",
+      "humidity": 63,
       "day": "+3"
     }
   ],
-  "alerts": [
-    {
-      "tier": "Advisory",
-      "event": "Frost Advisory",
-      "headline": "Frost likely; temperatures near 32°F.",
-      "severity": "Minor",
-      "daysOut": 0,
-      "forDay": 46
-    }
-  ],
-  "discussion": "Clear skies prevail over Plains this winter day, with a high near 32°F (feeling more like 21°F). Winds out of the NE around 17 mph. A Frost Advisory is in effect: Frost likely; temperatures near 32°F. Looking ahead, tomorrow brings clear near 31°F.",
+  "alerts": [],
+  "discussion": "Clear skies prevail over Plains this summer day, with a high near 98°F (feeling more like 93°F). Winds stay light. Looking ahead, tomorrow brings clear near 73°F.",
   "regions": [],
   "almanac": {
-    "moonPhase": 6,
-    "moonPhaseName": "First Quarter"
+    "moonPhase": 0,
+    "moonPhaseName": "Full Moon"
   },
   "biome": "minecraft:plains"
 }
