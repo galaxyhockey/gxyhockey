@@ -1,54 +1,54 @@
 {
   "schemaVersion": 3,
-  "updated": "2026-07-09T16:25:46.536564388Z",
-  "mcDay": 7,
+  "updated": "2026-07-09T16:43:06.772763964Z",
+  "mcDay": 0,
   "season": "Summer",
   "trend": "SUMMER",
   "today": {
     "condition": "Clear",
-    "temp": 88,
-    "feelsLike": 84,
-    "wind": 18,
-    "windDir": "E",
-    "humidity": 12,
+    "temp": 98,
+    "feelsLike": 93,
+    "wind": 8,
+    "windDir": "SW",
+    "humidity": 14,
     "tempUnit": "F",
     "windUnit": "mph"
   },
   "forecast": [
     {
-      "condition": "Rain",
-      "temp": 86,
-      "feelsLike": 84,
-      "wind": 17,
-      "windDir": "NE",
-      "humidity": 31,
+      "condition": "Clear",
+      "temp": 73,
+      "feelsLike": 73,
+      "wind": 19,
+      "windDir": "S",
+      "humidity": 66,
       "day": "+1"
     },
     {
       "condition": "Clear",
-      "temp": 86,
+      "temp": 83,
       "feelsLike": 83,
-      "wind": 2,
-      "windDir": "E",
-      "humidity": 17,
+      "wind": 38,
+      "windDir": "S",
+      "humidity": 43,
       "day": "+2"
     },
     {
       "condition": "Rain",
-      "temp": 95,
-      "feelsLike": 106,
-      "wind": 20,
-      "windDir": "E",
-      "humidity": 51,
+      "temp": 97,
+      "feelsLike": 122,
+      "wind": 42,
+      "windDir": "N",
+      "humidity": 63,
       "day": "+3"
     }
   ],
   "alerts": [],
-  "discussion": "Clear skies prevail over Plains this summer day, with a high near 88°F (feeling more like 84°F). Winds out of the E around 18 mph. Looking ahead, tomorrow brings rain near 86°F.",
+  "discussion": "Clear skies prevail over Plains this summer day, with a high near 98°F (feeling more like 93°F). Winds stay light. Looking ahead, tomorrow brings clear near 73°F.",
   "regions": [],
   "almanac": {
-    "moonPhase": 7,
-    "moonPhaseName": "Waxing Gibbous"
+    "moonPhase": 0,
+    "moonPhaseName": "Full Moon"
   },
   "biome": "minecraft:plains"
 }
