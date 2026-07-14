@@ -1,29 +1,20 @@
 {
   "schemaVersion": 3,
-  "updated": "2026-07-14T01:42:05.921323292Z",
-  "mcDay": 5,
+  "updated": "2026-07-14T01:42:41.561256770Z",
+  "mcDay": 6,
   "season": "Summer",
   "trend": "SUMMER",
   "today": {
     "condition": "Clear",
-    "temp": 96,
-    "feelsLike": 105,
-    "wind": 20,
-    "windDir": "E",
-    "humidity": 46,
+    "temp": 81,
+    "feelsLike": 79,
+    "wind": 11,
+    "windDir": "NE",
+    "humidity": 12,
     "tempUnit": "F",
     "windUnit": "mph"
   },
   "forecast": [
-    {
-      "condition": "Clear",
-      "temp": 81,
-      "feelsLike": 79,
-      "wind": 11,
-      "windDir": "NE",
-      "humidity": 12,
-      "day": "+1"
-    },
     {
       "condition": "Clear",
       "temp": 88,
@@ -31,7 +22,7 @@
       "wind": 18,
       "windDir": "E",
       "humidity": 12,
-      "day": "+2"
+      "day": "+1"
     },
     {
       "condition": "Rain",
@@ -40,24 +31,24 @@
       "wind": 17,
       "windDir": "NE",
       "humidity": 31,
+      "day": "+2"
+    },
+    {
+      "condition": "Clear",
+      "temp": 86,
+      "feelsLike": 83,
+      "wind": 2,
+      "windDir": "E",
+      "humidity": 17,
       "day": "+3"
     }
   ],
-  "alerts": [
-    {
-      "tier": "Warning",
-      "event": "Excessive Heat Warning",
-      "headline": "Dangerous heat; feels like 105°F.",
-      "severity": "Severe",
-      "daysOut": 0,
-      "forDay": 5
-    }
-  ],
-  "discussion": "Clear skies prevail over Plains this summer day, with a high near 96°F (feeling more like 105°F). Winds out of the E around 20 mph. A Excessive Heat Warning is in effect: Dangerous heat; feels like 105°F. Looking ahead, tomorrow brings clear near 81°F.",
+  "alerts": [],
+  "discussion": "Clear skies prevail over Plains this summer day, with a high near 81°F (feeling more like 79°F). Winds stay light. Looking ahead, tomorrow brings clear near 88°F.",
   "regions": [],
   "almanac": {
-    "moonPhase": 5,
-    "moonPhaseName": "Waxing Crescent"
+    "moonPhase": 6,
+    "moonPhaseName": "First Quarter"
   },
   "biome": "minecraft:plains"
 }
