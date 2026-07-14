@@ -1,63 +1,54 @@
 {
   "schemaVersion": 3,
-  "updated": "2026-07-14T03:39:17.084547612Z",
-  "mcDay": 9,
+  "updated": "2026-07-14T03:42:11.684075572Z",
+  "mcDay": 0,
   "season": "Summer",
   "trend": "SUMMER",
   "today": {
     "condition": "Clear",
-    "temp": 86,
-    "feelsLike": 83,
-    "wind": 2,
-    "windDir": "E",
-    "humidity": 17,
+    "temp": 98,
+    "feelsLike": 93,
+    "wind": 8,
+    "windDir": "SW",
+    "humidity": 14,
     "tempUnit": "F",
     "windUnit": "mph"
   },
   "forecast": [
     {
-      "condition": "Rain",
-      "temp": 95,
-      "feelsLike": 106,
-      "wind": 20,
-      "windDir": "E",
-      "humidity": 51,
+      "condition": "Clear",
+      "temp": 73,
+      "feelsLike": 73,
+      "wind": 19,
+      "windDir": "S",
+      "humidity": 66,
       "day": "+1"
     },
     {
       "condition": "Clear",
-      "temp": 94,
-      "feelsLike": 103,
-      "wind": 27,
-      "windDir": "SW",
-      "humidity": 50,
+      "temp": 83,
+      "feelsLike": 83,
+      "wind": 38,
+      "windDir": "S",
+      "humidity": 43,
       "day": "+2"
     },
     {
-      "condition": "Clear",
-      "temp": 73,
-      "feelsLike": 73,
-      "wind": 3,
-      "windDir": "NE",
-      "humidity": 33,
+      "condition": "Rain",
+      "temp": 97,
+      "feelsLike": 122,
+      "wind": 42,
+      "windDir": "N",
+      "humidity": 63,
       "day": "+3"
     }
   ],
-  "alerts": [
-    {
-      "tier": "Watch",
-      "event": "Excessive Heat Watch",
-      "headline": "Dangerous heat possible; feels near 106°F.",
-      "severity": "Moderate",
-      "daysOut": 1,
-      "forDay": 10
-    }
-  ],
-  "discussion": "Clear skies prevail over Plains this summer day, with a high near 86°F (feeling more like 83°F). Winds stay light. A Excessive Heat Watch is in effect: Dangerous heat possible; feels near 106°F. Looking ahead, tomorrow brings rain near 95°F.",
+  "alerts": [],
+  "discussion": "Clear skies prevail over Plains this summer day, with a high near 98°F (feeling more like 93°F). Winds stay light. Looking ahead, tomorrow brings clear near 73°F.",
   "regions": [],
   "almanac": {
-    "moonPhase": 1,
-    "moonPhaseName": "Waning Gibbous"
+    "moonPhase": 0,
+    "moonPhaseName": "Full Moon"
   },
   "biome": "minecraft:plains"
 }
