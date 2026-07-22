@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>World Events &amp; Countdowns · Biking People World</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:-apple-system,'Segoe UI',system-ui,sans-serif;background:#f4f6fb;color:#0f172a;}
+header{background:linear-gradient(135deg,#1e3a8a,#0b1b3a);color:#fff;padding:0 1.5rem;}
+.hbar{max-width:1000px;margin:0 auto;display:flex;justify-content:space-between;padding:.7rem 0;font-size:.8rem;color:#9fb3d9;border-bottom:1px solid #1e3356;flex-wrap:wrap;gap:.5rem;}
+.htitle{max-width:1000px;margin:0 auto;padding:1.5rem 0;}
+.htitle h1{font-size:1.9rem;font-weight:900;}
+.htitle p{color:#c9d8f2;margin-top:.3rem;}
+nav{background:#fff;border-bottom:1px solid #e2e8f0;}
+.navinner{max-width:1000px;margin:0 auto;padding:.7rem 1.5rem;display:flex;gap:1.5rem;flex-wrap:wrap;}
+nav a{text-decoration:none;color:#0b1b3a;font-size:.85rem;font-weight:600;}
+nav a:hover{color:#d4202a;}nav a.home{color:#1d4ed8;}
+.container{max-width:1000px;margin:0 auto;padding:2rem 1.5rem;}
+.next-card{background:linear-gradient(135deg,#d4202a,#7f1d1d);color:#fff;border-radius:18px;padding:2rem;margin-bottom:1.5rem;text-align:center;position:relative;overflow:hidden;}
+.next-card .lab{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:#fecaca;font-weight:700;}
+.next-card h2{font-size:2rem;font-weight:900;margin:.4rem 0;}
+.next-card .cat{font-size:.85rem;color:#fecaca;margin-bottom:1.2rem;}
+.countdown{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:1rem;}
+.cd-unit{background:rgba(255,255,255,.14);border-radius:12px;padding:.9rem 1.2rem;min-width:82px;}
+.cd-num{font-size:2.4rem;font-weight:900;line-height:1;}
+.cd-lab{font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:#fecaca;margin-top:.3rem;}
+.next-card .desc{color:#ffe4e4;font-size:.92rem;max-width:520px;margin:0 auto 1rem;line-height:1.5;}
+.next-card a.more{display:inline-block;background:#fff;color:#b91c1c;font-weight:700;font-size:.85rem;padding:.55rem 1.3rem;border-radius:8px;text-decoration:none;}
+.on-now{background:#16a34a !important;background:linear-gradient(135deg,#16a34a,#166534) !important;}
+.on-now .lab,.on-now .cat,.on-now .desc,.on-now .cd-lab{color:#bbf7d0 !important;}
+.on-now a.more{color:#166534;}
+.section-h{font-size:1.3rem;font-weight:800;margin:2rem 0 1rem;color:#0b1b3a;}
+.evlist{display:grid;gap:.8rem;}
+.event-card{background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:1.1rem 1.3rem;display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap;border-left:6px solid #999;}
+.ev-date{text-align:center;min-width:64px;}
+.ev-date .mo{font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:#64748b;font-weight:700;}
+.ev-date .dy{font-size:1.7rem;font-weight:900;line-height:1;color:#0b1b3a;}
+.ev-main{flex:1;min-width:200px;}
+.ev-main h3{font-size:1.1rem;font-weight:800;}
+.ev-main .meta{font-size:.8rem;color:#64748b;margin-top:.15rem;}
+.ev-main .d{font-size:.88rem;color:#475569;margin-top:.35rem;line-height:1.5;}
+.ev-cd{text-align:right;font-size:.82rem;color:#64748b;min-width:110px;}
+.ev-cd b{display:block;font-size:1.1rem;color:#d4202a;}
+.ev-badge{font-size:.66rem;font-weight:700;text-transform:uppercase;padding:.2rem .5rem;border-radius:12px;background:#dcfce7;color:#15803d;}
+.past{opacity:.55;}
+.updated-note{text-align:center;color:#94a3b8;font-size:.78rem;margin-top:1.5rem;}
+footer{background:#0b1b3a;color:#7e93b8;text-align:center;padding:1.5rem;font-size:.82rem;margin-top:2rem;}
+footer span{color:#d4202a;}
+</style>
+</head>
+<body>
+<script>if(!sessionStorage.getItem('bpw_auth')){window.location.href='../login.html';}</script>
+<header>
+  <div class="hbar"><span>Biking People World</span><span>World Events Calendar</span></div>
+  <div class="htitle"><h1>&#128197; World Events &amp; Countdowns</h1><p>Every upcoming opening, beta, and milestone across the world — with live countdowns.</p></div>
+</header>
+<nav><div class="navinner">
+  <a href="../main/index.html" class="home">&larr; World Home</a>
+  <a href="../businesses/gxy-newspaper/index.html">News</a>
+  <a href="../businesses/directory/directory-modern.html">Search</a>
+</div></nav>
+<div class="container">
+  <div id="nextWrap"></div>
+  <div class="section-h">All Upcoming Events</div>
+  <div class="evlist" id="evlist"></div>
+  <div class="section-h" id="pastHead" style="display:none;">Past Events</div>
+  <div class="evlist" id="pastlist"></div>
+  <div class="updated-note" id="updatedNote"></div>
+</div>
+<footer>&copy; <span>Biking People World</span> · World Events Calendar</footer>
+<script>
+var MONTHS=["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"];
+function parseD(s){var p=s.split("-");return new Date(Date.UTC(+p[0],+p[1]-1,+p[2],0,0,0));}
+function dayMonth(s){var d=parseD(s);return {mo:MONTHS[d.getUTCMonth()],dy:d.getUTCDate()};}
+function status(ev){
+  var now=new Date();
+  var start=parseD(ev.date);
+  var end=ev.end?parseD(ev.end):start;
+  end=new Date(end.getTime()+24*3600*1000-1); // inclusive end-of-day
+  if(now<start) return "upcoming";
+  if(now>=start && now<=end) return "onnow";
+  return "past";
+}
+function countdownParts(target){
+  var diff=target.getTime()-Date.now();
+  if(diff<0) diff=0;
+  var d=Math.floor(diff/86400000);
+  var h=Math.floor(diff%86400000/3600000);
+  var m=Math.floor(diff%3600000/60000);
+  var s=Math.floor(diff%60000/1000);
+  return {d:d,h:h,m:m,s:s};
+}
+var EVENTS=[];
+function nextEvent(){
+  var up=EVENTS.filter(function(e){return status(e)!=="past";});
+  up.sort(function(a,b){return parseD(a.date)-parseD(b.date);});
+  return up[0]||null;
+}
+function renderNext(){
+  var ev=nextEvent();var wrap=document.getElementById('nextWrap');
+  if(!ev){wrap.innerHTML='<div class="next-card"><div class="lab">All caught up</div><h2>No upcoming events</h2><p class="desc">Check back soon — new events are added as the world grows.</p></div>';return;}
+  var st=status(ev);var onNow=(st==="onnow");
+  var target=onNow&&ev.end?new Date(parseD(ev.end).getTime()+86400000):parseD(ev.date);
+  var c=countdownParts(target);
+  wrap.innerHTML='<div class="next-card'+(onNow?' on-now':'')+'">'
+    +'<div class="lab">'+(onNow?'&#128308; Happening Now':'&#9203; Next Event')+'</div>'
+    +'<h2>'+ev.title+'</h2><div class="cat">'+(ev.cat||'')+(onNow&&ev.end?' &middot; ends '+ev.end:'')+'</div>'
+    +'<div class="countdown">'
+    +'<div class="cd-unit"><div class="cd-num" id="cdD">'+c.d+'</div><div class="cd-lab">Days</div></div>'
+    +'<div class="cd-unit"><div class="cd-num" id="cdH">'+c.h+'</div><div class="cd-lab">Hours</div></div>'
+    +'<div class="cd-unit"><div class="cd-num" id="cdM">'+c.m+'</div><div class="cd-lab">Min</div></div>'
+    +'<div class="cd-unit"><div class="cd-num" id="cdS">'+c.s+'</div><div class="cd-lab">Sec</div></div>'
+    +'</div>'
+    +(ev.desc?'<div class="desc">'+ev.desc+'</div>':'')
+    +(ev.link?'<a class="more" href="../'+ev.link+'">Learn more &rarr;</a>':'')
+    +'</div>';
+  window._cdTarget=target;window._cdOnNow=onNow;
+}
+function tick(){
+  if(!window._cdTarget)return;
+  var c=countdownParts(window._cdTarget);
+  var e;
+  if(e=document.getElementById('cdD'))e.textContent=c.d;
+  if(e=document.getElementById('cdH'))e.textContent=c.h;
+  if(e=document.getElementById('cdM'))e.textContent=c.m;
+  if(e=document.getElementById('cdS'))e.textContent=c.s;
+  if(c.d+c.h+c.m+c.s===0){ renderNext(); renderLists(); }
+}
+function evCard(ev){
+  var dm=dayMonth(ev.date);var st=status(ev);
+  var cd=st==="onnow"?'<span class="ev-badge">On Now</span>':(st==="past"?'':'<b>'+countdownParts(parseD(ev.date)).d+'</b> days');
+  var range=ev.end?(' – '+dayMonth(ev.end).mo+' '+dayMonth(ev.end).dy):'';
+  return '<div class="event-card'+(st==="past"?' past':'')+'" style="border-left-color:'+(ev.color||'#999')+';">'
+    +'<div class="ev-date"><div class="mo">'+dm.mo+'</div><div class="dy">'+dm.dy+'</div></div>'
+    +'<div class="ev-main"><h3>'+ev.title+'</h3><div class="meta">'+(ev.cat||'')+' &middot; '+dm.mo+' '+dm.dy+range+'</div>'+(ev.desc?'<div class="d">'+ev.desc+'</div>':'')+'</div>'
+    +'<div class="ev-cd">'+cd+'</div></div>';
+}
+function renderLists(){
+  var up=[],past=[];
+  EVENTS.slice().sort(function(a,b){return parseD(a.date)-parseD(b.date);}).forEach(function(e){
+    (status(e)==="past"?past:up).push(e);
+  });
+  document.getElementById('evlist').innerHTML=up.map(evCard).join('')||'<div style="color:#64748b;">No upcoming events.</div>';
+  if(past.length){document.getElementById('pastHead').style.display='block';document.getElementById('pastlist').innerHTML=past.reverse().map(evCard).join('');}
+}
+fetch('../events.json?_='+Date.now()).then(function(r){return r.json();}).then(function(d){
+  EVENTS=d.events||[];renderNext();renderLists();
+  document.getElementById('updatedNote').textContent=d.updated?('Events updated '+d.updated):'';
+  setInterval(tick,1000);
+}).catch(function(){document.getElementById('nextWrap').innerHTML='<div class="next-card"><h2>Events unavailable</h2><p class="desc">Could not load the events file.</p></div>';});
+</script>
+<script src="../assets/breaking.js" data-root="../"></script>
+<script src="../assets/theme.js" data-root="../"></script>
+<script type="module" src="../assets/authguard.js" data-root="../"></script>
+</body>
+</html>

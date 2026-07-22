@@ -85,12 +85,12 @@ footer span{color:#3b82f6;}
 <nav>
   <a class="nav-logo" href="index.html">🌍 Biking People <span>World</span></a>
   <div class="nav-links">
+    <a href="../dashboard/index.html">📊 Dashboard</a>
     <a href="#about">About</a>
     <a href="#players">Players</a>
     <a href="#cities">Cities</a>
     <a href="#businesses">Businesses</a>
-    <a href="#history">History</a>
-    <a href="#events">Events</a>
+    <a href="../events/index.html">📅 Events</a>
     <a href="../members/index.html">⭐ Members</a>
   </div>
   <button class="nav-logout" onclick="(window.gxyLogout?window.gxyLogout():logout())">Log out</button>
@@ -215,6 +215,7 @@ footer span{color:#3b82f6;}
 function logout(){sessionStorage.removeItem('bpw_auth');window.location.href='../index.html';}
 </script>
 <script src="../assets/breaking.js" data-root="../"></script>
+<script src="../assets/theme.js" data-root="../"></script>
 <script type="module" src="../assets/authguard.js" data-root="../"></script>
 </body>
 </html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>World Dashboard · Biking People World</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:-apple-system,'Segoe UI',system-ui,sans-serif;background:#0a0f1e;color:#e6edf7;}
+header{background:linear-gradient(135deg,#111a33,#0a0f1e);border-bottom:1px solid #1e2a44;padding:0 1.5rem;}
+.hbar{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:1rem 0;flex-wrap:wrap;gap:.75rem;}
+.brand{display:flex;align-items:center;gap:.7rem;font-weight:900;font-size:1.3rem;}
+.brand .globe{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,#1d4ed8,#d4202a);display:flex;align-items:center;justify-content:center;font-size:1.2rem;}
+.brand small{display:block;font-size:.68rem;color:#7e93b8;font-weight:400;letter-spacing:.05em;}
+.hactions{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap;}
+.hbtn{background:#16233f;border:1px solid #26344f;color:#c7d6ee;font-size:.82rem;padding:.5rem .9rem;border-radius:8px;cursor:pointer;text-decoration:none;}
+.hbtn:hover{border-color:#3b82f6;}
+.hbtn.primary{background:#1d4ed8;border-color:#1d4ed8;color:#fff;}
+.who{font-size:.8rem;color:#7e93b8;}
+.container{max-width:1200px;margin:0 auto;padding:1.5rem;}
+.greeting{margin-bottom:1.25rem;}
+.greeting h1{font-size:1.6rem;font-weight:800;}
+.greeting p{color:#7e93b8;font-size:.9rem;margin-top:.2rem;}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem;}
+.widget{background:#111a2e;border:1px solid #1e2a44;border-radius:16px;padding:1.25rem;position:relative;overflow:hidden;}
+.widget.w4{grid-column:span 4;}.widget.w6{grid-column:span 6;}.widget.w8{grid-column:span 8;}.widget.w12{grid-column:span 12;}
+.wtitle{display:flex;align-items:center;gap:.5rem;font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:#7e93b8;font-weight:700;margin-bottom:.9rem;}
+.wtitle .drag{margin-left:auto;cursor:grab;color:#3a4a68;font-size:1rem;opacity:0;transition:opacity .15s;}
+.widget:hover .drag{opacity:1;}
+.widget.hidden-w{display:none;}
+.big{font-size:2.4rem;font-weight:900;line-height:1;}
+.muted{color:#7e93b8;font-size:.85rem;}
+.wx-row{display:flex;align-items:center;gap:1rem;}
+.wx-ico{font-size:3rem;}
+.wx-stats{display:flex;gap:1.2rem;flex-wrap:wrap;margin-top:.6rem;font-size:.82rem;color:#9fb3cd;}
+.wx-stats b{color:#e6edf7;}
+.alert-mini{background:#7f1d1d;color:#fecaca;border-radius:8px;padding:.5rem .7rem;font-size:.8rem;margin-top:.7rem;font-weight:600;}
+.train-row{display:flex;align-items:center;gap:.6rem;padding:.5rem 0;border-bottom:1px solid #1a2540;font-size:.85rem;}
+.train-row:last-child{border-bottom:none;}
+.tdot{width:9px;height:9px;border-radius:50%;flex:none;}
+.tnm{font-weight:600;}
+.tst{margin-left:auto;font-size:.75rem;color:#7e93b8;}
+.newsitem{display:block;padding:.5rem 0;border-bottom:1px solid #1a2540;text-decoration:none;color:#c7d6ee;font-size:.88rem;}
+.newsitem:last-child{border-bottom:none;}
+.newsitem:hover{color:#fff;}
+.newsitem .sec{font-size:.68rem;text-transform:uppercase;letter-spacing:.05em;color:#f59e0b;font-weight:700;}
+.cd-inline{display:flex;gap:.7rem;margin-top:.5rem;}
+.cd-box{background:#0c1526;border:1px solid #1e2a44;border-radius:10px;padding:.6rem .8rem;text-align:center;min-width:56px;}
+.cd-box .n{font-size:1.5rem;font-weight:900;}
+.cd-box .l{font-size:.6rem;text-transform:uppercase;color:#7e93b8;}
+.status-pill{display:inline-flex;align-items:center;gap:.4rem;font-size:.8rem;padding:.3rem .7rem;border-radius:20px;font-weight:600;}
+.sp-on{background:#052e1a;color:#4ade80;}.sp-off{background:#3a1212;color:#f87171;}
+.dot{width:8px;height:8px;border-radius:50%;}
+.wlink{color:#60a5fa;text-decoration:none;font-size:.8rem;}
+.wlink:hover{text-decoration:underline;}
+.q-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:.6rem;}
+.q-tile{background:#0c1526;border:1px solid #1e2a44;border-radius:10px;padding:.8rem .5rem;text-align:center;text-decoration:none;color:#c7d6ee;font-size:.78rem;transition:border .15s;}
+.q-tile:hover{border-color:#3b82f6;}
+.q-tile .ic{font-size:1.4rem;display:block;margin-bottom:.3rem;}
+.search-wrap{display:flex;gap:.5rem;}
+.search-wrap input{flex:1;background:#0c1526;border:1px solid #1e2a44;border-radius:10px;padding:.7rem 1rem;color:#e6edf7;font-size:.95rem;}
+.search-wrap button{background:#1d4ed8;border:none;color:#fff;border-radius:10px;padding:0 1.2rem;cursor:pointer;font-weight:600;}
+/* customize panel */
+.cust{position:fixed;top:0;right:0;bottom:0;width:300px;background:#0c1526;border-left:1px solid #1e2a44;padding:1.5rem;z-index:1000;transform:translateX(100%);transition:transform .2s;overflow-y:auto;}
+.cust.open{transform:translateX(0);}
+.cust h3{font-size:1rem;margin-bottom:1rem;}
+.cust-row{display:flex;align-items:center;justify-content:space-between;padding:.6rem 0;border-bottom:1px solid #1a2540;font-size:.88rem;}
+.cust-row label{cursor:pointer;}
+.cust .close{position:absolute;top:1rem;right:1rem;background:none;border:none;color:#7e93b8;font-size:1.3rem;cursor:pointer;}
+.cust-hint{color:#7e93b8;font-size:.78rem;margin:1rem 0;line-height:1.5;}
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:999;display:none;}
+.overlay.open{display:block;}
+.dragging{opacity:.4;}
+.drop-target{border-color:#3b82f6 !important;}
+@media(max-width:820px){.widget.w4,.widget.w6,.widget.w8{grid-column:span 12;}}
+</style>
+</head>
+<body>
+<script>if(!sessionStorage.getItem('bpw_auth')){window.location.href='../login.html';}</script>
+<header>
+  <div class="hbar">
+    <div class="brand"><span class="globe">&#127760;</span><div>Biking People World<small>World Dashboard</small></div></div>
+    <div class="hactions">
+      <span class="who" id="who"></span>
+      <a class="hbtn" href="../main/index.html">Classic Hub</a>
+      <button class="hbtn" onclick="openCust()">&#9881;&#65039; Customize</button>
+      <button class="hbtn" onclick="gxyLogout&&gxyLogout()">Log out</button>
+    </div>
+  </div>
+</header>
+<div class="container">
+  <div class="greeting"><h1 id="greet">Welcome back</h1><p id="greetSub">Here's what's happening across the world right now.</p></div>
+  <div class="grid" id="grid"></div>
+</div>
+
+<div class="overlay" id="overlay" onclick="closeCust()"></div>
+<div class="cust" id="cust">
+  <button class="close" onclick="closeCust()">&times;</button>
+  <h3>&#9881;&#65039; Customize Dashboard</h3>
+  <div class="cust-hint">Toggle widgets on or off. Drag the &#8942; handle on any widget to reorder. Your layout is saved to this browser.</div>
+  <div id="custRows"></div>
+  <div style="margin-top:1.5rem;"><button class="hbtn" style="width:100%;" onclick="resetLayout()">Reset to default</button></div>
+</div>
+
+<script>
+/* ---------- widget registry ---------- */
+var WIDGETS = [
+  {id:"search",   name:"Search (Gxygle)", size:"w12", render:renderSearch},
+  {id:"weather",  name:"Weather",         size:"w6",  render:renderWeather},
+  {id:"nextEvent",name:"Next Event",      size:"w6",  render:renderNextEvent},
+  {id:"trains",   name:"Live Trains",     size:"w6",  render:renderTrains},
+  {id:"news",     name:"Latest News",     size:"w6",  render:renderNews},
+  {id:"server",   name:"Server Status",   size:"w4",  render:renderServer},
+  {id:"quick",    name:"Quick Links",     size:"w8",  render:renderQuick}
+];
+var DEFAULT_ORDER = WIDGETS.map(function(w){return w.id;});
+var DEFAULT_HIDDEN = [];
+
+function loadPref(){
+  try{ return JSON.parse(localStorage.getItem('gxy_dash')||'null'); }catch(e){ return null; }
+}
+function savePref(){
+  try{ localStorage.setItem('gxy_dash', JSON.stringify({order:ORDER, hidden:HIDDEN})); }catch(e){}
+}
+var pref = loadPref() || {};
+var ORDER = pref.order || DEFAULT_ORDER.slice();
+var HIDDEN = pref.hidden || DEFAULT_HIDDEN.slice();
+// make sure any new widgets appear
+DEFAULT_ORDER.forEach(function(id){ if(ORDER.indexOf(id)<0) ORDER.push(id); });
+
+function widgetById(id){ for(var i=0;i<WIDGETS.length;i++) if(WIDGETS[i].id===id) return WIDGETS[i]; return null; }
+
+function build(){
+  var grid=document.getElementById('grid'); grid.innerHTML='';
+  ORDER.forEach(function(id){
+    var w=widgetById(id); if(!w) return;
+    var el=document.createElement('div');
+    el.className='widget '+w.size+(HIDDEN.indexOf(id)>=0?' hidden-w':'');
+    el.setAttribute('data-id',id);
+    el.setAttribute('draggable','true');
+    el.innerHTML='<div class="wtitle">'+w.name+'<span class="drag" title="Drag to reorder">&#8942;</span></div><div class="wbody" id="wb_'+id+'">Loading…</div>';
+    grid.appendChild(el);
+    try{ w.render(document.getElementById('wb_'+id)); }catch(e){ document.getElementById('wb_'+id).innerHTML='<span class="muted">Unavailable</span>'; }
+  });
+  wireDrag();
+}
+
+/* ---------- drag reorder ---------- */
+var dragId=null;
+function wireDrag(){
+  var cards=document.querySelectorAll('.widget');
+  cards.forEach(function(c){
+    c.addEventListener('dragstart',function(e){ dragId=c.getAttribute('data-id'); c.classList.add('dragging'); });
+    c.addEventListener('dragend',function(){ c.classList.remove('dragging'); document.querySelectorAll('.widget').forEach(function(x){x.classList.remove('drop-target');}); });
+    c.addEventListener('dragover',function(e){ e.preventDefault(); c.classList.add('drop-target'); });
+    c.addEventListener('dragleave',function(){ c.classList.remove('drop-target'); });
+    c.addEventListener('drop',function(e){
+      e.preventDefault();
+      var targetId=c.getAttribute('data-id');
+      if(!dragId||dragId===targetId) return;
+      var from=ORDER.indexOf(dragId), to=ORDER.indexOf(targetId);
+      ORDER.splice(from,1); ORDER.splice(to,0,dragId);
+      savePref(); build();
+    });
+  });
+}
+
+/* ---------- customize panel ---------- */
+function openCust(){
+  var rows=document.getElementById('custRows'); rows.innerHTML='';
+  WIDGETS.forEach(function(w){
+    var checked=HIDDEN.indexOf(w.id)<0?'checked':'';
+    rows.innerHTML+='<div class="cust-row"><label for="ck_'+w.id+'">'+w.name+'</label><input type="checkbox" id="ck_'+w.id+'" '+checked+' onchange="toggleWidget(\''+w.id+'\',this.checked)"></div>';
+  });
+  document.getElementById('cust').classList.add('open');
+  document.getElementById('overlay').classList.add('open');
+}
+function closeCust(){ document.getElementById('cust').classList.remove('open'); document.getElementById('overlay').classList.remove('open'); }
+function toggleWidget(id,on){
+  var i=HIDDEN.indexOf(id);
+  if(on && i>=0) HIDDEN.splice(i,1);
+  else if(!on && i<0) HIDDEN.push(id);
+  savePref(); build();
+}
+function resetLayout(){ ORDER=DEFAULT_ORDER.slice(); HIDDEN=DEFAULT_HIDDEN.slice(); savePref(); closeCust(); build(); }
+
+/* ---------- helpers ---------- */
+function timeAgo(iso){if(!iso)return"";var t=new Date(iso).getTime();if(isNaN(t))return"";var m=Math.floor((Date.now()-t)/60000);if(m<1)return"just now";if(m<60)return m+" min ago";var h=Math.floor(m/60);if(h<24)return h+" hr ago";return Math.floor(h/24)+"d ago";}
+var WX_ICON={Clear:"\u2600\uFE0F",Rain:"\uD83C\uDF27\uFE0F",Snow:"\u2744\uFE0F",Storm:"\u26C8\uFE0F"};
+
+/* ---------- widget renderers ---------- */
+function renderSearch(el){
+  el.innerHTML='<div class="search-wrap"><input id="dashQ" type="text" placeholder="Search all of Biking People World…"><button onclick="dashSearch()">Search</button></div>'
+    +'<div class="muted" style="margin-top:.5rem;">Powered by Gxygle — news, businesses, shops &amp; transit</div>';
+  var inp=document.getElementById('dashQ');
+  inp.addEventListener('keydown',function(e){if(e.key==="Enter")dashSearch();});
+}
+function dashSearch(){
+  var q=document.getElementById('dashQ').value.trim();
+  var base='../businesses/directory/directory-modern.html';
+  window.location.href = q?(base+'#q='+encodeURIComponent(q)):base;
+}
+function renderWeather(el){
+  fetch('../businesses/gxy-newspaper/forecast.json?_='+Date.now()).then(function(r){return r.json();}).then(function(d){
+    var t=d.today||{};var unit=(t.tempUnit==="F")?"\u00B0F":"\u00B0";
+    var html='<div class="wx-row"><div class="wx-ico">'+(WX_ICON[t.condition]||"\u26C5")+'</div><div><div class="big">'+(t.temp!==undefined?t.temp+unit:"--")+'</div><div class="muted">'+(t.condition||"")+' &middot; '+(d.season||"")+'</div></div></div>'
+      +'<div class="wx-stats">'+(t.feelsLike!==undefined?'<span>Feels <b>'+t.feelsLike+unit+'</b></span>':'')+(t.wind!==undefined?'<span>Wind <b>'+t.wind+' mph</b></span>':'')+(t.humidity!==undefined?'<span>Humidity <b>'+t.humidity+'%</b></span>':'')+'</div>';
+    if(d.alerts&&d.alerts.length) html+='<div class="alert-mini">\u26A0 '+d.alerts[0].event+'</div>';
+    html+='<div style="margin-top:.7rem;"><a class="wlink" href="../businesses/gxy-newspaper/weather.html">Full forecast &rarr;</a></div>';
+    el.innerHTML=html;
+  }).catch(function(){el.innerHTML='<span class="muted">Weather not connected yet.</span> <a class="wlink" href="../businesses/gxy-newspaper/weather.html">Open GXY Weather &rarr;</a>';});
+}
+function renderTrains(el){
+  fetch('../businesses/gxygo/trains.json?_='+Date.now()).then(function(r){return r.json();}).then(function(d){
+    var lines={};fetch('../businesses/gxygo/lines.json?_='+Date.now()).then(function(r){return r.json();}).then(function(L){(L.lines||[]).forEach(function(l){lines[l.id]=l.color;});paint();}).catch(paint);
+    function paint(){
+      var tr=d.trains||[];
+      if(!tr.length){el.innerHTML='<span class="muted">No trains running.</span> <a class="wlink" href="../businesses/gxygo/index.html">GxyGo &rarr;</a>';return;}
+      var html='';
+      tr.slice(0,4).forEach(function(t){
+        var col=lines[t.line]||'#64748b';
+        var st=t.derailed?'Derailed':(t.moving?(t.speed&&t.speed.kmh!==undefined?t.speed.kmh+' km/h':'Moving'):'Stopped');
+        var loc=t.currentStation?('@ '+t.currentStation):('\u2192 '+(t.nextStation||'?'));
+        html+='<div class="train-row"><span class="tdot" style="background:'+col+';"></span><span class="tnm">'+t.name+'</span><span class="muted" style="font-size:.75rem;">'+loc+'</span><span class="tst">'+st+'</span></div>';
+      });
+      html+='<div style="margin-top:.6rem;"><a class="wlink" href="../businesses/gxygo/index.html">Live board &rarr;</a></div>';
+      el.innerHTML=html;
+    }
+  }).catch(function(){el.innerHTML='<span class="muted">GxyGo not connected.</span> <a class="wlink" href="../businesses/gxygo/index.html">Open GxyGo &rarr;</a>';});
+}
+function renderNews(el){
+  fetch('../search-index.json?_='+Date.now()).then(function(r){return r.json();}).then(function(d){
+    var news=(d.items||[]).filter(function(x){return x.type==="news";}).slice(0,5);
+    if(!news.length){el.innerHTML='<span class="muted">No news.</span>';return;}
+    var html='';
+    news.forEach(function(n){ html+='<a class="newsitem" href="../'+n.url+'"><span class="sec">'+(n.section||"News")+'</span><br>'+n.title+'</a>'; });
+    html+='<div style="margin-top:.6rem;"><a class="wlink" href="../businesses/gxy-newspaper/index.html">Front page &rarr;</a></div>';
+    el.innerHTML=html;
+  }).catch(function(){el.innerHTML='<span class="muted">News unavailable.</span>';});
+}
+function renderNextEvent(el){
+  fetch('../events.json?_='+Date.now()).then(function(r){return r.json();}).then(function(d){
+    function parseD(s){var p=s.split("-");return new Date(Date.UTC(+p[0],+p[1]-1,+p[2]));}
+    var up=(d.events||[]).filter(function(e){return parseD(e.end||e.date).getTime()+86400000>Date.now();});
+    up.sort(function(a,b){return parseD(a.date)-parseD(b.date);});
+    var ev=up[0];
+    if(!ev){el.innerHTML='<span class="muted">No upcoming events.</span>';return;}
+    var diff=parseD(ev.date).getTime()-Date.now();
+    var onNow=diff<=0;
+    var dd=Math.max(0,Math.floor(diff/86400000)),hh=Math.max(0,Math.floor(diff%86400000/3600000)),mm=Math.max(0,Math.floor(diff%3600000/60000));
+    el.innerHTML='<div style="font-weight:800;font-size:1.15rem;">'+ev.title+'</div><div class="muted">'+(ev.cat||"")+' &middot; '+ev.date+'</div>'
+      +(onNow?'<div class="alert-mini" style="background:#052e1a;color:#4ade80;">\u25CF Happening now</div>':'<div class="cd-inline"><div class="cd-box"><div class="n">'+dd+'</div><div class="l">days</div></div><div class="cd-box"><div class="n">'+hh+'</div><div class="l">hrs</div></div><div class="cd-box"><div class="n">'+mm+'</div><div class="l">min</div></div></div>')
+      +'<div style="margin-top:.7rem;"><a class="wlink" href="../events/index.html">All events &rarr;</a></div>';
+  }).catch(function(){el.innerHTML='<span class="muted">Events unavailable.</span> <a class="wlink" href="../events/index.html">Calendar &rarr;</a>';});
+}
+function renderServer(el){
+  el.innerHTML='<div id="srvStatus"><span class="muted">Checking…</span></div>';
+  fetch('https://api.mcsrvstat.us/3/bikingpeople.exaroton.me').then(function(r){return r.json();}).then(function(d){
+    if(d&&d.online){
+      el.innerHTML='<span class="status-pill sp-on"><span class="dot" style="background:#4ade80;"></span>Online</span>'
+        +'<div style="margin-top:.7rem;" class="big">'+((d.players&&d.players.online)||0)+'<span style="font-size:1rem;" class="muted"> / '+((d.players&&d.players.max)||0)+' players</span></div>';
+    } else {
+      el.innerHTML='<span class="status-pill sp-off"><span class="dot" style="background:#f87171;"></span>Offline</span><div class="muted" style="margin-top:.5rem;">Server is currently offline.</div>';
+    }
+  }).catch(function(){el.innerHTML='<span class="muted">Status unavailable.</span>';});
+}
+function renderQuick(el){
+  var links=[
+    {ic:"\uD83D\uDCF0",t:"News",u:"../businesses/gxy-newspaper/index.html"},
+    {ic:"\u26C5",t:"Weather",u:"../businesses/gxy-newspaper/weather.html"},
+    {ic:"\uD83D\uDE86",t:"GxyGo",u:"../businesses/gxygo/index.html"},
+    {ic:"\uD83C\uDFAE",t:"MiniGames",u:"../businesses/dave-n-busters/index.html"},
+    {ic:"\uD83D\uDD0D",t:"Gxygle",u:"../businesses/directory/directory-modern.html"},
+    {ic:"\uD83D\uDCC5",t:"Events",u:"../events/index.html"},
+    {ic:"\uD83C\uDFD9\uFE0F",t:"The City",u:"../businesses/the-city/index.html"},
+    {ic:"\u2B50",t:"Members",u:"../members/index.html"}
+  ];
+  el.innerHTML='<div class="q-grid">'+links.map(function(l){return '<a class="q-tile" href="'+l.u+'"><span class="ic">'+l.ic+'</span>'+l.t+'</a>';}).join('')+'</div>';
+}
+
+/* ---------- greeting w/ user ---------- */
+function setGreeting(){
+  var h=new Date().getHours();
+  var g=h<12?"Good morning":h<18?"Good afternoon":"Good evening";
+  document.getElementById('greet').textContent=g+"!";
+}
+setGreeting();
+build();
+</script>
+<script src="../assets/breaking.js" data-root="../"></script>
+<script src="../assets/theme.js" data-root="../"></script>
+<script type="module" src="../assets/authguard.js" data-root="../"></script>
+<script type="module">
+// show signed-in user's email in the header + greeting
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+try{
+  var auth=getAuth();
+  onAuthStateChanged(auth,function(u){
+    if(u){
+      var name=(u.displayName||u.email||"").split("@")[0];
+      var who=document.getElementById('who'); if(who) who.textContent=name?("Signed in as "+name):"";
+      var g=document.getElementById('greet'); if(g && name) g.textContent=g.textContent.replace("!",", "+name+"!");
+    }
+  });
+}catch(e){}
+</script>
+</body>
+</html>

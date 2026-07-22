@@ -1,0 +1,110 @@
+/* GXY Retro (2000s) skin — loaded sitewide when retro theme is active.
+   Uses [data-theme="retro"] scope so it only applies in retro mode.
+   Aims for prime turn-of-the-millennium web: Times/Arial, tiled bg, beveled
+   tables, bright links, visible borders. Deliberately "loud". */
+
+[data-theme="retro"] body{
+  background:#008080;               /* classic teal desktop */
+  background-image:
+    repeating-linear-gradient(45deg, rgba(255,255,255,.03) 0 10px, transparent 10px 20px);
+  color:#000000;
+  font-family:"Times New Roman",Times,serif;
+  font-size:16px;
+  line-height:1.4;
+}
+
+/* Wrap main content in a "window" look via common containers */
+[data-theme="retro"] .container,
+[data-theme="retro"] .wrap,
+[data-theme="retro"] main{
+  background:#ffffff !important;
+  border:2px ridge #c0c0c0;
+  box-shadow:4px 4px 0 rgba(0,0,0,.4);
+  color:#000 !important;
+}
+
+/* Links: the eternal blue/purple */
+[data-theme="retro"] a{ color:#0000EE !important; text-decoration:underline !important; }
+[data-theme="retro"] a:visited{ color:#551A8B !important; }
+[data-theme="retro"] a:hover{ color:#EE0000 !important; }
+
+/* Kill modern rounded/gradient styling */
+[data-theme="retro"] *{
+  border-radius:0 !important;
+  box-shadow:none !important;
+  text-shadow:none !important;
+  letter-spacing:normal !important;
+  transition:none !important;
+  animation:none !important;
+}
+
+/* Headings: bold serif, underlined */
+[data-theme="retro"] h1,[data-theme="retro"] h2,[data-theme="retro"] h3{
+  font-family:"Times New Roman",Times,serif !important;
+  color:#000080 !important;
+  font-weight:bold !important;
+}
+[data-theme="retro"] h1{ border-bottom:3px double #000080; }
+
+/* Cards / panels -> beveled gray boxes */
+[data-theme="retro"] .biz-card,
+[data-theme="retro"] .card,
+[data-theme="retro"] .panel,
+[data-theme="retro"] .fg-card,
+[data-theme="retro"] .train,
+[data-theme="retro"] .line-card,
+[data-theme="retro"] .widget,
+[data-theme="retro"] .dash-card,
+[data-theme="retro"] .event-card{
+  background:#f0f0f0 !important;
+  border:2px outset #c0c0c0 !important;
+  color:#000 !important;
+}
+
+/* Buttons -> beveled win95 */
+[data-theme="retro"] button,
+[data-theme="retro"] .btn,
+[data-theme="retro"] input[type=submit],
+[data-theme="retro"] input[type=button]{
+  background:#c0c0c0 !important;
+  border:2px outset #e0e0e0 !important;
+  color:#000 !important;
+  font-family:"MS Sans Serif",Arial,sans-serif !important;
+  font-size:13px !important;
+  padding:2px 10px !important;
+  cursor:pointer;
+}
+[data-theme="retro"] button:active{ border-style:inset !important; }
+
+/* Text inputs -> inset */
+[data-theme="retro"] input[type=text],[data-theme="retro"] input:not([type]){
+  border:2px inset #c0c0c0 !important;
+  background:#fff !important;
+  font-family:"Courier New",monospace !important;
+}
+
+/* Nav bars -> gray bevel */
+[data-theme="retro"] nav,[data-theme="retro"] header{
+  background:#000080 !important;
+  color:#fff !important;
+}
+[data-theme="retro"] nav a,[data-theme="retro"] header a{ color:#FFFF00 !important; }
+
+/* The floating toggle should stay readable in retro */
+[data-theme="retro"] #gxy-theme-toggle{
+  background:#c0c0c0 !important;
+  border:2px outset #e0e0e0 !important;
+  color:#000 !important;
+  font-family:"MS Sans Serif",Arial,sans-serif !important;
+}
+
+/* A shared retro chrome strip some pages opt into */
+[data-theme="retro"] .retro-only{ display:block !important; }
+.retro-only{ display:none; }
+[data-theme="retro"] .modern-only{ display:none !important; }
+
+/* Marquee-ish emphasis helper */
+[data-theme="retro"] .retro-banner{
+  background:#000080; color:#ffff00; font-family:"Courier New",monospace;
+  padding:6px; text-align:center; border-top:2px solid #fff; border-bottom:2px solid #000;
+}

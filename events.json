@@ -1,0 +1,11 @@
+{
+  "updated": "2026-07-22",
+  "note": "Shared world events. Add or edit entries here; the calendar and dashboard read this file. 'date' is ISO (YYYY-MM-DD). Optional 'end' for ranges.",
+  "events": [
+    { "id": "minigolf-beta", "title": "Mini Golf Open Beta", "date": "2026-06-30", "end": "2026-07-04", "cat": "MiniGame Land", "color": "#0F9D58", "desc": "Test the Mini Golf course, scoring, and report problems before the full release.", "link": "businesses/gxy-newspaper/articles/minigolf-beta-0629.html" },
+    { "id": "piglin-plaza-start", "title": "Piglin Plaza Construction Begins", "date": "2026-06-30", "cat": "Nether", "color": "#7c2d12", "desc": "Ground breaks on the Nether's major travel hub.", "link": "businesses/gxy-newspaper/articles/piglin-plaza-0629.html" },
+    { "id": "minigolf-release", "title": "Mini Golf Official Release", "date": "2026-07-08", "cat": "MiniGame Land", "color": "#0F9D58", "desc": "Mini Golf opens to the public — themed holes, ticket rewards, and leaderboards.", "link": "businesses/dave-n-busters/future.html" },
+    { "id": "hns-v3", "title": "Hide and Seek v3 (Lumen Field)", "date": "2026-07-15", "cat": "MiniGame Land", "color": "#d4202a", "desc": "The Extreme Lumen Field Stadium map with a 20-minute timer is expected this month.", "link": "businesses/gxy-newspaper/articles/hide-and-seek-v3-0628.html" },
+    { "id": "piglin-plaza-open", "title": "Piglin Plaza Grand Opening", "date": "2026-08-01", "cat": "Nether", "color": "#7c2d12", "desc": "The Nether travel hub opens with shops, production plants, and monorail access.", "link": "businesses/gxy-newspaper/articles/piglin-plaza-0629.html" }
+  ]
+}
