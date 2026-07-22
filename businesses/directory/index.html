@@ -1,0 +1,147 @@
+<html>
+<head>
+<title>Gxygle</title>
+<meta charset="UTF-8">
+</head>
+<BODY bgcolor="#FFFFFF" text="#000000" link="#000099" vlink="#003366" alink="#000099" style="margin-top:12px;">
+
+<!-- version toggle (top-right, styled to look period appropriate) -->
+<div align=right style="padding:4px 8px;">
+<font face="arial,sans-serif" size=-2>
+View: <b>2000s</b> | <a href="?v=modern" id="modernLink">Modern</a>
+</font>
+</div>
+
+<CENTER>
+
+<!-- Logo: recreated in the multi-color Google style, no external image -->
+<div style="margin-top:24px;margin-bottom:2px;font-family:'Times New Roman',Times,serif;font-size:88px;font-weight:bold;letter-spacing:-3px;line-height:1;">
+<span style="color:#4285F4;">G</span><span style="color:#DB4437;">x</span><span style="color:#F4B400;">y</span><span style="color:#4285F4;">g</span><span style="color:#0F9D58;">l</span><span style="color:#DB4437;">e</span><sup style="font-size:16px;color:#000000;font-family:arial,sans-serif;font-weight:normal;top:-48px;position:relative;left:-6px;">bpw</sup>
+</div>
+<font face="arial,sans-serif" size=-2 color="#000000">Biking People World Business Search</font>
+
+<TABLE width="100%" border=0 cellpadding=0 cellspacing=0><TR><TD align=center>
+<center>
+<FORM action="javascript:void(0)" method=get name=f onsubmit="doSearch();return false;">
+<br><br>
+<font face="arial,sans-serif" size=-1>Search the businesses of Biking People World</font><BR>
+<INPUT type=text value="" name=q size=40 style="border:1px solid #7e9bce;padding:2px;font-family:arial,sans-serif;font-size:14px;"><BR>
+<br>
+<NOBR>
+<INPUT type=submit value="Gxygle Search" style="font-family:arial,sans-serif;font-size:13px;background:#e8e8e8;border:1px solid #aaa;padding:2px 6px;">
+<INPUT name=sa type=button value="I'm Feeling Lucky" onclick="feelingLucky();" style="font-family:arial,sans-serif;font-size:13px;background:#e8e8e8;border:1px solid #aaa;padding:2px 6px;">
+</NOBR><BR>
+</FORM>
+</center>
+</TD></TR></TABLE>
+</CENTER>
+
+<!-- results render here -->
+<div id="results" style="max-width:640px;margin:18px auto 0 auto;padding:0 12px;"></div>
+
+<div id="browseAll" style="max-width:640px;margin:10px auto 0 auto;padding:0 12px;">
+<p align=center>
+<font face="arial,sans-serif" size=2>
+Or browse all businesses: 
+<a href="javascript:void(0)" onclick="showAll();">Business Directory</a>
+</font>
+</p>
+</div>
+
+<p></p>
+<p>&nbsp;</p>
+<p align=center><font face="arial,sans-serif" size=-2>&copy;2000 Gxygle Inc.&nbsp;
+<a href="../the-city/index.html">The City</a> | <a href="../gxy-newspaper/index.html">News</a> | <a href="../../main/index.html">World Home</a> | <a href="../../members/index.html">Members</a></font>
+</p>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+var BIZ = [{"name": "The City", "url": "../the-city/index.html", "cat": "City Portal", "desc": "The official portal for The City — the bustling main metropolis of Biking People World, home to shops, businesses, and Skyline Street."}, {"name": "GXY Newspaper", "url": "../gxy-newspaper/index.html", "cat": "News & Media", "desc": "The Official Paper of the World. Full editions, breaking news, the archive, and live GXY Weather straight from the server."}, {"name": "GxyGo Transit", "url": "../gxygo/index.html", "cat": "Public Transit", "desc": "The fast way across the world. Live train board, line schedules, and fares — rails from the City to the Nether."}, {"name": "Dave n' Busters", "url": "../dave-n-busters/index.html", "cat": "Entertainment", "desc": "MiniGame Land's arcade and entertainment hub. Games guide, tickets, leaderboards, and the future of MiniGame Land."}, {"name": "The City Cinema", "url": "../city-cinema/index.html", "cat": "Entertainment", "desc": "Catch the latest films at The City Cinema — showtimes, screens, and the movie schedule in the heart of the city."}, {"name": "The City Drive-In", "url": "../city-drive-in/index.html", "cat": "Entertainment", "desc": "Classic drive-in movie theater with double features, posters, and a full nightly schedule under the stars."}, {"name": "The City Hotel", "url": "../city-hotel/index.html", "cat": "Hospitality", "desc": "Stay in style at The City Hotel — rooms, amenities, and hospitality in the center of Biking People World."}, {"name": "Market Avenue Apartments", "url": "../market-avenue-apartments/index.html", "cat": "Housing", "desc": "Modern apartment living on Market Avenue. Floor plans, availability, and residential life in The City."}, {"name": "Best Buy", "url": "../stores/bestbuy.html", "cat": "Electronics", "desc": "Electronics, video games, movies, and music in The City. Computers, TVs, cameras, and the latest gear."}, {"name": "Target", "url": "../stores/target.html", "cat": "Retail", "desc": "Everything under one roof — groceries, clothing, home goods, electronics, and toys. The City's superstore on Plaza Parkway."}, {"name": "GameStop", "url": "../stores/gamestop.html", "cat": "Video Games", "desc": "New and used games, consoles, and accessories in MiniGame Land. Trade in old games for store credit."}, {"name": "Starbucks", "url": "../stores/starbucks.html", "cat": "Coffee & Food", "desc": "Handcrafted coffee, espresso drinks, Frappuccino, and pastries on Skyline Street corner in The City."}, {"name": "Pizza Hut", "url": "../stores/pizzahut.html", "cat": "Restaurant", "desc": "Hand-tossed, pan, and stuffed-crust pizzas, pasta, and wings on Moonlight Drive. Delivery worldwide."}, {"name": "Taco Bell", "url": "../stores/tacobell.html", "cat": "Restaurant", "desc": "Tacos, burritos, and late-night favorites at everyday value in MiniGame Land on Rocket Road."}, {"name": "7-Eleven", "url": "../stores/seveneleven.html", "cat": "Convenience", "desc": "Neighborhood convenience store — snacks, drinks, Slurpee, coffee, and essentials. Open 24 hours in The City."}];
+
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+function score(b, terms){
+  var hay = (b.name+' '+b.cat+' '+b.desc).toLowerCase();
+  var s = 0;
+  for(var i=0;i<terms.length;i++){
+    var t = terms[i];
+    if(!t) continue;
+    if(b.name.toLowerCase().indexOf(t)>=0) s += 10;
+    if(b.cat.toLowerCase().indexOf(t)>=0) s += 5;
+    if(hay.indexOf(t)>=0) s += 2;
+  }
+  return s;
+}
+
+function results(list, q){
+  var el = document.getElementById('results');
+  if(!list.length){
+    el.innerHTML = '<font face="arial,sans-serif" size=-1>Your search - <b>'+esc(q)+'</b> - did not match any businesses.<br><br>Suggestions:<br>- Make sure all words are spelled correctly.<br>- Try different keywords (e.g. <i>movies</i>, <i>hotel</i>, <i>trains</i>, <i>news</i>).</font>';
+    return;
+  }
+  var html = '<font face="arial,sans-serif" size=-2 color="#666666">Results <b>1</b> - <b>'+list.length+'</b> of about <b>'+list.length+'</b> for <b>'+esc(q)+'</b>.</font><br><br>';
+  for(var i=0;i<list.length;i++){
+    var b = list[i];
+    html += '<div style="margin-bottom:16px;">'
+      + '<a href="'+b.url+'" style="font-family:arial,sans-serif;font-size:16px;color:#000099;text-decoration:underline;">'+esc(b.name)+'</a><br>'
+      + '<font face="arial,sans-serif" size=-1 color="#000000">'+esc(b.desc)+'</font><br>'
+      + '<font face="arial,sans-serif" size=-2 color="#008000">'+esc(b.url.replace("../","www.gxyhockey.com/").replace("/index.html",""))+'</font> '
+      + '<font face="arial,sans-serif" size=-2 color="#666666">- '+esc(b.cat)+'</font>'
+      + '</div>';
+  }
+  el.innerHTML = html;
+}
+
+function doSearch(){
+  var q = document.f.q.value.trim();
+  if(!q){ document.getElementById('results').innerHTML=''; return; }
+  var terms = q.toLowerCase().split(/\s+/);
+  var scored = [];
+  for(var i=0;i<BIZ.length;i++){
+    var s = score(BIZ[i], terms);
+    if(s>0) scored.push({b:BIZ[i], s:s});
+  }
+  scored.sort(function(a,b){ return b.s-a.s; });
+  results(scored.map(function(x){return x.b;}), q);
+  document.getElementById('browseAll').style.display='none';
+}
+
+function feelingLucky(){
+  var q = document.f.q.value.trim();
+  if(!q){ window.location.href = BIZ[0].url; return; }
+  var terms = q.toLowerCase().split(/\s+/);
+  var best=null,bs=-1;
+  for(var i=0;i<BIZ.length;i++){
+    var s=score(BIZ[i],terms);
+    if(s>bs){bs=s;best=BIZ[i];}
+  }
+  window.location.href = (best?best.url:BIZ[0].url);
+}
+
+function showAll(){
+  var el=document.getElementById('results');
+  var html='<font face="arial,sans-serif" size=-2 color="#666666">Browsing all <b>'+BIZ.length+'</b> businesses.</font><br><br>';
+  for(var i=0;i<BIZ.length;i++){
+    var b=BIZ[i];
+    html+='<div style="margin-bottom:16px;">'
+      +'<a href="'+b.url+'" style="font-family:arial,sans-serif;font-size:16px;color:#000099;text-decoration:underline;">'+esc(b.name)+'</a><br>'
+      +'<font face="arial,sans-serif" size=-1 color="#000000">'+esc(b.desc)+'</font><br>'
+      +'<font face="arial,sans-serif" size=-2 color="#008000">'+esc(b.url.replace("../","www.gxyhockey.com/").replace("/index.html",""))+'</font> '
+      +'<font face="arial,sans-serif" size=-2 color="#666666">- '+esc(b.cat)+'</font>'
+      +'</div>';
+  }
+  el.innerHTML=html;
+  document.getElementById('browseAll').style.display='none';
+}
+
+// version toggle: remember choice, send modern users to the modern page
+document.getElementById('modernLink').href = 'directory-modern.html';
+
+document.f.q.focus();
+// -->
+</SCRIPT>
+
+<script src="../../assets/breaking.js" data-root="../../"></script>
+<script type="module" src="../../assets/authguard.js" data-root="../../"></script>
+</BODY>
+</HTML>

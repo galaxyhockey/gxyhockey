@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gxygle — Business Search</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:-apple-system,'Segoe UI',system-ui,sans-serif;background:#fff;color:#202124;min-height:100vh;}
+.topbar{display:flex;justify-content:flex-end;gap:1rem;padding:1rem 1.5rem;font-size:.85rem;align-items:center;}
+.topbar a{color:#5f6368;text-decoration:none;}
+.topbar a:hover{text-decoration:underline;}
+.toggle{border:1px solid #dadce0;border-radius:20px;overflow:hidden;display:inline-flex;font-size:.8rem;}
+.toggle a,.toggle span{padding:.35rem .9rem;text-decoration:none;color:#5f6368;}
+.toggle .on{background:#1a73e8;color:#fff;}
+.wrap{max-width:600px;margin:0 auto;padding:2rem 1.5rem;text-align:center;}
+.logo{font-size:3.4rem;font-weight:700;letter-spacing:-2px;margin:3rem 0 .3rem;}
+.logo .b1{color:#4285F4;}.logo .r{color:#DB4437;}.logo .y{color:#F4B400;}.logo .g{color:#0F9D58;}
+.logo sup{font-size:.9rem;color:#5f6368;font-weight:400;}
+.subtitle{color:#5f6368;font-size:.95rem;margin-bottom:2rem;}
+.searchbox{display:flex;align-items:center;border:1px solid #dfe1e5;border-radius:24px;padding:.7rem 1.2rem;box-shadow:0 1px 6px rgba(32,33,36,.1);max-width:520px;margin:0 auto 1.5rem;transition:box-shadow .2s;}
+.searchbox:focus-within{box-shadow:0 1px 10px rgba(32,33,36,.2);border-color:transparent;}
+.searchbox svg{width:20px;height:20px;fill:#9aa0a6;margin-right:.8rem;flex:none;}
+.searchbox input{border:none;outline:none;flex:1;font-size:1rem;background:transparent;}
+.btns{display:flex;gap:.7rem;justify-content:center;margin-bottom:1rem;}
+.btns button{background:#f8f9fa;border:1px solid #f8f9fa;border-radius:6px;color:#3c4043;font-size:.88rem;padding:.6rem 1.1rem;cursor:pointer;}
+.btns button:hover{border-color:#dadce0;box-shadow:0 1px 2px rgba(0,0,0,.1);}
+.results{max-width:600px;margin:1.5rem auto 0;text-align:left;padding:0 .5rem;}
+.rstat{color:#70757a;font-size:.85rem;margin-bottom:1.2rem;}
+.result{margin-bottom:1.6rem;}
+.result .url{color:#202124;font-size:.82rem;}
+.result .cat{color:#5f6368;}
+.result a.title{color:#1a0dab;font-size:1.25rem;text-decoration:none;display:inline-block;margin:.15rem 0;}
+.result a.title:hover{text-decoration:underline;}
+.result .desc{color:#4d5156;font-size:.9rem;line-height:1.5;}
+.browse{color:#1a73e8;cursor:pointer;font-size:.9rem;}
+.browse:hover{text-decoration:underline;}
+.foot{text-align:center;color:#70757a;font-size:.82rem;padding:2rem 1rem;border-top:1px solid #ebebeb;margin-top:3rem;}
+.foot a{color:#5f6368;}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="toggle"><a href="index.html">2000s</a><span class="on">Modern</span></div>
+</div>
+<div class="wrap">
+  <div class="logo"><span class="b1">G</span><span class="r">x</span><span class="y">y</span><span class="b1">g</span><span class="g">l</span><span class="r">e</span><sup>bpw</sup></div>
+  <div class="subtitle">Search the businesses of Biking People World</div>
+  <div class="searchbox">
+    <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14z"/></svg>
+    <input type="text" id="q" placeholder="Search businesses…" autocomplete="off">
+  </div>
+  <div class="btns">
+    <button onclick="doSearch()">Gxygle Search</button>
+    <button onclick="feelingLucky()">I'm Feeling Lucky</button>
+  </div>
+  <div id="browseAll"><span class="browse" onclick="showAll()">Browse all businesses →</span></div>
+  <div class="results" id="results"></div>
+</div>
+<div class="foot">
+  <a href="../../main/index.html">World Home</a> &nbsp;·&nbsp; <a href="../gxy-newspaper/index.html">News</a> &nbsp;·&nbsp; <a href="../../members/index.html">Members</a><br><br>
+  &copy; Gxygle — A Biking People World Service
+</div>
+<script>
+var BIZ = [{"name": "The City", "url": "../the-city/index.html", "cat": "City Portal", "desc": "The official portal for The City — the bustling main metropolis of Biking People World, home to shops, businesses, and Skyline Street."}, {"name": "GXY Newspaper", "url": "../gxy-newspaper/index.html", "cat": "News & Media", "desc": "The Official Paper of the World. Full editions, breaking news, the archive, and live GXY Weather straight from the server."}, {"name": "GxyGo Transit", "url": "../gxygo/index.html", "cat": "Public Transit", "desc": "The fast way across the world. Live train board, line schedules, and fares — rails from the City to the Nether."}, {"name": "Dave n' Busters", "url": "../dave-n-busters/index.html", "cat": "Entertainment", "desc": "MiniGame Land's arcade and entertainment hub. Games guide, tickets, leaderboards, and the future of MiniGame Land."}, {"name": "The City Cinema", "url": "../city-cinema/index.html", "cat": "Entertainment", "desc": "Catch the latest films at The City Cinema — showtimes, screens, and the movie schedule in the heart of the city."}, {"name": "The City Drive-In", "url": "../city-drive-in/index.html", "cat": "Entertainment", "desc": "Classic drive-in movie theater with double features, posters, and a full nightly schedule under the stars."}, {"name": "The City Hotel", "url": "../city-hotel/index.html", "cat": "Hospitality", "desc": "Stay in style at The City Hotel — rooms, amenities, and hospitality in the center of Biking People World."}, {"name": "Market Avenue Apartments", "url": "../market-avenue-apartments/index.html", "cat": "Housing", "desc": "Modern apartment living on Market Avenue. Floor plans, availability, and residential life in The City."}, {"name": "Best Buy", "url": "../stores/bestbuy.html", "cat": "Electronics", "desc": "Electronics, video games, movies, and music in The City. Computers, TVs, cameras, and the latest gear."}, {"name": "Target", "url": "../stores/target.html", "cat": "Retail", "desc": "Everything under one roof — groceries, clothing, home goods, electronics, and toys. The City's superstore on Plaza Parkway."}, {"name": "GameStop", "url": "../stores/gamestop.html", "cat": "Video Games", "desc": "New and used games, consoles, and accessories in MiniGame Land. Trade in old games for store credit."}, {"name": "Starbucks", "url": "../stores/starbucks.html", "cat": "Coffee & Food", "desc": "Handcrafted coffee, espresso drinks, Frappuccino, and pastries on Skyline Street corner in The City."}, {"name": "Pizza Hut", "url": "../stores/pizzahut.html", "cat": "Restaurant", "desc": "Hand-tossed, pan, and stuffed-crust pizzas, pasta, and wings on Moonlight Drive. Delivery worldwide."}, {"name": "Taco Bell", "url": "../stores/tacobell.html", "cat": "Restaurant", "desc": "Tacos, burritos, and late-night favorites at everyday value in MiniGame Land on Rocket Road."}, {"name": "7-Eleven", "url": "../stores/seveneleven.html", "cat": "Convenience", "desc": "Neighborhood convenience store — snacks, drinks, Slurpee, coffee, and essentials. Open 24 hours in The City."}];
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function score(b,terms){var hay=(b.name+' '+b.cat+' '+b.desc).toLowerCase();var s=0;for(var i=0;i<terms.length;i++){var t=terms[i];if(!t)continue;if(b.name.toLowerCase().indexOf(t)>=0)s+=10;if(b.cat.toLowerCase().indexOf(t)>=0)s+=5;if(hay.indexOf(t)>=0)s+=2;}return s;}
+function card(b){return '<div class="result"><div class="url">'+esc(b.url.replace("../","gxyhockey.com › ").replace("/index.html",""))+' <span class="cat">· '+esc(b.cat)+'</span></div><a class="title" href="'+b.url+'">'+esc(b.name)+'</a><div class="desc">'+esc(b.desc)+'</div></div>';}
+function render(list,q){var el=document.getElementById('results');if(!list.length){el.innerHTML='<div class="rstat">Your search - <b>'+esc(q)+'</b> - did not match any businesses. Try <i>movies</i>, <i>hotel</i>, <i>trains</i>, or <i>news</i>.</div>';return;}var h='<div class="rstat">About '+list.length+' result'+(list.length>1?'s':'')+' for <b>'+esc(q)+'</b></div>';for(var i=0;i<list.length;i++)h+=card(list[i]);el.innerHTML=h;}
+function doSearch(){var q=document.getElementById('q').value.trim();if(!q){document.getElementById('results').innerHTML='';document.getElementById('browseAll').style.display='block';return;}var terms=q.toLowerCase().split(/\s+/);var sc=[];for(var i=0;i<BIZ.length;i++){var s=score(BIZ[i],terms);if(s>0)sc.push({b:BIZ[i],s:s});}sc.sort(function(a,b){return b.s-a.s;});render(sc.map(function(x){return x.b;}),q);document.getElementById('browseAll').style.display='none';}
+function feelingLucky(){var q=document.getElementById('q').value.trim();if(!q){window.location.href=BIZ[0].url;return;}var terms=q.toLowerCase().split(/\s+/);var best=null,bs=-1;for(var i=0;i<BIZ.length;i++){var s=score(BIZ[i],terms);if(s>bs){bs=s;best=BIZ[i];}}window.location.href=(best?best.url:BIZ[0].url);}
+function showAll(){var el=document.getElementById('results');var h='<div class="rstat">All '+BIZ.length+' businesses</div>';for(var i=0;i<BIZ.length;i++)h+=card(BIZ[i]);el.innerHTML=h;document.getElementById('browseAll').style.display='none';}
+document.getElementById('q').addEventListener('keydown',function(e){if(e.key==='Enter')doSearch();});
+document.getElementById('q').focus();
+</script>
+<script src="../../assets/breaking.js" data-root="../../"></script>
+<script type="module" src="../../assets/authguard.js" data-root="../../"></script>
+</body>
+</html>
