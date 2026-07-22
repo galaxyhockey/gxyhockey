@@ -1,9 +1,9 @@
 {
-  "updated": "2026-06-29T18:42:07.512Z",
+  "updated": "2026-07-22T18:42:07.512Z",
   "trains": [
     {
-      "name": "Red Line Express",
-      "line": "red",
+      "name": "West Line Train",
+      "line": "west",
       "speed": { "blocksPerTick": 1.2, "ms": 24.0, "kmh": 86.4 },
       "moving": true,
       "backwards": false,
@@ -12,17 +12,17 @@
       "lengthBlocks": 18,
       "dimensions": ["minecraft:overworld"],
       "currentStation": null,
-      "nextStation": "MiniGame Land",
+      "nextStation": "MiniGame Land West",
       "distanceRemaining": 240,
       "schedule": {
-        "stops": ["Skyline Street", "The City North", "MiniGame Land", "Drive-In Theater", "City Hotel", "Market Avenue"],
+        "stops": ["City Station West", "MiniGame Land West", "Farlands West"],
         "currentIndex": 1,
         "state": "cyclic"
       }
     },
     {
-      "name": "Blue Line Local",
-      "line": "blue",
+      "name": "East Line Train",
+      "line": "east",
       "speed": { "blocksPerTick": 0.0, "ms": 0.0, "kmh": 0.0 },
       "moving": false,
       "backwards": false,
@@ -30,31 +30,12 @@
       "carriages": 2,
       "lengthBlocks": 12,
       "dimensions": ["minecraft:overworld"],
-      "currentStation": "Dave n' Busters",
-      "nextStation": "TCN Factory District",
+      "currentStation": "MiniGame Land East",
+      "nextStation": "Farlands East",
       "distanceRemaining": 0,
       "schedule": {
-        "stops": ["Skyline Street", "City Cinema", "Dave n' Busters", "TCN Factory District", "Rocket Launch Pad"],
-        "currentIndex": 2,
-        "state": "cyclic"
-      }
-    },
-    {
-      "name": "Nether Hauler",
-      "line": "nether",
-      "speed": { "blocksPerTick": 0.8, "ms": 16.0, "kmh": 57.6 },
-      "moving": true,
-      "backwards": true,
-      "derailed": false,
-      "carriages": 4,
-      "lengthBlocks": 24,
-      "dimensions": ["minecraft:the_nether", "minecraft:overworld"],
-      "currentStation": null,
-      "nextStation": "Piglin Plaza",
-      "distanceRemaining": 612,
-      "schedule": {
-        "stops": ["Basalt Station", "Nether Wastelands", "Warped Forest", "Piglin Plaza"],
-        "currentIndex": 2,
+        "stops": ["City Station East", "MiniGame Land East", "Farlands East"],
+        "currentIndex": 1,
         "state": "cyclic"
       }
     }

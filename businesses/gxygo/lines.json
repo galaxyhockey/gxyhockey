@@ -1,24 +1,18 @@
 {
-  "updated": "2026-06-29T18:00:00Z",
+  "updated": "2026-07-22T18:00:00Z",
   "system": "GxyGo Transit",
   "lines": [
     {
-      "id": "red",
-      "name": "Red Line",
-      "color": "#d4202a",
-      "stations": ["Skyline Street", "The City North", "MiniGame Land", "Drive-In Theater", "City Hotel", "Market Avenue"]
-    },
-    {
-      "id": "blue",
-      "name": "Blue Line",
+      "id": "west",
+      "name": "West Line",
       "color": "#1d4ed8",
-      "stations": ["Skyline Street", "City Cinema", "Dave n' Busters", "TCN Factory District", "Rocket Launch Pad"]
+      "stations": ["City Station West", "MiniGame Land West", "Farlands West"]
     },
     {
-      "id": "nether",
-      "name": "Nether Line",
-      "color": "#7c2d12",
-      "stations": ["Basalt Station", "Nether Wastelands", "Warped Forest", "Piglin Plaza"]
+      "id": "east",
+      "name": "East Line",
+      "color": "#d4202a",
+      "stations": ["City Station East", "MiniGame Land East", "Farlands East"]
     }
   ]
 }
