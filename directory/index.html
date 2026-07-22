@@ -1,0 +1,154 @@
+<html>
+<head>
+<title>Gxygle</title>
+<meta charset="UTF-8">
+</head>
+<BODY bgcolor="#FFFFFF" text="#000000" link="#000099" vlink="#003366" alink="#000099" style="margin-top:12px;">
+
+<div align=right style="padding:4px 8px;">
+<font face="arial,sans-serif" size=-2>
+View: <b>2000s</b> | <a href="directory-modern.html">Modern</a>
+</font>
+</div>
+
+<CENTER>
+<div style="margin-top:20px;margin-bottom:2px;font-family:'Times New Roman',Times,serif;font-size:80px;font-weight:bold;letter-spacing:-3px;line-height:1;">
+<span style="color:#4285F4;">G</span><span style="color:#DB4437;">x</span><span style="color:#F4B400;">y</span><span style="color:#4285F4;">g</span><span style="color:#0F9D58;">l</span><span style="color:#DB4437;">e</span><sup style="font-size:15px;color:#000;font-family:arial,sans-serif;font-weight:normal;top:-44px;position:relative;left:-6px;">bpw</sup>
+</div>
+<font face="arial,sans-serif" size=-2 color="#000000">Searching all of Biking People World</font>
+
+<TABLE width="100%" border=0 cellpadding=0 cellspacing=0><TR><TD align=center>
+<center>
+<FORM action="javascript:void(0)" method=get name=f onsubmit="doSearch();return false;">
+<br><br>
+<INPUT type=text value="" name=q size=42 style="border:1px solid #7e9bce;padding:2px;font-family:arial,sans-serif;font-size:14px;"><BR>
+<br>
+<NOBR>
+<INPUT type=submit value="Gxygle Search" style="font-family:arial,sans-serif;font-size:13px;background:#e8e8e8;border:1px solid #aaa;padding:2px 6px;">
+<INPUT name=sa type=button value="I'm Feeling Lucky" onclick="feelingLucky();" style="font-family:arial,sans-serif;font-size:13px;background:#e8e8e8;border:1px solid #aaa;padding:2px 6px;">
+</NOBR><BR>
+</FORM>
+</center>
+</TD></TR></TABLE>
+</CENTER>
+
+<!-- type filter tabs (appear after a search) -->
+<div id="tabs" align="center" style="display:none;margin-top:10px;"></div>
+
+<div id="results" style="max-width:660px;margin:14px auto 0 auto;padding:0 12px;"></div>
+
+<div id="browseAll" style="max-width:660px;margin:10px auto 0 auto;padding:0 12px;">
+<p align=center><font face="arial,sans-serif" size=2>
+Try: <a href="javascript:void(0)" onclick="qq('minigame land')">minigame land</a> &middot;
+<a href="javascript:void(0)" onclick="qq('weather')">weather</a> &middot;
+<a href="javascript:void(0)" onclick="qq('pizza')">pizza</a> &middot;
+<a href="javascript:void(0)" onclick="qq('piglin plaza')">piglin plaza</a> &middot;
+<a href="javascript:void(0)" onclick="qq('train')">train</a>
+</font></p>
+</div>
+
+<p></p><p>&nbsp;</p>
+<p align=center><font face="arial,sans-serif" size=-2>&copy;2000 Gxygle Inc.&nbsp;
+<a href="../../main/index.html">World Home</a> | <a href="../gxy-newspaper/index.html">News</a> | <a href="../../members/index.html">Members</a></font></p>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+var INDEX = [];
+var LASTQ = "";
+var FILTER = "all";
+var TYPE_LABELS = {news:"News", business:"Business", store:"Store", station:"Transit", page:"Page"};
+var TYPE_ICON = {news:"[NEWS]", business:"[BIZ]", store:"[SHOP]", station:"[TRANSIT]", page:"[PAGE]"};
+
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function rootUrl(u){ return '../../'+u; }
+
+function score(it, terms){
+  var hay=(it.title+' '+it.section+' '+it.desc+' '+it.kw).toLowerCase();
+  var s=0;
+  for(var i=0;i<terms.length;i++){ var t=terms[i]; if(!t) continue;
+    if(it.title.toLowerCase().indexOf(t)>=0) s+=12;
+    if(it.section.toLowerCase().indexOf(t)>=0) s+=5;
+    if(hay.indexOf(t)>=0) s+=2;
+  }
+  return s;
+}
+
+function allMatches(q){
+  var terms=q.toLowerCase().split(/\s+/);
+  var scored=[];
+  for(var i=0;i<INDEX.length;i++){ var s=score(INDEX[i],terms); if(s>0) scored.push({it:INDEX[i],s:s}); }
+  scored.sort(function(a,b){return b.s-a.s;});
+  return scored.map(function(x){return x.it;});
+}
+
+function drawTabs(list){
+  var counts={all:list.length};
+  for(var i=0;i<list.length;i++){ counts[list[i].type]=(counts[list[i].type]||0)+1; }
+  var order=["all","news","business","store","station","page"];
+  var html='<font face="arial,sans-serif" size=-1>';
+  for(var k=0;k<order.length;k++){
+    var t=order[k]; if(t!=="all" && !counts[t]) continue;
+    var lbl=(t==="all"?"All":TYPE_LABELS[t])+" ("+(counts[t]||0)+")";
+    if(FILTER===t) html+='<b>'+lbl+'</b>';
+    else html+='<a href="javascript:void(0)" onclick="setFilter(\''+t+'\')">'+lbl+'</a>';
+    if(k<order.length-1) html+=' &nbsp;|&nbsp; ';
+  }
+  html+='</font>';
+  var el=document.getElementById('tabs'); el.innerHTML=html; el.style.display='block';
+}
+
+function setFilter(t){ FILTER=t; renderResults(); }
+
+function renderResults(){
+  var list=allMatches(LASTQ);
+  drawTabs(list);
+  var shown = (FILTER==="all") ? list : list.filter(function(x){return x.type===FILTER;});
+  var el=document.getElementById('results');
+  if(!shown.length){
+    el.innerHTML='<font face="arial,sans-serif" size=-1>Your search - <b>'+esc(LASTQ)+'</b> - did not match anything.<br><br>Suggestions: check spelling, try more general keywords.</font>';
+    return;
+  }
+  var html='<font face="arial,sans-serif" size=-2 color="#666666">Results <b>1</b> - <b>'+shown.length+'</b> of about <b>'+shown.length+'</b> for <b>'+esc(LASTQ)+'</b>. (Searched all of Biking People World)</font><br><br>';
+  for(var i=0;i<shown.length;i++){
+    var it=shown[i];
+    var meta=(it.section||TYPE_LABELS[it.type]||'')+(it.date?' &middot; '+it.date:'');
+    html+='<div style="margin-bottom:15px;">'
+      +'<font face="arial,sans-serif" size=-2 color="#777777">'+TYPE_ICON[it.type]+'</font> '
+      +'<a href="'+rootUrl(it.url)+'" style="font-family:arial,sans-serif;font-size:16px;color:#000099;">'+esc(it.title)+'</a><br>'
+      +'<font face="arial,sans-serif" size=-1 color="#000000">'+esc(it.desc)+'</font><br>'
+      +'<font face="arial,sans-serif" size=-2 color="#008000">www.gxyhockey.com/'+esc(it.url.replace("/index.html","").replace(".html",""))+'</font> '
+      +'<font face="arial,sans-serif" size=-2 color="#666666">- '+esc(meta)+'</font>'
+      +'</div>';
+  }
+  el.innerHTML=html;
+}
+
+function doSearch(){
+  var q=document.f.q.value.replace(/^\s+|\s+$/g,'');
+  if(!q){ document.getElementById('results').innerHTML=''; document.getElementById('tabs').style.display='none'; document.getElementById('browseAll').style.display='block'; return; }
+  LASTQ=q; FILTER="all";
+  document.getElementById('browseAll').style.display='none';
+  renderResults();
+}
+function qq(q){ document.f.q.value=q; doSearch(); }
+function feelingLucky(){
+  var q=document.f.q.value.replace(/^\s+|\s+$/g,'');
+  var list=allMatches(q||"world home");
+  window.location.href = rootUrl(list.length?list[0].url:'main/index.html');
+}
+
+// load the unified index
+fetch('../../search-index.json?_='+Date.now())
+  .then(function(r){ return r.json(); })
+  .then(function(d){ INDEX=d.items||[]; })
+  .catch(function(){ INDEX=[]; });
+
+document.f.q.focus();
+// -->
+</SCRIPT>
+
+<script src="../../assets/breaking.js" data-root="../../"></script>
+<script src="../../assets/theme.js" data-root="../../"></script>
+<script type="module" src="../../assets/authguard.js" data-root="../../"></script>
+</BODY>
+</HTML>
