@@ -1,34 +1,26 @@
-/* GXY Retro (2000s) skin — loaded sitewide when retro theme is active.
-   Uses [data-theme="retro"] scope so it only applies in retro mode.
-   Aims for prime turn-of-the-millennium web: Times/Arial, tiled bg, beveled
-   tables, bright links, visible borders. Deliberately "loud". */
+/* ============================================================
+   GXY RETRO (2000s) SKIN  v2
+   Loaded sitewide when the retro theme is active.
+   Goal: authentic turn-of-the-millennium web — Win98 chrome,
+   tiled desktop background, beveled windows, loud links.
+   ============================================================ */
 
+/* ---------- base ---------- */
 [data-theme="retro"] body{
-  background:#008080;               /* classic teal desktop */
+  background-color:#008080;
   background-image:
-    repeating-linear-gradient(45deg, rgba(255,255,255,.03) 0 10px, transparent 10px 20px);
-  color:#000000;
+    linear-gradient(45deg, rgba(255,255,255,.045) 25%, transparent 25%, transparent 75%, rgba(255,255,255,.045) 75%),
+    linear-gradient(45deg, rgba(255,255,255,.045) 25%, transparent 25%, transparent 75%, rgba(255,255,255,.045) 75%);
+  background-size:16px 16px;
+  background-position:0 0, 8px 8px;
+  color:#000;
   font-family:"Times New Roman",Times,serif;
   font-size:16px;
-  line-height:1.4;
+  line-height:1.45;
+  padding-bottom:40px;
 }
 
-/* Wrap main content in a "window" look via common containers */
-[data-theme="retro"] .container,
-[data-theme="retro"] .wrap,
-[data-theme="retro"] main{
-  background:#ffffff !important;
-  border:2px ridge #c0c0c0;
-  box-shadow:4px 4px 0 rgba(0,0,0,.4);
-  color:#000 !important;
-}
-
-/* Links: the eternal blue/purple */
-[data-theme="retro"] a{ color:#0000EE !important; text-decoration:underline !important; }
-[data-theme="retro"] a:visited{ color:#551A8B !important; }
-[data-theme="retro"] a:hover{ color:#EE0000 !important; }
-
-/* Kill modern rounded/gradient styling */
+/* strip modern flourishes */
 [data-theme="retro"] *{
   border-radius:0 !important;
   box-shadow:none !important;
@@ -36,17 +28,88 @@
   letter-spacing:normal !important;
   transition:none !important;
   animation:none !important;
+  backdrop-filter:none !important;
+  background-image:none;
 }
 
-/* Headings: bold serif, underlined */
-[data-theme="retro"] h1,[data-theme="retro"] h2,[data-theme="retro"] h3{
+/* ---------- content becomes a Win98 "window" ---------- */
+[data-theme="retro"] .container,
+[data-theme="retro"] .wrap,
+[data-theme="retro"] main{
+  background:#c0c0c0 !important;
+  border-top:2px solid #ffffff;
+  border-left:2px solid #ffffff;
+  border-right:2px solid #404040;
+  border-bottom:2px solid #404040;
+  outline:1px solid #000;
+  color:#000 !important;
+  max-width:900px;
+  margin:18px auto !important;
+  padding:14px !important;
+}
+
+/* inner white "document" area */
+[data-theme="retro"] .container > *,
+[data-theme="retro"] .wrap > *{ color:#000 !important; }
+
+/* ---------- headers / nav = title bar ---------- */
+[data-theme="retro"] header{
+  background:linear-gradient(90deg,#000080,#1084d0) !important;
+  color:#fff !important;
+  border-bottom:2px solid #404040;
+  padding:0 !important;
+}
+[data-theme="retro"] header h1,
+[data-theme="retro"] header .brand,
+[data-theme="retro"] header .logo{
+  color:#fff !important;
+  font-family:"MS Sans Serif",Tahoma,Arial,sans-serif !important;
+  font-size:15px !important;
+  font-weight:bold !important;
+  padding:4px 8px !important;
+  letter-spacing:0 !important;
+}
+[data-theme="retro"] header p,
+[data-theme="retro"] header small,
+[data-theme="retro"] .tagline{ color:#c8d8ff !important; font-size:11px !important; }
+
+[data-theme="retro"] nav{
+  background:#c0c0c0 !important;
+  border-top:2px solid #fff;
+  border-bottom:2px solid #404040;
+  padding:3px 6px !important;
+}
+[data-theme="retro"] nav a{
+  color:#000 !important;
+  font-family:"MS Sans Serif",Tahoma,Arial,sans-serif !important;
+  font-size:12px !important;
+  text-decoration:none !important;
+  padding:2px 8px !important;
+  border-top:1px solid #fff; border-left:1px solid #fff;
+  border-right:1px solid #808080; border-bottom:1px solid #808080;
+  display:inline-block; margin:1px;
+  background:#c0c0c0;
+}
+[data-theme="retro"] nav a:hover{ background:#d4d0c8 !important; color:#000080 !important; }
+[data-theme="retro"] nav a:active{ border-top-color:#808080;border-left-color:#808080;border-right-color:#fff;border-bottom-color:#fff; }
+
+/* ---------- links ---------- */
+[data-theme="retro"] a{ color:#0000EE !important; text-decoration:underline !important; }
+[data-theme="retro"] a:visited{ color:#551A8B !important; }
+[data-theme="retro"] a:hover{ color:#EE0000 !important; }
+
+/* ---------- headings ---------- */
+[data-theme="retro"] h1,[data-theme="retro"] h2,[data-theme="retro"] h3,[data-theme="retro"] h4{
   font-family:"Times New Roman",Times,serif !important;
   color:#000080 !important;
   font-weight:bold !important;
 }
-[data-theme="retro"] h1{ border-bottom:3px double #000080; }
+[data-theme="retro"] .container h1,[data-theme="retro"] .wrap h1{
+  font-size:28px !important; border-bottom:3px double #000080; padding-bottom:4px; margin-bottom:10px;
+}
+[data-theme="retro"] .container h2,[data-theme="retro"] .wrap h2{ font-size:22px !important; }
 
-/* Cards / panels -> beveled gray boxes */
+/* ---------- panels / cards = inset gray boxes ---------- */
 [data-theme="retro"] .biz-card,
 [data-theme="retro"] .card,
 [data-theme="retro"] .panel,
@@ -54,57 +117,118 @@
 [data-theme="retro"] .train,
 [data-theme="retro"] .line-card,
 [data-theme="retro"] .widget,
-[data-theme="retro"] .dash-card,
-[data-theme="retro"] .event-card{
-  background:#f0f0f0 !important;
-  border:2px outset #c0c0c0 !important;
+[data-theme="retro"] .event-card,
+[data-theme="retro"] .line-block,
+[data-theme="retro"] .result,
+[data-theme="retro"] .upd-card,
+[data-theme="retro"] .region-card,
+[data-theme="retro"] .fc-day{
+  background:#ffffff !important;
+  border-top:2px solid #808080 !important;
+  border-left:2px solid #808080 !important;
+  border-right:2px solid #ffffff !important;
+  border-bottom:2px solid #ffffff !important;
+  outline:1px solid #000 !important;
   color:#000 !important;
+  padding:10px !important;
+  margin-bottom:8px;
+}
+[data-theme="retro"] .widget .wtitle,
+[data-theme="retro"] .card h2,
+[data-theme="retro"] .line-head,
+[data-theme="retro"] .lb-head,
+[data-theme="retro"] .game-head{
+  background:linear-gradient(90deg,#000080,#1084d0) !important;
+  color:#fff !important;
+  font-family:"MS Sans Serif",Tahoma,Arial,sans-serif !important;
+  font-size:12px !important;
+  font-weight:bold !important;
+  padding:3px 6px !important;
+  margin:-10px -10px 8px -10px !important;
+  letter-spacing:0 !important;
 }
 
-/* Buttons -> beveled win95 */
+/* ---------- buttons ---------- */
 [data-theme="retro"] button,
 [data-theme="retro"] .btn,
+[data-theme="retro"] .hbtn,
 [data-theme="retro"] input[type=submit],
 [data-theme="retro"] input[type=button]{
   background:#c0c0c0 !important;
-  border:2px outset #e0e0e0 !important;
+  border-top:2px solid #ffffff !important;
+  border-left:2px solid #ffffff !important;
+  border-right:2px solid #404040 !important;
+  border-bottom:2px solid #404040 !important;
   color:#000 !important;
-  font-family:"MS Sans Serif",Arial,sans-serif !important;
-  font-size:13px !important;
-  padding:2px 10px !important;
+  font-family:"MS Sans Serif",Tahoma,Arial,sans-serif !important;
+  font-size:12px !important;
+  padding:3px 12px !important;
   cursor:pointer;
 }
-[data-theme="retro"] button:active{ border-style:inset !important; }
+[data-theme="retro"] button:active,[data-theme="retro"] .hbtn:active{
+  border-top-color:#404040 !important;border-left-color:#404040 !important;
+  border-right-color:#ffffff !important;border-bottom-color:#ffffff !important;
+}
 
-/* Text inputs -> inset */
-[data-theme="retro"] input[type=text],[data-theme="retro"] input:not([type]){
-  border:2px inset #c0c0c0 !important;
+/* ---------- inputs ---------- */
+[data-theme="retro"] input[type=text],[data-theme="retro"] input:not([type]),[data-theme="retro"] select,[data-theme="retro"] textarea{
+  border-top:2px solid #404040 !important;
+  border-left:2px solid #404040 !important;
+  border-right:2px solid #ffffff !important;
+  border-bottom:2px solid #ffffff !important;
+  outline:1px solid #000;
   background:#fff !important;
+  color:#000 !important;
   font-family:"Courier New",monospace !important;
+  font-size:13px !important;
+  padding:3px !important;
 }
 
-/* Nav bars -> gray bevel */
-[data-theme="retro"] nav,[data-theme="retro"] header{
-  background:#000080 !important;
-  color:#fff !important;
-}
-[data-theme="retro"] nav a,[data-theme="retro"] header a{ color:#FFFF00 !important; }
+/* ---------- tables ---------- */
+[data-theme="retro"] table{ background:#fff; border:2px inset #c0c0c0; }
+[data-theme="retro"] th{ background:#c0c0c0 !important; color:#000 !important; border:1px solid #808080; font-family:"MS Sans Serif",Arial,sans-serif !important; font-size:12px !important; }
+[data-theme="retro"] td{ border:1px solid #d0d0d0; color:#000 !important; }
 
-/* The floating toggle should stay readable in retro */
+/* ---------- text colors forced readable ---------- */
+[data-theme="retro"] p,[data-theme="retro"] span,[data-theme="retro"] div,
+[data-theme="retro"] li,[data-theme="retro"] .muted,[data-theme="retro"] .desc{
+  color:#000 !important;
+}
+[data-theme="retro"] .muted,[data-theme="retro"] .sub,[data-theme="retro"] .meta{ color:#404040 !important; font-size:13px !important; }
+
+/* ---------- grid gets simpler in retro ---------- */
+[data-theme="retro"] .grid{ display:block !important; }
+[data-theme="retro"] .widget{ margin-bottom:12px !important; }
+
+/* ---------- the theme toggle button ---------- */
 [data-theme="retro"] #gxy-theme-toggle{
   background:#c0c0c0 !important;
-  border:2px outset #e0e0e0 !important;
+  border-top:2px solid #fff !important;border-left:2px solid #fff !important;
+  border-right:2px solid #404040 !important;border-bottom:2px solid #404040 !important;
   color:#000 !important;
-  font-family:"MS Sans Serif",Arial,sans-serif !important;
+  font-family:"MS Sans Serif",Tahoma,Arial,sans-serif !important;
+  font-size:11px !important;
 }
 
-/* A shared retro chrome strip some pages opt into */
-[data-theme="retro"] .retro-only{ display:block !important; }
+/* ---------- retro-only decorations ---------- */
 .retro-only{ display:none; }
+[data-theme="retro"] .retro-only{ display:block !important; }
 [data-theme="retro"] .modern-only{ display:none !important; }
 
-/* Marquee-ish emphasis helper */
+/* marquee-style banner */
 [data-theme="retro"] .retro-banner{
-  background:#000080; color:#ffff00; font-family:"Courier New",monospace;
-  padding:6px; text-align:center; border-top:2px solid #fff; border-bottom:2px solid #000;
+  background:#000080; color:#ffff00;
+  font-family:"Courier New",monospace; font-weight:bold;
+  padding:6px; text-align:center;
+  border-top:2px solid #fff; border-bottom:2px solid #404040;
+  overflow:hidden; white-space:nowrap;
+}
+
+/* a fake "taskbar" pinned to the bottom in retro */
+[data-theme="retro"] body::after{
+  content:"\1F5A5  Biking People World  |  Best viewed at 800\00D7600  |  \00A9 2001";
+  position:fixed; left:0; right:0; bottom:0; height:28px;
+  background:#c0c0c0; border-top:2px solid #fff;
+  font-family:"MS Sans Serif",Tahoma,Arial,sans-serif; font-size:11px;
+  color:#000; display:flex; align-items:center; padding:0 10px; z-index:9998;
 }
