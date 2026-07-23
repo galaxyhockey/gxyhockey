@@ -89,7 +89,7 @@
         "minecraft:the_nether"
       ],
       "destination": "Basalt Station",
-      "distanceToDestination": 715.9,
+      "distanceToDestination": 625.9,
       "schedule": {
         "stops": [
           "Basalt Station",
@@ -208,7 +208,7 @@
         "minecraft:overworld"
       ],
       "destination": "City Freight North",
-      "distanceToDestination": 2002.7,
+      "distanceToDestination": 1769.9,
       "schedule": {
         "stops": [
           "City Freight North",
@@ -257,6 +257,6 @@
     "Track Station",
     "Warped Forest Station"
   ],
-  "lastUpdated": "2026-07-23T15:18:52.140233589Z",
-  "lastUpdatedEpoch": 1784819932
+  "lastUpdated": "2026-07-23T15:19:02.140424128Z",
+  "lastUpdatedEpoch": 1784819942
 }
