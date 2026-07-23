@@ -1,54 +1,28 @@
 {
   "schemaVersion": 3,
-  "updated": "2026-07-23T01:50:11.884115428Z",
-  "mcDay": 6,
+  "updated": "2026-06-29T18:42:07.512Z",
+  "mcDay": 152,
   "season": "Summer",
   "trend": "SUMMER",
+  "discussion": "A warm summer day across the Plains with mostly clear skies and light winds. A passing shower is possible toward evening, but conditions stay comfortable for outdoor events and construction. Cooler air arrives in a couple of days.",
   "today": {
     "condition": "Clear",
-    "temp": 81,
-    "feelsLike": 79,
-    "wind": 11,
-    "windDir": "NE",
-    "humidity": 12,
-    "tempUnit": "F",
-    "windUnit": "mph"
+    "temp": 79, "feelsLike": 81,
+    "wind": 9, "windDir": "SW",
+    "humidity": 44,
+    "tempUnit": "F", "windUnit": "mph"
   },
   "forecast": [
-    {
-      "condition": "Clear",
-      "temp": 88,
-      "feelsLike": 84,
-      "wind": 18,
-      "windDir": "E",
-      "humidity": 12,
-      "day": "+1"
-    },
-    {
-      "condition": "Rain",
-      "temp": 86,
-      "feelsLike": 84,
-      "wind": 17,
-      "windDir": "NE",
-      "humidity": 31,
-      "day": "+2"
-    },
-    {
-      "condition": "Clear",
-      "temp": 86,
-      "feelsLike": 83,
-      "wind": 2,
-      "windDir": "E",
-      "humidity": 17,
-      "day": "+3"
-    }
+    { "day": "+1", "condition": "Clear", "temp": 82, "feelsLike": 84, "wind": 11, "windDir": "S", "humidity": 40 },
+    { "day": "+2", "condition": "Rain",  "temp": 71, "feelsLike": 71, "wind": 18, "windDir": "W", "humidity": 78 },
+    { "day": "+3", "condition": "Clear", "temp": 75, "feelsLike": 76, "wind": 8,  "windDir": "NW", "humidity": 52 }
   ],
   "alerts": [],
-  "discussion": "Clear skies prevail over Plains this summer day, with a high near 81°F (feeling more like 79°F). Winds stay light. Looking ahead, tomorrow brings clear near 88°F.",
-  "regions": [],
-  "almanac": {
-    "moonPhase": 6,
-    "moonPhaseName": "First Quarter"
-  },
+  "regions": [
+    { "name": "The Dunes", "biome": "minecraft:desert", "condition": "Clear", "temp": 94, "feelsLike": 92, "wind": 10, "windDir": "SW", "humidity": 16 },
+    { "name": "Snowy Plains", "biome": "minecraft:snowy_plains", "condition": "Snow", "temp": 28, "feelsLike": 19, "wind": 20, "windDir": "N", "humidity": 81 },
+    { "name": "The City", "biome": "minecraft:plains", "condition": "Clear", "temp": 79, "feelsLike": 81, "wind": 9, "windDir": "SW", "humidity": 44 }
+  ],
+  "almanac": { "moonPhase": 0, "moonPhaseName": "Full Moon" },
   "biome": "minecraft:plains"
 }

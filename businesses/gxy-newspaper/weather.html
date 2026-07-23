@@ -112,6 +112,19 @@ footer span{color:#c41a1a;}
   <a href="weather.html" class="active">GXY Weather</a>
 </nav>
 <div class="container">
+<div class="retro-wxrail retro-only">
+  <div class="rl-title">GXY<br>WEATHER</div>
+  <a href="weather.html">Current<br>Conditions</a>
+  <a href="weather.html">Forecast</a>
+  <a href="index.html">Weather<br>News</a>
+  <a href="../gxygo/index.html">Travel</a>
+  <a href="../../events/index.html">Events</a>
+  <a href="../../dashboard/index.html">Your<br>Dashboard</a>
+  <a href="../../main/index.html">Return<br>Home</a>
+</div>
+<div class="retro-wxhead retro-only">Biking People World</div>
+<div class="retro-wxsub retro-only">Latest Report</div>
+
   <a class="back-link" href="index.html">← Back to Front Page</a>
   <div class="page-head">
     <h2>⛅ GXY Weather</h2>
@@ -132,7 +145,8 @@ footer span{color:#c41a1a;}
 
   <div id="historyWrap"></div>
 
-  <div class="impact">
+  <div class="retro-reload retro-only">Remember to hit reload each time you visit to see the latest!</div>
+<div class="impact">
     <h4>How Weather Affects the World</h4>
     <p>With dynamic weather active across Biking People World, conditions can affect travel, outdoor events, movie nights at the Drive-In, construction work, postal deliveries, MiniGame Land games, and Nether and space mission planning. Check the forecast before heading out.</p>
   </div>
@@ -325,5 +339,6 @@ fetch('history.json?_=' + Date.now())
   .then(h=>renderHistory(h))
   .catch(()=>{ /* no history yet */ });
 </script>
+<script src="../../assets/theme.js" data-root="../../" data-retro-extra="weather"></script>
 </body>
 </html>

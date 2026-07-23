@@ -1,0 +1,198 @@
+/* ==========================================================
+   GXY RETRO — WEATHER SKIN  (The Weather Channel, late '90s)
+   Loaded on top of retro.css for the weather page.
+   ========================================================== */
+
+[data-theme="retro"] body{
+  background:#ffffff !important;
+  background-image:none !important;
+  font-family:Times,"Times New Roman",serif !important;
+  padding-bottom:0 !important;
+}
+[data-theme="retro"] body::after{ display:none !important; }
+
+/* hide the modern masthead chrome */
+[data-theme="retro"] header .top-bar{ display:none !important; }
+[data-theme="retro"] header{
+  background:#ffffff !important; border:none !important; padding:0 !important;
+}
+[data-theme="retro"] .masthead{ border-bottom:2px solid #000080 !important; padding:6px 0 !important; }
+[data-theme="retro"] .masthead h1{
+  font-family:Arial,Helvetica,sans-serif !important;
+  font-size:26px !important; color:#000080 !important; letter-spacing:0 !important;
+}
+[data-theme="retro"] .masthead p{ font-size:10px !important; color:#666 !important; }
+[data-theme="retro"] nav{
+  background:#ffffff !important; border:none !important;
+  border-bottom:1px solid #999 !important; padding:3px 6px !important;
+}
+[data-theme="retro"] nav a{
+  background:none !important; border:none !important;
+  color:#0000CC !important; text-decoration:underline !important;
+  font-family:Arial,sans-serif !important; font-size:11px !important; padding:0 8px 0 0 !important;
+}
+
+/* page canvas: white, no window */
+[data-theme="retro"] .container{
+  background:#fff !important; border:none !important; outline:none !important;
+  max-width:940px !important; margin:0 auto !important; padding:8px !important;
+}
+[data-theme="retro"] .page-head{ display:none !important; }
+
+/* ---------- left nav rail (TWC vertical button strip) ---------- */
+[data-theme="retro"] .retro-wxrail{
+  display:block !important;
+  float:left; width:104px; margin:0 16px 12px 0;
+  background:linear-gradient(#1a3a8f,#0a1f5c);
+  border:2px solid #000; padding:4px 3px;
+}
+[data-theme="retro"] .retro-wxrail a{
+  display:block; text-align:center; color:#fff !important;
+  font-family:Arial,Helvetica,sans-serif !important; font-size:10px !important;
+  font-weight:bold; text-decoration:none !important;
+  padding:7px 2px; margin-bottom:4px;
+  background:linear-gradient(#2b5fd0,#12307d);
+  border-top:1px solid #6f9ff0; border-left:1px solid #6f9ff0;
+  border-right:1px solid #04113a; border-bottom:1px solid #04113a;
+  border-radius:0 !important;
+}
+[data-theme="retro"] .retro-wxrail a:hover{ background:linear-gradient(#3f78ea,#1a3f96); color:#ffff00 !important; }
+[data-theme="retro"] .retro-wxrail .rl-title{
+  color:#ffffff; font-family:Arial,sans-serif; font-size:10px; font-weight:bold;
+  text-align:center; padding:4px 0; letter-spacing:.03em;
+}
+
+/* ---------- location heading ---------- */
+[data-theme="retro"] .status-line{
+  font-family:Arial,Helvetica,sans-serif !important;
+  font-size:11px !important; color:#333 !important;
+  text-align:left !important; margin:0 0 6px !important;
+}
+[data-theme="retro"] .retro-wxhead{
+  display:block !important;
+  font-family:Arial,Helvetica,sans-serif; font-size:30px; font-weight:bold;
+  color:#000; margin:0 0 2px;
+}
+[data-theme="retro"] .retro-wxsub{
+  display:block !important;
+  font-family:Arial,Helvetica,sans-serif; font-size:13px; font-weight:bold; color:#000; margin-bottom:8px;
+}
+
+/* ---------- current conditions: big temp + blue icon box ---------- */
+[data-theme="retro"] .today-card{
+  background:#fff !important; border:none !important; outline:none !important;
+  display:block !important; padding:0 !important; margin-bottom:14px !important;
+  color:#000 !important;
+}
+[data-theme="retro"] .today-icon{
+  float:left; width:104px; height:104px;
+  background:#000080 !important; border:2px solid #000;
+  color:#fff !important; font-size:46px !important;
+  display:flex !important; align-items:center; justify-content:center;
+  margin:0 14px 6px 0;
+}
+[data-theme="retro"] .today-info .label{ display:none !important; }
+[data-theme="retro"] .today-temp{
+  font-family:Arial,Helvetica,sans-serif !important;
+  font-size:44px !important; font-weight:bold !important; color:#000 !important;
+  line-height:1 !important;
+}
+[data-theme="retro"] .today-cond{
+  font-family:Arial,sans-serif !important; font-size:15px !important;
+  font-weight:bold !important; color:#000 !important;
+}
+[data-theme="retro"] .today-stats,[data-theme="retro"] .today-meta{
+  display:block !important; font-family:Arial,sans-serif !important;
+  font-size:14px !important; color:#000 !important; margin-top:6px !important;
+}
+[data-theme="retro"] .today-stats span,[data-theme="retro"] .today-meta span{
+  display:block !important; margin-bottom:2px;
+}
+[data-theme="retro"] .today-stats b,[data-theme="retro"] .today-meta b{ color:#000 !important; }
+
+/* ---------- 5-day forecast: blue boxed columns ---------- */
+[data-theme="retro"] .section-title{
+  font-family:Arial,Helvetica,sans-serif !important;
+  font-size:13px !important; font-weight:bold !important;
+  color:#000 !important; border:none !important;
+  border-bottom:1px solid #999 !important; margin:14px 0 6px !important;
+}
+[data-theme="retro"] .forecast-grid{
+  display:flex !important; gap:6px !important; flex-wrap:wrap;
+}
+[data-theme="retro"] .fc-day{
+  background:#3355bb !important;
+  border:2px solid #000 !important; outline:none !important;
+  color:#fff !important; text-align:center !important;
+  padding:0 0 5px !important; width:96px; flex:none !important;
+  margin:0 !important;
+}
+[data-theme="retro"] .fc-day .d{
+  background:#fff !important; color:#000 !important;
+  font-family:Arial,sans-serif !important; font-size:11px !important;
+  font-weight:bold !important; padding:2px 0 !important; margin:0 !important;
+}
+[data-theme="retro"] .fc-day .ico{
+  background:#8fa8dd !important; padding:8px 0 !important;
+  font-size:26px !important; margin:0 !important;
+}
+[data-theme="retro"] .fc-day .c{
+  background:#1a3a8f !important; color:#fff !important;
+  font-family:Arial,sans-serif !important; font-size:10px !important;
+  font-weight:bold !important; padding:3px 2px !important; margin:0 !important;
+}
+[data-theme="retro"] .fc-day .t{
+  color:#fff !important; font-family:Arial,sans-serif !important;
+  font-size:13px !important; font-weight:bold !important; padding:3px 0 0 !important;
+}
+[data-theme="retro"] .fc-day .sub{ color:#dbe4ff !important; font-size:10px !important; font-family:Arial,sans-serif !important; }
+
+/* ---------- alerts ---------- */
+[data-theme="retro"] .alert{
+  border:3px solid #000 !important; font-family:Arial,sans-serif !important;
+}
+[data-theme="retro"] .alert.warning{ background:#cc0000 !important; color:#fff !important; }
+[data-theme="retro"] .alert.watch{ background:#ff9900 !important; color:#000 !important; }
+[data-theme="retro"] .alert.advisory{ background:#ffff00 !important; color:#000 !important; }
+[data-theme="retro"] .alert .a-event{ font-size:15px !important; font-weight:bold !important; }
+
+/* ---------- discussion / regions / chart ---------- */
+[data-theme="retro"] .discussion{
+  background:#fff !important; border:none !important; border-left:4px solid #000080 !important;
+  outline:none !important; padding:6px 10px !important;
+}
+[data-theme="retro"] .discussion h3{ font-family:Arial,sans-serif !important; font-size:11px !important; color:#000080 !important; }
+[data-theme="retro"] .discussion p{ font-family:Times,serif !important; font-size:15px !important; }
+[data-theme="retro"] .regions-grid{ display:flex !important; flex-wrap:wrap; gap:6px !important; }
+[data-theme="retro"] .region-card{
+  background:#eef2ff !important; border:2px solid #000 !important; outline:none !important;
+  width:150px; padding:6px !important; margin:0 !important;
+}
+[data-theme="retro"] .chart-wrap{ background:#fff !important; border:2px solid #000 !important; outline:none !important; }
+
+/* impact / mod boxes */
+[data-theme="retro"] .impact,[data-theme="retro"] .mod-box{
+  background:#eeeeee !important; border:2px solid #000 !important; outline:none !important;
+}
+[data-theme="retro"] .impact h4,[data-theme="retro"] .mod-box h4{ font-family:Arial,sans-serif !important; color:#000080 !important; }
+[data-theme="retro"] .mod-dl{
+  background:#c0c0c0 !important; color:#000 !important;
+  border-top:2px solid #fff !important; border-left:2px solid #fff !important;
+  border-right:2px solid #404040 !important; border-bottom:2px solid #404040 !important;
+  font-family:Arial,sans-serif !important; font-size:12px !important;
+}
+
+/* the era reload nag */
+[data-theme="retro"] .retro-reload{
+  display:block !important; clear:both;
+  font-family:Times,serif; font-size:15px; color:#000; margin:12px 0;
+}
+
+[data-theme="retro"] footer{
+  background:#fff !important; color:#000 !important;
+  border-top:2px solid #000080 !important;
+  font-family:Arial,sans-serif !important; font-size:10px !important;
+  clear:both;
+}
+[data-theme="retro"] footer span{ color:#000080 !important; }
+[data-theme="retro"] .almanac-foot{ font-family:Arial,sans-serif !important; font-size:11px !important; color:#000 !important; clear:both; }
