@@ -207,7 +207,7 @@
         "minecraft:overworld"
       ],
       "destination": "City Freight North",
-      "distanceToDestination": 1233.2,
+      "distanceToDestination": 999.7,
       "schedule": {
         "stops": [
           "City Freight North",
@@ -256,6 +256,6 @@
     "Track Station",
     "Warped Forest Station"
   ],
-  "lastUpdated": "2026-07-23T15:05:22.140115989Z",
-  "lastUpdatedEpoch": 1784819122
+  "lastUpdated": "2026-07-23T15:05:32.139892975Z",
+  "lastUpdatedEpoch": 1784819132
 }
