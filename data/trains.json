@@ -195,9 +195,9 @@
       "id": "aee38421-a582-4127-8605-740abfdd65da",
       "name": "GXY Post 280",
       "owner": "d141e81b-b1b9-41b2-bdae-6841f74e1251",
-      "speedBlocksPerTick": 1.167,
-      "speedMetersPerSecond": 23.33,
-      "speedKmh": 84.0,
+      "speedBlocksPerTick": 0.317,
+      "speedMetersPerSecond": 6.33,
+      "speedKmh": 22.8,
       "moving": true,
       "backwards": false,
       "derailed": false,
@@ -207,7 +207,7 @@
         "minecraft:overworld"
       ],
       "destination": "City Freight North",
-      "distanceToDestination": 218.3,
+      "distanceToDestination": 0.9,
       "schedule": {
         "stops": [
           "City Freight North",
@@ -256,6 +256,6 @@
     "Track Station",
     "Warped Forest Station"
   ],
-  "lastUpdated": "2026-07-23T03:17:49.749904002Z",
-  "lastUpdatedEpoch": 1784776669
+  "lastUpdated": "2026-07-23T03:17:59.747774880Z",
+  "lastUpdatedEpoch": 1784776679
 }
