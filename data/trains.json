@@ -89,7 +89,7 @@
         "minecraft:the_nether"
       ],
       "destination": "Nether Wastes Station",
-      "distanceToDestination": 156.7,
+      "distanceToDestination": 65.6,
       "schedule": {
         "stops": [
           "Basalt Station",
@@ -256,6 +256,6 @@
     "Track Station",
     "Warped Forest Station"
   ],
-  "lastUpdated": "2026-07-23T03:10:59.749010518Z",
-  "lastUpdatedEpoch": 1784776259
+  "lastUpdated": "2026-07-23T03:11:09.749599031Z",
+  "lastUpdatedEpoch": 1784776269
 }
