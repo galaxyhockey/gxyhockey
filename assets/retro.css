@@ -1,8 +1,8 @@
 /* ============================================================
-   GXY RETRO (2000s) SKIN  v2
-   Loaded sitewide when the retro theme is active.
-   Goal: authentic turn-of-the-millennium web — Win98 chrome,
-   tiled desktop background, beveled windows, loud links.
+   GXY RETRO (2000s) SKIN  v3
+   Win98 chrome, tiled desktop, beveled windows, loud links.
+   v3 FIX: no blanket black-text rule (it made light text on dark
+   cards invisible). Instead we de-darken cards, THEN blacken text.
    ============================================================ */
 
 /* ---------- base ---------- */
@@ -15,8 +15,7 @@
   background-position:0 0, 8px 8px;
   color:#000;
   font-family:"Times New Roman",Times,serif;
-  font-size:16px;
-  line-height:1.45;
+  font-size:16px; line-height:1.45;
   padding-bottom:40px;
 }
 
@@ -29,69 +28,135 @@
   transition:none !important;
   animation:none !important;
   backdrop-filter:none !important;
-  background-image:none;
 }
 
-/* ---------- content becomes a Win98 "window" ---------- */
+/* ---------- content window ---------- */
 [data-theme="retro"] .container,
 [data-theme="retro"] .wrap,
 [data-theme="retro"] main{
   background:#c0c0c0 !important;
-  border-top:2px solid #ffffff;
-  border-left:2px solid #ffffff;
-  border-right:2px solid #404040;
-  border-bottom:2px solid #404040;
+  border-top:2px solid #fff; border-left:2px solid #fff;
+  border-right:2px solid #404040; border-bottom:2px solid #404040;
   outline:1px solid #000;
   color:#000 !important;
-  max-width:900px;
-  margin:18px auto !important;
-  padding:14px !important;
+  max-width:920px; margin:18px auto !important; padding:14px !important;
 }
 
-/* inner white "document" area */
-[data-theme="retro"] .container > *,
-[data-theme="retro"] .wrap > *{ color:#000 !important; }
+/* ============================================================
+   DE-DARKEN  — force light backgrounds on cards/heroes/banners
+   so black text is readable. Beats inline styles via !important.
+   ============================================================ */
+[data-theme="retro"] .card,[data-theme="retro"] .panel,[data-theme="retro"] .widget,
+[data-theme="retro"] .biz-card,[data-theme="retro"] .fg-card,[data-theme="retro"] .upd-card,
+[data-theme="retro"] .train,[data-theme="retro"] .line-card,[data-theme="retro"] .line-block,
+[data-theme="retro"] .region-card,[data-theme="retro"] .fc-day,[data-theme="retro"] .event-card,
+[data-theme="retro"] .result,[data-theme="retro"] .linkcard,[data-theme="retro"] .hero,
+[data-theme="retro"] .hero-bg,[data-theme="retro"] .hero-strip,[data-theme="retro"] .info-box,
+[data-theme="retro"] .info-card,[data-theme="retro"] .game-card,[data-theme="retro"] .game-body,[data-theme="retro"] .game-banner,
+[data-theme="retro"] .game-block,[data-theme="retro"] .game-content,
+[data-theme="retro"] .movie-card,[data-theme="retro"] .movie-info,[data-theme="retro"] .movie-poster,
+[data-theme="retro"] .screen-card,[data-theme="retro"] .show-item,[data-theme="retro"] .showtimes-list,
+[data-theme="retro"] .df-screen,[data-theme="retro"] .df-films,[data-theme="retro"] .df-film,
+[data-theme="retro"] .cast-section,[data-theme="retro"] .info-grid,[data-theme="retro"] .info-grid-movie,
+[data-theme="retro"] .events-grid > *,[data-theme="retro"] .q-tile,[data-theme="retro"] .cd-box,
+[data-theme="retro"] .stat-grid .s,[data-theme="retro"] .fc-item,[data-theme="retro"] .next-card,
+[data-theme="retro"] .today-card,[data-theme="retro"] .discussion,[data-theme="retro"] .chart-wrap,
+[data-theme="retro"] .impact,[data-theme="retro"] .mod-box,[data-theme="retro"] .arch-item,
+[data-theme="retro"] .sidebar-section,[data-theme="retro"] .article-lead,[data-theme="retro"] .col-article,
+[data-theme="retro"] .archive-cta,[data-theme="retro"] .notes-area,[data-theme="retro"] .search-wrap,
+[data-theme="retro"] .ticket-box,[data-theme="retro"] .arcade-list .a,[data-theme="retro"] .lineup-grid .l,
+[data-theme="retro"] .intro-note,[data-theme="retro"] .future-hero,[data-theme="retro"] .maps-grid .map-card,
+[data-theme="retro"] .versions,[data-theme="retro"] .subsection{
+  background:#ffffff !important;
+  background-image:none !important;
+  color:#000 !important;
+  border-top:2px solid #808080 !important; border-left:2px solid #808080 !important;
+  border-right:2px solid #ffffff !important; border-bottom:2px solid #ffffff !important;
+  outline:1px solid #000 !important;
+  padding:10px !important; margin-bottom:8px;
+}
 
-/* ---------- headers / nav = title bar ---------- */
+/* descendants of those cards go black too (kills light-on-dark text) */
+[data-theme="retro"] .card *,[data-theme="retro"] .panel *,[data-theme="retro"] .widget *,
+[data-theme="retro"] .biz-card *,[data-theme="retro"] .fg-card *,[data-theme="retro"] .upd-card *,
+[data-theme="retro"] .train *,[data-theme="retro"] .line-card *,[data-theme="retro"] .line-block *,
+[data-theme="retro"] .region-card *,[data-theme="retro"] .fc-day *,[data-theme="retro"] .event-card *,
+[data-theme="retro"] .result *,[data-theme="retro"] .linkcard *,[data-theme="retro"] .hero *,
+[data-theme="retro"] .hero-bg *,[data-theme="retro"] .hero-strip *,[data-theme="retro"] .info-box *,
+[data-theme="retro"] .info-card *,[data-theme="retro"] .game-card *,[data-theme="retro"] .game-body *,[data-theme="retro"] .game-banner *,
+[data-theme="retro"] .movie-card *,[data-theme="retro"] .movie-info *,[data-theme="retro"] .movie-poster *,
+[data-theme="retro"] .screen-card *,[data-theme="retro"] .show-item *,
+[data-theme="retro"] .df-screen *,[data-theme="retro"] .df-films *,
+[data-theme="retro"] .next-card *,[data-theme="retro"] .today-card *,
+[data-theme="retro"] .future-hero *,[data-theme="retro"] .ticket-box *,
+[data-theme="retro"] .intro-note *,[data-theme="retro"] .q-tile *,[data-theme="retro"] .cd-box *{
+  color:#000 !important;
+  background-color:transparent !important;
+  background-image:none !important;
+  text-shadow:none !important;
+}
+/* but links inside cards stay link-blue */
+[data-theme="retro"] .card a,[data-theme="retro"] .widget a,[data-theme="retro"] .game-card a,
+[data-theme="retro"] .movie-card a,[data-theme="retro"] .event-card a,[data-theme="retro"] .result a,
+[data-theme="retro"] .linkcard a,[data-theme="retro"] .biz-card a,[data-theme="retro"] .train a{
+  color:#0000EE !important;
+}
+
+/* generic paragraph text inside the main window (NOT global) */
+[data-theme="retro"] .container > p,[data-theme="retro"] .container > div,
+[data-theme="retro"] .container > ul,[data-theme="retro"] .container > ol,
+[data-theme="retro"] .wrap > p,[data-theme="retro"] .wrap > div{
+  color:#000 !important;
+}
+[data-theme="retro"] .muted,[data-theme="retro"] .sub,[data-theme="retro"] .meta,
+[data-theme="retro"] .concept-text,[data-theme="retro"] .desc{
+  color:#333 !important; font-size:14px !important;
+}
+
+/* ---------- header = title bar (KEEPS white text) ---------- */
 [data-theme="retro"] header{
   background:linear-gradient(90deg,#000080,#1084d0) !important;
-  color:#fff !important;
-  border-bottom:2px solid #404040;
-  padding:0 !important;
+  color:#fff !important; border-bottom:2px solid #404040; padding:0 !important;
 }
-[data-theme="retro"] header h1,
-[data-theme="retro"] header .brand,
-[data-theme="retro"] header .logo{
+[data-theme="retro"] header *{ color:#fff !important; }
+[data-theme="retro"] header h1,[data-theme="retro"] header .brand,[data-theme="retro"] header .logo{
   color:#fff !important;
   font-family:"MS Sans Serif",Tahoma,Arial,sans-serif !important;
-  font-size:15px !important;
-  font-weight:bold !important;
-  padding:4px 8px !important;
-  letter-spacing:0 !important;
+  font-size:15px !important; font-weight:bold !important; padding:4px 8px !important;
 }
-[data-theme="retro"] header p,
-[data-theme="retro"] header small,
-[data-theme="retro"] .tagline{ color:#c8d8ff !important; font-size:11px !important; }
+[data-theme="retro"] header p,[data-theme="retro"] header small,[data-theme="retro"] .tagline{
+  color:#c8d8ff !important; font-size:11px !important;
+}
+[data-theme="retro"] header a{ color:#ffff00 !important; }
 
+/* ---------- nav = raised buttons ---------- */
 [data-theme="retro"] nav{
-  background:#c0c0c0 !important;
-  border-top:2px solid #fff;
-  border-bottom:2px solid #404040;
-  padding:3px 6px !important;
+  background:#c0c0c0 !important; border-top:2px solid #fff;
+  border-bottom:2px solid #404040; padding:3px 6px !important;
 }
 [data-theme="retro"] nav a{
   color:#000 !important;
   font-family:"MS Sans Serif",Tahoma,Arial,sans-serif !important;
-  font-size:12px !important;
-  text-decoration:none !important;
-  padding:2px 8px !important;
+  font-size:12px !important; text-decoration:none !important;
+  padding:2px 8px !important; display:inline-block; margin:1px; background:#c0c0c0;
   border-top:1px solid #fff; border-left:1px solid #fff;
   border-right:1px solid #808080; border-bottom:1px solid #808080;
-  display:inline-block; margin:1px;
-  background:#c0c0c0;
 }
 [data-theme="retro"] nav a:hover{ background:#d4d0c8 !important; color:#000080 !important; }
-[data-theme="retro"] nav a:active{ border-top-color:#808080;border-left-color:#808080;border-right-color:#fff;border-bottom-color:#fff; }
+
+/* ---------- card title bars (KEEP white text) ---------- */
+[data-theme="retro"] .widget .wtitle,[data-theme="retro"] .line-head,
+[data-theme="retro"] .lb-head,[data-theme="retro"] .game-head,[data-theme="retro"] .sec-head{
+  background:linear-gradient(90deg,#000080,#1084d0) !important;
+  color:#fff !important;
+  font-family:"MS Sans Serif",Tahoma,Arial,sans-serif !important;
+  font-size:12px !important; font-weight:bold !important;
+  padding:3px 6px !important; margin:-10px -10px 8px -10px !important;
+}
+[data-theme="retro"] .widget .wtitle *,[data-theme="retro"] .line-head *,
+[data-theme="retro"] .lb-head *,[data-theme="retro"] .game-head *,[data-theme="retro"] .sec-head *{
+  color:#fff !important;
+}
 
 /* ---------- links ---------- */
 [data-theme="retro"] a{ color:#0000EE !important; text-decoration:underline !important; }
@@ -101,87 +166,40 @@
 /* ---------- headings ---------- */
 [data-theme="retro"] h1,[data-theme="retro"] h2,[data-theme="retro"] h3,[data-theme="retro"] h4{
   font-family:"Times New Roman",Times,serif !important;
-  color:#000080 !important;
-  font-weight:bold !important;
+  color:#000080 !important; font-weight:bold !important;
 }
-[data-theme="retro"] .container h1,[data-theme="retro"] .wrap h1{
-  font-size:28px !important; border-bottom:3px double #000080; padding-bottom:4px; margin-bottom:10px;
-}
-[data-theme="retro"] .container h2,[data-theme="retro"] .wrap h2{ font-size:22px !important; }
-
-/* ---------- panels / cards = inset gray boxes ---------- */
-[data-theme="retro"] .biz-card,
-[data-theme="retro"] .card,
-[data-theme="retro"] .panel,
-[data-theme="retro"] .fg-card,
-[data-theme="retro"] .train,
-[data-theme="retro"] .line-card,
-[data-theme="retro"] .widget,
-[data-theme="retro"] .event-card,
-[data-theme="retro"] .line-block,
-[data-theme="retro"] .result,
-[data-theme="retro"] .upd-card,
-[data-theme="retro"] .region-card,
-[data-theme="retro"] .fc-day{
-  background:#ffffff !important;
-  border-top:2px solid #808080 !important;
-  border-left:2px solid #808080 !important;
-  border-right:2px solid #ffffff !important;
-  border-bottom:2px solid #ffffff !important;
-  outline:1px solid #000 !important;
-  color:#000 !important;
-  padding:10px !important;
-  margin-bottom:8px;
-}
-[data-theme="retro"] .widget .wtitle,
-[data-theme="retro"] .card h2,
-[data-theme="retro"] .line-head,
-[data-theme="retro"] .lb-head,
-[data-theme="retro"] .game-head{
-  background:linear-gradient(90deg,#000080,#1084d0) !important;
-  color:#fff !important;
-  font-family:"MS Sans Serif",Tahoma,Arial,sans-serif !important;
-  font-size:12px !important;
-  font-weight:bold !important;
-  padding:3px 6px !important;
-  margin:-10px -10px 8px -10px !important;
-  letter-spacing:0 !important;
-}
+[data-theme="retro"] .container h1{ font-size:28px !important; border-bottom:3px double #000080; padding-bottom:4px; }
 
 /* ---------- buttons ---------- */
-[data-theme="retro"] button,
-[data-theme="retro"] .btn,
-[data-theme="retro"] .hbtn,
-[data-theme="retro"] input[type=submit],
-[data-theme="retro"] input[type=button]{
-  background:#c0c0c0 !important;
-  border-top:2px solid #ffffff !important;
-  border-left:2px solid #ffffff !important;
-  border-right:2px solid #404040 !important;
-  border-bottom:2px solid #404040 !important;
-  color:#000 !important;
+[data-theme="retro"] button,[data-theme="retro"] .btn,[data-theme="retro"] .hbtn,
+[data-theme="retro"] input[type=submit],[data-theme="retro"] input[type=button],
+[data-theme="retro"] .time-btn,[data-theme="retro"] .mod-dl{
+  background:#c0c0c0 !important; background-image:none !important; color:#000 !important;
+  border-top:2px solid #fff !important; border-left:2px solid #fff !important;
+  border-right:2px solid #404040 !important; border-bottom:2px solid #404040 !important;
   font-family:"MS Sans Serif",Tahoma,Arial,sans-serif !important;
-  font-size:12px !important;
-  padding:3px 12px !important;
-  cursor:pointer;
+  font-size:12px !important; padding:3px 12px !important; cursor:pointer;
 }
-[data-theme="retro"] button:active,[data-theme="retro"] .hbtn:active{
-  border-top-color:#404040 !important;border-left-color:#404040 !important;
-  border-right-color:#ffffff !important;border-bottom-color:#ffffff !important;
-}
+[data-theme="retro"] button:active{ border-top-color:#404040 !important;border-left-color:#404040 !important;border-right-color:#fff !important;border-bottom-color:#fff !important; }
 
 /* ---------- inputs ---------- */
-[data-theme="retro"] input[type=text],[data-theme="retro"] input:not([type]),[data-theme="retro"] select,[data-theme="retro"] textarea{
-  border-top:2px solid #404040 !important;
-  border-left:2px solid #404040 !important;
-  border-right:2px solid #ffffff !important;
-  border-bottom:2px solid #ffffff !important;
-  outline:1px solid #000;
-  background:#fff !important;
-  color:#000 !important;
-  font-family:"Courier New",monospace !important;
-  font-size:13px !important;
-  padding:3px !important;
+[data-theme="retro"] input[type=text],[data-theme="retro"] input:not([type]),
+[data-theme="retro"] select,[data-theme="retro"] textarea{
+  border-top:2px solid #404040 !important; border-left:2px solid #404040 !important;
+  border-right:2px solid #fff !important; border-bottom:2px solid #fff !important;
+  outline:1px solid #000; background:#fff !important; color:#000 !important;
+  font-family:"Courier New",monospace !important; font-size:13px !important; padding:3px !important;
+}
+
+/* ---------- badges / pills flatten ---------- */
+[data-theme="retro"] .badge,[data-theme="retro"] .gtag,[data-theme="retro"] .cast-pill,
+[data-theme="retro"] .feature-pill,[data-theme="retro"] .stop-pill,[data-theme="retro"] .status-badge,
+[data-theme="retro"] .game-status,[data-theme="retro"] .tb,[data-theme="retro"] .pill,
+[data-theme="retro"] .linepill,[data-theme="retro"] .map-diff,[data-theme="retro"] .sidebar-tag{
+  background:#e0e0e0 !important; background-image:none !important; color:#000 !important;
+  border:1px solid #808080 !important;
+  font-family:"MS Sans Serif",Arial,sans-serif !important; font-size:11px !important;
+  padding:1px 5px !important;
 }
 
 /* ---------- tables ---------- */
@@ -189,42 +207,33 @@
 [data-theme="retro"] th{ background:#c0c0c0 !important; color:#000 !important; border:1px solid #808080; font-family:"MS Sans Serif",Arial,sans-serif !important; font-size:12px !important; }
 [data-theme="retro"] td{ border:1px solid #d0d0d0; color:#000 !important; }
 
-/* ---------- text colors forced readable ---------- */
-[data-theme="retro"] p,[data-theme="retro"] span,[data-theme="retro"] div,
-[data-theme="retro"] li,[data-theme="retro"] .muted,[data-theme="retro"] .desc{
-  color:#000 !important;
-}
-[data-theme="retro"] .muted,[data-theme="retro"] .sub,[data-theme="retro"] .meta{ color:#404040 !important; font-size:13px !important; }
-
-/* ---------- grid gets simpler in retro ---------- */
+/* ---------- layout simplification ---------- */
 [data-theme="retro"] .grid{ display:block !important; }
 [data-theme="retro"] .widget{ margin-bottom:12px !important; }
+[data-theme="retro"] .games-grid,[data-theme="retro"] .movies-grid,[data-theme="retro"] .screens-grid,
+[data-theme="retro"] .biz-grid,[data-theme="retro"] .events-grid,[data-theme="retro"] .game-grid{
+  display:grid !important; grid-template-columns:1fr 1fr !important; gap:10px !important;
+}
 
-/* ---------- the theme toggle button ---------- */
+/* ---------- toggle button ---------- */
 [data-theme="retro"] #gxy-theme-toggle{
-  background:#c0c0c0 !important;
-  border-top:2px solid #fff !important;border-left:2px solid #fff !important;
-  border-right:2px solid #404040 !important;border-bottom:2px solid #404040 !important;
-  color:#000 !important;
-  font-family:"MS Sans Serif",Tahoma,Arial,sans-serif !important;
-  font-size:11px !important;
+  background:#c0c0c0 !important; color:#000 !important;
+  border-top:2px solid #fff !important; border-left:2px solid #fff !important;
+  border-right:2px solid #404040 !important; border-bottom:2px solid #404040 !important;
+  font-family:"MS Sans Serif",Tahoma,Arial,sans-serif !important; font-size:11px !important;
 }
 
 /* ---------- retro-only decorations ---------- */
 .retro-only{ display:none; }
 [data-theme="retro"] .retro-only{ display:block !important; }
 [data-theme="retro"] .modern-only{ display:none !important; }
-
-/* marquee-style banner */
 [data-theme="retro"] .retro-banner{
-  background:#000080; color:#ffff00;
-  font-family:"Courier New",monospace; font-weight:bold;
-  padding:6px; text-align:center;
-  border-top:2px solid #fff; border-bottom:2px solid #404040;
-  overflow:hidden; white-space:nowrap;
+  background:#000080; color:#ffff00; font-family:"Courier New",monospace; font-weight:bold;
+  padding:6px; text-align:center; border-top:2px solid #fff; border-bottom:2px solid #404040;
 }
+[data-theme="retro"] .retro-banner *{ color:#ffff00 !important; }
 
-/* a fake "taskbar" pinned to the bottom in retro */
+/* fake taskbar */
 [data-theme="retro"] body::after{
   content:"\1F5A5  Biking People World  |  Best viewed at 800\00D7600  |  \00A9 2001";
   position:fixed; left:0; right:0; bottom:0; height:28px;

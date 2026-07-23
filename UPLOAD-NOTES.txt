@@ -1,0 +1,89 @@
+BIKING PEOPLE WORLD — SITE PACKAGE
+===================================
+Everything in one upload. 109 pages, all validated, no merge-conflict markers.
+
+--------------------------------------------------------------------
+HOW TO UPLOAD (important)
+--------------------------------------------------------------------
+GitHub sometimes MERGES a same-named file instead of replacing it,
+which produced the duplicated Gxygle page (the stray "=======" line).
+To avoid it: DELETE the folder on GitHub first, then upload fresh.
+Always include .nojekyll and the assets/ folder.
+
+--------------------------------------------------------------------
+WHAT'S IN THIS PACKAGE
+--------------------------------------------------------------------
+
+1. SITEWIDE RETRO (2000s) MODE
+   assets/theme.js         toggle + remembers choice across the site
+   assets/retro.css        base Win98 skin (beveled windows, taskbar)
+   assets/retro-news.css   NYT-on-the-Web 2002 skin for newspaper pages
+   assets/retro-weather.css  Weather Channel late-90s skin
+   -> Toggle button appears bottom-left on 107 of 109 pages
+      (root redirect + login gate excluded by design)
+
+2. WORLD DASHBOARD (homepage)   dashboard/index.html
+   15 widgets: Search, Clock, Weather, Next Event, 3-Day Forecast,
+   Live Trains, Latest News, Breaking News, GxyGo Stations, Server
+   Status, World Stats, MiniGame Leaders, Upcoming Events, Notes,
+   Quick Links.  Drag to reorder, toggle on/off, 7 color themes.
+   Layout + theme saved per browser.
+   Login now lands here (login.html AFTER_LOGIN).
+
+3. EVENTS + COUNTDOWNS          events/index.html  +  events.json
+   Live countdown to the next event, "on now" state, past events.
+   Edit events.json to add/change events.
+
+4. GXYGLE — REAL SEARCH ENGINE  businesses/directory/
+   index.html (2000s)  +  directory-modern.html (modern)
+   Searches search-index.json: 95 items across news, businesses,
+   stores, transit stations, and hub pages. Typed results + filters.
+
+5. GXYGO TRANSIT                businesses/gxygo/
+   Corrected to your REAL stations:
+     City Station West/East, MiniGame Land West/East, Farlands West/East
+   Lines: West Line (blue), East Line (red)
+   Files: index.html (live board), schedules.html, ride.html,
+          trains.json, lines.json, stations.json, setup/GXYGO_SETUP.md
+
+6. CITY SHOPS                   businesses/stores/
+   9 stores wired into search + shops index.
+   Links point at YOUR filenames (see PENDING below).
+
+7. NEWSPAPER                    businesses/gxy-newspaper/
+   79 articles, archive, front page, weather page (schema v3).
+
+--------------------------------------------------------------------
+PENDING — YOUR FILES
+--------------------------------------------------------------------
+The site links to these exact names in businesses/stores/ :
+   bestbuy.html     (my version present - overwrite when ready)
+   target.html      (my version present - overwrite when ready)
+   seveneleven.html (my version present; links now point to 7eleven.htm)
+   walmart.htm      <- yours
+   samsclub.htm     <- yours
+   homedepot.htm    <- yours
+   walgreens.htm    <- yours
+   kfc.htm          <- yours
+   blockbuster.htm  <- yours
+
+*** YOU MUST ALSO UPLOAD THE  *_files/  FOLDERS ***
+Saved-page files need their companion folder for images/frames:
+   homedepot.htm  -> homedepot_files/   (frameset: BLANK without it)
+   walmart.htm    -> walmart_files/     (frameset: BLANK without it)
+   samsclub.htm   -> samsclub_files/    (frameset: BLANK without it)
+   kfc / walgreens / blockbuster / 7eleven -> their _files/ folders
+      (these show text but broken images without them)
+
+Note: frameset pages have no <body>, so the login check, breaking
+banner, and retro toggle cannot attach to them.
+
+--------------------------------------------------------------------
+STILL OPEN / IDEAS
+--------------------------------------------------------------------
+- weather.html mod download button still points to seasonalforecast-0.4.jar
+- Dave n' Busters leaderboards page (mod prompt already written;
+  dashboard widget is waiting for businesses/dave-n-busters/leaderboards.json)
+- Interactive world map
+- Cloud-syncing dashboard layouts via Firestore
+- Screenshot gallery

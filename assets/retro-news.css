@@ -183,3 +183,54 @@
 [data-theme="retro"] .search-wrap input,[data-theme="retro"] #searchBox{
   font-family:Arial,sans-serif !important; font-size:12px !important;
 }
+
+/* ---------- v2 fixes: flatten the search bar + weather strip ---------- */
+[data-theme="retro"] .search-wrap{
+  background:#fff !important; background-image:none !important;
+  border:2px inset #c0c0c0 !important; outline:1px solid #000 !important;
+  padding:4px 6px !important; margin:6px 0 10px !important;
+  display:flex !important; align-items:center; gap:6px;
+}
+[data-theme="retro"] .search-wrap svg{ display:none !important; }
+[data-theme="retro"] .search-box,[data-theme="retro"] #searchInput{
+  border:2px inset #c0c0c0 !important; outline:none !important;
+  background:#fff !important; color:#000 !important;
+  font-family:"Courier New",monospace !important; font-size:13px !important;
+  padding:2px 4px !important; width:100% !important;
+}
+[data-theme="retro"] .search-count,[data-theme="retro"] .search-clear{
+  font-family:Arial,sans-serif !important; font-size:11px !important; color:#000 !important;
+}
+
+/* the front-page live weather strip -> plain bordered bar */
+[data-theme="retro"] #weatherStrip{
+  background:#eeeeee !important; background-image:none !important;
+  border:2px solid #000 !important; outline:none !important;
+  color:#000 !important; padding:6px 10px !important;
+  display:flex !important; align-items:center; gap:10px; margin:8px 0 12px !important;
+  font-family:Arial,Helvetica,sans-serif !important;
+}
+[data-theme="retro"] #weatherStrip *{
+  color:#000 !important; background:transparent !important;
+  font-family:Arial,Helvetica,sans-serif !important;
+}
+[data-theme="retro"] #weatherStrip a,[data-theme="retro"] #weatherStrip span:last-child{
+  color:#0000EE !important; text-decoration:underline !important;
+}
+[data-theme="retro"] #wsIcon{ font-size:20px !important; }
+[data-theme="retro"] #wsText{ font-size:13px !important; font-weight:bold !important; }
+
+/* search results list */
+[data-theme="retro"] .search-results{ background:#fff !important; border:2px solid #000 !important; }
+[data-theme="retro"] .search-results *{ color:#000 !important; }
+[data-theme="retro"] .search-results a{ color:#0000EE !important; }
+
+/* archive page items */
+[data-theme="retro"] .arch-item{
+  background:#fff !important; border:none !important; outline:none !important;
+  border-bottom:1px solid #ccc !important; padding:4px 0 !important;
+}
+[data-theme="retro"] .arch-section{ font-family:Arial,sans-serif !important; font-size:10px !important; color:#900 !important; text-transform:uppercase; }
+[data-theme="retro"] .arch-title{ color:#0000EE !important; text-decoration:underline !important; font-family:Times,serif !important; font-size:15px !important; }
+[data-theme="retro"] .edition-head{ background:#8a8a8a !important; color:#fff !important; padding:3px 6px !important; }
+[data-theme="retro"] .edition-head *{ color:#fff !important; }
