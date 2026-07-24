@@ -1,0 +1,39 @@
+{
+  "updated": "2026-07-23",
+  "channel": "GXY Video",
+  "note": "Add your videos here. 'yt' is the YouTube video ID (the part after v= in the URL). Thumbnails are pulled from YouTube automatically. Set 'featured': true on ONE video to make it the big billboard at the top.",
+  "rows": [
+    {
+      "title": "Featured on GXY Video",
+      "videos": [
+        { "yt": "dQw4w9WgXcQ", "title": "Biking People World — Server Tour", "year": "2026", "rating": 5, "length": "18 min", "genre": "Server Tour", "desc": "A full tour of Biking People World — The City, MiniGame Land, the Nether, and everything built so far.", "featured": true },
+        { "yt": "dQw4w9WgXcQ", "title": "Building The City Skyline", "year": "2026", "rating": 4, "length": "24 min", "genre": "Building", "desc": "Time-lapse of the Skyline Street build, from foundation to finished towers." },
+        { "yt": "dQw4w9WgXcQ", "title": "The Moon Landing", "year": "2026", "rating": 5, "length": "12 min", "genre": "Space Program", "desc": "History is made as a player steps foot on the Moon for the very first time." }
+      ]
+    },
+    {
+      "title": "MiniGame Land",
+      "videos": [
+        { "yt": "dQw4w9WgXcQ", "title": "TNT Run Deluxe — First Look", "year": "2026", "rating": 5, "length": "9 min", "genre": "MiniGame", "desc": "The surprise opening of TNT Run Deluxe 1.0 — floor decay, lava pits, and a race to survive." },
+        { "yt": "dQw4w9WgXcQ", "title": "Hide and Seek: Japanese Village", "year": "2026", "rating": 4, "length": "15 min", "genre": "MiniGame", "desc": "The hardest map yet — can anyone survive the full round?" },
+        { "yt": "dQw4w9WgXcQ", "title": "Mini Golf Open Beta", "year": "2026", "rating": 4, "length": "11 min", "genre": "MiniGame", "desc": "Testing every hole on the new Mini Golf course during the open beta." },
+        { "yt": "dQw4w9WgXcQ", "title": "Spleef Ultimate Tournament", "year": "2026", "rating": 5, "length": "20 min", "genre": "MiniGame", "desc": "Last one standing wins. BONK! Spleef and overtime chaos." }
+      ]
+    },
+    {
+      "title": "Builds & Projects",
+      "videos": [
+        { "yt": "dQw4w9WgXcQ", "title": "Piglin Plaza Construction", "year": "2026", "rating": 4, "length": "22 min", "genre": "Building", "desc": "Breaking ground on the Nether's biggest project — shops, plants, and monorail access." },
+        { "yt": "dQw4w9WgXcQ", "title": "GXY Logistics Factory Tour", "year": "2026", "rating": 4, "length": "14 min", "genre": "Industry", "desc": "Inside the XP / Armory Factory in The City North." },
+        { "yt": "dQw4w9WgXcQ", "title": "Six New Streets", "year": "2026", "rating": 3, "length": "16 min", "genre": "Building", "desc": "The City's biggest expansion — Horizon, Lumen, Moonlight, Rocket, Weather Way, and Plaza Parkway." }
+      ]
+    },
+    {
+      "title": "GxyGo Transit",
+      "videos": [
+        { "yt": "dQw4w9WgXcQ", "title": "Riding the West Line", "year": "2026", "rating": 4, "length": "13 min", "genre": "Transit", "desc": "Full ride from City Station West to Farlands West on the GxyGo network." },
+        { "yt": "dQw4w9WgXcQ", "title": "Building the Rail Network", "year": "2026", "rating": 4, "length": "27 min", "genre": "Transit", "desc": "How the Create-powered train system came together across the world." }
+      ]
+    }
+  ]
+}
