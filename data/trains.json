@@ -77,9 +77,9 @@
       "id": "609791c3-14d4-4c28-833f-6a334dde67ff",
       "name": "GXY Mono 250",
       "owner": "d141e81b-b1b9-41b2-bdae-6841f74e1251",
-      "speedBlocksPerTick": 0.45,
-      "speedMetersPerSecond": 9.0,
-      "speedKmh": 32.4,
+      "speedBlocksPerTick": 0.4,
+      "speedMetersPerSecond": 8.0,
+      "speedKmh": 28.8,
       "moving": true,
       "backwards": false,
       "derailed": false,
@@ -89,7 +89,7 @@
         "minecraft:the_nether"
       ],
       "destination": "Warped Forest Station",
-      "distanceToDestination": 92.5,
+      "distanceToDestination": 2.6,
       "schedule": {
         "stops": [
           "Basalt Station",
@@ -208,7 +208,7 @@
         "minecraft:overworld"
       ],
       "destination": "City Freight North",
-      "distanceToDestination": 1583.0,
+      "distanceToDestination": 1349.9,
       "schedule": {
         "stops": [
           "City Freight North",
@@ -257,6 +257,6 @@
     "Track Station",
     "Warped Forest Station"
   ],
-  "lastUpdated": "2026-07-24T19:32:17.699162720Z",
-  "lastUpdatedEpoch": 1784921537
+  "lastUpdated": "2026-07-24T19:32:27.698422806Z",
+  "lastUpdatedEpoch": 1784921547
 }
