@@ -1,28 +1,54 @@
 {
   "schemaVersion": 3,
-  "updated": "2026-06-29T18:42:07.512Z",
-  "mcDay": 152,
-  "season": "Summer",
-  "trend": "SUMMER",
-  "discussion": "A warm summer day across the Plains with mostly clear skies and light winds. A passing shower is possible toward evening, but conditions stay comfortable for outdoor events and construction. Cooler air arrives in a couple of days.",
+  "updated": "2026-07-24T18:08:28.872643262Z",
+  "mcDay": 14,
+  "season": "Autumn",
+  "trend": "SHOULDER",
   "today": {
     "condition": "Clear",
-    "temp": 79, "feelsLike": 81,
-    "wind": 9, "windDir": "SW",
-    "humidity": 44,
-    "tempUnit": "F", "windUnit": "mph"
+    "temp": 79,
+    "feelsLike": 79,
+    "wind": 4,
+    "windDir": "N",
+    "humidity": 54,
+    "tempUnit": "F",
+    "windUnit": "mph"
   },
   "forecast": [
-    { "day": "+1", "condition": "Clear", "temp": 82, "feelsLike": 84, "wind": 11, "windDir": "S", "humidity": 40 },
-    { "day": "+2", "condition": "Rain",  "temp": 71, "feelsLike": 71, "wind": 18, "windDir": "W", "humidity": 78 },
-    { "day": "+3", "condition": "Clear", "temp": 75, "feelsLike": 76, "wind": 8,  "windDir": "NW", "humidity": 52 }
+    {
+      "condition": "Rain",
+      "temp": 66,
+      "feelsLike": 66,
+      "wind": 21,
+      "windDir": "W",
+      "humidity": 53,
+      "day": "+1"
+    },
+    {
+      "condition": "Clear",
+      "temp": 74,
+      "feelsLike": 74,
+      "wind": 0,
+      "windDir": "N",
+      "humidity": 31,
+      "day": "+2"
+    },
+    {
+      "condition": "Clear",
+      "temp": 57,
+      "feelsLike": 57,
+      "wind": 22,
+      "windDir": "SE",
+      "humidity": 37,
+      "day": "+3"
+    }
   ],
   "alerts": [],
-  "regions": [
-    { "name": "The Dunes", "biome": "minecraft:desert", "condition": "Clear", "temp": 94, "feelsLike": 92, "wind": 10, "windDir": "SW", "humidity": 16 },
-    { "name": "Snowy Plains", "biome": "minecraft:snowy_plains", "condition": "Snow", "temp": 28, "feelsLike": 19, "wind": 20, "windDir": "N", "humidity": 81 },
-    { "name": "The City", "biome": "minecraft:plains", "condition": "Clear", "temp": 79, "feelsLike": 81, "wind": 9, "windDir": "SW", "humidity": 44 }
-  ],
-  "almanac": { "moonPhase": 0, "moonPhaseName": "Full Moon" },
+  "discussion": "Clear skies prevail over Plains this autumn day, with a high near 79°F. Winds stay light. Looking ahead, tomorrow brings rain near 66°F.",
+  "regions": [],
+  "almanac": {
+    "moonPhase": 6,
+    "moonPhaseName": "First Quarter"
+  },
   "biome": "minecraft:plains"
 }
