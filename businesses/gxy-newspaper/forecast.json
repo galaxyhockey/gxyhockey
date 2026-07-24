@@ -1,29 +1,20 @@
 {
   "schemaVersion": 3,
-  "updated": "2026-07-24T18:13:45.150936015Z",
-  "mcDay": 15,
+  "updated": "2026-07-24T18:34:07.298884400Z",
+  "mcDay": 16,
   "season": "Autumn",
   "trend": "SHOULDER",
   "today": {
-    "condition": "Rain",
-    "temp": 66,
-    "feelsLike": 66,
-    "wind": 21,
-    "windDir": "W",
-    "humidity": 53,
+    "condition": "Clear",
+    "temp": 74,
+    "feelsLike": 74,
+    "wind": 0,
+    "windDir": "N",
+    "humidity": 31,
     "tempUnit": "F",
     "windUnit": "mph"
   },
   "forecast": [
-    {
-      "condition": "Clear",
-      "temp": 74,
-      "feelsLike": 74,
-      "wind": 0,
-      "windDir": "N",
-      "humidity": 31,
-      "day": "+1"
-    },
     {
       "condition": "Clear",
       "temp": 57,
@@ -31,7 +22,7 @@
       "wind": 22,
       "windDir": "SE",
       "humidity": 37,
-      "day": "+2"
+      "day": "+1"
     },
     {
       "condition": "Storm",
@@ -40,15 +31,33 @@
       "wind": 40,
       "windDir": "NE",
       "humidity": 42,
+      "day": "+2"
+    },
+    {
+      "condition": "Clear",
+      "temp": 62,
+      "feelsLike": 62,
+      "wind": 19,
+      "windDir": "N",
+      "humidity": 42,
       "day": "+3"
     }
   ],
-  "alerts": [],
-  "discussion": "Rain moves through Plains this autumn day, with a high near 66°F. Winds out of the W around 21 mph. Looking ahead, tomorrow brings clear near 74°F.",
+  "alerts": [
+    {
+      "tier": "Advisory",
+      "event": "Dense Fog Advisory",
+      "headline": "Reduced visibility in dense fog.",
+      "severity": "Minor",
+      "daysOut": 0,
+      "forDay": 16
+    }
+  ],
+  "discussion": "Clear skies prevail over Plains this autumn day, with a high near 74°F. Winds stay light. A Dense Fog Advisory is in effect: Reduced visibility in dense fog. Looking ahead, tomorrow brings clear near 57°F.",
   "regions": [],
   "almanac": {
-    "moonPhase": 7,
-    "moonPhaseName": "Waxing Gibbous"
+    "moonPhase": 0,
+    "moonPhaseName": "Full Moon"
   },
   "biome": "minecraft:plains"
 }
