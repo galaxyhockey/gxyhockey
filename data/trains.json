@@ -95,7 +95,7 @@
           "Nether Wastes Station",
           "Warped Forest Station"
         ],
-        "currentEntryIndex": 4,
+        "currentEntryIndex": 0,
         "cyclic": true,
         "paused": false,
         "completed": false
@@ -207,7 +207,7 @@
         "minecraft:overworld"
       ],
       "destination": "City Freight North",
-      "distanceToDestination": 3613.1,
+      "distanceToDestination": 3379.8,
       "schedule": {
         "stops": [
           "City Freight North",
@@ -256,6 +256,6 @@
     "Track Station",
     "Warped Forest Station"
   ],
-  "lastUpdated": "2026-07-24T00:56:07.923803947Z",
-  "lastUpdatedEpoch": 1784854567
+  "lastUpdated": "2026-07-24T00:56:17.923932320Z",
+  "lastUpdatedEpoch": 1784854577
 }
