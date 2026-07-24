@@ -207,7 +207,7 @@
         "minecraft:overworld"
       ],
       "destination": "MiniGame Land Freight",
-      "distanceToDestination": 3073.9,
+      "distanceToDestination": 2840.8,
       "schedule": {
         "stops": [
           "City Freight North",
@@ -256,6 +256,6 @@
     "Track Station",
     "Warped Forest Station"
   ],
-  "lastUpdated": "2026-07-24T01:49:10.020099213Z",
-  "lastUpdatedEpoch": 1784857750
+  "lastUpdated": "2026-07-24T01:49:20.019840243Z",
+  "lastUpdatedEpoch": 1784857760
 }
