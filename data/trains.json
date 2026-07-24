@@ -195,9 +195,9 @@
       "id": "aee38421-a582-4127-8605-740abfdd65da",
       "name": "GXY Post 280",
       "owner": "d141e81b-b1b9-41b2-bdae-6841f74e1251",
-      "speedBlocksPerTick": 1.142,
-      "speedMetersPerSecond": 22.83,
-      "speedKmh": 82.2,
+      "speedBlocksPerTick": 1.167,
+      "speedMetersPerSecond": 23.33,
+      "speedKmh": 84.0,
       "moving": true,
       "backwards": false,
       "derailed": false,
@@ -206,8 +206,8 @@
       "dimensions": [
         "minecraft:overworld"
       ],
-      "destination": "TCN Hub Out",
-      "distanceToDestination": 25.1,
+      "destination": "MiniGame Land Freight",
+      "distanceToDestination": 3960.6,
       "schedule": {
         "stops": [
           "City Freight North",
@@ -215,7 +215,7 @@
           "MiniGame Land Freight",
           "MGL Hub Out"
         ],
-        "currentEntryIndex": 2,
+        "currentEntryIndex": 4,
         "cyclic": true,
         "paused": false,
         "completed": false
@@ -256,6 +256,6 @@
     "Track Station",
     "Warped Forest Station"
   ],
-  "lastUpdated": "2026-07-24T03:12:39.983535086Z",
-  "lastUpdatedEpoch": 1784862759
+  "lastUpdated": "2026-07-24T03:12:49.984489691Z",
+  "lastUpdatedEpoch": 1784862769
 }
