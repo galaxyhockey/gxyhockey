@@ -206,7 +206,7 @@
       "dimensions": [
         "minecraft:overworld"
       ],
-      "currentStation": "City Freight North",
+      "currentStation": "TCN Hub Out",
       "schedule": {
         "stops": [
           "City Freight North",
@@ -214,7 +214,7 @@
           "MiniGame Land Freight",
           "MGL Hub Out"
         ],
-        "currentEntryIndex": 0,
+        "currentEntryIndex": 4,
         "cyclic": true,
         "paused": false,
         "completed": false
@@ -255,6 +255,6 @@
     "Track Station",
     "Warped Forest Station"
   ],
-  "lastUpdated": "2026-07-24T01:20:10.024611072Z",
-  "lastUpdatedEpoch": 1784856010
+  "lastUpdated": "2026-07-24T01:20:20.023984535Z",
+  "lastUpdatedEpoch": 1784856020
 }
