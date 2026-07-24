@@ -1,29 +1,20 @@
 {
   "schemaVersion": 3,
-  "updated": "2026-07-24T00:51:13.723075650Z",
-  "mcDay": 3,
+  "updated": "2026-07-24T01:12:00.573429673Z",
+  "mcDay": 4,
   "season": "Summer",
   "trend": "SUMMER",
   "today": {
-    "condition": "Rain",
-    "temp": 97,
-    "feelsLike": 122,
-    "wind": 42,
+    "condition": "Clear",
+    "temp": 80,
+    "feelsLike": 78,
+    "wind": 25,
     "windDir": "N",
-    "humidity": 63,
+    "humidity": 10,
     "tempUnit": "F",
     "windUnit": "mph"
   },
   "forecast": [
-    {
-      "condition": "Clear",
-      "temp": 80,
-      "feelsLike": 78,
-      "wind": 25,
-      "windDir": "N",
-      "humidity": 10,
-      "day": "+1"
-    },
     {
       "condition": "Clear",
       "temp": 96,
@@ -31,7 +22,7 @@
       "wind": 20,
       "windDir": "E",
       "humidity": 46,
-      "day": "+2"
+      "day": "+1"
     },
     {
       "condition": "Clear",
@@ -40,40 +31,33 @@
       "wind": 11,
       "windDir": "NE",
       "humidity": 12,
+      "day": "+2"
+    },
+    {
+      "condition": "Clear",
+      "temp": 88,
+      "feelsLike": 84,
+      "wind": 18,
+      "windDir": "E",
+      "humidity": 12,
       "day": "+3"
     }
   ],
   "alerts": [
     {
-      "tier": "Warning",
-      "event": "Excessive Heat Warning",
-      "headline": "Dangerous heat; feels like 122°F.",
-      "severity": "Severe",
-      "daysOut": 0,
-      "forDay": 3
-    },
-    {
       "tier": "Watch",
       "event": "Excessive Heat Watch",
       "headline": "Dangerous heat possible; feels near 105°F.",
       "severity": "Moderate",
-      "daysOut": 2,
+      "daysOut": 1,
       "forDay": 5
-    },
-    {
-      "tier": "Advisory",
-      "event": "Wind Advisory",
-      "headline": "Gusty winds around 42 mph.",
-      "severity": "Minor",
-      "daysOut": 0,
-      "forDay": 3
     }
   ],
-  "discussion": "Rain moves through Plains this summer day, with a high near 97°F (feeling more like 122°F). Winds out of the N around 42 mph. A Excessive Heat Warning is in effect: Dangerous heat; feels like 122°F. Looking ahead, tomorrow brings clear near 80°F.",
+  "discussion": "Clear skies prevail over Plains this summer day, with a high near 80°F (feeling more like 78°F). Winds out of the N around 25 mph. A Excessive Heat Watch is in effect: Dangerous heat possible; feels near 105°F. Looking ahead, tomorrow brings clear near 96°F.",
   "regions": [],
   "almanac": {
-    "moonPhase": 3,
-    "moonPhaseName": "Waning Crescent"
+    "moonPhase": 4,
+    "moonPhaseName": "New Moon"
   },
   "biome": "minecraft:plains"
 }
