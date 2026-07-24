@@ -89,7 +89,7 @@
         "minecraft:the_nether"
       ],
       "destination": "Basalt Station",
-      "distanceToDestination": 903.6,
+      "distanceToDestination": 815.3,
       "schedule": {
         "stops": [
           "Basalt Station",
@@ -196,9 +196,9 @@
       "id": "aee38421-a582-4127-8605-740abfdd65da",
       "name": "GXY Post 280",
       "owner": "d141e81b-b1b9-41b2-bdae-6841f74e1251",
-      "speedBlocksPerTick": 1.142,
-      "speedMetersPerSecond": 22.83,
-      "speedKmh": 82.2,
+      "speedBlocksPerTick": 1.167,
+      "speedMetersPerSecond": 23.33,
+      "speedKmh": 84.0,
       "moving": true,
       "backwards": false,
       "derailed": false,
@@ -207,8 +207,8 @@
       "dimensions": [
         "minecraft:overworld"
       ],
-      "destination": "TCN Hub Out",
-      "distanceToDestination": 25.1,
+      "destination": "MiniGame Land Freight",
+      "distanceToDestination": 3960.6,
       "schedule": {
         "stops": [
           "City Freight North",
@@ -216,7 +216,7 @@
           "MiniGame Land Freight",
           "MGL Hub Out"
         ],
-        "currentEntryIndex": 2,
+        "currentEntryIndex": 4,
         "cyclic": true,
         "paused": false,
         "completed": false
@@ -257,6 +257,6 @@
     "Track Station",
     "Warped Forest Station"
   ],
-  "lastUpdated": "2026-07-24T19:12:47.700007694Z",
-  "lastUpdatedEpoch": 1784920367
+  "lastUpdated": "2026-07-24T19:12:57.698635330Z",
+  "lastUpdatedEpoch": 1784920377
 }
