@@ -3,169 +3,190 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GXY Video · Biking People World</title>
+<title>GXY Video · Watch Instantly</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-body{background:#000;color:#e5e5e5;font-family:Arial,Helvetica,sans-serif;overflow-x:hidden;}
-a{text-decoration:none;color:inherit;}
+body{background:#e8e8e8;color:#222;font-family:Arial,Helvetica,sans-serif;font-size:13px;}
+a{text-decoration:none;color:#0b5ca8;}
+a:hover{text-decoration:underline;}
 
-/* ---------- top bar ---------- */
-.topbar{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;gap:1.5rem;
-  padding:.7rem 2rem;background:linear-gradient(#000 10%,rgba(0,0,0,.75) 60%,transparent);}
-.logo{font-size:1.9rem;font-weight:900;letter-spacing:-1px;color:#e50914;text-shadow:0 2px 4px rgba(0,0,0,.8);
-  font-family:Arial Black,Arial,sans-serif;text-transform:uppercase;}
-.logo span{color:#fff;font-size:.85rem;font-weight:400;letter-spacing:.18em;display:block;margin-top:-4px;}
-.tnav{display:flex;gap:1.1rem;font-size:.85rem;color:#ccc;flex-wrap:wrap;}
-.tnav a:hover{color:#fff;}
-.tnav .on{color:#fff;font-weight:700;}
-.tsearch{margin-left:auto;display:flex;align-items:center;gap:.5rem;}
-.tsearch input{background:rgba(0,0,0,.7);border:1px solid #555;color:#fff;padding:.4rem .7rem;font-size:.82rem;width:180px;}
-.tsearch input:focus{outline:none;border-color:#e50914;}
+/* ---------- red masthead ---------- */
+.mast{background:#b9090b;background:linear-gradient(#c11119,#9b0508);border-bottom:1px solid #6b0405;}
+.mast-in{max-width:1100px;margin:0 auto;padding:8px 14px;display:flex;align-items:center;gap:14px;}
+.wordmark{font-family:"Arial Black",Arial,sans-serif;font-weight:900;font-size:26px;letter-spacing:-1px;
+  color:#fff;text-transform:uppercase;line-height:1;
+  text-shadow:2px 2px 0 #2b0203, 3px 3px 0 rgba(0,0,0,.35);
+  transform:scaleY(1.18);display:inline-block;}
+.wordmark .sm{font-size:11px;letter-spacing:.22em;font-weight:400;display:block;transform:scaleY(.85);
+  text-shadow:none;margin-top:3px;color:#ffd9da;}
+.mast-right{margin-left:auto;color:#fff;font-size:11px;}
+.mast-right a{color:#fff;}
 
-/* ---------- billboard ---------- */
-.billboard{position:relative;height:78vh;min-height:440px;display:flex;align-items:center;
-  background-size:cover;background-position:center;}
-.billboard::after{content:"";position:absolute;inset:0;
-  background:linear-gradient(90deg,rgba(0,0,0,.92) 0%,rgba(0,0,0,.65) 45%,rgba(0,0,0,.15) 75%),
-             linear-gradient(0deg,#000 2%,transparent 40%);}
-.bb-inner{position:relative;z-index:2;padding:0 2rem;max-width:620px;}
-.bb-badge{display:inline-block;background:#e50914;color:#fff;font-size:.66rem;font-weight:700;
-  letter-spacing:.12em;padding:.25rem .6rem;margin-bottom:.9rem;text-transform:uppercase;}
-.bb-title{font-size:3rem;font-weight:900;line-height:1.05;margin-bottom:.7rem;
-  text-shadow:0 3px 12px rgba(0,0,0,.9);font-family:Arial Black,Arial,sans-serif;}
-.bb-meta{display:flex;align-items:center;gap:.9rem;font-size:.85rem;color:#bbb;margin-bottom:.8rem;flex-wrap:wrap;}
-.stars{color:#e50914;letter-spacing:2px;}
-.bb-desc{font-size:1rem;line-height:1.5;color:#ddd;margin-bottom:1.3rem;text-shadow:0 2px 6px rgba(0,0,0,.9);}
-.bb-btns{display:flex;gap:.7rem;flex-wrap:wrap;}
-.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.6rem;font-size:.95rem;
-  font-weight:700;cursor:pointer;border:none;}
-.btn-play{background:#fff;color:#000;}
-.btn-play:hover{background:#e6e6e6;}
-.btn-info{background:rgba(109,109,110,.7);color:#fff;}
-.btn-info:hover{background:rgba(109,109,110,.5);}
+/* ---------- tab bar ---------- */
+.tabs{background:#6e6e6e;background:linear-gradient(#8a8a8a,#5f5f5f);border-bottom:1px solid #3f3f3f;}
+.tabs-in{max-width:1100px;margin:0 auto;padding:0 14px;display:flex;align-items:stretch;gap:2px;}
+.tab{padding:8px 16px;color:#fff;font-size:12px;font-weight:bold;display:flex;align-items:center;}
+.tab:hover{background:rgba(255,255,255,.12);text-decoration:none;color:#fff;}
+.tab.on{background:#e8e8e8;color:#222;border-radius:4px 4px 0 0;}
+.tab.on:hover{background:#e8e8e8;color:#222;}
+.tabsearch{margin-left:auto;display:flex;align-items:center;padding:5px 0;}
+.tabsearch input{border:1px solid #444;padding:4px 6px;font-size:11px;width:230px;}
+.tabsearch button{border:1px solid #444;border-left:none;background:#ddd;padding:4px 8px;cursor:pointer;font-size:11px;}
 
-/* ---------- rows ---------- */
-.rows{position:relative;z-index:5;margin-top:-70px;padding-bottom:3rem;}
-.row{margin-bottom:2.2rem;}
-.row h2{font-size:1.15rem;font-weight:700;color:#e5e5e5;padding:0 2rem;margin-bottom:.6rem;}
-.row-wrap{position:relative;}
-.slider{display:flex;gap:.4rem;overflow-x:auto;padding:2.2rem 2rem;scroll-behavior:smooth;
-  scrollbar-width:none;-ms-overflow-style:none;margin:-2.2rem 0;}
-.slider::-webkit-scrollbar{display:none;}
-.card{position:relative;flex:none;width:250px;cursor:pointer;transition:transform .3s ease,box-shadow .3s;}
-.card img{width:100%;height:141px;object-fit:cover;display:block;background:#222;}
-.card:hover{transform:scale(1.28);z-index:50;box-shadow:0 12px 30px rgba(0,0,0,.9);}
-.card .cinfo{position:absolute;left:0;right:0;top:100%;background:#181818;padding:.6rem .7rem;
-  opacity:0;pointer-events:none;transition:opacity .2s;}
-.card:hover .cinfo{opacity:1;}
-.card .ct{font-size:.8rem;font-weight:700;color:#fff;margin-bottom:.25rem;line-height:1.2;}
-.card .cm{font-size:.66rem;color:#8c8c8c;display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;}
-.card .cm .g{border:1px solid #444;padding:0 .3rem;}
-.card .play-dot{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
-  background:rgba(0,0,0,.35);opacity:0;transition:opacity .2s;font-size:2.2rem;color:#fff;}
-.card:hover .play-dot{opacity:1;}
-.arrow{position:absolute;top:0;bottom:0;width:44px;background:rgba(0,0,0,.55);border:none;color:#fff;
-  font-size:1.6rem;cursor:pointer;z-index:60;opacity:0;transition:opacity .2s;}
-.row-wrap:hover .arrow{opacity:1;}
-.arrow:hover{background:rgba(0,0,0,.8);}
-.arrow.l{left:0;}.arrow.r{right:0;}
+/* ---------- genre strip ---------- */
+.genres{background:#d4d4d4;border-bottom:1px solid #b5b5b5;}
+.genres-in{max-width:1100px;margin:0 auto;padding:5px 14px;display:flex;gap:16px;font-size:11px;flex-wrap:wrap;}
+.genres-in a{color:#333;font-weight:bold;}
+.genres-in a.on{color:#b9090b;}
 
-/* ---------- player modal ---------- */
-.modal{position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:300;display:none;
-  align-items:center;justify-content:center;padding:2rem;}
+.page{max-width:1100px;margin:0 auto;padding:12px 14px 40px;}
+
+/* ---------- recently watched panel ---------- */
+.recent{background:#fff;border:1px solid #b5b5b5;margin-bottom:12px;}
+.recent-h{padding:6px 10px;border-bottom:1px solid #ddd;font-weight:bold;font-size:12px;}
+.recent-b{padding:8px 10px;display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap;}
+.recent-list{flex:1;min-width:260px;}
+.recent-row{display:flex;align-items:center;gap:10px;padding:4px 0;border-bottom:1px solid #f0f0f0;}
+.recent-row:last-child{border-bottom:none;}
+.recent-row .t{flex:1;min-width:120px;}
+.btn-resume{background:#1a4f8a;background:linear-gradient(#2b6fb8,#154a80);color:#fff;border:1px solid #0e3a66;padding:3px 14px;font-size:11px;font-weight:bold;cursor:pointer;}
+.btn-resume:hover{background:linear-gradient(#3a80cc,#1a5691);}
+
+/* ---------- row boxes ---------- */
+.rowbox{background:#fff;border:1px solid #b5b5b5;margin-bottom:12px;}
+.rowbox-h{display:flex;align-items:center;padding:6px 10px;border-bottom:1px solid #ddd;background:#fafafa;}
+.rowbox-h h2{font-size:13px;font-weight:bold;color:#222;}
+.seeall{margin-left:auto;font-size:11px;font-weight:bold;}
+.rowbox-b{display:flex;align-items:stretch;}
+.taste{width:150px;flex:none;padding:10px;border-right:1px solid #eee;font-size:11px;color:#666;}
+.taste b{display:block;color:#333;margin-bottom:5px;font-size:11px;}
+.taste a{display:block;padding:1px 0;font-size:11px;}
+.chev{flex:none;width:34px;background:none;border:none;font-size:30px;color:#c9c9c9;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;font-family:Arial,sans-serif;}
+.chev:hover{color:#e8a33d;}
+.strip{flex:1;display:flex;gap:12px;overflow-x:auto;padding:10px;scroll-behavior:smooth;
+  scrollbar-width:none;-ms-overflow-style:none;}
+.strip::-webkit-scrollbar{display:none;}
+
+/* ---------- poster cards ---------- */
+.item{width:118px;flex:none;text-align:center;}
+.item .name{font-size:11px;color:#333;margin-bottom:4px;height:26px;overflow:hidden;line-height:1.2;}
+.poster{width:118px;height:88px;object-fit:cover;border:1px solid #999;display:block;background:#333;cursor:pointer;}
+.poster:hover{border-color:#b9090b;}
+.btn-play{display:block;width:100%;margin-top:4px;background:linear-gradient(#2b6fb8,#154a80);
+  color:#fff;border:1px solid #0e3a66;padding:3px 0;font-size:11px;font-weight:bold;cursor:pointer;}
+.btn-play:hover{background:linear-gradient(#3a80cc,#1a5691);}
+.rate{margin-top:3px;font-size:11px;color:#b9090b;letter-spacing:1px;}
+.rate .off{color:#ccc;}
+.notint{display:block;margin-top:2px;font-size:10px;color:#666;border:1px solid #ddd;background:#f4f4f4;padding:1px 0;}
+
+/* ---------- modal ---------- */
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:300;display:none;align-items:center;justify-content:center;padding:20px;}
 .modal.open{display:flex;}
-.mbox{width:100%;max-width:900px;background:#181818;}
+.mbox{background:#fff;border:1px solid #666;width:100%;max-width:820px;}
+.mbox-h{background:linear-gradient(#c11119,#9b0508);color:#fff;padding:6px 10px;font-weight:bold;font-size:12px;display:flex;}
+.mbox-h button{margin-left:auto;background:none;border:none;color:#fff;font-size:16px;cursor:pointer;line-height:1;}
 .mvid{position:relative;padding-top:56.25%;background:#000;}
 .mvid iframe{position:absolute;inset:0;width:100%;height:100%;border:none;}
-.mmeta{padding:1.2rem 1.4rem;}
-.mmeta h3{font-size:1.4rem;margin-bottom:.4rem;color:#fff;}
-.mmeta .mm{font-size:.8rem;color:#999;margin-bottom:.6rem;display:flex;gap:.8rem;flex-wrap:wrap;align-items:center;}
-.mmeta p{font-size:.9rem;color:#ccc;line-height:1.5;}
-.mclose{position:absolute;top:1rem;right:1.5rem;background:#181818;border:none;color:#fff;
-  font-size:1.6rem;width:38px;height:38px;border-radius:50%;cursor:pointer;z-index:310;}
+.mmeta{padding:10px 12px;}
+.mmeta h3{font-size:15px;margin-bottom:4px;}
+.mmeta .mm{font-size:11px;color:#666;margin-bottom:6px;}
+.mmeta p{font-size:12px;color:#333;line-height:1.5;}
 
-.empty{padding:6rem 2rem;text-align:center;color:#888;}
-footer{background:#111;color:#777;padding:2rem;font-size:.8rem;text-align:center;border-top:1px solid #222;}
-footer a{color:#999;}
-@media(max-width:700px){.bb-title{font-size:2rem;}.card{width:180px;}.card img{height:101px;}.topbar{padding:.6rem 1rem;}}
+.empty{background:#fff;border:1px solid #b5b5b5;padding:40px;text-align:center;color:#777;}
+.foot{max-width:1100px;margin:0 auto;padding:14px;font-size:11px;color:#666;border-top:1px solid #c5c5c5;text-align:center;}
+@media(max-width:700px){.taste{display:none;}.tabsearch input{width:120px;}}
 </style>
 </head>
 <body>
 <script>if(!sessionStorage.getItem('bpw_auth')){window.location.href='../../login.html';}</script>
 
-<div class="topbar">
-  <a href="index.html" class="logo">GXY Video<span>Biking People World</span></a>
-  <div class="tnav">
-    <a href="index.html" class="on">Home</a>
-    <a href="#" onclick="filterGenre('all');return false;">Browse</a>
-    <a href="#" onclick="filterGenre('MiniGame');return false;">MiniGames</a>
-    <a href="#" onclick="filterGenre('Building');return false;">Builds</a>
-    <a href="#" onclick="filterGenre('Transit');return false;">Transit</a>
-    <a href="../../main/index.html">World Home</a>
+<div class="mast"><div class="mast-in">
+  <a href="index.html" class="wordmark">GXY Video<span class="sm">Biking People World</span></a>
+  <div class="mast-right"><a href="../../members/index.html">Your Account</a> &amp; <a href="../../main/index.html">Help</a></div>
+</div></div>
+
+<div class="tabs"><div class="tabs-in">
+  <a href="index.html" class="tab on">Watch Instantly</a>
+  <a href="#" class="tab" onclick="setGenre('all');return false;">Browse All</a>
+  <a href="#" class="tab" onclick="setGenre('MiniGame');return false;">Your Queue</a>
+  <a href="../dave-n-busters/index.html" class="tab">&#9733; MiniGame Land</a>
+  <div class="tabsearch">
+    <input type="text" id="q" placeholder="Videos, builds, minigames, genres" oninput="doFilter()">
+    <button onclick="doFilter()">&#128269;</button>
   </div>
-  <div class="tsearch">
-    <input type="text" id="q" placeholder="Search videos..." oninput="doFilter()">
-  </div>
+</div></div>
+
+<div class="genres"><div class="genres-in" id="genreStrip"></div></div>
+
+<div class="page">
+  <div class="recent" id="recent"></div>
+  <div id="rows"></div>
 </div>
 
-<div id="billboard"></div>
-<div class="rows" id="rows"></div>
+<div class="foot">
+  &copy; GXY Video &middot; A <a href="../../main/index.html">Biking People World</a> Channel &middot;
+  <a href="../gxy-newspaper/index.html">News</a> &middot;
+  <a href="../gxygo/index.html">GxyGo Transit</a>
+</div>
 
 <div class="modal" id="modal">
-  <button class="mclose" onclick="closeModal()">&times;</button>
   <div class="mbox">
+    <div class="mbox-h"><span id="mtitle">Now Playing</span><button onclick="closeModal()">&times;</button></div>
     <div class="mvid" id="mvid"></div>
     <div class="mmeta" id="mmeta"></div>
   </div>
 </div>
 
-<footer>
-  &copy; GXY Video &middot; A <a href="../../main/index.html">Biking People World</a> Channel &middot;
-  <a href="../gxy-newspaper/index.html">News</a> &middot;
-  <a href="../dave-n-busters/index.html">MiniGame Land</a>
-</footer>
-
 <script>
 var DATA={rows:[]}, GENRE='all', QUERY='';
 function thumb(id){ return 'https://img.youtube.com/vi/'+id+'/hqdefault.jpg'; }
 function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
-function stars(n){ n=Math.max(0,Math.min(5,n||0)); return '\u2605'.repeat(n)+'<span style="color:#555;">'+'\u2605'.repeat(5-n)+'</span>'; }
-
+function stars(n){ n=Math.max(0,Math.min(5,n||0));
+  return '\u2605'.repeat(n)+'<span class="off">'+'\u2605'.repeat(5-n)+'</span>'; }
 function allVideos(){ var a=[]; DATA.rows.forEach(function(r){ r.videos.forEach(function(v){ a.push(v); }); }); return a; }
 
-function renderBillboard(){
-  var f=allVideos().filter(function(v){return v.featured;})[0] || allVideos()[0];
-  var el=document.getElementById('billboard');
-  if(!f){ el.innerHTML=''; return; }
-  el.className='billboard';
-  el.style.backgroundImage="url('"+thumb(f.yt)+"')";
-  el.innerHTML='<div class="bb-inner">'
-    +'<span class="bb-badge">Watch Instantly</span>'
-    +'<h1 class="bb-title">'+esc(f.title)+'</h1>'
-    +'<div class="bb-meta"><span class="stars">'+stars(f.rating)+'</span><span>'+esc(f.year||'')+'</span><span>'+esc(f.length||'')+'</span><span>'+esc(f.genre||'')+'</span></div>'
-    +'<p class="bb-desc">'+esc(f.desc)+'</p>'
-    +'<div class="bb-btns">'
-    +'<button class="btn btn-play" onclick="play(\''+f.yt+'\')">&#9654; Play</button>'
-    +'<button class="btn btn-info" onclick="openModal(\''+f.yt+'\',true)">More Info</button>'
-    +'</div></div>';
+function genreList(){
+  var g={}; allVideos().forEach(function(v){ if(v.genre) g[v.genre]=1; });
+  return Object.keys(g).sort();
 }
-
-function card(v){
-  return '<div class="card" onclick="openModal(\''+v.yt+'\')">'
-    +'<img src="'+thumb(v.yt)+'" alt="'+esc(v.title)+'" loading="lazy">'
-    +'<div class="play-dot">&#9654;</div>'
-    +'<div class="cinfo"><div class="ct">'+esc(v.title)+'</div>'
-    +'<div class="cm"><span class="stars" style="font-size:.7rem;">'+stars(v.rating)+'</span>'
-    +'<span>'+esc(v.length||'')+'</span><span class="g">'+esc(v.genre||'')+'</span></div></div></div>';
+function drawGenres(){
+  var html='<a href="#" class="'+(GENRE==='all'?'on':'')+'" onclick="setGenre(\'all\');return false;">Genres:</a>';
+  genreList().forEach(function(g){
+    html+='<a href="#" class="'+(GENRE===g?'on':'')+'" onclick="setGenre(\''+g+'\');return false;">'+esc(g)+'</a>';
+  });
+  document.getElementById('genreStrip').innerHTML=html;
 }
+function setGenre(g){ GENRE=g; drawGenres(); renderRows(); window.scrollTo({top:0,behavior:'smooth'}); }
+function doFilter(){ QUERY=document.getElementById('q').value.trim().toLowerCase(); renderRows(); }
 
 function matches(v){
   if(GENRE!=='all' && String(v.genre||'').toLowerCase().indexOf(GENRE.toLowerCase())<0) return false;
-  if(QUERY){
-    var hay=(v.title+' '+(v.desc||'')+' '+(v.genre||'')).toLowerCase();
-    if(hay.indexOf(QUERY)<0) return false;
-  }
+  if(QUERY && (v.title+' '+(v.desc||'')+' '+(v.genre||'')).toLowerCase().indexOf(QUERY)<0) return false;
   return true;
+}
+
+function renderRecent(){
+  var vids=allVideos().slice(0,3);
+  if(!vids.length){ document.getElementById('recent').style.display='none'; return; }
+  var html='<div class="recent-h">You recently watched:</div><div class="recent-b"><div class="recent-list">';
+  vids.forEach(function(v){
+    html+='<div class="recent-row"><span class="t"><a href="#" onclick="openModal(\''+v.yt+'\');return false;">'+esc(v.title)+'</a></span>'
+      +'<span class="rate">'+stars(v.rating)+'</span>'
+      +'<button class="btn-resume" onclick="openModal(\''+v.yt+'\')">Resume</button></div>';
+  });
+  html+='</div></div>';
+  document.getElementById('recent').innerHTML=html;
+}
+
+function item(v){
+  return '<div class="item">'
+    +'<div class="name">'+esc(v.title)+'</div>'
+    +'<img class="poster" src="'+thumb(v.yt)+'" alt="'+esc(v.title)+'" loading="lazy" onclick="openModal(\''+v.yt+'\')">'
+    +'<button class="btn-play" onclick="openModal(\''+v.yt+'\')">Play</button>'
+    +'<div class="rate">'+stars(v.rating)+'</div>'
+    +'<span class="notint">Not Interested</span>'
+    +'</div>';
 }
 
 function renderRows(){
@@ -174,38 +195,39 @@ function renderRows(){
     var vids=r.videos.filter(matches);
     if(!vids.length) return;
     shown+=vids.length;
-    out+='<div class="row"><h2>'+esc(r.title)+'</h2><div class="row-wrap">'
-      +'<button class="arrow l" onclick="scrollRow('+i+',-1)">&#8249;</button>'
-      +'<div class="slider" id="sl'+i+'">'+vids.map(card).join('')+'</div>'
-      +'<button class="arrow r" onclick="scrollRow('+i+',1)">&#8250;</button>'
+    var tags=[]; vids.forEach(function(v){ if(v.genre && tags.indexOf(v.genre)<0) tags.push(v.genre); });
+    out+='<div class="rowbox"><div class="rowbox-h"><h2>'+esc(r.title)+'</h2>'
+      +'<a class="seeall" href="#" onclick="return false;">See all &rsaquo;</a></div>'
+      +'<div class="rowbox-b">'
+      +'<div class="taste"><b>Your taste preferences created this row:</b>'
+      + tags.slice(0,4).map(function(t){return '<a href="#" onclick="setGenre(\''+t+'\');return false;">'+esc(t)+'</a>';}).join('')
+      +'</div>'
+      +'<button class="chev" onclick="scrollRow('+i+',-1)">&#10094;</button>'
+      +'<div class="strip" id="sl'+i+'">'+vids.map(item).join('')+'</div>'
+      +'<button class="chev" onclick="scrollRow('+i+',1)">&#10095;</button>'
       +'</div></div>';
   });
-  document.getElementById('rows').innerHTML = shown ? out
-    : '<div class="empty">No videos match that search.</div>';
+  document.getElementById('rows').innerHTML = shown ? out : '<div class="empty">No videos match that search.</div>';
 }
-function scrollRow(i,dir){ var s=document.getElementById('sl'+i); if(s) s.scrollBy({left:dir*600,behavior:'smooth'}); }
-function filterGenre(g){ GENRE=g; renderRows(); window.scrollTo({top:0,behavior:'smooth'}); }
-function doFilter(){ QUERY=document.getElementById('q').value.trim().toLowerCase(); renderRows(); }
+function scrollRow(i,d){ var s=document.getElementById('sl'+i); if(s) s.scrollBy({left:d*500,behavior:'smooth'}); }
 
 function findVid(id){ return allVideos().filter(function(v){return v.yt===id;})[0]; }
-function openModal(id,noAuto){
+function openModal(id){
   var v=findVid(id); if(!v) return;
-  document.getElementById('mvid').innerHTML='<iframe src="https://www.youtube.com/embed/'+id+(noAuto?'':'?autoplay=1')+'" allow="accelerometer; autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
+  document.getElementById('mtitle').textContent='Watch Instantly \u2014 '+v.title;
+  document.getElementById('mvid').innerHTML='<iframe src="https://www.youtube.com/embed/'+id+'?autoplay=1" allow="accelerometer; autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
   document.getElementById('mmeta').innerHTML='<h3>'+esc(v.title)+'</h3>'
-    +'<div class="mm"><span class="stars">'+stars(v.rating)+'</span><span>'+esc(v.year||'')+'</span><span>'+esc(v.length||'')+'</span><span>'+esc(v.genre||'')+'</span></div>'
+    +'<div class="mm"><span class="rate">'+stars(v.rating)+'</span> &nbsp; '+esc(v.year||'')+' &nbsp;&middot;&nbsp; '+esc(v.length||'')+' &nbsp;&middot;&nbsp; '+esc(v.genre||'')+'</div>'
     +'<p>'+esc(v.desc)+'</p>';
   document.getElementById('modal').classList.add('open');
 }
-function play(id){ openModal(id); }
 function closeModal(){ document.getElementById('modal').classList.remove('open'); document.getElementById('mvid').innerHTML=''; }
 document.getElementById('modal').addEventListener('click',function(e){ if(e.target===this) closeModal(); });
 document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeModal(); });
 
 fetch('videos.json?_='+Date.now()).then(function(r){return r.json();}).then(function(d){
-  DATA=d; renderBillboard(); renderRows();
-}).catch(function(){
-  document.getElementById('rows').innerHTML='<div class="empty">Could not load videos.json</div>';
-});
+  DATA=d; drawGenres(); renderRecent(); renderRows();
+}).catch(function(){ document.getElementById('rows').innerHTML='<div class="empty">Could not load videos.json</div>'; });
 </script>
 <script src="../../assets/breaking.js" data-root="../../"></script>
 <script src="../../assets/theme.js" data-root="../../"></script>
